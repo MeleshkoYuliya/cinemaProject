@@ -1,0 +1,83 @@
+@media  screen and (max-width: 767px) {
+	.mainButton {
+	 position: absolute;
+		right: 2px;
+		top: 2px; 
+		background-color: rgb(235, 127, 77);
+		padding: 0.5em;
+padding-top: 2em;
+border-radius: 20px;
+transition-duration: 2s;
+	}
+	.mainButton button{
+		display: block;
+		margin-bottom: 2em;
+		width:80px;
+		font-size: 10px;
+		height: 40px;
+	}
+	
+	h3 {
+		font-size: 22px;
+		padding-left: 3%;
+		padding-right: 2%;
+		padding-bottom: 15px;
+	}
+	aside {
+		margin: 0;
+	}
+	.soon {
+		flex: 0 0 20%;
+		padding: 0.3em;
+		display: none;
+		
+	}
+
+	.now {
+		flex: 0 0 80%;
+		margin: 2px;
+		padding: 0.5em;
+	
+	}
+.nowCinema {
+	width:50%;
+}
+.nowCinema img {
+	width:95%;
+}
+.soonCinema {
+	width:50%;
+}
+.soonCinema img {
+	width:85%;
+}
+
+h4 {
+	font-size: 16px;
+}
+.nowCinema button {
+	font-size: 8px;
+}
+}
+
+
+
+	@media all and (min-width: 768px) and (max-width: 1200px){
+	.mainButton {
+		position: absolute;
+		 left: 2px;
+		 top: 2px; 
+		 background-color: rgb(235, 127, 77);
+		 padding: 0.5em;
+ padding-top: 0.5em;
+ border-radius: 20px;
+ transition-duration: 2s;
+	 }
+	 
+aside {
+	margin: 1.5em;
+	display: flex;
+flex-direction: column;
+}
+
+} 
