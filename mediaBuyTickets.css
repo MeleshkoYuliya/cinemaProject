@@ -1,0 +1,42 @@
+@media   (max-width: 767px) {
+	.selectOptions {
+    margin-left: 3%;
+}
+.selectOptions h4 {
+	font-size: 18px;
+	text-shadow: 0 0 10px lightyellow;
+	letter-spacing: 0.1em;
+}
+select {
+	font-size: 12px;
+}
+.optionChoice {
+	font-size: 14px;
+	background-color: blanchedalmond;
+	border-radius: 10px;
+	margin-bottom: 1em;
+}
+.sessionSelection {
+	margin-top: 1.5em;
+	display: flex;
+	flex-direction: column;
+}
+.sessionSelection img {
+width:220px;
+}
+.mainButton button{
+	font-size: 14px;
+}
+}
+
+	@media (min-width: 768px) and (max-width: 1200px){
+
+		.LoginJoin {
+			width: 50%;
+			display: flex;
+			margin-right:auto;
+			margin-left:auto;
+			margin-top:2em;
+		transition-duration: 2s;
+		}
+} 
