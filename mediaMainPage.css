@@ -12,7 +12,7 @@ transition-duration: 2s;
 	.mainButton button{
 		display: block;
 		margin-bottom: 2em;
-		width:80px;
+		width:90px;
 		font-size: 10px;
 		height: 40px;
 	}
@@ -43,7 +43,7 @@ transition-duration: 2s;
 	width:50%;
 }
 .nowCinema img {
-	width:95%;
+	width:120px;
 }
 .soonCinema {
 	width:50%;
@@ -55,8 +55,21 @@ transition-duration: 2s;
 h4 {
 	font-size: 16px;
 }
-.nowCinema button {
-	font-size: 8px;
+.soonCinemaButton{
+	display:block;
+	margin-bottom: 2em;
+		width:90px;
+		font-size: 10px;
+		height: 40px;
+		font-family: 'Prosto One', cursive;
+    color: black;
+    text-align: center;
+    background-color: rgb(185, 183, 159);
+    border-radius: 5px;
+    border-color: #56756c;
+    border-width: 2px;
+    cursor: pointer;
+    outline: 0;
 }
 }
 
@@ -79,5 +92,11 @@ aside {
 	display: flex;
 flex-direction: column;
 }
+.soon, .now {
+	flex: 0 0 90%;
+	margin-right: 2%;
+	
+}
+
 
 } 

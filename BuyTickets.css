@@ -30,10 +30,11 @@ h5 {
 
 .optionChoice {
     font-size: 20px;
-    background-color: blanchedalmond;
+		background-color: rgb(231, 222, 170);
     border-radius: 10px;
 		margin-bottom: 2em;
 		padding: 0.5em;
+		box-shadow: 0 0 20px lightgrey;
 }
 
 .sessionSelection {
@@ -64,3 +65,10 @@ h5 {
 .cinemaShow:hover{
 	background-color: lightgray;
 }
+img{
+	transition-duration: 2s;
+}
+
+ .selectOptions div{
+	display: inline-block;
+} 

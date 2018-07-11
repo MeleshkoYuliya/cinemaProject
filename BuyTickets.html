@@ -5,12 +5,13 @@
     <meta charset="utf-8" />
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <title>Buy Tickets</title>
-    <meta name="viewport" content="width=device-width, initial-scale=1">
+		<meta name="viewport" content="width=device-width, initial-scale=1">
     <link href="https://fonts.googleapis.com/css?family=Fascinate+Inline|Prosto+One|Pacifico" rel="stylesheet">
-    <link rel="stylesheet" type="text/css" media="screen" href="buyTickets.css" />
+		<link rel="stylesheet" type="text/css" media="screen" href="buyTickets.css" />
 		<link rel="stylesheet" type="text/css" media="screen" href="MainPage.css" />
 		<link rel="stylesheet" type="text/css" media="screen" href="mediaMainPage.css" />
 		<link rel="stylesheet" type="text/css" media="screen" href="mediaBuyTickets.css" />
+
 </head>
 
 <body>
@@ -21,13 +22,18 @@
     <header>
         <h3>Big cinema</h3>
         <div class="mainButton">
-            <button> <-</button>
+            <button> <svg class="icon icon-arrow-left"><use xlink:href="#icon-arrow-left">	
+								<symbol id="icon-arrow-left" viewBox="0 0 32 32">
+								<path d="M1 16l15 15v-9h16v-12h-16v-9z"></path>
+								</symbol></use></svg></button>
             <button>Home</button>
         </div>
     </header>
-    <div class="selectOptions">
-        <h4>Movie title</h4>
-        <select name='cinemas'>
+   	
+				<div class="selectOptions">
+						<h4>Movie title</h4>
+					<div class="cinemas">
+						 <select name='cinemas'>
 				<option value="1">Cinemas:</option>
 				<option value="2">Arena City</option>
 				<option value="3">Velcom cinema</option>
@@ -35,21 +41,26 @@
 			<option value="5">Kiev</option>
 			<option value="6">Galileo</option>
 				</select>
-
-        <select name='date'>
+			</div>
+			<div class="date">
+					 <select name='date'>
 						<option value="1">Today, 10 July</option>
 						<option value="2">Tomorrow, 11 July</option>
 						<option value="3">Wednesday, 12 July</option>
 						<option value="4">Thursday, 13 July</option>
 					<option value="5">Fridayб 14 July</option>
-						</select>
-        <select name='sessionType'>
-								<option value="1">VMAX</option>
-								<option value="2">Dolby Digital</option>
-								<option value="3">LoveSeats</option>
-								<option value="4">3D</option>
-							<option value="5">2D</option>
-								</select>
+						</select> 
+						</div>
+						<div class="sessionType">
+								<select name='sessionType'>
+										<option value="1">VMAX</option>
+										<option value="2">Dolby Digital</option>
+										<option value="3">LoveSeats</option>
+										<option value="4">3D</option>
+									<option value="5">2D</option>
+										</select> 
+								</div>
+      
     </div>
     <div class="sessionSelection">
         <div class="movieTicket"><img src="http://via.placeholder.com/250x360" alt="8 подруг">
@@ -126,7 +137,12 @@
 									</div>
             </div>
         </div>
-    </div>
+		</div>
+
+
+		<script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.3/umd/popper.min.js" integrity="sha384-ZMP7rVo3mIykV+2+9J3UJ46jBk0WLaUAdn689aCwoqbBJiSnjAK/l8WvCWPIPm49" crossorigin="anonymous"></script>
+<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.1.1/js/bootstrap.min.js" integrity="sha384-smHYKdLADwkXOn1EmN1qk/HfnUcbVRZyYmZ4qpPea6sjB/pTJ0euyQp0Mk8ck+5T" crossorigin="anonymous"></script>
 </body>
 
 </html>

@@ -10,6 +10,7 @@
 	<link rel="stylesheet" type="text/css" media="screen" href="MainPage.css" />
 	<link rel="stylesheet" type="text/css" media="screen" href="mediaMainPage.css" />
 	<link rel="stylesheet" type="text/css" media="screen" href="mediaBuyTickets.css" />
+	<link rel="stylesheet" type="text/css" media="screen" href="roomPlaces.css" />
 </head>
 <body>
 	  <div class="upHeader">
@@ -17,13 +18,32 @@
     </div>
     </div>
     <header>
-        <h3>Big cinema</h3>
+        <h3>Big cinema</h3><div class="timerSelection">Time Left: 15:00</div>
         <div class="mainButton">
-            <button> <-</button>
+						<button><svg class="icon icon-arrow-left"><use xlink:href="#icon-arrow-left">	
+							<symbol id="icon-arrow-left" viewBox="0 0 32 32">
+							<path d="M1 16l15 15v-9h16v-12h-16v-9z"></path>
+							</symbol></use></svg>
+						</button>
+						<button class="Food_Drink">Drink & Food
+						</button>
             <button>Home</button>
         </div>
 		</header>
-		<h4>Select your seats</h4>
-		<img src="plan.png" alt="план зала">
+		<div class="container_selectSeats">
+	
+		<div class="roomsPlan">
+				<h4>Select your seats</h4>
+		<img src="plan.png" alt="план зала"></div>
+	 
+			<div class="yourSelectCinema"><h4>Your selection</h4><img src="http://via.placeholder.com/250x360" alt="8 подруг">
+				<p>
+						Genre:
+						<br>Age limit:
+						<br> Director:
+						<br>Actors:
+				</p>
+		</div>
+	</div>
 </body>
 </html>
