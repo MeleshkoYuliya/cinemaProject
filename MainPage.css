@@ -183,3 +183,38 @@ aside {
 .soonCinemaButton{
 	display: none;
 }
+
+.mainButtonMedia{
+	display: none;
+}
+input.More7
+    {display: none;}
+ input.More7 + label + div
+		{  display: none; }
+  input.More7:checked + label + div
+    {
+				display: block;
+    }
+    input.More7 + label
+    {
+        text-decoration: underline;
+				cursor: pointer;
+    }
+    input.More7:checked + label
+    {
+				display: none;
+    }
+ input.More7 + label + div + input + label
+    {
+        display: none;
+        text-decoration: underline;
+				cursor: pointer;
+    }
+ input.More7:checked + label + div + input + label
+    {
+				display: block;
+    }
+
+.icon-menu3 {
+  width: 1.375em;
+}

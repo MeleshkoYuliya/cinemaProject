@@ -2,6 +2,8 @@
 	.LoginJoin {
 		width: 70%;
 		display: flex;
+		margin: auto;
+		margin-top:1em;
 	flex-direction: column;
 	transition-duration: 2s;
 	}
