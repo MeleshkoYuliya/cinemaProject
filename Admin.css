@@ -13,7 +13,12 @@
 	font-size: 20px;
 	width:50%;
 	margin-bottom: 1em;
+	border-radius: 6px;
+	outline:0;
+	background-color:lightgrey;
 }
+select:focus{
+	background-color: rgb(238, 238, 153);}
 .InformationCinema input, .InformationFilm input, .sessions input{
 	font-size: 20px;
 	width:50%;
@@ -24,6 +29,12 @@
 }
 textarea{resize: none;
 	width:50%;
+	border-radius: 6px;
+	outline:0;
+	background-color:lightgrey;
+}
+textarea:focus{
+	background-color: rgb(238, 238, 153);
 }
 
 .Options, .sessions{
@@ -36,7 +47,13 @@ margin: auto;
 }
 .optionalPrice input{
 	width: 50px;
+	border-radius: 6px;
+	outline:0;
+	background-color:lightgrey;
 }
+input:focus{
+	background-color: rgb(238, 238, 153);
+	}
 .optionalPrice div{
 	display: inline-block;
 }

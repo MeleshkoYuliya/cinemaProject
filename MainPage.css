@@ -19,7 +19,7 @@ header {
     color: yellow;
 }
 
-.upHeader button {
+.loginButton {
     background-color: rgb(209, 81, 22);
 }
 
@@ -217,4 +217,26 @@ input.More7
 
 .icon-menu3 {
   width: 1.375em;
+}
+.upHeader input{
+	border-radius: 6px;
+	outline:0;
+	font-size: 16px;
+	background-color:lightgrey;
+}
+.upHeader select{
+	border-radius: 6px;
+	outline:0;
+	font-size: 18px;
+	background-color:lightgrey;
+}
+.upHeader select:focus{
+	background-color: rgb(238, 238, 153);}
+.upHeader input:focus{
+background-color: rgb(238, 238, 153);
+}
+.buttonSearch{
+	border-radius: 10px;
+	background-color:lightgrey;
+	height: 28px;
 }

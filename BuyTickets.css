@@ -15,7 +15,12 @@
 
 select {
 		font-size: 20px;
+			border-radius: 6px;
+			outline:0;
+			background-color: lightgray;
 }
+select:focus{
+	background-color: rgb(238, 238, 153);}
 h5 {
 	font-family: 'Pacifico', cursive;
 	font-size: 20px;
