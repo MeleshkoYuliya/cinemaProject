@@ -9,11 +9,19 @@
 	text-align: center;
 	box-shadow: 0 0 30px lightyellow;
 }
-.InformationCinema select, .sessions select{
+ select{
 	font-size: 20px;
 	width:50%;
 	margin-bottom: 1em;
+	border-radius: 6px;
+	background-color: lightgrey;
+	outline: 0;
 }
+select{border-radius: 6px;
+outline:0;
+font-size: 18px;
+background-color:lightgrey;}
+
 .InformationCinema input, .InformationFilm input, .sessions input{
 	font-size: 20px;
 	width:50%;
@@ -24,6 +32,9 @@
 }
 textarea{resize: none;
 	width:50%;
+	border-radius: 6px;
+	background-color: lightgrey;
+	outline: 0;
 }
 
 .Options, .sessions{

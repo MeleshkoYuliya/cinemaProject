@@ -28,6 +28,7 @@
 	border-width: 2px;
 	cursor: pointer;
 	outline: 0;
+	width:60px;
 
 }
 input{
@@ -36,8 +37,12 @@ input{
 	transition-duration: 2s;
 	outline: 0;
 	border-radius: 6px;
+	width:70%;
 	background-color: lightgrey;
 }
 input:focus{
 	background-color: rgb(238, 238, 153);
+	}
+	label{
+		display:block;
 	}

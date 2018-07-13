@@ -50,7 +50,7 @@ h4 {
 header div {
     display: inline-block;
 }
-/* стиль для главных кнопок*/
+/* main buttons style*/
 .mainButton {
     position: absolute;
     right: 1%;
@@ -58,7 +58,7 @@ header div {
     transition-duration: 2s;
 }
 
-/* стиль для всех кнопок*/
+/*all buttons style*/
 button { 
     font-family: 'Prosto One', cursive;
     color: black;
@@ -72,13 +72,13 @@ button {
     cursor: pointer;
     outline: 0;
 }
-/* flex-контейнер для контекста*/
+/* flex-conteiner for context*/
 aside {
     margin: 1.5em;
     display: flex;
    justify-content:flex-start;
 }
-/* блок фильмов которые идут сейчас*/
+/* block of film showing now*/
 .now {
     flex: 0 0 70%;
     margin-right:3%;
@@ -90,7 +90,7 @@ aside {
   text-align: center; 
     box-shadow: 0 0 30px lightyellow;
 }
-/* блок фильмов, которые скоро будут в кино*/
+/* block of film coming soon*/
 .soon {
     flex: 0 0 20%;
     margin: 2px;
@@ -107,7 +107,7 @@ aside {
     cursor: pointer;
 }
 
-.soonCinema p {
+.descriptionFilm {
     width: 200px;
     display: none;
 }

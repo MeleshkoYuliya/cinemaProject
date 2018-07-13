@@ -7,12 +7,12 @@
     <title>admin</title>
     <meta name="viewport" content="width=device-width, initial-scale=1">
 		<link href="https://fonts.googleapis.com/css?family=Fascinate+Inline|Prosto+One|Pacifico" rel="stylesheet">
-		<link rel="stylesheet" type="text/css" media="screen" href="index.css" />
-		<link rel="stylesheet" type="text/css" media="screen" href="autirisation.css" />
-		<link rel="stylesheet" type="text/css" media="screen" href="mediaAutirisation.css" />
-		<link rel="stylesheet" type="text/css" media="screen" href="mediaMainPage.css" />
-		<link rel="stylesheet" type="text/css" media="screen" href="Admin.css" />
-		<link rel="stylesheet" type="text/css" media="screen" href="mediaAdmin.css" />
+		<link rel="stylesheet" type="text/css" media="screen" href="css/index.css" />
+		<link rel="stylesheet" type="text/css" media="screen" href="css/autirisation.css" />
+		<link rel="stylesheet" type="text/css" media="screen" href="css/mediaAutirisation.css" />
+		<link rel="stylesheet" type="text/css" media="screen" href="css/mediaMainPage.css" />
+		<link rel="stylesheet" type="text/css" media="screen" href="css/Admin.css" />
+		<link rel="stylesheet" type="text/css" media="screen" href="css/mediaAdmin.css" />
 </head>
 <body>
 		<div class="upHeader">
@@ -51,24 +51,24 @@
 		<form method=get>
 				<div class="InformationCinema">
 <h4>	Information about the cinema</h4>
-<br> <input type="text" value="" placeholder='City*'>
-<br> <input type="text" value="" placeholder='Title*'>
-<br> <input type="text" value="" placeholder='Number of rooms*'>
-<br> <input type="text" value="" placeholder='Number of seats*'>
-<br> <select name='KindSeats'>
+<label> <input type="text" value="" placeholder='City*'></label>
+<label>  <input type="text" value="" placeholder='Title*'></label>
+	<label>  <input type="text" value="" placeholder='Number of rooms*'></label>
+		<label>  <input type="text" value="" placeholder='Number of seats*'></label>
+ <select name='KindSeats'>
 		<option value="1">VIP</option>
 		<option value="2">Love seats</option>
 		<option value="3">Economy</option>
 		</select> 
-<br> <button class="button">save</button> 
+<div> <button class="button">save</button> </div>
 </div>
 <div class="InformationFilm">
 		<h4>Information about the film</h4>
-<br> <input type="text" value="" placeholder='Title*'>
-<br> <input type="text" value="" placeholder='Begining date*'>
-<br> <input type="text" value="" placeholder='Expiration date*'>
-<br>  <textarea name='mytext'>Description... </textarea>
-<br> <button class="button">save</button> 
+		<label> <input type="text" value="" placeholder='Title*'></label>
+			<label>  <input type="text" value="" placeholder='Begining date*'></label>
+				<label>  <input type="text" value="" placeholder='Expiration date*'></label>
+					<label>  <textarea name='mytext'>Description... </textarea></label>
+						<div>  <button class="button">save</button> </div>
 </div>
 <div class="Options">
 		<h4>Optional services</h4>
