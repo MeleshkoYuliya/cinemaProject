@@ -9,43 +9,31 @@
     <link href="https://fonts.googleapis.com/css?family=Fascinate+Inline|Prosto+One|Pacifico" rel="stylesheet">
 		<link rel="stylesheet" type="text/css" media="screen" href="css/buyTickets.css" />
 		<link rel="stylesheet" type="text/css" media="screen" href="css/index.css" />
-		<link rel="stylesheet" type="text/css" media="screen" href="css/mediaMainPage.css" />
 		<link rel="stylesheet" type="text/css" media="screen" href="css/mediaBuyTickets.css" />
 
 </head>
 
 <body>
-    <div class="upHeader">
-        <div class="city">Minsk</div>
-    </div>
-    </div>
-    <header>
-				<h3>Big cinema</h3>
-				<div class="mainButtonBig">
-        <div class="mainButton">
-            <button> <svg class="icon icon-arrow-left"><use xlink:href="#icon-arrow-left">	
-								<symbol id="icon-arrow-left" viewBox="0 0 32 32">
-								<path d="M1 16l15 15v-9h16v-12h-16v-9z"></path>
-								</symbol></use></svg></button>
-            <button>Home</button>
-				</div>
-			</div>
-			<div class="mainButtonMedia">
-					<div class="mainButton">
-				
-				<input type=radio class='More7' name=PIR id=PIR2 checked value=2>
+  <div class="upHeader">
+    <div class="upHeader__city">Minsk</div>
+  </div>
+  <div class="header">
+		<h3 class="header__logo">Big cinema</h3>
+		<div class="header__menu-button">
+      <button class="menu-button"> <svg class="icon icon-arrow-left"><use xlink:href="#icon-arrow-left"></use></svg></button>
+      <button class="menu-button">Home</button>
+		</div>
+	  <div class="header__menu-button--media">	
+			<input type=radio class='More7' name=PIR id=PIR2 checked value=2>
 			<label for=PIR2><svg class="icon icon-menu4"><use xlink:href="#icon-menu4"></use></svg></label>
 			<input type=radio class='More7' name=PIR id=PIR1 value=1>
-				<label for=PIR1><svg class="icon icon-menu3"><use xlink:href="#icon-menu3"></use></svg></label>
-				<div>
-						<button> <svg class="icon icon-arrow-left"><use xlink:href="#icon-arrow-left">	
-								<symbol id="icon-arrow-left" viewBox="0 0 32 32">
-								<path d="M1 16l15 15v-9h16v-12h-16v-9z"></path>
-								</symbol></use></svg></button>
-            <button>Home</button>
-				</div>
-    </header>
-   	
+			<label for=PIR1><svg class="icon icon-menu3"><use xlink:href="#icon-menu3"></use></svg></label>
+			<div>
+			  <button class="menu-button"> <svg class="icon icon-arrow-left"><use xlink:href="#icon-arrow-left"></use></svg></button>
+        <button class="menu-button">Home</button>
+		  </div>
+		 </div>
+	</div>	 
 				<div class="selectOptions">
 						<h4>Movie title</h4>
 					<div class="cinemas">
@@ -165,17 +153,20 @@
         </div>
 		</div>
 
-		<svg xmlns='http://www.w3.org/2000/svg'
-		xmlns:xlink='http://www.w3.org/1999/xlink'>
-		<symbol id="icon-menu3" viewBox="0 0 88 64">
+		<svg xmlns='http://www.w3.org/2000/svg' xmlns:xlink='http://www.w3.org/1999/xlink'>
+		  <symbol id="icon-menu3" viewBox="0 0 88 64">
 				<title>menu3</title>
 				<path d="M0 12h56v12h-56v-12zM0 28h56v12h-56v-12zM0 44h56v12h-56v-12z"></path>
 				<path d="M62 28l12 12 12-12z"></path>
-				</symbol>
-				<symbol id="icon-menu4" viewBox="0 0 32 32">
-						<title>cross</title>
-						<path d="M31.708 25.708c-0-0-0-0-0-0l-9.708-9.708 9.708-9.708c0-0 0-0 0-0 0.105-0.105 0.18-0.227 0.229-0.357 0.133-0.356 0.057-0.771-0.229-1.057l-4.586-4.586c-0.286-0.286-0.702-0.361-1.057-0.229-0.13 0.048-0.252 0.124-0.357 0.228 0 0-0 0-0 0l-9.708 9.708-9.708-9.708c-0-0-0-0-0-0-0.105-0.104-0.227-0.18-0.357-0.228-0.356-0.133-0.771-0.057-1.057 0.229l-4.586 4.586c-0.286 0.286-0.361 0.702-0.229 1.057 0.049 0.13 0.124 0.252 0.229 0.357 0 0 0 0 0 0l9.708 9.708-9.708 9.708c-0 0-0 0-0 0-0.104 0.105-0.18 0.227-0.229 0.357-0.133 0.355-0.057 0.771 0.229 1.057l4.586 4.586c0.286 0.286 0.702 0.361 1.057 0.229 0.13-0.049 0.252-0.124 0.357-0.229 0-0 0-0 0-0l9.708-9.708 9.708 9.708c0 0 0 0 0 0 0.105 0.105 0.227 0.18 0.357 0.229 0.356 0.133 0.771 0.057 1.057-0.229l4.586-4.586c0.286-0.286 0.362-0.702 0.229-1.057-0.049-0.13-0.124-0.252-0.229-0.357z"></path>
-						</symbol></svg>
+			</symbol>
+			<symbol id="icon-menu4" viewBox="0 0 32 32">
+				title>cross</title>
+				<path d="M31.708 25.708c-0-0-0-0-0-0l-9.708-9.708 9.708-9.708c0-0 0-0 0-0 0.105-0.105 0.18-0.227 0.229-0.357 0.133-0.356 0.057-0.771-0.229-1.057l-4.586-4.586c-0.286-0.286-0.702-0.361-1.057-0.229-0.13 0.048-0.252 0.124-0.357 0.228 0 0-0 0-0 0l-9.708 9.708-9.708-9.708c-0-0-0-0-0-0-0.105-0.104-0.227-0.18-0.357-0.228-0.356-0.133-0.771-0.057-1.057 0.229l-4.586 4.586c-0.286 0.286-0.361 0.702-0.229 1.057 0.049 0.13 0.124 0.252 0.229 0.357 0 0 0 0 0 0l9.708 9.708-9.708 9.708c-0 0-0 0-0 0-0.104 0.105-0.18 0.227-0.229 0.357-0.133 0.355-0.057 0.771 0.229 1.057l4.586 4.586c0.286 0.286 0.702 0.361 1.057 0.229 0.13-0.049 0.252-0.124 0.357-0.229 0-0 0-0 0-0l9.708-9.708 9.708 9.708c0 0 0 0 0 0 0.105 0.105 0.227 0.18 0.357 0.229 0.356 0.133 0.771 0.057 1.057-0.229l4.586-4.586c0.286-0.286 0.362-0.702 0.229-1.057-0.049-0.13-0.124-0.252-0.229-0.357z"></path>
+			</symbol>
+			<symbol id="icon-arrow-left" viewBox="0 0 32 32">
+				<path d="M1 16l15 15v-9h16v-12h-16v-9z"></path>
+			</symbol>
+		</svg>
 </body>
 
 </html>

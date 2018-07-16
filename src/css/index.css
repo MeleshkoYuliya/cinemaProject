@@ -2,160 +2,184 @@ body {
 	background-color: rgb(70, 69, 69);
 	margin: 0;
 }
-header {
-    background-color: darkorange;
-    padding-bottom: 6em;
-    padding: 0;
-    position: relative;
-    height: 100px;
-}
 .upHeader {
 	padding-bottom: 1em;
 	padding-top: 1em;
-}
-.upHeader div {
-    display: inline-block;
-    margin-left: 3%;
-    color: yellow;
-}
-
-.loginButton {
-    background-color: rgb(209, 81, 22);
-}
-
-.city {
-    font-family: 'Pacifico', cursive;
-    font-size: 22px;
-    letter-spacing: 4px;
-    color: #81a097;
+} 
+.upHeader__city {
+	font-family: 'Pacifico', cursive;
+	font-size: 22px;
+	letter-spacing: 4px;
+	color: yellow;
+	display: inline-block;
+	margin-left: 3%;
 }
 
-h3 {
-    font-family: 'Fascinate Inline', cursive;
-    font-size: 44px;
-    vertical-align: bottom;
-    display: inline-block;
-    padding-left: 3%;
-    padding-right: 20%;
-    padding-bottom: 45px;
+.upHeader__login-button {
+  background-color: rgb(209, 81, 22);
 }
 
-h4 {
-    font-family: 'Pacifico', cursive;
-    font-size: 28px;
-    letter-spacing: 3px;
-    text-shadow: 0 0 30px lightgrey;
+.upHeader__search {
+	border-radius: 6px;
+	outline:0;
+	font-size: 16px;
+	background-color:lightgrey;
+}
+.upHeader__search:focus {
+	background-color: rgb(238, 238, 153);
+	}
+
+.upHeader__change-city {
+	border-radius: 6px;
+	outline:0;
+	font-size: 18px;
+	background-color:lightgrey;
 }
 
-header div {
-    display: inline-block;
-}
-/* main buttons style*/
-.mainButton {
-    position: absolute;
-    right: 1%;
-    top: 65px;
-    transition-duration: 2s;
+.upHeader__change-city:focus {
+	background-color: rgb(238, 238, 153);
 }
 
+.upHeader__search__button {
+	border-radius: 10px;
+	background-color:lightgrey;
+	height: 28px;
+}
+
+.header {
+  background-color: darkorange;
+  padding-bottom: 6em;
+  padding: 0;
+  position: relative;
+  height: 100px;
+}
+
+.header__logo {
+  font-family: 'Fascinate Inline', cursive;
+  font-size: 44px;
+  vertical-align: bottom;
+  display: inline-block;
+  padding-left: 3%;
+  padding-right: 20%;
+  padding-bottom: 45px;
+}
+
+/* menu buttons style*/
+.header__menu-button {
+	display: inline-block;
+	position: absolute;
+  right: 1%;
+  top: 65px;
+  transition-duration: 2s;
+}
+
+.header__menu-button--media {
+	display: none;
+}
 /*all buttons style*/
 button { 
-    font-family: 'Prosto One', cursive;
-    color: black;
-    text-align: center;
-    background-color: rgb(185, 183, 159);
-    height: 30px;
-    font-size: 14px;
-    border-radius: 5px;
-    border-color: #56756c;
-    border-width: 2px;
-    cursor: pointer;
-    outline: 0;
+  font-family: 'Prosto One', cursive;
+  color: black;
+  text-align: center;
+  background-color: rgb(185, 183, 159);
+  height: 30px;
+  font-size: 14px;
+  border-radius: 5px;
+  border-color: #56756c;
+  border-width: 2px;
+  cursor: pointer;
+  outline: 0;
 }
 /* flex-conteiner for context*/
-aside {
-    margin: 1.5em;
-    display: flex;
-   justify-content:flex-start;
-}
-/* block of film showing now*/
-.now {
-    flex: 0 0 70%;
-    margin-right:3%;
-		order: 1;
-    padding: 2em;
-    padding-bottom: 2em;
-     background-color: rgb(70, 69, 69);
-    border-radius: 20px;
-  text-align: center; 
-    box-shadow: 0 0 30px lightyellow;
+.aside {
+  margin: 1.5em;
+  display: flex;
+  justify-content:flex-start;
 }
 /* block of film coming soon*/
-.soon {
-    flex: 0 0 20%;
-    margin: 2px;
-    padding: 1em;
-    order: 2;
-    background-color: rgb(70, 69, 69);
-    border-radius: 20px;
-    text-align: center;
-    box-shadow: 0 0 30px lightyellow;
+.films-soon {
+	flex: 0 0 20%;
+	margin: 2px;
+	padding: 1em;
+	order: 2;
+	background-color: rgb(70, 69, 69);
+	border-radius: 20px;
+	text-align: center;
+	box-shadow: 0 0 30px lightyellow;
 }
 
-.soonCinema img {
-    width: 80px;
-    cursor: pointer;
+/* block of film showing now*/
+.films-now {
+	flex: 0 0 70%;
+	margin-right:3%;
+	order: 1;
+	padding: 2em;
+	padding-bottom: 2em;
+	background-color: rgb(70, 69, 69);
+	border-radius: 20px;
+  text-align: center; 
+	box-shadow: 0 0 30px lightyellow;
+}
+h4 {
+	font-family: 'Pacifico', cursive;
+	font-size: 28px;
+	letter-spacing: 3px;
+	text-shadow: 0 0 30px lightgrey;
+}
+
+.films-soon__flex-container {
+	display: -webkit-flex;
+	display: flex;
+	-webkit-flex-flow: row wrap;
+	flex-flow: row wrap;
+	justify-content: flex-start;
+}
+
+.films-now__flex-conteiner {
+	display: -webkit-flex;
+	display: flex;
+	-webkit-flex-flow: row wrap;
+	flex-flow: row wrap;
+	justify-content:flex-start;
+}
+.films-soon__flex-container__film {
+	margin: auto;
+	background-color: grey;
+	padding: 0.5em;
+	margin-bottom: 1em;
+	border-radius: 20px;
+	-webkit-flex: 0;
+	flex:0;
+}
+.films-soon__flex-container__img {
+  width: 80px;
+  cursor: pointer;
 }
 
 .descriptionFilm {
-    width: 200px;
-    display: none;
+  display: none;
 }
 
-.soonCinema {
-    margin: auto;
+.films-now__flex-conteiner__film {
+  margin: auto;
+  background-color: grey;
+  padding: 0.5em;
+  margin-bottom: 1em;
+  border-radius: 20px;
+	-webkit-flex: 0;
+	flex:0;
 }
 
-.nowCinema {
-    margin: auto;
-    background-color: grey;
-    padding: 0.5em;
-    margin-bottom: 1em;
-    border-radius: 20px;
-		-webkit-flex: 0;
-		flex:0;
-
+.films-now__flex-container__img {
+  width: 180px;
 }
 
-.nowCinema img {
-    width: 180px;
+.films-now__flex-conteiner__btn {
+	font-size: 10px;
+	display: inline-block;
 }
 
-.nowCinema p {
-    width: 350px;
-    display: none;
-}
 
-.nowCinema button {
-		font-size: 10px;
-		display: inline-block;
-}
-
-.flexConteiner_now {
-    display: -webkit-flex;
-    display: flex;
-    -webkit-flex-flow: row wrap;
-    flex-flow: row wrap;
-    justify-content:flex-start;
-}
-
-.flex-container_soon {
-    display: -webkit-flex;
-    display: flex;
-    -webkit-flex-flow: row wrap;
-    flex-flow: row wrap;
-    justify-content: flex-start;
-}
 .icon {
   display: inline-block;
   width:12px;
@@ -184,59 +208,118 @@ aside {
 	display: none;
 }
 
-.mainButtonMedia{
+@media  (max-width: 767px) { 
+	
+.header__menu-button--media {
+	display: block;
+	position: absolute;
+	right: 2px;
+	top: 2px; 
+	background-color: rgb(235, 127, 77);
+	padding: 0.5em;
+	padding-top: 2em;
+	border-radius: 20px;
+	transition-duration: 2s;
+}
+.menu-button {
+	display: block;
+	margin-bottom: 2em;
+	width:90px;
+	font-size: 10px;
+	height: 40px;
+} 
+
+.header__menu-button {
 	display: none;
 }
-input.More7
-    {display: none;}
- input.More7 + label + div
-		{  display: none; }
-  input.More7:checked + label + div
-    {
-				display: block;
-    }
-    input.More7 + label
-    {
-        text-decoration: underline;
-				cursor: pointer;
-    }
-    input.More7:checked + label
-    {
-				display: none;
-    }
- input.More7 + label + div + input + label
-    {
-        display: none;
-        text-decoration: underline;
-				cursor: pointer;
-    }
- input.More7:checked + label + div + input + label
-    {
-				display: block;
-    }
+/* media-menu */
+input.More7 {
+	display: none;
+}
+input.More7 + label + div {  
+	display: none; 
+}
+input.More7:checked + label + div {
+	display: block;
+}
+input.More7 + label {
+	cursor: pointer;
+}
+input.More7:checked + label {
+	display: none;
+}
+input.More7 + label + div + input + label {
+  display: none;
+	cursor: pointer;
+}
+input.More7:checked + label + div + input + label {
+	display: block;
+}
 
 .icon-menu3 {
   width: 1.375em;
 }
-.upHeader input{
-	border-radius: 6px;
-	outline:0;
+	
+.header__logo {
+  font-size: 22px;
+  padding-left: 3%;
+	padding-right: 2%;
+  padding-bottom: 15px;
+}
+	
+.films-soon {
+	display: none;	
+}
+
+.films-now {
+	flex: 0 0 80%;
+	margin: auto;
+	padding: 0.5em;
+  margin-top: 1em;
+}
+.films-now__flex-conteiner__film {
+	width:50%;
+}
+
+.films-now__flex-container__img {
+	width:110px;
+}
+
+.films-soon__flex-container__film {
+	width:50%;
+}
+
+.films-soon__flex-container__img {
+	width:85%;
+}
+
+h4 {
 	font-size: 16px;
-	background-color:lightgrey;
 }
-.upHeader select{
-	border-radius: 6px;
-	outline:0;
-	font-size: 18px;
-	background-color:lightgrey;
+
 }
-.upHeader select:focus{
-	background-color: rgb(238, 238, 153);}
-.upHeader input:focus{
-background-color: rgb(238, 238, 153);
+
+@media  (min-width: 768px) and (max-width: 1200px) {
+.header__menu-button {
+  position: absolute;
+	left: 2px;
+	top: 2px; 
+	background-color: rgb(235, 127, 77);
+	padding: 0.5em;
+  padding-top: 0.5em;
+  border-radius: 20px;
+  transition-duration: 2s;
 }
-.buttonSearch{
-	border-radius: 10px;
-	background-color:lightgrey;
-	height: 28px;
+	 
+.aside {
+	margin: 1.5em;
+	display: flex;
+  flex-direction: column;
 }
+.films-soon, .films-now {
+	flex: 0 0 90%;
+	margin-right: 2%;	
+}
+
+} 
+

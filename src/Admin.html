@@ -10,44 +10,37 @@
 		<link rel="stylesheet" type="text/css" media="screen" href="css/index.css" />
 		<link rel="stylesheet" type="text/css" media="screen" href="css/autirisation.css" />
 		<link rel="stylesheet" type="text/css" media="screen" href="css/mediaAutirisation.css" />
-		<link rel="stylesheet" type="text/css" media="screen" href="css/mediaMainPage.css" />
 		<link rel="stylesheet" type="text/css" media="screen" href="css/Admin.css" />
 		<link rel="stylesheet" type="text/css" media="screen" href="css/mediaAdmin.css" />
 </head>
 <body>
-		<div class="upHeader">
-				<div class="city">Minsk</div>   
-				<div class="admin"><svg class="icon icon-user"><use xlink:href="#icon-user"></use></svg> Admin</div>
-    </div>
-    </div>
-    <header>
-				<h3>Big cinema</h3>
-				<div class="mainButtonBig">
-						<div class="mainButton"> 
-								<button>Movies</button>
-								<button>Cinemas</button>
-								<button>Tickets</button>
-								<button>Deals</button>
-								<button>Home</button>
-						</div>
-						</div>
-				
-				<div class="mainButtonMedia">
-						<div class="mainButton">
-					
-					<input type=radio class='More7' name=PIR id=PIR2 checked value=2>
-				<label for=PIR2><svg class="icon icon-menu4"><use xlink:href="#icon-menu4"></use></svg></label>
-				<input type=radio class='More7' name=PIR id=PIR1 value=1>
-					<label for=PIR1><svg class="icon icon-menu3"><use xlink:href="#icon-menu3"></use></svg></label>
-						<div>
-					<button>Movies</button>
-						<button>Cinemas</button>
-						<button>Tickets</button>
-						<button>Deals</button>
-						<button>Home</button>
-						</div>
-				</div>
-		</header>
+	<div class="upHeader">
+		<div class="upHeader__city">Minsk</div>   
+		<div class="admin"><svg class="icon icon-user"><use xlink:href="#icon-user"></use></svg> Admin</div>
+  </div>
+	<div class="header">
+		<h3 class="header__logo">Big cinema</h3>
+		<div class="header__menu-button">
+			<button class="menu-button">Movies</button>
+			<button class="menu-button">Cinemas</button>
+			<button class="menu-button">Tickets</button>
+			<button class="menu-button">Deals</button>
+			<button class="menu-button">Home</button>
+		</div>
+		<div class="header__menu-button--media">		
+			<input type=radio class='More7' name=PIR id=PIR2 checked value=2>
+			<label for=PIR2><svg class="icon icon-menu4"><use xlink:href="#icon-menu4"></use></svg></label>
+			<input type=radio class='More7' name=PIR id=PIR1 value=1>
+			<label for=PIR1><svg class="icon icon-menu3"><use xlink:href="#icon-menu3"></use></svg></label>
+			<div>
+				<button class="menu-button">Movies</button>
+				<button class="menu-button">Cinemas</button>
+				<button class="menu-button">Tickets</button>
+				<button class="menu-button">Deals</button>
+				<button class="menu-button">Home</button>
+			</div>
+		</div>
+	</div>
 		<form method=get>
 				<div class="InformationCinema">
 <h4>	Information about the cinema</h4>
