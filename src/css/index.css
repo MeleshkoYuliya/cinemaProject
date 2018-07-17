@@ -83,7 +83,6 @@ body {
   color: black;
   text-align: center;
   background-color: rgb(185, 183, 159);
-  height: 30px;
   font-size: 14px;
   border-radius: 5px;
   border-color: #56756c;
@@ -91,6 +90,7 @@ body {
   cursor: pointer;
   outline: 0;
 }
+
 /* flex-conteiner for context*/
 .aside {
   margin: 1.5em;
@@ -318,6 +318,132 @@ h5 {
 	border-radius: 20px;
 }
 
+/* for authorisation page */
+
+.login-join {
+	margin: 1.5em;
+	display: flex;
+	border-radius: 20px;
+	justify-content: center;
+}
+.enter-block, .register-block {
+	flex: 0 0 40%;
+	margin: 2px;
+	order: 1;
+	padding: 2em;
+	padding-bottom: 2em;
+	background-color: lightgrey;
+	border-radius: 20px;
+	text-align: center;
+	box-shadow: 0 0 30px lightyellow;
+}
+
+.login-join_btn {
+	width:80px;
+	background-color: rgb(228, 166, 51);
+	height:30px;
+}
+.login-join__add {
+	margin-bottom: 1em;
+	font-size: 20px;
+	transition-duration: 2s;
+	outline: 0;
+	border-radius: 6px;
+	width:70%;
+	background-color: lightgrey;
+}
+.login-join__add:focus {
+	background-color: rgb(238, 238, 153);
+}
+.login-join__info{
+	display:block;
+}
+/* for admin page */
+.admin-info__elem {
+	margin-top: 2em;
+	margin-left: 10%;
+	margin-right: 10%;
+	padding: 2em;
+	padding-bottom: 2em;
+	background-color: lightgrey;
+	border-radius: 20px;
+	text-align: center;
+	box-shadow: 0 0 30px lightyellow;
+	font-family: 'Prosto One', cursive;
+	font-size: 20px;
+}
+
+.admin-info__inp {
+	font-size: 20px;
+	width:50%;
+	margin-bottom: 1em;
+	font-size: 20px;
+	transition-duration: 2s;
+	outline: 0;
+	border-radius: 6px;
+	width:70%;
+	background-color: lightgrey;
+	}
+
+.admin-info__inp:focus {
+	background-color: rgb(238, 238, 153);
+	}
+.admin-info__lab {
+	display: block;
+}
+.admin-info__select {
+	font-size: 20px;
+	width:70%;
+	margin-bottom: 1em;
+	border-radius: 6px;
+	background-color: lightgrey;
+	outline: 0;
+}
+.admin-info__select:focus {
+	background-color: rgb(238, 238, 153);
+	}
+.admin-info__description {
+	resize: none;
+	width:70%;
+	border-radius: 6px;
+	background-color: lightgrey;
+	outline: 0;
+}
+.admin-info__description:focus {
+	background-color: rgb(238, 238, 153);
+}
+.admin{
+	position: absolute;
+	top: 25px;
+	right: 25px;
+	font-size: 22px;
+	font-family: 'Prosto One', cursive;
+}
+.icon {
+  display: inline-block;
+  width: 1em;
+  height: 1em;
+  stroke-width: 0;
+  stroke: currentColor;
+  fill: currentColor;
+} 
+.admin-info__services{
+  display: inline-block;
+  margin: auto;
+}
+.admin-info__option{
+	width: 50px;
+	background-color: lightgrey;
+	outline:0;
+	border-radius: 3px;
+}
+.admin-info__option:focus {
+	background-color: rgb(238, 238, 153);	
+}
+.admin-info__select-service {
+	display: inline-block;
+	margin-bottom: 8px;
+}
 @media  (max-width: 767px) { 
 	/* media for main page */
 .header__menu-button--media {
@@ -462,6 +588,37 @@ h5{
 .room-place__select-film__img {
   width:50%;
 }
+/* for authorisation page */
+.login-join {
+	width: 70%;
+	display: flex;
+	margin: auto;
+	margin-top:1em;
+	flex-direction: column;
+	transition-duration: 2s;
+}
+.login-join__add{
+	font-size: 10px;
+}
+/* for admin page */
+.admin-info__select{
+	font-size: 14px;
+	width:90%
+}
+.admin-info__inp{
+	font-size: 14px;
+	width:90%;
+}
+.admin-info__elem{
+	font-family: 'Prosto One', cursive;
+	font-size: 14px;
+}
+.admin-info__option{
+	width: 40px;
+}
+.admin-info__description {
+	width:90%;
+}
 }
 
 @media  (min-width: 768px) and (max-width: 1200px) {
@@ -492,7 +649,15 @@ h5{
 .room-place__select-film__img{
 	width:90%;
 }
-
+/* for authorisation page */
+.login-join {
+	width: 80%;
+	display: flex;
+	margin-right:auto;
+	margin-left:auto;
+	margin-top:2em;
+  transition-duration: 2s;
+}
 } 
 @media (min-width: 1200px){
 /* for buy-tickets page */
