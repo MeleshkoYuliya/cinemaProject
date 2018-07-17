@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="utf-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <title>authorisation</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+		<link href="https://fonts.googleapis.com/css?family=Fascinate+Inline|Prosto+One|Pacifico" rel="stylesheet">
+		<link rel="stylesheet" type="text/css" media="screen" href="css/index.css" />
+	
+</head>
+
+<body>
+	<div class="upHeader">
+		<div class="upHeader__city">Minsk</div>   
+  </div>
+	<div class="header">
+		<h3 class="header__logo">Big cinema</h3>
+		<div class="header__menu-button">
+		  <button class="button menu-button">Movies</button>
+			<button class="button menu-button">Cinemas</button>
+			<button class="button menu-button">Tickets</button>
+			<button class="button menu-button">Deals</button>
+			<button class="button menu-button">Home</button>
+		</div>
+		<div class="header__menu-button--media">		
+			  <input type=radio class='change-menu' name=change-menu id=close-menu checked value=2>
+		    <label for=close-menu><svg class="icon icon-menu-4"><use xlink:href="#icon-menu4"></use></svg></label>
+		    <input type=radio class='change-menu' name=change-menu id=open-menu value=1>
+			  <label for=open-menu><svg class="icon icon-menu3"><use xlink:href="#icon-menu3"></use></svg></label>
+				<div class="header__menu-button--burger">
+				<button class="button menu-button">Movies</button>
+				<button class="button menu-button">Cinemas</button>
+				<button class="button menu-button">Tickets</button>
+				<button class="button menu-button">Deals</button>
+				<button class="button menu-button">Home</button>
+			</div>
+		</div>
+	</div>
+  <form method=get>
+		<div class="login-join">
+      <div class="enter-block">
+        <h4>	Sign in</h4>
+        <label class="login-join__info"> <input class="login-join__add" type="text" value="" placeholder='Email Address*'></label>
+        <label class="login-join__info"> <input class="login-join__add" type="text" value="" placeholder='Passvord*'></label>
+        <label class="login-join__info"> <input type='submit' class="button login-join_btn"  value='Login'></label>
+      </div>
+      <div class="register-block">
+		    <h4>Register</h4>
+		    <label class="login-join__info"> <input class="login-join__add" type="text" value="" placeholder='Email Address*'></label>
+			  <label class="login-join__info"> <input class="login-join__add" type="text" value="" placeholder='User Name*'></label>
+				<label class="login-join__info"> <input class="login-join__add" type="text" value="" placeholder='Passvord*'></label>
+				<label class="login-join__info"> <input type='submit' class="button login-join_btn"  value='Register'></label>
+      </div>
+    </div>
+	</form>
+	<svg xmlns='http://www.w3.org/2000/svg' xmlns:xlink='http://www.w3.org/1999/xlink'>
+		<symbol id="icon-menu3" viewBox="0 0 88 64">
+			<title>menu3</title>
+			<path d="M0 12h56v12h-56v-12zM0 28h56v12h-56v-12zM0 44h56v12h-56v-12z"></path>
+			<path d="M62 28l12 12 12-12z"></path>
+		</symbol>
+		<symbol id="icon-menu4" viewBox="0 0 32 32">
+			<title>cross</title>
+			<path d="M31.708 25.708c-0-0-0-0-0-0l-9.708-9.708 9.708-9.708c0-0 0-0 0-0 0.105-0.105 0.18-0.227 0.229-0.357 0.133-0.356 0.057-0.771-0.229-1.057l-4.586-4.586c-0.286-0.286-0.702-0.361-1.057-0.229-0.13 0.048-0.252 0.124-0.357 0.228 0 0-0 0-0 0l-9.708 9.708-9.708-9.708c-0-0-0-0-0-0-0.105-0.104-0.227-0.18-0.357-0.228-0.356-0.133-0.771-0.057-1.057 0.229l-4.586 4.586c-0.286 0.286-0.361 0.702-0.229 1.057 0.049 0.13 0.124 0.252 0.229 0.357 0 0 0 0 0 0l9.708 9.708-9.708 9.708c-0 0-0 0-0 0-0.104 0.105-0.18 0.227-0.229 0.357-0.133 0.355-0.057 0.771 0.229 1.057l4.586 4.586c0.286 0.286 0.702 0.361 1.057 0.229 0.13-0.049 0.252-0.124 0.357-0.229 0-0 0-0 0-0l9.708-9.708 9.708 9.708c0 0 0 0 0 0 0.105 0.105 0.227 0.18 0.357 0.229 0.356 0.133 0.771 0.057 1.057-0.229l4.586-4.586c0.286-0.286 0.362-0.702 0.229-1.057-0.049-0.13-0.124-0.252-0.229-0.357z"></path>
+		</symbol>
+  </svg>
+</body>
+
+</html>
