@@ -1,3 +1,4 @@
+/* for main page */
 body {
 	background-color: rgb(70, 69, 69);
 	margin: 0;
@@ -77,7 +78,7 @@ body {
 	display: none;
 }
 /*all buttons style*/
-button { 
+.button { 
   font-family: 'Prosto One', cursive;
   color: black;
   text-align: center;
@@ -156,7 +157,7 @@ h4 {
   cursor: pointer;
 }
 
-.descriptionFilm {
+.description-film {
   display: none;
 }
 
@@ -207,19 +208,129 @@ h4 {
 .soonCinemaButton{
 	display: none;
 }
+/* for buy-tickets page */
+.select-options {
+  margin-left: 40%;
+}
+
+.select-options__title {
+  font-size: 30px;
+  text-shadow: 0 0 30px lightyellow;
+  letter-spacing: 0.5em;
+}
+
+.select-options__cinemas, .select-options__date, .select-options__session-type{
+	display: inline-block;
+	font-size: 20px;
+	border-radius: 6px;
+	outline:0;
+	background-color: lightgray;
+} 
+
+.select-options__cinemas:focus, .select-options__date:focus, .select-options__session-type:focus {
+	background-color: rgb(238, 238, 153);
+}
+
+h5 {
+	font-family: 'Pacifico', cursive;
+	font-size: 20px;
+}
+.session-selection {
+	margin-top: 1.5em;
+	display: flex;
+	justify-content: space-around;
+}
+.session-selection__img {
+  border-radius: 20px;
+	transition-duration: 2s;
+}
+
+.session-selection__film {
+	margin-right: 2%;
+	flex: 0 0 25%;
+  margin: 2px;
+	order: 1;
+	font-size: 20px;
+	margin-left: 1em;
+}
+.session-selection__showing {
+	flex: 0 0 65%;
+	margin: 2px;
+	order: 2;
+}
+
+.showing__place {
+  font-size: 20px;
+	background-color: rgb(231, 222, 170);
+  border-radius: 10px;
+	margin-bottom: 2em;
+	padding: 0.5em;
+	box-shadow: 0 0 20px lightgrey;
+}
+
+.showing__place__screening{
+	display: inline-block;
+	border-radius: 15px;
+	border-color:grey;
+	border-style: solid;
+	cursor: pointer;
+	padding: 2px;
+}
+.showing__place__screening:hover{
+	background-color: lightgray;
+}
+.session-selection__button {
+	margin-top: 6px;
+}
+
+/* for room-places page */
+
+.choice-time {
+	position: absolute;
+	top:10px;
+	right:10px;
+	font-size: 24px;
+	font-weight: bolder;
+	color: beige;
+}
+.room-place {
+	margin: 1.5em;
+	display: flex;
+}
+.room-place__seats {
+	flex: 0 0 75%;
+} 
+.room-place__seats__img {
+	width: 70%;
+	margin-left:1%;
+}
+.room-place__select-film {
+	flex: 0 0 20%;
+	margin: 2px;
+	padding: 1em;
+	order: 2;
+	border-radius: 20px;
+	text-align: center;
+	box-shadow: 0 0 30px lightyellow;
+}
+
+.room-place__select-film__img{
+	border-radius: 20px;
+}
 
 @media  (max-width: 767px) { 
-	
+	/* media for main page */
 .header__menu-button--media {
 	display: block;
 	position: absolute;
 	right: 2px;
 	top: 2px; 
-	background-color: rgb(235, 127, 77);
+	background-color:  darkorange;
 	padding: 0.5em;
 	padding-top: 2em;
 	border-radius: 20px;
 	transition-duration: 2s;
+	box-shadow: 0 0 10px lightgrey;
 }
 .menu-button {
 	display: block;
@@ -233,26 +344,26 @@ h4 {
 	display: none;
 }
 /* media-menu */
-input.More7 {
+.change-menu {
 	display: none;
 }
-input.More7 + label + div {  
+.header__menu-button--burger {  
 	display: none; 
 }
-input.More7:checked + label + div {
+.change-menu:checked + label + .header__menu-button--burger  {
 	display: block;
 }
-input.More7 + label {
+.change-menu + label {
 	cursor: pointer;
 }
-input.More7:checked + label {
+.change-menu:checked + label {
 	display: none;
 }
-input.More7 + label + div + input + label {
+.change-menu + label + .header__menu-button--burger  + input + label {
   display: none;
 	cursor: pointer;
 }
-input.More7:checked + label + div + input + label {
+.change-menu:checked + label + .header__menu-button--burger  + input + label {
 	display: block;
 }
 
@@ -296,15 +407,69 @@ input.More7:checked + label + div + input + label {
 h4 {
 	font-size: 16px;
 }
+/* media for buy-tickets page */
+.select-options {
+	margin-left: 3%;
+}
+.select-options__title {
+  font-size: 18px;
+  text-shadow: 0 0 10px lightyellow;
+  letter-spacing: 0.1em;
+}
+.select-options__cinemas, .select-options__date, .select-options__session-type {
+  font-size: 12px;
+}
+.showing__place__screening {
+  font-size: 14px;
+  border-radius: 10px;
+  margin-bottom: 1em;
+}
+.session-selection {
+  margin-top: 1.5em;
+  display: flex;
+  flex-direction: column;
+  margin-left: 1em;
+  margin-right: 1em;
+}
+.session-selection__img {
+  width:220px;
+}
+.menu-button{
+  font-size: 12px;
+	width: 70px; 
+	height: 50px;
+}
 
+h5{
+  font-size: 16px;
+  font-family: cursive;
+}
+/* for room-places page */
+.choice-time{
+	font-size: 14px;
+}
+.room-place {
+	margin: 1.5em;
+	display: flex;
+	flex-direction: column;
+}
+
+.room-place__seats__img {
+	width: 90%;
+	margin-left:3%;
+}
+
+.room-place__select-film__img {
+  width:50%;
+}
 }
 
 @media  (min-width: 768px) and (max-width: 1200px) {
+	/* for main page */
 .header__menu-button {
   position: absolute;
 	left: 2px;
 	top: 2px; 
-	background-color: rgb(235, 127, 77);
 	padding: 0.5em;
   padding-top: 0.5em;
   border-radius: 20px;
@@ -320,6 +485,22 @@ h4 {
 	flex: 0 0 90%;
 	margin-right: 2%;	
 }
+/* for buy-tickets page */
+.select-options {
+	margin-left: 10%;
+}
+.room-place__select-film__img{
+	width:90%;
+}
 
 } 
-
+@media (min-width: 1200px){
+/* for buy-tickets page */
+.session-selection__img {
+	width: 80%;
+}
+/* for room-places page */
+.room-place__select-film__img{
+	width:90%;
+}
+}
