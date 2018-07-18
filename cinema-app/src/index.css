@@ -3,21 +3,29 @@ body {
 	background-color: rgb(70, 69, 69);
 	margin: 0;
 }
-.upHeader {
-	padding-bottom: 1em;
-	padding-top: 1em;
-} 
+
 .upHeader__city {
 	font-family: 'Pacifico', cursive;
 	font-size: 22px;
 	letter-spacing: 4px;
-	color: yellow;
+	color: rgb(177, 58, 10);
+	text-decoration: underline;
 	display: inline-block;
-	margin-left: 3%;
+	position: absolute;
+	top:80px;
+	left: 10px;
 }
-
+.header__search{
+	display:inline-block;
+	position: absolute;
+	top: 85px;
+	left: 40%; 
+}
 .upHeader__login-button {
-  background-color: rgb(209, 81, 22);
+	background-color: rgb(172, 61, 10);
+	position:absolute;
+	right:8px;
+	top:8px;
 }
 
 .upHeader__search {
@@ -35,6 +43,9 @@ body {
 	outline:0;
 	font-size: 18px;
 	background-color:lightgrey;
+	display: inline-block;
+	margin-left: 30px;
+	text-decoration: none;
 }
 
 .upHeader__change-city:focus {
@@ -43,8 +54,10 @@ body {
 
 .upHeader__search__button {
 	border-radius: 10px;
-	background-color:lightgrey;
+	background-color:rgb(230, 171, 46);
 	height: 28px;
+	outline:0;
+	cursor: pointer;
 }
 
 .header {
@@ -52,7 +65,7 @@ body {
   padding-bottom: 6em;
   padding: 0;
   position: relative;
-  height: 100px;
+  height: 120px;
 }
 
 .header__logo {
@@ -60,9 +73,8 @@ body {
   font-size: 44px;
   vertical-align: bottom;
   display: inline-block;
-  padding-left: 3%;
-  padding-right: 20%;
-  padding-bottom: 45px;
+	padding-bottom: 45px;
+  margin: auto;
 }
 
 /* menu buttons style*/
@@ -70,7 +82,7 @@ body {
 	display: inline-block;
 	position: absolute;
   right: 1%;
-  top: 65px;
+  top: 85px;
   transition-duration: 2s;
 }
 
@@ -82,7 +94,7 @@ body {
   font-family: 'Prosto One', cursive;
   color: black;
   text-align: center;
-  background-color: rgb(185, 183, 159);
+  background-color: rgb(230, 171, 46);
   font-size: 14px;
   border-radius: 5px;
   border-color: #56756c;
@@ -178,8 +190,11 @@ h4 {
 .films-now__flex-conteiner__btn {
 	font-size: 10px;
 	display: inline-block;
+	background-color: beige;
 }
-
+.films-now__flex-conteiner__btn:hover{
+	background-color: rgb(185, 103, 8);
+}
 
 .icon {
   display: inline-block;
@@ -210,11 +225,12 @@ h4 {
 }
 /* for buy-tickets page */
 .select-options {
-  margin-left: 40%;
+	margin-left: 35%;
+	margin-top: 15px;
 }
 
 .select-options__title {
-  font-size: 30px;
+  font-size: 20px;
   text-shadow: 0 0 30px lightyellow;
   letter-spacing: 0.5em;
 }
@@ -236,6 +252,7 @@ h5 {
 	font-size: 20px;
 }
 .session-selection {
+	box-shadow: 0 0 20px lightgoldenrodyellow;
 	margin-top: 1.5em;
 	display: flex;
 	justify-content: space-around;
@@ -255,7 +272,7 @@ h5 {
 }
 .session-selection__showing {
 	flex: 0 0 65%;
-	margin: 2px;
+	margin: 15px;
 	order: 2;
 }
 
@@ -321,7 +338,7 @@ h5 {
 /* for authorisation page */
 
 .login-join {
-	margin: 1.5em;
+	margin: 2.5em;
 	display: flex;
 	border-radius: 20px;
 	justify-content: center;
@@ -449,8 +466,8 @@ h5 {
 .header__menu-button--media {
 	display: block;
 	position: absolute;
-	right: 2px;
-	top: 2px; 
+	right: 5px;
+	top: 40px; 
 	background-color:  darkorange;
 	padding: 0.5em;
 	padding-top: 2em;
@@ -472,6 +489,11 @@ h5 {
 /* media-menu */
 .change-menu {
 	display: none;
+}
+.open-menu__title{
+	font-family: 'Prosto One', cursive;
+	font-weight: bolder;
+	font-size:12px;
 }
 .header__menu-button--burger {  
 	display: none; 
@@ -496,14 +518,18 @@ h5 {
 .icon-menu3 {
   width: 1.375em;
 }
-	
-.header__logo {
-  font-size: 22px;
-  padding-left: 3%;
-	padding-right: 2%;
-  padding-bottom: 15px;
+.upHeader__change-city{
+	display:block;
+	margin:0;
 }
-	
+.header__logo {
+  font-size: 30px;
+  padding-left: 4%;
+}
+.header__search{
+	top:50px;
+	left:10px;
+}
 .films-soon {
 	display: none;	
 }
@@ -515,7 +541,7 @@ h5 {
   margin-top: 1em;
 }
 .films-now__flex-conteiner__film {
-	width:50%;
+	width:120px;
 }
 
 .films-now__flex-container__img {
@@ -625,8 +651,8 @@ h5{
 	/* for main page */
 .header__menu-button {
   position: absolute;
-	left: 2px;
-	top: 2px; 
+	left: 280px;
+	top: 4px; 
 	padding: 0.5em;
   padding-top: 0.5em;
   border-radius: 20px;

@@ -3,313 +3,40 @@
   <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-		<title>Ticket cinema</title>
-		<meta name="viewport" content="width=device-width, initial-scale=1">
-    <link href="https://fonts.googleapis.com/css?family=Fascinate+Inline|Prosto+One|Pacifico" rel="stylesheet">
-		<link rel="stylesheet" type="text/css" media="screen" href="css/index.css"/>
-		
-</head>
+    <meta name="theme-color" content="#000000">
+    <!--
+      manifest.json provides metadata used when your web app is added to the
+      homescreen on Android. See https://developers.google.com/web/fundamentals/engage-and-retain/web-app-manifest/
+		-->
+		<link href="https://fonts.googleapis.com/css?family=Fascinate+Inline|Prosto+One|Pacifico" rel="stylesheet">
+    <link rel="manifest" href="%PUBLIC_URL%/manifest.json">
+    <link rel="shortcut icon" href="%PUBLIC_URL%/favicon.ico">
+    <link rel ="stylesheet" href="https://bootswatch.com/paper/bootstrap.min.css" type="text/css">
+    <!--
+      Notice the use of %PUBLIC_URL% in the tags above.
+      It will be replaced with the URL of the `public` folder during the build.
+      Only files inside the `public` folder can be referenced from the HTML.
 
-<body>
-    <div class="upHeader">
-      <div class="upHeader__city">Minsk</div>
-      <select name='city' class="upHeader__change-city">
-				<option value="1">Vitebsk</option>
-				<option value="2">Grodno</option>
-				<option value="3">Mogilev</option>
-				<option value="4">Molodechno</option>
-				<option value="5">Brest</option>
-			</select>
-						
-      <input class="upHeader__search" type="text" value="" placeholder='search'><button class="upHeader__search__button"><svg class="icon icon-search"><use xlink:href="#icon-search"><symbol id="icon-search" viewBox="0 0 32 32">
-				<title>search</title>
-				<path d="M31.008 27.231l-7.58-6.447c-0.784-0.705-1.622-1.029-2.299-0.998 1.789-2.096 2.87-4.815 2.87-7.787 0-6.627-5.373-12-12-12s-12 5.373-12 12 5.373 12 12 12c2.972 0 5.691-1.081 7.787-2.87-0.031 0.677 0.293 1.515 0.998 2.299l6.447 7.58c1.104 1.226 2.907 1.33 4.007 0.23s0.997-2.903-0.23-4.007zM12 20c-4.418 0-8-3.582-8-8s3.582-8 8-8 8 3.582 8 8-3.582 8-8 8z"></path>
-				</symbol></use></svg></button> 
-      <button class="button upHeader__login-button">Login/Join</button>
-    </div>
-    <div class="header">
-			<h3 class="header__logo">Big cinema</h3>
-			<div class="header__menu-button">
-        <button class="button menu-button">Movies</button>
-        <button class="button menu-button">Cinemas</button>
-        <button class="button menu-button">Tickets</button>
-				<button class="button menu-button">Deals</button>
-	    </div>
-		  <div class="header__menu-button--media">		
-			  <input type=radio class='change-menu' name=change-menu id=close-menu checked value=2>
-		    <label for=close-menu><svg class="icon icon-menu-4"><use xlink:href="#icon-menu4"></use></svg></label>
-		    <input type=radio class='change-menu' name=change-menu id=open-menu value=1>
-			  <label for=open-menu><svg class="icon icon-menu3"><use xlink:href="#icon-menu3"></use></svg></label>
-				<div class="header__menu-button--burger">
-			    <button class="button menu-button">Movies</button>
-				  <button class="button menu-button">Cinemas</button>
-				  <button class="button menu-button">Tickets</button>
-				  <button class="button menu-button">Deals</button>
-				  <button class="button menu-button">Coming Soon</button>
-				</div>
-		  </div>
-		</div>
-    <div class="aside">
-      <div class="films-soon">
-        <h4>Coming Soon</h4>
-        <div class="films-soon__flex-container">
-          <div class="films-soon__flex-container__film"> <img class="films-soon__flex-container__img" src="http://via.placeholder.com/250x360" alt="Зои">
-            <div class="description-film">Жанры: Мелодрама, Фантастика
-              <div>Возрастное ограничение: Зрителям, достигшим возраста 16 лет</div>
-              <div>В кинотеатрах с: 19.07.2018</div>
-              <div> Длительность фильма: 1 ч. 50</div>
-              <div>Режиссёр: Дрейк Доримус</div>
-              <div>Актёры: Леа Сейду, Юэн МакГрегор, Тео Джеймс</div>
-              <div>Романтическая история о сотрудниках научно-исследовательской лаборатории, которые работают над революционной технологией, помогающей создавать идеальные отношения внутри пары. Но чем дальше герои заходят в своих разработках,
-                   тем сложнее и удивительнее становятся их открытия.</div>
-						</div>
+      Unlike "/favicon.ico" or "favicon.ico", "%PUBLIC_URL%/favicon.ico" will
+      work correctly both with client-side routing and a non-root public URL.
+      Learn how to configure a non-root public URL by running `npm run build`.
+    -->
+    <title>React App</title>
+  </head>
+  <body>
+    <noscript>
+      You need to enable JavaScript to run this app.
+    </noscript>
+    <div id="root"></div>
+    <!--
+      This HTML file is a template.
+      If you open it directly in the browser, you will see an empty page.
 
-          </div>
-          <div class="films-soon__flex-container__film"> <img class="films-soon__flex-container__img" src="http://via.placeholder.com/250x360" alt="килиманджара">
-            <div class="description-film">Жанры: Комедия
-              <div>Возрастное ограничение: Зрителям, достигшим возраста 16 лет</div>
-              <div>В кинотеатрах с:19.07.2018</div>
-              <div>Режиссер: Екатерина Телегина</div>
-              <div>Актеры: Ирина Старшенбаум, Павел Прилучный, Варвара Бородина, Тимофей Трибунцев, Максим Виторган</div>
-              <div> Романтическая комедия о молодой невесте Марусе, чей спонтанный избранник пропадает накануне свадьбы. Она отправляется за женихом в его родной Азербайджан, собрав спасательный отряд из старых знакомых, связанных друг с другом
-                        очень непростыми отношениями. Путешествие, полное сюрпризов и приключений, станет судьбоносным для каждого из героев.</div>
-						</div>
-          </div>
-          <div class="films-soon__flex-container__film"> <img class="films-soon__flex-container__img" src="http://via.placeholder.com/250x360" alt="Мектуб">
-            <div class="description-film"> Жанры: Мелодрама
-              <div>Возрастное ограничение: Зрителям, достигшим возраста 18 лет</div>
-              <div>В кинотеатрах с:19.07.2018</div>
-              <div>Режиссер: Абделатиф Кешиш</div>
-              <div>Актеры: Shaïn Boumedine, Ophélie Bau, Салим Кешьюш, Lou Luttiau, Alexia Chardard</div>
-              <div>Начинающий сценарист Амин приезжает в родной городок на побережье Франции, где его ожидают сразу два подарка судьбы – счастливая любовь и возможность выпустить первый фильм.</div>
-						</div>
-          </div>
-          <div class="films-soon__flex-container__film"><img class="films-soon__flex-container__img" src="http://via.placeholder.com/250x360" alt="паранорамльное">
-						<div class="description-film">Жанры: Триллер
-              <div>Возрастное ограничение: Зрителям, достигшим возраста 16 лет</div>
-              <div>В кинотеатрах с:19.07.2018</div>
-              <div>Режиссеры: Джастин Бенсон, Аарон Мурхед</div>
-              <div>Актеры: Калли Эрнандес, Эмили Монтегью, Тейт Эллингтон, Джеймс Джордан, Лью Темпл</div>
-              <div>Десять лет назад братья Аарон и Джастин ценой нечеловеческих усилий смогли выбраться из секты, которая планировала массовое самоубийство. Теперь они жили довольно заурядной жизнью, но однажды получили видео послание от своих
-                   бывших друзей. Аарану удалось уговорить Джастина, съездить и навестить свою бывшую «семью», но по прибытию туда они узнали, что никто им ничего не отправлял. Вскоре герои фильма становятся свидетелями паранормальных явлений и начинают
-                   верить, что нечто потустороннее, во что верят последователи культа, существует на самом деле.</div>
-						</div>
-          </div>
-          <div class="films-soon__flex-container__film"> <img class="films-soon__flex-container__img" src="http://via.placeholder.com/250x360" alt="12 ночь">
-						<div class="description-film">Жанры: Спектакль
-              <div> Возрастное ограничение: Зрителям, достигшим возраста 16 лет</div>
-              <div> В кинотеатрах с:11.07.2018</div>
-              <div>Вечнозелёная шекспировская комедия о неразделённой любви и бесконечной путанице возвращается на сцену Королевской Шекспировской компании в постановке Кристофера Ласкомба, до этого ставившего на этих подмостках «Бесплодные усилия
-                        любви» в 2014 году и «Много шума из ничего» в 2016-м. Корабль разбивается о скалы, и Виола и Себастьян, двойняшки, оказываются разлучены. Переодевшись мужчиной, Виола оказывается в замке у герцога Орсино. Герцог влюблён в графиню
-                        Оливию, которая проникается чувствами к юноше Цезарио, за которого выдаёт себя Виола, в то время как сама Виола влюбляется в герцога. Как будто ситуация недостаточно запуталась, появляется Себастьян, точная копия Цезарио/Виолы</div>
-						</div>
-          </div>
-          <div class="films-soon__flex-container__film"> <img class="films-soon__flex-container__img" src="http://via.placeholder.com/250x360" alt="сон в летнюю ночь">
-						<div class="description-film">Жанры: Спектакль
-              <div> Возрастное ограничение: Зрителям, достигшим возраста 16 лет</div>
-              <div> В кинотеатрах с:25.07.2018</div>
-              <div>Три истории, три сна. Лизандр и Деметрий влюблены в одну и ту же прекрасную афинянку – Гермию. Каждый из них пытается добиться руки девушки, однако ее сердце принадлежит Лизандру. Отец Гермии считает юношу не подходящей партией
-                        для дочери и поэтому не дает молодым людям своего согласия на брак. Тогда Лизандр и Гермия решают покинуть Афины – чтобы обвенчаться. Однако их планам мешает Елена, безответно влюбленная в Деметрия – она выдает беглецов. Деметрий
-                        тут же бросается в погоню, чтобы вернуть Гермию, Елена отправляется за ним. Однако в лесу влюбленных поджидает дух Пэк, маленький эльф, который способен сбить с пути кого угодно!</div>
-						</div>
-          </div>
-          <div class="films-soon__flex-container__film"> <img class="films-soon__flex-container__img" src="http://via.placeholder.com/250x360" alt="жаркие летние ночи">
-            <div class="description-film">Жанры: Драма
-              <div> Возрастное ограничение: Зрителям, достигшим возраста 18 лет</div>
-              <div> В кинотеатрах с:27.07.2018</div>
-              <div>Это знойное лето Дэниэл запомнит надолго, ведь он умудрился одновременно связаться с наркоторговцами и влюбиться в лучшую девушку американского полуострова Кейп-Код. Все бы ничего, но красавица — сестра главного гангстера на
-                        этом курорте.</div>
-						</div>
-          </div>
-          <div class="films-soon__flex-container__film"> <img class="films-soon__flex-container__img" src="http://via.placeholder.com/250x360" alt="миссия не выполнима">
-						<div class="description-film"> Жанры: Боевик, Триллер, Приключения
-              <div> Возрастное ограничение: Зрителям, достигшим возраста 16 лет</div>
-              <div> В кинотеатрах с:26.07.2018</div>
-              <div>Итан Хант и его команда, а также недавно примкнувшие к ним союзники, вынуждены действовать наперегонки со временем, когда новая миссия идет не по плану.</div>
-						</div>
-					</div>
-          <div class="films-soon__flex-container__film"> <img class="films-soon__flex-container__img" src="http://via.placeholder.com/250x360" alt="монстры на каникулах">
-						<div class="description-film">Жанры: Мультфильм, Семейный
-              <div> Возрастное ограничение: Зрителям, достигшим возраста 6 лет</div>
-              <div> В кинотеатрах с:12.07.2018</div>
-              <div>Драк — довольно неловкий и неуклюжий вампир, который закачивает школу и уходит на летние каникулы. Так как его отец считает его довольно взрослым, чтобы самостоятельно отправиться в путешествие, он даёт ему деньги и отпускает
-                        в свободное плавание. Драк отправляется на Гавайи, где встречает привлекательную женщину.</div>
-						</div>
-          </div>
-          <div class="films-soon__flex-container__film"> <img class="films-soon__flex-container__img" src="http://via.placeholder.com/250x360" alt="Париж-зомби">
-						<div class="description-film">Жанры: Триллер, Ужасы
-              <div> Возрастное ограничение: Зрителям, достигшим возраста 16 лет</div>
-              <div> В кинотеатрах с:19.07.2018</div>
-              <div> На утро после шумной вечеринки Сэм обнаруживает, что его бывшая девушка, ее новый бойфренд и вообще все вокруг превратились в зомби. И единственное место на весь Париж, где он может чувствовать себя в безопасности, — это квартира,
-                        где он проснулся. Что делать? Бежать или остаться? Защищаться или нападать самому?</div>
-						</div>
-          </div>
-          <div class="films-soon__flex-container__film"> <img class="films-soon__flex-container__img" src="http://via.placeholder.com/250x360" alt="русалка">
-            <div class="description-film">Жанры: Ужасы
-              <div> Возрастное ограничение: Зрителям, достигшим возраста 16 лет</div>
-              <div> В кинотеатрах с:12.07.2018</div>
-              <div>Встреча со странной девушкой на затерянном лесном озере и её поцелуй резко меняют жизнь Ромы. Об этой встрече он очень скоро пожалеет: неизвестный недуг высасывает из него все жизненные силы. Марина готова на всё, чтобы освободить
-                        жениха от мистического морока. Что окажется сильнее: проклятье прошлого или настоящая любовь?</div>
-						</div>
-          </div>
-          <div class="films-soon__flex-container__film"> <img class="films-soon__flex-container__img" src="http://via.placeholder.com/250x360" alt="убежище дьявола">
-						<div class="description-film"> Жанры: Ужасы
-              <div> Возрастное ограничение: Зрителям, достигшим возраста 16 лет</div>
-              <div> В кинотеатрах с:26.07.2018</div>
-              <div>Три грабительницы забираются ночью на виллу влиятельного сенатора. Их не смущает отсутствие ни прислуги, ни охраны. Хозяин дома и его жена связаны, их сейф опустошен. В подвале, откуда слышится подозрительный шум, девицы находят
-                        парализованную дочь сенатора. Девочка умоляет о помощи: она привязана к кровати и, похоже, её пытали. Но грабительницы и предположить не могли, что, пожалев несчастное дитя и освободив её от пут, они выпустят на волю самого дьявола.
-                        Возможно, теперь только священник сможет спасти несчастных от страшной участи.</div>
-						</div>
-          </div>
-        </div>
-			</div>
-			
-      <div class="films-now">
-        <h4>Now Showing</h4>
-        <div class="films-now__flex-conteiner">
-          <div class="films-now__flex-conteiner__film"><img class="films-now__flex-container__img" src="http://via.placeholder.com/250x360" alt="8 подруг">
-						<div class="description-film">Жанры: Комедия, Экшн
-              <div> Возрастное ограничение: Зрителям, достигшим возраста 16 лет</div>
-              <div> Режиссер: Гэри Росс</div>
-              <div>Актеры:Мэтт Дэймон, Дакота Фаннинг, Энн Хэтэуэй, Хелена Бонем Картер, Кейт Бланшетт
-              <div> В центре сюжета фильма находятся восемь женщин, планирующих совершить «ограбление века». Дэбби Оушен, сестра авантюриста Дэнни Оушена, вместе со своей давней сообщницей Лу Миллер собирает команду уникальных специалистов: ювелир</div>
-                  Амита, карманница Констанс, скупщица краденого Тэмми, хакер Девятка и модельер Роуз. Целью восьми подруг Оушена является бриллиантовое ожерелье стоимостью 150 миллионов долларов, которое будет на шее знаменитой актрисы Дафны Клюгер
-                  во время одного светского мероприятия. План у героинь фильма идеальный, а что будет с его реализацией?</div>
-					  </div>
-						<div> 
-							<button class="button films-now__flex-conteiner__btn"><svg class="icon-film"><use xlink:href="#icon-film"></use></svg></button> 
-							<button  class="button films-now__flex-conteiner__btn"><svg class="icon-coin-dollar"><use xlink:href="#icon-coin-dollar"></use></svg></button>
-						</div>
-          </div>
-          <div class="films-now__flex-conteiner__film"> <img class="films-now__flex-container__img" src="http://via.placeholder.com/250x360" alt="аферисты">
-						<div class="description-film"> Жанры: Комедия
-              <div> Возрастное ограничение: Зрителям, достигшим возраста 18 лет</div>
-              <div>РежиссерДжеймс Окли</div>
-              <div> АктерыСофия Вергара, Тим Рот, Элис Ив, Ума Турман, Паркер Поузи, еще</div>
-              <div> Авантюрная комедия о парочке аферистов Питере и Гарриет, которые, задолжав деньги крупному гангстеру, бегут из Великобритании в Лос-Анджелес. Преследуемые мафией, беглецы планируют кражу драгоценностей, заручившись поддержкой
-                        экс-жены Питера и ее нынешнего мужа.</div>
-						</div>
-						<div> 
-							<button class="button films-now__flex-conteiner__btn"><svg class="icon-film"><use xlink:href="#icon-film"></use></svg></button> 
-							<button class="button films-now__flex-conteiner__btn"><svg class="icon-coin-dollar"><use xlink:href="#icon-coin-dollar"></use></svg></button>
-						</div>
-          </div>
-          <div class="films-now__flex-conteiner__film"> <img class="films-now__flex-container__img" src="http://via.placeholder.com/250x360" alt="книжный клуб">
-						<div class="description-film">Жанры: Комедия
-              <div> Возрастное ограничение: Зрителям, достигшим возраста 16 лет</div>
-              <div> Режиссер: Билл Холдермэн</div>
-              <div> Актеры: Алисия Сильверстоун, Джейн Фонда, Мэри Стинберген</div>
-              <div> Четыре давние подруги из Калифорнии, перешагнувшие порог шестидесятилетия, состоят в одном книжном клубе. Когда в руки начитанных и почтенных дам попадает скандальный эротический бестселлер «50 оттенков серого», в их жизни
-                        наступают революционные перемены. Оказывается, вдохновение можно черпать в самых неожиданных местах.</div>
-						</div>
-						<div> 
-							<button class="button films-now__flex-conteiner__btn"><svg class="icon-film"><use xlink:href="#icon-film"></use></svg></button> 
-							<button class="button films-now__flex-conteiner__btn"><svg class="icon-coin-dollar"><use xlink:href="#icon-coin-dollar"></use></svg></button>
-						</div>
-          </div>
-          <div class="films-now__flex-conteiner__film"> <img class="films-now__flex-container__img" src="http://via.placeholder.com/250x360" alt="пылающий">
-						<div class="description-film">Жанры: Драма, Триллер, Детектив
-              <div> Возрастное ограничение: Зрителям, достигшим возраста 18 лет</div>
-              <div> Режиссер: Ли Чхан-дон</div>
-              <div> Актеры: Ю А-ин, Стивен Ян, Чон Джон-со</div>
-              <div> Молодой парень по имени Чон-су, работающий в кинопрокатной компании, влюблен в свою подругу Хэ-ми, с которой он вместе учился. Однажды Хэ-ми уезжает в Африку, чтобы найти себя, а когда возвращается из нее, знакомит Чон-су
-                  со своим новым другом Беном. Поначалу молодые люди просто хорошо проводят время вместе, но однажды Бен рассказывает о своем необычном хобби – он любит поджигать чужие заброшенные сараи. С этого момента жизнь героев меняется невероятным
-                  образом.</div>
-					  </div>
-						<div> 
-							<button class="button films-now__flex-conteiner__btn"><svg class="icon-film"><use xlink:href="#icon-film"></use></svg></button> 
-							<button class="button films-now__flex-conteiner__btn"><svg class="icon-coin-dollar"><use xlink:href="#icon-coin-dollar"></use></svg></button>
-						</div>
-          </div>
-          <div class="films-now__flex-conteiner__film"> <img class="films-now__flex-container__img" src="http://via.placeholder.com/250x360" alt="ты водишь">
-						<div class="description-film">Жанры: Комедия
-              <div> Возрастное ограничение: Зрителям, достигшим возраста 16 лет</div>
-              <div> Режиссер: Джефф Томсич</div>
-              <div> АктерыДжереми Реннер, Эд Хелмс, Хэннибал Бёресс, Трэйси Морган, Айла Фишер</div>
-              <div> Группа бывших одноклассников на протяжении тридцати лет, каждый май, играют в детские салочки. Они бегают друг за другом по всей стране, устраивают засады, врываются в чужие дома и совершают немыслимые безумства, лишь бы хоть
-                        раз победить абсолютного чемпиона Джерри.</div>
-						</div>
-						<div> 
-							<button class="button films-now__flex-conteiner__btn"><svg class="icon-film"><use xlink:href="#icon-film"></use></svg></button> 
-							<button class="button films-now__flex-conteiner__btn"><svg class="icon-coin-dollar"><use xlink:href="#icon-coin-dollar"></use></svg></button>
-						</div>
-          </div>
-          <div class="films-now__flex-conteiner__film"> <img class="films-now__flex-container__img" src="http://via.placeholder.com/250x360" alt="убийца2">
-						<div class="description-film"> Жанры: Боевик, Триллер
-              <div> Возрастное ограничение: Зрителям, достигшим возраста 18 лет</div>
-              <div> Режиссер: Стефано Соллима</div>
-              <div> Актеры: Изабела Монер, Кристофер Хейердал, Джош Бролин, Мэттью Модайн, Бенисио Дель Торо</div>
-              <div> Мексиканские наркокартели начинают переправлять в США не только наркотики и нелегалов, но еще и террористов. Это естественно не нравится правительству США и поэтому оно решает пойти на кардинальные меры. В итоге федеральный
-                  агент Мэтт Грейвер вновь обращается за помощью к мексиканцу Алехандро Гиллике. Вместе они собираются спровоцировать войну между конкурирующими картелями и для этого похищают дочь одного из их лидеров. А когда ситуация обостряется
-                  агент Грейвер приказывает Алехандро убить ребенка...</div>
-					  </div>
-						<div> 
-							<button class="button films-now__flex-conteiner__btn"><svg class="icon-film"><use xlink:href="#icon-film"></use></svg></button> 
-							<button class="button films-now__flex-conteiner__btn"><svg class="icon-coin-dollar"><use xlink:href="#icon-coin-dollar"></use></svg></button>
-						</div>
-          </div>
-          <div class="films-now__flex-conteiner__film"> <img class="films-now__flex-container__img" src="http://via.placeholder.com/250x360" alt="человек-оса">
-						<div class="description-film">Жанры: Приключения, Фантастика, Экшн
-              <div> Возрастное ограничение: Зрителям, достигшим возраста 12 лет</div>
-              <div> Режиссер: Пейтон Рид</div>
-              <div> Актеры: Пол Радд, Эванджелин Лилли, Майкл Дуглас, Майкл Пенья</div>
-              <div> В центре сюжета фильма находится Скотт Лэнг, который в костюме Человека-Муравья стал новым Мстителем, но при этом решил вернуться в свой родной Сан-Франциско, чтобы попытаться совместить обязанности супергероя и отца. Однако
-                    в планы Лэнга вмешивается доктор Хэнк Пим, который призывает его присоединиться к новой ответственной миссии по защите нашего мира от таинственного и могущественного злодея. На этот раз у Человека-Муравья появится напарница по
-                    прозвищу Оса.</div>
-						</div>
-						<div> 
-							<button class="button films-now__flex-conteiner__btn"><svg class="icon-film"><use xlink:href="#icon-film"></use></svg></button> 
-							<button class="button films-now__flex-conteiner__btn"><svg class="icon-coin-dollar"><use xlink:href="#icon-coin-dollar"></use></svg></button>
-						</div>
-          </div>
-          <div class="films-now__flex-conteiner__film"> <img class="films-now__flex-container__img" src="http://via.placeholder.com/250x360" alt="эскобар">
-            <div class="description-film">Жанры: Драма, Биография
-              <div> Возрастное ограничение: Зрителям, достигшим возраста 18 лет</div>
-              <div> Режиссер:Фернандо Леон Де Араноа</div>
-              <div> АктерыПенелопа Крус, Хавьер Бардем, Питер Сарсгаард, David Ojalvo, Дэвид Валенсиа</div>
-              <div> Фильм повествует историю жизни знаменитого наркобарона Пабло Эскобара. В самом начале он был щедрым благотворителем и строил дома для бедных жителей Колумбии на деньги, полученные от продажи наркотиков в США. Именно тогда
-                    в него влюбилась известная журналистка Вирхиния Вальехо, но вскоре ей пришлось столкнуться со значительными изменениями в мировоззрении своего возлюбленного. Пожелав, чтобы его уважали, Эскобар развязал кровавую войну и превратился
-                    в безжалостного убийцу.</div>
-						</div>
-            <div> 
-							<button class="button films-now__flex-conteiner__btn"><svg class="icon-film"><use xlink:href="#icon-film"></use></svg></button> 
-							<button class="button films-now__flex-conteiner__btn"><svg class="icon-coin-dollar"><use xlink:href="#icon-coin-dollar"></use></svg></button>
-						</div>
-          </div>
-          <div class="films-now__flex-conteiner__film"><img class="films-now__flex-container__img" src="http://via.placeholder.com/250x360" alt="хот-дог">
-						<div class="description-film"> Жанры: Комедия, Боевик
-              <div> Возрастное ограничение: Зрителям, достигшим возраста 16 лет</div>
-              <div> Режиссер: Торстен Кюнстлер</div>
-              <div> Актеры:Тиль Швайгер, Маттиас Швайгхёфер, Хайно Ферх, Лиза Томашевски</div>
-              <div> В центре сюжета фильма находятся два блюстителя порядка – Тео и Люк. Если первый – это самый настоящий ботан со всеми вытекающими из этого последствиями, то второй – грубиян, привыкший решать все свои вопросы кулаками. Именно
-                        таким непохожим друг на друга людям предстоит объединиться в команду, чтобы спасти похищенную дочь посла одной из восточно-европейских стран.</div>
-            </div>
-            <div> 
-							<button class="button films-now__flex-conteiner__btn"><svg class="icon-film"><use xlink:href="#icon-film"></use></svg></button> 
-							<button class="button films-now__flex-conteiner__btn"><svg class="icon-coin-dollar"><use xlink:href="#icon-coin-dollar"></use></svg></button>
-						</div>
-          </div>
-        </div>
-      </div>
-		</div>
-		<svg xmlns='http://www.w3.org/2000/svg' xmlns:xlink='http://www.w3.org/1999/xlink'>
-			<symbol id="icon-film" viewBox="0 0 32 32">
-				<path d="M0 4v24h32v-24h-32zM6 26h-4v-4h4v4zM6 18h-4v-4h4v4zM6 10h-4v-4h4v4zM24 26h-16v-20h16v20zM30 26h-4v-4h4v4zM30 18h-4v-4h4v4zM30 10h-4v-4h4v4zM12 10v12l8-6z"></path>
-			</symbol>
-			<symbol id="icon-coin-dollar" viewBox="0 0 32 32">
-				<path d="M15 2c-8.284 0-15 6.716-15 15s6.716 15 15 15c8.284 0 15-6.716 15-15s-6.716-15-15-15zM15 29c-6.627 0-12-5.373-12-12s5.373-12 12-12c6.627 0 12 5.373 12 12s-5.373 12-12 12zM16 16v-4h4v-2h-4v-2h-2v2h-4v8h4v4h-4v2h4v2h2v-2h4l-0-8h-4zM14 16h-2v-4h2v4zM18 22h-2v-4h2v4z"></path>
-			</symbol>
-			<symbol id="icon-menu3" viewBox="0 0 88 64">
-				<title>menu3</title>
-				<path d="M0 12h56v12h-56v-12zM0 28h56v12h-56v-12zM0 44h56v12h-56v-12z"></path>
-				<path d="M62 28l12 12 12-12z"></path>
-			</symbol>
-			<symbol id="icon-menu4" viewBox="0 0 32 32">
-				<title>cross</title>
-				<path d="M31.708 25.708c-0-0-0-0-0-0l-9.708-9.708 9.708-9.708c0-0 0-0 0-0 0.105-0.105 0.18-0.227 0.229-0.357 0.133-0.356 0.057-0.771-0.229-1.057l-4.586-4.586c-0.286-0.286-0.702-0.361-1.057-0.229-0.13 0.048-0.252 0.124-0.357 0.228 0 0-0 0-0 0l-9.708 9.708-9.708-9.708c-0-0-0-0-0-0-0.105-0.104-0.227-0.18-0.357-0.228-0.356-0.133-0.771-0.057-1.057 0.229l-4.586 4.586c-0.286 0.286-0.361 0.702-0.229 1.057 0.049 0.13 0.124 0.252 0.229 0.357 0 0 0 0 0 0l9.708 9.708-9.708 9.708c-0 0-0 0-0 0-0.104 0.105-0.18 0.227-0.229 0.357-0.133 0.355-0.057 0.771 0.229 1.057l4.586 4.586c0.286 0.286 0.702 0.361 1.057 0.229 0.13-0.049 0.252-0.124 0.357-0.229 0-0 0-0 0-0l9.708-9.708 9.708 9.708c0 0 0 0 0 0 0.105 0.105 0.227 0.18 0.357 0.229 0.356 0.133 0.771 0.057 1.057-0.229l4.586-4.586c0.286-0.286 0.362-0.702 0.229-1.057-0.049-0.13-0.124-0.252-0.229-0.357z"></path>
-			</symbol>
-		</svg>
-								
-</body>
+      You can add webfonts, meta tags, or analytics to this file.
+      The build step will place the bundled scripts into the <body> tag.
 
+      To begin the development, run `npm start` or `yarn start`.
+      To create a production bundle, use `npm run build` or `yarn build`.
+    -->
+  </body>
 </html>
