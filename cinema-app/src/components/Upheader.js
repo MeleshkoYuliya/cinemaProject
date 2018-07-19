@@ -35,7 +35,7 @@ render() {
 			<img src={logo} className="App-logo" alt="logo" /></button> 
 			</div>
       <Link to="/authorisation"><button className="button upHeader__login-button">Login/Join</button></Link>
-	
+	    <Route path="/authorisation" component={Authorisation}/>
 			<div className="header__menu-button">
 			<Link to="/movies"><button className="button menu-button">Movies</button></Link>
         <button className="button menu-button">Cinemas</button>
@@ -53,15 +53,15 @@ render() {
 				<img src={openmenu} className="menu" alt="openmenu" />
 				</label>
 				<div className="header__menu-button--burger">
-			    <button className="button menu-button">Movies</button>
+				<Link to="/movies"><button className="button menu-button">Movies</button></Link>
 				  <button className="button menu-button">Cinemas</button>
-				  <button className="button menu-button">Tickets</button>
+					<Link to="/buy-tickets"><button className="button menu-button">Tickets</button></Link>
 				  <button className="button menu-button">Deals</button>
 				  <button className="button menu-button">Coming Soon</button>
+					<Link to="/"><button class="button menu-button">Home</button></Link>
 				</div>
 		  </div>
-		
-			<Route path="/authorisation" component={Authorisation}/>
+			
 			<Route path="/movies" component={Aside}/>
 			<Route path="/buy-tickets" component={BuyTickets}/>
 			<Route exact path="/" component={Aside}/>
