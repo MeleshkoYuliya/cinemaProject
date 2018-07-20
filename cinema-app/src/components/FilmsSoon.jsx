@@ -8,9 +8,9 @@ class FilmsSoon extends React.Component {
 // }
 render() {
 	return (
-		<div class="films-soon__flex-container">
-		<div class="films-soon__flex-container__film"> <img class="films-soon__flex-container__img" src="http://via.placeholder.com/250x360" alt="Зои"/>
-			<div class="description-film">Жанры: Мелодрама, Фантастика
+		<div className="films-soon__flex-container">
+		<div className="films-soon__flex-container__film"> <img className="films-soon__flex-container__img" src="http://via.placeholder.com/250x360" alt="Зои"/>
+			<div className="description-film">Жанры: Мелодрама, Фантастика
 				<div>Возрастное ограничение: Зрителям, достигшим возраста 16 лет</div>
 				<div>В кинотеатрах с: 19.07.2018</div>
 				<div> Длительность фильма: 1 ч. 50</div>
@@ -21,8 +21,8 @@ render() {
 			</div>
 
 		</div>
-		<div class="films-soon__flex-container__film"> <img class="films-soon__flex-container__img" src="http://via.placeholder.com/250x360" alt="килиманджара"/>
-			<div class="description-film">Жанры: Комедия
+		<div className="films-soon__flex-container__film"> <img className="films-soon__flex-container__img" src="http://via.placeholder.com/250x360" alt="килиманджара"/>
+			<div className="description-film">Жанры: Комедия
 				<div>Возрастное ограничение: Зрителям, достигшим возраста 16 лет</div>
 				<div>В кинотеатрах с:19.07.2018</div>
 				<div>Режиссер: Екатерина Телегина</div>
@@ -31,8 +31,8 @@ render() {
 									очень непростыми отношениями. Путешествие, полное сюрпризов и приключений, станет судьбоносным для каждого из героев.</div>
 			</div>
 		</div>
-		<div class="films-soon__flex-container__film"> <img class="films-soon__flex-container__img" src="http://via.placeholder.com/250x360" alt="Мектуб"/>
-			<div class="description-film"> Жанры: Мелодрама
+		<div className="films-soon__flex-container__film"> <img className="films-soon__flex-container__img" src="http://via.placeholder.com/250x360" alt="Мектуб"/>
+			<div className="description-film"> Жанры: Мелодрама
 				<div>Возрастное ограничение: Зрителям, достигшим возраста 18 лет</div>
 				<div>В кинотеатрах с:19.07.2018</div>
 				<div>Режиссер: Абделатиф Кешиш</div>
@@ -40,8 +40,8 @@ render() {
 				<div>Начинающий сценарист Амин приезжает в родной городок на побережье Франции, где его ожидают сразу два подарка судьбы – счастливая любовь и возможность выпустить первый фильм.</div>
 			</div>
 		</div>
-		<div class="films-soon__flex-container__film"><img class="films-soon__flex-container__img" src="http://via.placeholder.com/250x360" alt="паранорамльное"/>
-			<div class="description-film">Жанры: Триллер
+		<div className="films-soon__flex-container__film"><img className="films-soon__flex-container__img" src="http://via.placeholder.com/250x360" alt="паранорамльное"/>
+			<div className="description-film">Жанры: Триллер
 				<div>Возрастное ограничение: Зрителям, достигшим возраста 16 лет</div>
 				<div>В кинотеатрах с:19.07.2018</div>
 				<div>Режиссеры: Джастин Бенсон, Аарон Мурхед</div>
@@ -51,8 +51,8 @@ render() {
 						 верить, что нечто потустороннее, во что верят последователи культа, существует на самом деле.</div>
 			</div>
 		</div>
-		<div class="films-soon__flex-container__film"> <img class="films-soon__flex-container__img" src="http://via.placeholder.com/250x360" alt="12 ночь"/>
-			<div class="description-film">Жанры: Спектакль
+		<div className="films-soon__flex-container__film"> <img className="films-soon__flex-container__img" src="http://via.placeholder.com/250x360" alt="12 ночь"/>
+			<div className="description-film">Жанры: Спектакль
 				<div> Возрастное ограничение: Зрителям, достигшим возраста 16 лет</div>
 				<div> В кинотеатрах с:11.07.2018</div>
 				<div>Вечнозелёная шекспировская комедия о неразделённой любви и бесконечной путанице возвращается на сцену Королевской Шекспировской компании в постановке Кристофера Ласкомба, до этого ставившего на этих подмостках «Бесплодные усилия
@@ -60,8 +60,8 @@ render() {
 									Оливию, которая проникается чувствами к юноше Цезарио, за которого выдаёт себя Виола, в то время как сама Виола влюбляется в герцога. Как будто ситуация недостаточно запуталась, появляется Себастьян, точная копия Цезарио/Виолы</div>
 			</div>
 		</div>
-		<div class="films-soon__flex-container__film"> <img class="films-soon__flex-container__img" src="http://via.placeholder.com/250x360" alt="сон в летнюю ночь"/>
-			<div class="description-film">Жанры: Спектакль
+		<div className="films-soon__flex-container__film"> <img className="films-soon__flex-container__img" src="http://via.placeholder.com/250x360" alt="сон в летнюю ночь"/>
+			<div className="description-film">Жанры: Спектакль
 				<div> Возрастное ограничение: Зрителям, достигшим возраста 16 лет</div>
 				<div> В кинотеатрах с:25.07.2018</div>
 				<div>Три истории, три сна. Лизандр и Деметрий влюблены в одну и ту же прекрасную афинянку – Гермию. Каждый из них пытается добиться руки девушки, однако ее сердце принадлежит Лизандру. Отец Гермии считает юношу не подходящей партией
@@ -69,47 +69,47 @@ render() {
 									тут же бросается в погоню, чтобы вернуть Гермию, Елена отправляется за ним. Однако в лесу влюбленных поджидает дух Пэк, маленький эльф, который способен сбить с пути кого угодно!</div>
 			</div>
 		</div>
-		<div class="films-soon__flex-container__film"> <img class="films-soon__flex-container__img" src="http://via.placeholder.com/250x360" alt="жаркие летние ночи"/>
-			<div class="description-film">Жанры: Драма
+		<div className="films-soon__flex-container__film"> <img className="films-soon__flex-container__img" src="http://via.placeholder.com/250x360" alt="жаркие летние ночи"/>
+			<div className="description-film">Жанры: Драма
 				<div> Возрастное ограничение: Зрителям, достигшим возраста 18 лет</div>
 				<div> В кинотеатрах с:27.07.2018</div>
 				<div>Это знойное лето Дэниэл запомнит надолго, ведь он умудрился одновременно связаться с наркоторговцами и влюбиться в лучшую девушку американского полуострова Кейп-Код. Все бы ничего, но красавица — сестра главного гангстера на
 									этом курорте.</div>
 			</div>
 		</div>
-		<div class="films-soon__flex-container__film"> <img class="films-soon__flex-container__img" src="http://via.placeholder.com/250x360" alt="миссия не выполнима"/>
-			<div class="description-film"> Жанры: Боевик, Триллер, Приключения
+		<div className="films-soon__flex-container__film"> <img className="films-soon__flex-container__img" src="http://via.placeholder.com/250x360" alt="миссия не выполнима"/>
+			<div className="description-film"> Жанры: Боевик, Триллер, Приключения
 				<div> Возрастное ограничение: Зрителям, достигшим возраста 16 лет</div>
 				<div> В кинотеатрах с:26.07.2018</div>
 				<div>Итан Хант и его команда, а также недавно примкнувшие к ним союзники, вынуждены действовать наперегонки со временем, когда новая миссия идет не по плану.</div>
 			</div>
 		</div>
-		<div class="films-soon__flex-container__film"> <img class="films-soon__flex-container__img" src="http://via.placeholder.com/250x360" alt="монстры на каникулах"/>
-			<div class="description-film">Жанры: Мультфильм, Семейный
+		<div className="films-soon__flex-container__film"> <img className="films-soon__flex-container__img" src="http://via.placeholder.com/250x360" alt="монстры на каникулах"/>
+			<div className="description-film">Жанры: Мультфильм, Семейный
 				<div> Возрастное ограничение: Зрителям, достигшим возраста 6 лет</div>
 				<div> В кинотеатрах с:12.07.2018</div>
 				<div>Драк — довольно неловкий и неуклюжий вампир, который закачивает школу и уходит на летние каникулы. Так как его отец считает его довольно взрослым, чтобы самостоятельно отправиться в путешествие, он даёт ему деньги и отпускает
 									в свободное плавание. Драк отправляется на Гавайи, где встречает привлекательную женщину.</div>
 			</div>
 		</div>
-		<div class="films-soon__flex-container__film"> <img class="films-soon__flex-container__img" src="http://via.placeholder.com/250x360" alt="Париж-зомби"/>
-			<div class="description-film">Жанры: Триллер, Ужасы
+		<div className="films-soon__flex-container__film"> <img className="films-soon__flex-container__img" src="http://via.placeholder.com/250x360" alt="Париж-зомби"/>
+			<div className="description-film">Жанры: Триллер, Ужасы
 				<div> Возрастное ограничение: Зрителям, достигшим возраста 16 лет</div>
 				<div> В кинотеатрах с:19.07.2018</div>
 				<div> На утро после шумной вечеринки Сэм обнаруживает, что его бывшая девушка, ее новый бойфренд и вообще все вокруг превратились в зомби. И единственное место на весь Париж, где он может чувствовать себя в безопасности, — это квартира,
 									где он проснулся. Что делать? Бежать или остаться? Защищаться или нападать самому?</div>
 			</div>
 		</div>
-		<div class="films-soon__flex-container__film"> <img class="films-soon__flex-container__img" src="http://via.placeholder.com/250x360" alt="русалка"/>
-			<div class="description-film">Жанры: Ужасы
+		<div className="films-soon__flex-container__film"> <img className="films-soon__flex-container__img" src="http://via.placeholder.com/250x360" alt="русалка"/>
+			<div className="description-film">Жанры: Ужасы
 				<div> Возрастное ограничение: Зрителям, достигшим возраста 16 лет</div>
 				<div> В кинотеатрах с:12.07.2018</div>
 				<div>Встреча со странной девушкой на затерянном лесном озере и её поцелуй резко меняют жизнь Ромы. Об этой встрече он очень скоро пожалеет: неизвестный недуг высасывает из него все жизненные силы. Марина готова на всё, чтобы освободить
 									жениха от мистического морока. Что окажется сильнее: проклятье прошлого или настоящая любовь?</div>
 			</div>
 		</div>
-		<div class="films-soon__flex-container__film"> <img class="films-soon__flex-container__img" src="http://via.placeholder.com/250x360" alt="убежище дьявола"/>
-			<div class="description-film"> Жанры: Ужасы
+		<div className="films-soon__flex-container__film"> <img className="films-soon__flex-container__img" src="http://via.placeholder.com/250x360" alt="убежище дьявола"/>
+			<div className="description-film"> Жанры: Ужасы
 				<div> Возрастное ограничение: Зрителям, достигшим возраста 16 лет</div>
 				<div> В кинотеатрах с:26.07.2018</div>
 				<div>Три грабительницы забираются ночью на виллу влиятельного сенатора. Их не смущает отсутствие ни прислуги, ни охраны. Хозяин дома и его жена связаны, их сейф опустошен. В подвале, откуда слышится подозрительный шум, девицы находят

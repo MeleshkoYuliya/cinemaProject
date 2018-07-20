@@ -9,12 +9,12 @@ class Aside extends React.Component {
 // }
 render() {
 	return (
-		<div class="aside">
-		<div class="films-soon">
+		<div className="aside">
+		<div className="films-soon">
 	  <h4>Coming Soon</h4>
 		<FilmsSoon/>
 		</div>
-		<div class="films-now">
+		<div className="films-now">
 		<h4>Now Showing</h4>
 		<FilmsNow/>
 		</div>
