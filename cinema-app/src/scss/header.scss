@@ -19,9 +19,11 @@ body {
 	left: 40%; 
 }
 .header__login-button {
+	@include buttons-style;
 	position:absolute;
 	right:8px;
 	top:8px;
+	background-color: $header-color;
 }
 
 .header__search__inp {

@@ -10,7 +10,8 @@ import Header from './components/Header';
 // import  Login, { fakeAuth }  from './Login';
 
 import './App.css';
-import './index.css';
+// import './index.css';
+import './scss/style.scss';
 class App extends Component {
 render() {
 
