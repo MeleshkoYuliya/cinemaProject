@@ -8,8 +8,7 @@ class FilmsNow extends React.Component {
 // 	city: PropTypes.string.isRequired,
 // }
 render() {
-	return (
-		
+	return (		
         <div className="films-now__flex-conteiner">
           <div className="films-now__flex-conteiner__film"><img className="films-now__flex-container__img" src="http://via.placeholder.com/250x360" alt="8 подруг"/>
 						<div> 

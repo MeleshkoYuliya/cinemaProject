@@ -1,0 +1,73 @@
+.cinemas {
+	margin-top: 80px;	
+}
+
+.home__button--cinema{
+	@include buttons-style($height:40px);
+	margin-top: 10px;
+	margin-left:30px;
+	background-color:$bkgd-color;
+	border-color: $header-color;
+	color: white;
+	width:120px;
+	  &:hover{
+			background-color:  $header-color;
+		}
+	}
+
+.cinema {
+	font-size: 20px;
+  border-radius: 10px;
+	padding: 0.5em;
+	margin: 10px;
+	box-shadow: 0 0 20px lightgrey;
+	font-family: $context-font;
+	display: flex;
+	flex-direction:nowrap row;
+	justify-content: space-around;
+}
+.cinema__description{
+	flex:0 0 30%;
+	order:2;
+	margin: 10px;
+}
+.cinema__img{
+	flex:0 0 30%;
+	order:3;
+}
+.cinema__img img{
+	border-radius: 30px;
+}
+.cinema__title{
+	order:1;
+	flex:0 0 30%;
+}
+@media  (max-width: 767px) { 
+	.cinemas {
+		margin-top: 70px;
+		
+	}
+	.home__button--cinema{
+			height: 30px;
+		}
+	.cinema {
+		font-size: 14px;
+		flex-direction:column;
+	}
+	
+	.cinema__img img{
+		border-radius: 30px;
+		width: 80%;
+	}
+	.cinema__title{
+		order:1;
+		flex:0 0 30%;
+	}
+}
+@media  (min-width: 768px) and (max-width: 1200px) {
+	.cinema {
+		font-size: 18px;
+		flex-direction:column;
+	}
+	
+}

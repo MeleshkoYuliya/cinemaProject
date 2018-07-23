@@ -3,7 +3,7 @@ import React, { Component } from 'react';
 // import Movies from './Movies';
 // import Products from './Products';
 // import  Login, { fakeAuth }  from './Login';
-import Upheader from './components/Upheader';
+import Header from './components/Header';
 // import Header from './Header';
 // import Aside from './Aside';
 
@@ -17,7 +17,7 @@ render() {
 	return (
 	
 		<div>
-		<Upheader/>
+		<Header/>
 		{/* <Header/>
 		  <nav className="navbar navbar">     
 			<ul className="nav navbar-nav">

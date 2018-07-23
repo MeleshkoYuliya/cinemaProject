@@ -1,0 +1,43 @@
+
+@mixin films_block-style{
+	background-color:$bkgd-color;
+	border-radius: 20px;
+	text-align: center;
+	box-shadow: 0 0 30px lightyellow;
+}
+.movies {
+  margin: 1.5em;
+  display: flex;
+  justify-content:flex-start;
+}
+
+.films-soon {
+	flex: 0 0 20%;
+	margin: 2px;
+	padding: 1em;
+	order: 2;
+  @include films_block-style;
+}
+
+/* block of film showing now*/
+.films-now {
+	flex: 0 0 70%;
+	margin-right:3%;
+	order: 1;
+	padding: 2em;
+	padding-bottom: 2em;
+	@include films_block-style;
+}
+
+@media  (max-width: 767px) { 
+	.films-soon {
+		display: none;	
+	}
+	
+	.films-now {
+		flex: 0 0 80%;
+		margin: auto;
+		padding: 0.5em;
+		margin-top: 1em;
+	}
+}

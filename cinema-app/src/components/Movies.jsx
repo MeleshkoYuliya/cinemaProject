@@ -1,14 +1,26 @@
-
 import React from 'react';
-import { Link, Route } from 'react-router-dom';
+import FilmsNow from './FilmsNow';
+import FilmsSoon from './FilmsSoon';
 
-const Movies = ({ match }) => {
-return( <div>  
-        <div><Link to={`${match.url}/shoes`}>Now showing</Link></div>
-        <div><Link to={`${match.url}/boots`}>Coming Soon</Link></div>
-   
-      <Route path={`${match.path}/:name`} render= {({match}) =>( <div> <h3> {match.params.name} </h3></div>)}/>
-      </div>)
+class Movies extends React.Component {
+
+// static propTypes = {
+// 	city: PropTypes.string.isRequired,
+// }
+render() {
+	return (
+		<div className="movies">
+		<div className="films-soon">
+	  <h4>Coming Soon</h4>
+		<FilmsSoon/>
+		</div>
+		<div className="films-now">
+		<h4>Now Showing</h4>
+		<FilmsNow/>
+		</div>
+   </div>
+	)
 }
-
+}
+      
 export default Movies;

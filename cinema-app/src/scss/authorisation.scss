@@ -1,0 +1,56 @@
+.login-join {
+	margin: 100px;
+	display: flex;
+	border-radius: 20px;
+	justify-content: space-around;
+}
+.enter-block, .register-block {
+	flex: 0 0 40%;
+	margin: 2px;
+	order: 1;
+	padding: 2em;
+	padding-bottom: 2em;
+	background-color: lightgrey;
+	border-radius: 20px;
+	text-align: center;
+	box-shadow: 0 0 30px lightyellow;
+}
+
+.login-join_btn {
+	@include buttons-style;
+	background-color: $header-color;
+	width:80px;
+	  &:hover{
+		  background-color:$bkgd-color;
+		  transition-duration: 0.5s;
+		  color: white;
+	 }
+}
+.login-join__add {
+	margin-bottom: 1em;
+	@include input-style;
+	  &:focus{
+      background-color: rgb(238, 238, 153);
+		}
+}
+
+.login-join__info{
+	display:block;
+}
+@media  (max-width: 767px) { 
+	.login-join {
+		width: 70%;
+		margin-top:70px;
+		flex-direction: column;
+		transition-duration: 2s;
+	}
+	.login-join__add{
+		font-size: 10px;
+	}
+}
+@media  (min-width: 768px) and (max-width: 1200px) {
+	.login-join {
+		width: 80%;
+		transition-duration: 2s;
+	}
+}

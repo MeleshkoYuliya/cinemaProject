@@ -1,0 +1,22 @@
+.films-soon__flex-container {
+	display: flex;
+	flex-flow: row wrap;
+	justify-content: flex-start;
+}
+
+.films-soon__flex-container__film {
+	margin: auto;
+	padding: 0.5em;
+	margin-bottom: 1em;
+	border-radius: 20px;
+	flex:0;
+}
+.films-soon__flex-container__img {
+  width: 80px;
+	cursor: pointer;
+	border-radius: 15px;
+}
+
+.soonCinemaButton{
+	display: none;
+}

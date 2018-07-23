@@ -3,10 +3,8 @@ body {
 	background-color: rgb(70, 69, 69);
 	margin: 0;
 }
-.ActivePageLink button{
-	color:red;
-}
-.upHeader__city {
+
+.header__city {
 	font-family: 'Pacifico', cursive;
 	font-size: 22px;
 	font-weight: bolder;
@@ -24,24 +22,24 @@ body {
 	top: 85px;
 	left: 40%; 
 }
-.upHeader__login-button {
-	background-color: rgb(172, 61, 10);
+.header__login-button {
+	background-color: darkorange;;
 	position:absolute;
 	right:8px;
 	top:8px;
 }
 
-.upHeader__search {
+.header__search__inp {
 	border-radius: 6px;
 	outline:0;
 	font-size: 16px;
 	background-color:lightgrey;
 }
-.upHeader__search:focus {
+.header__search__inp:focus {
 	background-color: rgb(238, 238, 153);
 	}
 
-.upHeader__change-city {
+.header__change-city {
 	border-radius: 6px;
 	outline:0;
 	font-size: 18px;
@@ -50,13 +48,12 @@ body {
 	margin-left: 30px;
 }
 
-.upHeader__change-city:focus {
+.header__change-city:focus {
 	background-color: rgb(238, 238, 153);
 }
 
-.upHeader__search__button {
-	border-radius: 10px;
-	background-color:rgb(230, 171, 46);
+.header__search__button {
+	background-color:darkorange;
 	height: 28px;
 	outline:0;
 	cursor: pointer;
@@ -64,8 +61,6 @@ body {
 
 .header {
   background-color: darkorange;
-  padding-bottom: 6em;
-  padding: 0;
   position: relative;
   height: 120px;
 }
@@ -73,10 +68,8 @@ body {
 .header__logo {
   font-family: 'Fascinate Inline', cursive;
   font-size: 44px;
-  vertical-align: bottom;
   display: inline-block;
 	padding-bottom: 45px;
-  margin: auto;
 }
 
 /* menu buttons style*/
@@ -87,7 +80,9 @@ body {
   top: 85px;
   transition-duration: 2s;
 }
-
+.menu-button{
+	background-color: darkorange;
+}
 .header__menu-button--media {
 	display: none;
 }
@@ -96,7 +91,6 @@ body {
   font-family: 'Prosto One', cursive;
   color: black;
   text-align: center;
-  background-color: darkorange;
   font-size: 14px;
   border-radius: 20px;
   border-color: #56756c;
@@ -106,14 +100,13 @@ body {
 	height:30px;
 }
 .button:hover{
-	background-color:#56756c;
+	background-color: rgb(70, 69, 69);
 	color: white;
 	transition-duration: 0.5s;
 }
+/* for home page */
 .home {
-	display: -webkit-flex;
 	display: flex;
-	-webkit-flex-flow: row wrap;
 	flex-flow: row wrap;
 	justify-content:space-around;
 	margin-top: 40px;
@@ -138,7 +131,7 @@ body {
 	background-color: darkorange;
 }
 /* for aside page and movies pages*/
-.aside {
+.movies {
   margin: 1.5em;
   display: flex;
   justify-content:flex-start;
@@ -175,17 +168,15 @@ h4 {
 }
 
 .films-soon__flex-container {
-	display: -webkit-flex;
 	display: flex;
-	-webkit-flex-flow: row wrap;
 	flex-flow: row wrap;
 	justify-content: flex-start;
 }
 
 .films-now__flex-conteiner {
-	display: -webkit-flex;
+	/* display: -webkit-flex;
+	-webkit-flex-flow: row wrap; */
 	display: flex;
-	-webkit-flex-flow: row wrap;
 	flex-flow: row wrap;
 	justify-content:flex-start;
 }
@@ -211,7 +202,6 @@ h4 {
   margin: auto;
   padding: 0.5em;
   margin-bottom: 1em;
-
 	-webkit-flex: 0;
 	flex:0;
 }
@@ -233,30 +223,6 @@ h4 {
 	background-color: darkorange;
 }
 
-.icon {
-  display: inline-block;
-  width:12px;
-  height: 12px;
-  stroke-width: 0;
-  stroke: currentColor;
-  fill: currentColor;
-}
-.icon-film {
-	display: inline-block;
-  width:20px;
-  height: 20px;
-  stroke-width: 0;
-  stroke: currentColor;
-  fill: currentColor;
-}
-.icon-coin-dollar{
-	display: inline-block;
-  width:20px;
-  height: 20px;
-  stroke-width: 0;
-  stroke: currentColor;
-  fill: currentColor;
-}
 .soonCinemaButton{
 	display: none;
 }
@@ -266,11 +232,6 @@ h4 {
 	margin-top: 35px;
 }
 
-.select-options__title {
-  font-size: 24px;
-  text-shadow: 0 0 30px lightyellow;
-  letter-spacing: 0.5em;
-}
 
 .select-options__cinemas, .select-options__date, .select-options__session-type{
 	display: inline-block;
@@ -284,10 +245,6 @@ h4 {
 	background-color: rgb(238, 238, 153);
 }
 
-h5 {
-	font-family: 'Pacifico', cursive;
-	font-size: 20px;
-}
 .session-selection {
 	box-shadow: 0 0 20px lightgoldenrodyellow;
 	border-radius: 20px;
@@ -337,6 +294,12 @@ h5 {
 }
 .session-selection__button {
 	margin-top: 6px;
+	background-color: rgb(70, 69, 69);
+	border-color: darkorange;
+	color: white;
+}
+.session-selection__button:hover{
+	background-color: darkorange;
 }
 /* for Cinemas page */
 .cinemas {
@@ -352,10 +315,9 @@ h5 {
 		height: 40px;
 		width:120px;
 	}
-	.home__button--cinema:hover{
+.home__button--cinema:hover{
 		background-color: darkorange;
 	}
-
 
 .cinema {
 	font-size: 20px;
@@ -384,12 +346,12 @@ h5 {
 	order:1;
 	flex:0 0 30%;
 }
-/* for room-places page */
+/* for choose-seats page */
 
 .choice-time {
-	position: absolute;
-	top:10px;
-	right:10px;
+ position: absolute; 
+  top:140px;
+	right:30%; 
 	font-size: 24px;
 	font-weight: bolder;
 	color: beige;
@@ -425,12 +387,11 @@ h5 {
 	margin: 100px;
 	display: flex;
 	border-radius: 20px;
-	justify-content: center;
+	justify-content: space-around;
 }
 .enter-block, .register-block {
 	flex: 0 0 40%;
 	margin: 2px;
-	order: 1;
 	padding: 2em;
 	padding-bottom: 2em;
 	background-color: lightgrey;
@@ -441,8 +402,11 @@ h5 {
 
 .login-join_btn {
 	width:80px;
-	background-color: rgb(228, 166, 51);
+	background-color: darkorange;
 	height:30px;
+}
+.login-join_btn:hover{
+	background-color:rgb(70, 69, 69);
 }
 .login-join__add {
 	margin-bottom: 1em;
@@ -546,7 +510,7 @@ h5 {
 	margin-bottom: 8px;
 }
 @media  (max-width: 767px) { 
-	/* media for main page */
+	/* media for header */
 
 .header__menu-button--media {
 	display: block;
@@ -560,13 +524,6 @@ h5 {
 	transition-duration: 2s;
 	box-shadow: 0 0 10px lightgrey;
 }
-.menu-button {
-	display: block;
-	margin-bottom: 2em;
-	width:90px;
-	font-size: 10px;
-	height: 40px;
-} 
 
 .header__menu-button {
 	display: none;
@@ -600,10 +557,7 @@ h5 {
 	display: block;
 }
 
-.icon-menu3 {
-  width: 1.375em;
-}
-.upHeader__change-city{
+.header__change-city{
 	display:block;
 	margin:0;
 }
@@ -615,6 +569,7 @@ h5 {
 	top:50px;
 	left:10px;
 }
+/* for movies page */
 .films-soon {
 	display: none;	
 }
@@ -633,14 +588,6 @@ h5 {
 	width:110px;
 }
 
-.films-soon__flex-container__film {
-	width:50%;
-}
-
-.films-soon__flex-container__img {
-	width:85%;
-}
-
 h4 {
 	font-size: 16px;
 }
@@ -651,7 +598,6 @@ h4 {
 }
 .select-options__title {
   font-size: 18px;
-  text-shadow: 0 0 10px lightyellow;
   letter-spacing: 0.1em;
 }
 .select-options__cinemas, .select-options__date, .select-options__session-type {
@@ -672,17 +618,15 @@ h4 {
 .session-selection__img {
   width:220px;
 }
-.menu-button{
+ .menu-button{
   font-size: 12px;
 	width: 70px; 
-	height: 50px;
-}
+	height: 40px;
+	display: block;
+	margin-bottom: 2em;
+} 
 
-h5{
-  font-size: 16px;
-  font-family: cursive;
-}
-/* for room-places page */
+/* for choose-seats page */
 .choice-time{
 	font-size: 14px;
 }
@@ -703,8 +647,6 @@ h5{
 /* for authorisation page */
 .login-join {
 	width: 70%;
-	display: flex;
-	margin: auto;
 	margin-top:70px;
 	flex-direction: column;
 	transition-duration: 2s;
@@ -755,7 +697,7 @@ h5{
 }
 
 @media  (min-width: 768px) and (max-width: 1200px) {
-	/* for main page */
+	/* for header page */
 .header__menu-button {
   position: absolute;
 	left: 280px;
@@ -763,12 +705,11 @@ h5{
 	padding: 0.5em;
   padding-top: 0.5em;
   border-radius: 20px;
-  transition-duration: 2s;
 }
-.upHeader__login-button{
+.header__login-button{
 	top:20px;
 } 
-.aside {
+.movies {
 	margin: 1.5em;
 	display: flex;
   flex-direction: column;
@@ -787,10 +728,6 @@ h5{
 /* for authorisation page */
 .login-join {
 	width: 80%;
-	display: flex;
-	margin-right:auto;
-	margin-left:auto;
-	margin-top:2em;
   transition-duration: 2s;
 }
 /* for cinemas page */
