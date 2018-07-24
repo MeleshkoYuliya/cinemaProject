@@ -1,6 +1,5 @@
 import React from 'react';
 import {Link, Route } from 'react-router-dom';
-// import Header from './Header';
 import Authorisation from './Authorisation';
 import Movies from './Movies';
 import ChooseSeats from './ChooseSeats';
@@ -49,7 +48,7 @@ render() {
 				<Link to="/buy-tickets">
 				  <button className="button menu-button">Tickets</button>
 				</Link>
-				<Link exact to="/" activeClassName="active">
+				<Link exact="true" to="/">
 				  <button className="button menu-button">Home</button>
 				</Link>
 	    </div>

@@ -11,21 +11,21 @@ render() {
 	return (
 		<div>
 		  <div className="select-options">
-		    <select name='cinemas' class="select-options__cinemas">
+		    <select name='cinemas' className="select-options__cinemas">
 			    <option value="1">Cinemas:</option>
 			    <option value="2">Arena City Silver Screen</option>
 			    <option value="3">Velcom cinema</option>
 			    <option value="4">Galileo Silver Screen</option>
 			    <option value="5">Belarus</option>
 		    </select>
-		    <select name='date' class="select-options__date">
+		    <select name='date' className="select-options__date">
 			    <option value="1">Today, 10 July</option>
 			    <option value="2">Tomorrow, 11 July</option>
 			    <option value="3">Wednesday, 12 July</option>
 			    <option value="4">Thursday, 13 July</option>
 			    <option value="5">Fridayб 14 July</option>
 		    </select> 
-		    <select name='session-type' class="select-options__session-type">
+		    <select name='session-type' className="select-options__session-type">
 			    <option value="1">VMAX</option>
 			    <option value="2">Dolby Digital</option>
 			    <option value="4">3D</option>
@@ -43,7 +43,7 @@ render() {
           <div>Actors:</div>
           <div> Description:</div>
           <div> 
-					  <button class="button session-selection__button">View Treiler</button>
+					  <button className="button session-selection__button">View Treiler</button>
 					</div>
         </div>
         <div className="session-selection__showing">
@@ -121,7 +121,7 @@ render() {
           <div>Actors:</div>
           <div> Description:</div>
           <div> 
-					  <button class="button session-selection__button">View Treiler</button>
+					  <button className="button session-selection__button">View Treiler</button>
 					</div>
         </div>
         <div className="session-selection__showing">

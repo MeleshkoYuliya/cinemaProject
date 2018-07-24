@@ -36,7 +36,7 @@ render() {
 		<div  className="cinema__title"> 
 		  <h4>Velcom Cinema</h4>
 		  <Link to="/buy-tickets">
-			  <button class="button home__button--cinema">Buy Tickets</button>
+			  <button className="button home__button--cinema">Buy Tickets</button>
 		  </Link>
 	  </div>
 		<div className="cinema__description">
