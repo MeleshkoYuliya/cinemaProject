@@ -1,15 +1,16 @@
 import React from 'react';
-import {Link, Route } from 'react-router-dom';
-import BuyTickets from './BuyTickets';
-class Home extends React.Component {
+import moviesArr from './moviesArr';
+import Films from './Films';
 
-// static propTypes = {
-// 	city: PropTypes.string.isRequired,
-// }
+class Home_Page extends React.Component {
+
 render() {
 	return (
-		<div className="home">
-        <div className="home__film"><img className="home__img" src="http://via.placeholder.com/250x360" alt="8 подруг"/>
+		<div>
+		 <Films
+        films={moviesArr.moviesArr}
+      />
+        {/* <div className="home__film"><img className="home__img" src="http://via.placeholder.com/250x360" alt="8 подруг"/>
 						<div> 
 							<button className="button home__button">Treiler</button> 
 							<Link to="/buy-tickets"><button  className="button home__button">Tickets</button></Link>
@@ -70,9 +71,10 @@ render() {
 						</div>
           </div>
 					<Route path="/buy-tickets" component={BuyTickets}/>
-					</div>
+					*/}
+					</div> 
 	)
 }
 }
 
-export default Home;
+export default Home_Page;

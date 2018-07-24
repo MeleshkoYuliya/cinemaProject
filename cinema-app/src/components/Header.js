@@ -5,8 +5,8 @@ import Authorisation from './Authorisation';
 import Movies from './Movies';
 import ChooseSeats from './ChooseSeats';
 import BuyTickets from './BuyTickets';
-import Cinemas_Page from './Cinemas_Page';
-import Home from './Home';
+import Cinemas_Page from './cinemas/Cinemas_Page';
+import Home_Page from './home/Home_Page';
 import openmenu from './openmenu.svg';
 import closemenu from './closemenu.svg';
 import logo from './logo.svg';
@@ -91,7 +91,7 @@ render() {
 		  	<Route path="/authorisation" component={Authorisation}/>
 			  <Route path="/movies" component={Movies}/>
 			  <Route path="/buy-tickets" component={BuyTickets}/>
-			  <Route exact path="/" component={Home}/>
+			  <Route exact path="/" component={Home_Page}/>
 			  <Route path="/cinemas" component={Cinemas_Page}/>
 			  <Route path="/choose-seats" component={ChooseSeats}/>
 		  </Switch>

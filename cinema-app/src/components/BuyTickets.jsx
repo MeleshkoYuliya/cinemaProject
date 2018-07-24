@@ -4,9 +4,6 @@ import ChooseSeats from './ChooseSeats';
 
 class BuyTickets extends React.Component {
 
-// static propTypes = {
-// 	city: PropTypes.string.isRequired,
-// }
 render() {
 	return (
 		<div>
