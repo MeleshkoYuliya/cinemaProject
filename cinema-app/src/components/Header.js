@@ -1,35 +1,45 @@
 import React from 'react';
-import {Link, Route } from 'react-router-dom';
+import Select from 'react-select';
+import {Link, Route, Switch } from 'react-router-dom';
 import Authorisation from './Authorisation';
 import Movies from './Movies';
 import ChooseSeats from './ChooseSeats';
 import BuyTickets from './BuyTickets';
-import Cinemas from './Cinemas';
+import Cinemas_Page from './Cinemas_Page';
 import Home from './Home';
 import openmenu from './openmenu.svg';
 import closemenu from './closemenu.svg';
 import logo from './logo.svg';
 
+const options = [
+  { value: '1', label: 'Grodno' },
+  { value: '2', label: 'Vitebsk' },
+	{ value: '3', label: 'Mogilev' },
+	{ value: '4', label: 'Molodechno' },
+	{ value: '5', label: 'Brest' },
+	{ value: '6', label: 'Minsk' }
+]; 
+class Header extends React.Component {
 
-class Upheader extends React.Component {
-
-// static propTypes = {
-// 	city: PropTypes.string.isRequired,
-// }
+	state = {
+    selectedOption: null,
+  }
+  handleChange = (selectedOption) => {
+    this.setState({ selectedOption });
+    console.log(`Option selected:`, selectedOption);
+  }
 render() {
+	const { selectedOption } = this.state;
 	return (
 		<div className="header">
 			<div className="header__logo">Big cinema</div>
-			<div className="header__city">Minsk	
-	      <select name='city' className="header__change-city">
-	        <option value="0">Change city</option>
-				  <option value="1">Vitebsk</option>
-				  <option value="2">Grodno</option>
-				  <option value="3">Mogilev</option>
-				  <option value="4">Molodechno</option>
-				  <option value="5">Brest</option>
-	      </select> 
-      </div>
+			<div className="header__city">
+			<Select className="header__change-city"
+        value={selectedOption}
+        onChange={this.handleChange}
+        options={options}
+      />
+    	  </div>
       <div className="header__search">
 			  <input className="header__search__inp" type="text" defaultValue="search" />
 			  <button className="button header__search__button">
@@ -40,7 +50,7 @@ render() {
 			</Link>
 			<div className="header__menu-button">
 			  <Link to="/cinemas">
-				  <button className="button menu-button">Cinemas</button>
+				  <button className="button menu-button"  activeclassname="active__button">Cinemas</button>
 				</Link>
 			  <Link to="/movies">
 				  <button className="button menu-button">Movies</button>
@@ -77,15 +87,17 @@ render() {
 				  </Link>
 				</div>
 		  </div>
-			<Route path="/authorisation" component={Authorisation}/>
-			<Route path="/movies" component={Movies}/>
-			<Route path="/buy-tickets" component={BuyTickets}/>
-			<Route exact path="/" component={Home}/>
-			<Route path="/cinemas" component={Cinemas}/>
-			<Route path="/choose-seats" component={ChooseSeats}/>
-	  </div>
+			<Switch>
+		  	<Route path="/authorisation" component={Authorisation}/>
+			  <Route path="/movies" component={Movies}/>
+			  <Route path="/buy-tickets" component={BuyTickets}/>
+			  <Route exact path="/" component={Home}/>
+			  <Route path="/cinemas" component={Cinemas_Page}/>
+			  <Route path="/choose-seats" component={ChooseSeats}/>
+		  </Switch>
+		</div>
 	)
 }
 }
       
-export default Upheader;
+export default Header;

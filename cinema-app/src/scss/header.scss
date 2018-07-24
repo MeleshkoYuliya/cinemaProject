@@ -37,9 +37,11 @@ body {
 }
 
 .header__change-city {
-	@include select-style($size:18px);
-	margin-left: 30px;
-	  &:hover{
+	width: 170px;
+	font-family: $context-font;
+	outline:0;
+	@include select-style($size:13px);
+	  &:focus{
 		  background-color: rgb(238, 238, 153);
 	 }
 }
@@ -52,7 +54,7 @@ body {
 .header {
   background-color: $header-color;
   position: relative;
-  height: 120px;
+  height: 130px;
 }
 
 .header__logo {

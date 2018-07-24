@@ -66,6 +66,7 @@
 }
 
 .session-selection__button {
+	@include buttons-style;
 	margin-top: 6px;
 	background-color: $bkgd-color;
 	border-color: $header-color;
