@@ -6,7 +6,7 @@ class Cinemas_Page extends React.Component {
 
 render() {
 	return (
-		<Cinemas 
+		<Cinemas  
 		  cinemas={cinemasArr.cinemasArr}/>
 	)
 }

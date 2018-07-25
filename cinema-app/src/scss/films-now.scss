@@ -1,3 +1,9 @@
+h5 {
+	font-family: $context-font;
+	font-size: 20px;
+	text-align: center;
+	text-shadow: 0 0 30px lightgrey;
+}
 .films-now__flex-conteiner {
 	display: flex;
 	flex-flow: row wrap;
@@ -34,5 +40,8 @@
 	
 	.films-now__flex-container__img {
 		width:110px;
+	}
+	h5{
+		font-size:16px;
 	}
 }

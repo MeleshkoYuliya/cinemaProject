@@ -22,7 +22,7 @@ class Cinemas extends React.Component {
       <Cinema key={cinema.code} info={cinema}  />
     );
 
-    return (
+    return ( 
       <div className='cinemas'>
           {cinemasCode}
         </div>

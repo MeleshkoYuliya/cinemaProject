@@ -24,6 +24,10 @@ body {
 	right:8px;
 	top:8px;
 	background-color: $header-color;
+	  &:hover{
+			background-color:$bkgd-color;
+			color: white;
+		}
 }
 
 .header__search__inp {
@@ -49,6 +53,10 @@ body {
 .header__search__button {
 	@include buttons-style($height:28px);
 	background-color:$header-color;
+	  &:hover{
+			background-color:$bkgd-color;
+		  transition-duration: 0.5s;
+		}
 }
 
 .header {
@@ -82,7 +90,7 @@ body {
 	@include buttons-style;
 	background-color: $header-color;
 	  &:hover{
-		  background-color:#56756c;
+		  background-color:$bkgd-color;
 		  transition-duration: 0.5s;
 		  color: white;
 	 }
@@ -92,7 +100,9 @@ h4 {
 	font-family: $titles-font;
 	font-size: 28px;
 	letter-spacing: 3px;
-	text-shadow: 0 0 30px lightgrey;
+	text-align: center;
+	text-shadow: 0 0 30px black;
+	color: whitesmoke;
 }
 
 @media  (max-width: 767px) { 

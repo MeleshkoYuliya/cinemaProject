@@ -6,7 +6,7 @@ $titles-font:'Pacifico', cursive;
 
 $context-font:'Prosto One', cursive;
 
-$header-color:darkorange;
+$header-color: lighten(darkorange, 5%);
 
 @mixin titles-style($font-size: 22px) {
 	font-family: $titles-font;

@@ -15,7 +15,9 @@
 	text-align: center;
 	box-shadow: 0 0 30px lightyellow;
 }
-
+.login-join__title{
+	color:black;
+}
 .login-join_btn {
 	@include buttons-style;
 	background-color: $header-color;

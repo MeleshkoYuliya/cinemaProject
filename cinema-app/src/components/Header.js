@@ -2,7 +2,7 @@ import React from 'react';
 import Select from 'react-select';
 import {Link, Route, Switch } from 'react-router-dom';
 import Authorisation from './Authorisation';
-import Movies from './Movies';
+import Movies_Page from './movies/Movies_Page';
 import ChooseSeats from './ChooseSeats';
 import BuyTickets from './BuyTickets';
 import Cinemas_Page from './cinemas/Cinemas_Page';
@@ -89,7 +89,7 @@ render() {
 		  </div>
 			<Switch>
 		  	<Route path="/authorisation" component={Authorisation}/>
-			  <Route path="/movies" component={Movies}/>
+			  <Route path="/movies" component={Movies_Page}/>
 			  <Route path="/buy-tickets" component={BuyTickets}/>
 			  <Route exact path="/" component={Home_Page}/>
 			  <Route path="/cinemas" component={Cinemas_Page}/>

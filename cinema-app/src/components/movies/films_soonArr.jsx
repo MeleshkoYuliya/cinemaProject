@@ -1,5 +1,5 @@
 
- let moviesArr={ moviesArr: [ 
+ let films_soonArr={ films_soonArr: [ 
 	{"name":"Movie title", 
 	  "code":1, 
 		"url":"http://via.placeholder.com/250x360", 
@@ -50,4 +50,4 @@
   }
 ]
 }
-export default moviesArr;
+export default films_soonArr;

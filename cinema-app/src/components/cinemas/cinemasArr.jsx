@@ -19,7 +19,7 @@
 		"description":"Description:7 screens, Comfortable seats,  Exellent sound, Parking,  Wi-fi, Modern styling, VIP Audience, Game Zone", 
 		"phone":" Phone: +375-29-388-13-88"}, 
 	{"name":"Belarus", 
-		"code":4, 
+		"code":4,  
 		"adress":"Adress: Minsk, Romanovskaya Sloboda str., 28", 
 		"url":"http://via.placeholder.com/480x360", 
 		"description":"Description: 5 screens, Comfortable seats, Parking, Game Zone", 

@@ -2,7 +2,8 @@ import React from 'react';
 import PropTypes from 'prop-types';
 import {Link, Route } from 'react-router-dom';
 import BuyTickets from '../BuyTickets';
-class Film extends React.PureComponent {
+
+class MovieNow extends React.PureComponent {
 
   static propTypes = {
     info:PropTypes.shape({
@@ -15,12 +16,12 @@ class Film extends React.PureComponent {
   render() {
 
     return (
-			<div className='home__film'>
+			<div className="films-now__flex-conteiner__film">
 			<h5>{this.props.info.name}</h5>
-      <img className="home__img" src={this.props.info.url} alt={this.props.info.name}/>
+      <img className="films-now__flex-container__img" src={this.props.info.url} alt={this.props.info.name}/>
 			<div> 
-							<button className="button home__button">Treiler</button> 
-							<Link to="/buy-tickets"><button  className="button home__button">Tickets</button></Link>
+							<button className="button films-now__button">Treiler</button> 
+							<Link to="/buy-tickets"><button  className="button films-now__button">Tickets</button></Link>
 						</div>
 						<Route path="/buy-tickets" component={BuyTickets}/>
 			</div>
@@ -31,4 +32,4 @@ class Film extends React.PureComponent {
 
 }
 
-export default Film;
+export default MovieNow;

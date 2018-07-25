@@ -7,11 +7,12 @@
 	 color: beige;
  }
  .room-place {
-	 margin: 1.5em;
+	 margin-top: 80px;
 	 display: flex;
  }
  .room-place__seats {
-	 flex: 0 0 75%;
+	 flex: 0 0 70%;
+	 margin-left: 3%;
  } 
  .room-place__seats__img {
 	 width: 70%;

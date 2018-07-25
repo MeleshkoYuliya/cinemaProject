@@ -1,3 +1,9 @@
+h6 {
+	font-family: $context-font;
+	font-size: 12px;
+	text-align: center;
+	text-shadow: 0 0 30px lightgrey;
+}
 .films-soon__flex-container {
 	display: flex;
 	flex-flow: row wrap;
