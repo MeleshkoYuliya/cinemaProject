@@ -6,8 +6,8 @@
 
 .select-options__title {
   font-size: 24px;
-  text-shadow: 0 0 30px lightyellow;
-  letter-spacing: 0.5em;
+  text-shadow: 0 0 30px rgb(8, 8, 8);
+	letter-spacing: 3px;
 }
 
 .select-options__cinemas, .select-options__date, .select-options__session-type{
@@ -32,7 +32,7 @@
 .session-selection__film {
 	margin-right: 2%;
 	flex: 0 0 25%;
-  margin: 2px;
+ text-align: center;
 	order: 1;
 	font-size: 20px;
 	margin-left: 1em;
@@ -61,7 +61,8 @@
 	margin: 8px;
 	padding: 2px;
 	  &:hover{
-      background-color: $header-color;
+			background-color: $header-color;
+			box-shadow:10px 0 20px rgb(46, 44, 44);
 		}
 }
 

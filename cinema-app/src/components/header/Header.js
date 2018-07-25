@@ -1,44 +1,42 @@
 import React from 'react';
-import Select from 'react-select';
 import {Link, Route, Switch } from 'react-router-dom';
-import Authorisation from './Authorisation';
-import Movies_Page from './movies/Movies_Page';
-import ChooseSeats from './ChooseSeats';
-import BuyTickets from './BuyTickets';
-import Cinemas_Page from './cinemas/Cinemas_Page';
-import Home_Page from './home/Home_Page';
+import Authorisation from '../autorisation/Authorisation';
+import Movies_Page from '../movies/Movies_Page';
+import ChooseSeats from '../choose-seats/ChooseSeats';
+import BuyTickets from '../buy-tickets/BuyTickets';
+import Cinemas_Page from '../cinemas/Cinemas_Page';
+import Home_Page from '../home/Home_Page';
 import openmenu from './openmenu.svg';
 import closemenu from './closemenu.svg';
 import logo from './logo.svg';
+import PropTypes from 'prop-types';
 
-const options = [
-  { value: '1', label: 'Grodno' },
-  { value: '2', label: 'Vitebsk' },
-	{ value: '3', label: 'Mogilev' },
-	{ value: '4', label: 'Molodechno' },
-	{ value: '5', label: 'Brest' },
-	{ value: '6', label: 'Minsk' }
-]; 
+// const options = [
+//   { value: '1', label: 'Grodno' },
+//   { value: '2', label: 'Vitebsk' },
+// 	{ value: '3', label: 'Mogilev' },
+// 	{ value: '4', label: 'Molodechno' },
+// 	{ value: '5', label: 'Brest' },
+// 	{ value: '6', label: 'Minsk' }
+// ]; 
 class Header extends React.Component {
-
-	state = {
-    selectedOption: null,
-  }
-  handleChange = (selectedOption) => {
-    this.setState({ selectedOption });
-    console.log(`Option selected:`, selectedOption);
-  }
+	static propTypes = {
+    options:PropTypes.arrayOf(
+      PropTypes.shape({
+				value: PropTypes.number.isRequired,
+				label: PropTypes.string.isRequired,
+      })
+    ),
+  };
 render() {
-	const { selectedOption } = this.state;
+
 	return (
 		<div className="header">
 			<div className="header__logo">Big cinema</div>
 			<div className="header__city">
-			<Select className="header__change-city"
-        value={selectedOption}
-        onChange={this.handleChange}
-        options={options}
-      />
+			<select className="header__change-city">
+        <option>{this.props.label}</option>
+      </select>
     	  </div>
       <div className="header__search">
 			  <input className="header__search__inp" type="text" defaultValue="search" />
@@ -50,7 +48,7 @@ render() {
 			</Link>
 			<div className="header__menu-button">
 			  <Link to="/cinemas">
-				  <button className="button menu-button"  activeclassname="active__button">Cinemas</button>
+				  <button className="button menu-button">Cinemas</button>
 				</Link>
 			  <Link to="/movies">
 				  <button className="button menu-button">Movies</button>

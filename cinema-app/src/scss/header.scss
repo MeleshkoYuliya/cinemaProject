@@ -1,8 +1,10 @@
+.active{
+	font-size: 34px;
+}
 body {
 	background-color: $bkgd-color;
 	margin: 0;
 }
-
 .header__city {
 	@include titles-style;
 	text-shadow: 0 0 10px lightgray;
@@ -197,3 +199,4 @@ h4 {
 		margin-right: 2%;	
 	}
 }
+

@@ -2,9 +2,6 @@ import React from 'react';
 
 class Authorisation extends React.Component {
 
-// static propTypes = {
-// 	city: PropTypes.string.isRequired,
-// }
 render() {
 	return (<form>
 		<div className="login-join">

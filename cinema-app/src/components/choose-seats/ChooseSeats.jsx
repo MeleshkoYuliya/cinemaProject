@@ -1,17 +1,15 @@
 import React from 'react';
 
 class ChooseSeats extends React.Component {
-	//  static propTypes = {
-	// 	url: PropTypes.string.isRequired,
-	//  }
+
 	render() {
 		return (
       <div>
-        <div class="choice-time">Time Left: 15:00</div>
+        <div className="choice-time">Time Left: 15:00</div>
         <div className="room-place">
 	        <div className="room-place__seats">
 		        <h4>Select your seats</h4>
-		        <img className="room-place__seats__img" src="plan.png" alt="план зала"/>
+		        <img className="room-place__seats__img" src="http://premiere-film.ru/images/plan_salsk2.png" alt="план зала"/>
 	        </div>	
 		      <div className="room-place__select-film">
 		        <h4>Your selection</h4>
