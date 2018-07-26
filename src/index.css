@@ -3,66 +3,73 @@ body {
 	background-color: rgb(70, 69, 69);
 	margin: 0;
 }
-.upHeader {
-	padding-bottom: 1em;
-	padding-top: 1em;
-} 
-.upHeader__city {
+
+.header__city {
 	font-family: 'Pacifico', cursive;
 	font-size: 22px;
+	font-weight: bolder;
+	text-shadow: 0 0 10px rgb(192, 184, 184);
 	letter-spacing: 4px;
-	color: yellow;
+	color: rgb(177, 58, 10);
 	display: inline-block;
-	margin-left: 3%;
+	position: absolute;
+	top:80px;
+	left: 10px;
+}
+.header__search{
+	display:inline-block;
+	position: absolute;
+	top: 85px;
+	left: 40%; 
+}
+.header__login-button {
+	background-color: darkorange;;
+	position:absolute;
+	right:8px;
+	top:8px;
 }
 
-.upHeader__login-button {
-  background-color: rgb(209, 81, 22);
-}
-
-.upHeader__search {
+.header__search__inp {
 	border-radius: 6px;
 	outline:0;
 	font-size: 16px;
 	background-color:lightgrey;
 }
-.upHeader__search:focus {
+.header__search__inp:focus {
 	background-color: rgb(238, 238, 153);
 	}
 
-.upHeader__change-city {
+.header__change-city {
 	border-radius: 6px;
 	outline:0;
 	font-size: 18px;
 	background-color:lightgrey;
+	display: inline-block;
+	margin-left: 30px;
 }
 
-.upHeader__change-city:focus {
+.header__change-city:focus {
 	background-color: rgb(238, 238, 153);
 }
 
-.upHeader__search__button {
-	border-radius: 10px;
-	background-color:lightgrey;
+.header__search__button {
+	background-color:darkorange;
 	height: 28px;
+	outline:0;
+	cursor: pointer;
 }
 
 .header {
   background-color: darkorange;
-  padding-bottom: 6em;
-  padding: 0;
   position: relative;
-  height: 100px;
+  height: 120px;
 }
 
 .header__logo {
   font-family: 'Fascinate Inline', cursive;
   font-size: 44px;
-  vertical-align: bottom;
   display: inline-block;
-  padding-left: 3%;
-  padding-right: 20%;
-  padding-bottom: 45px;
+	padding-bottom: 45px;
 }
 
 /* menu buttons style*/
@@ -70,10 +77,12 @@ body {
 	display: inline-block;
 	position: absolute;
   right: 1%;
-  top: 65px;
+  top: 85px;
   transition-duration: 2s;
 }
-
+.menu-button{
+	background-color: darkorange;
+}
 .header__menu-button--media {
 	display: none;
 }
@@ -82,17 +91,47 @@ body {
   font-family: 'Prosto One', cursive;
   color: black;
   text-align: center;
-  background-color: rgb(185, 183, 159);
   font-size: 14px;
-  border-radius: 5px;
+  border-radius: 20px;
   border-color: #56756c;
   border-width: 2px;
   cursor: pointer;
-  outline: 0;
+	outline: 0;
+	height:30px;
+}
+.button:hover{
+	background-color: rgb(70, 69, 69);
+	color: white;
+	transition-duration: 0.5s;
+}
+/* for home page */
+.home {
+	display: flex;
+	flex-flow: row wrap;
+	justify-content:space-around;
+	margin-top: 40px;
 }
 
-/* flex-conteiner for context*/
-.aside {
+ .home__film {
+	margin: 2%;
+} 
+.home__img{
+	border-radius: 20px;
+	box-shadow: 0 0 30px rgb(231, 206, 160);
+}
+.home__button {
+	margin-top: 10px;
+	margin-left:30px;
+	background-color: rgb(70, 69, 69);
+	border-color: darkorange;
+	color: white;
+	width:80px;
+}
+.home__button:hover{
+	background-color: darkorange;
+}
+/* for aside page and movies pages*/
+.movies {
   margin: 1.5em;
   display: flex;
   justify-content:flex-start;
@@ -129,23 +168,20 @@ h4 {
 }
 
 .films-soon__flex-container {
-	display: -webkit-flex;
 	display: flex;
-	-webkit-flex-flow: row wrap;
 	flex-flow: row wrap;
 	justify-content: flex-start;
 }
 
 .films-now__flex-conteiner {
-	display: -webkit-flex;
+	/* display: -webkit-flex;
+	-webkit-flex-flow: row wrap; */
 	display: flex;
-	-webkit-flex-flow: row wrap;
 	flex-flow: row wrap;
 	justify-content:flex-start;
 }
 .films-soon__flex-container__film {
 	margin: auto;
-	background-color: grey;
 	padding: 0.5em;
 	margin-bottom: 1em;
 	border-radius: 20px;
@@ -154,7 +190,8 @@ h4 {
 }
 .films-soon__flex-container__img {
   width: 80px;
-  cursor: pointer;
+	cursor: pointer;
+	border-radius: 15px;
 }
 
 .description-film {
@@ -163,61 +200,38 @@ h4 {
 
 .films-now__flex-conteiner__film {
   margin: auto;
-  background-color: grey;
   padding: 0.5em;
   margin-bottom: 1em;
-  border-radius: 20px;
 	-webkit-flex: 0;
 	flex:0;
 }
 
 .films-now__flex-container__img {
-  width: 180px;
+	width: 180px;
+	border-radius: 20px;
 }
 
-.films-now__flex-conteiner__btn {
-	font-size: 10px;
+.films-now__button {
+	font-size: 12px;
 	display: inline-block;
+	background-color: rgb(70, 69, 69);
+	border-color: darkorange;
+	color:white;
+	margin-left: 5px;
+}
+.films-now__button:hover{
+	background-color: darkorange;
 }
 
-
-.icon {
-  display: inline-block;
-  width:12px;
-  height: 12px;
-  stroke-width: 0;
-  stroke: currentColor;
-  fill: currentColor;
-}
-.icon-film {
-	display: inline-block;
-  width:20px;
-  height: 20px;
-  stroke-width: 0;
-  stroke: currentColor;
-  fill: currentColor;
-}
-.icon-coin-dollar{
-	display: inline-block;
-  width:20px;
-  height: 20px;
-  stroke-width: 0;
-  stroke: currentColor;
-  fill: currentColor;
-}
 .soonCinemaButton{
 	display: none;
 }
 /* for buy-tickets page */
 .select-options {
-  margin-left: 40%;
+	margin-left: 35%;
+	margin-top: 35px;
 }
 
-.select-options__title {
-  font-size: 30px;
-  text-shadow: 0 0 30px lightyellow;
-  letter-spacing: 0.5em;
-}
 
 .select-options__cinemas, .select-options__date, .select-options__session-type{
 	display: inline-block;
@@ -231,14 +245,12 @@ h4 {
 	background-color: rgb(238, 238, 153);
 }
 
-h5 {
-	font-family: 'Pacifico', cursive;
-	font-size: 20px;
-}
 .session-selection {
-	margin-top: 1.5em;
+	box-shadow: 0 0 20px lightgoldenrodyellow;
+	border-radius: 20px;
 	display: flex;
 	justify-content: space-around;
+	margin: 10px;
 }
 .session-selection__img {
   border-radius: 20px;
@@ -255,13 +267,12 @@ h5 {
 }
 .session-selection__showing {
 	flex: 0 0 65%;
-	margin: 2px;
+	margin: 15px;
 	order: 2;
 }
 
 .showing__place {
   font-size: 20px;
-	background-color: rgb(231, 222, 170);
   border-radius: 10px;
 	margin-bottom: 2em;
 	padding: 0.5em;
@@ -271,24 +282,76 @@ h5 {
 .showing__place__screening{
 	display: inline-block;
 	border-radius: 15px;
-	border-color:grey;
+	border-color:darkorange;
+	color: whitesmoke;
 	border-style: solid;
 	cursor: pointer;
+	margin: 8px;
 	padding: 2px;
 }
 .showing__place__screening:hover{
-	background-color: lightgray;
+	background-color: darkorange;
 }
 .session-selection__button {
 	margin-top: 6px;
+	background-color: rgb(70, 69, 69);
+	border-color: darkorange;
+	color: white;
 }
+.session-selection__button:hover{
+	background-color: darkorange;
+}
+/* for Cinemas page */
+.cinemas {
+	margin-top: 80px;
+	
+}
+.home__button--cinema{
+		margin-top: 10px;
+		margin-left:30px;
+		background-color: rgb(70, 69, 69);
+		border-color: darkorange;
+		color: white;
+		height: 40px;
+		width:120px;
+	}
+.home__button--cinema:hover{
+		background-color: darkorange;
+	}
 
-/* for room-places page */
+.cinema {
+	font-size: 20px;
+  border-radius: 10px;
+	padding: 0.5em;
+	margin: 10px;
+	box-shadow: 0 0 20px lightgrey;
+	font-family: 'Prosto One', cursive;
+	display: flex;
+	flex-direction:nowrap row;
+	justify-content: space-around;
+}
+.cinema__description{
+	flex:0 0 30%;
+	order:2;
+	margin: 10px;
+}
+.cinema__img{
+	flex:0 0 30%;
+	order:3;
+}
+.cinema__img img{
+	border-radius: 30px;
+}
+.cinema__title{
+	order:1;
+	flex:0 0 30%;
+}
+/* for choose-seats page */
 
 .choice-time {
-	position: absolute;
-	top:10px;
-	right:10px;
+ position: absolute; 
+  top:140px;
+	right:30%; 
 	font-size: 24px;
 	font-weight: bolder;
 	color: beige;
@@ -321,15 +384,14 @@ h5 {
 /* for authorisation page */
 
 .login-join {
-	margin: 1.5em;
+	margin: 100px;
 	display: flex;
 	border-radius: 20px;
-	justify-content: center;
+	justify-content: space-around;
 }
 .enter-block, .register-block {
 	flex: 0 0 40%;
 	margin: 2px;
-	order: 1;
 	padding: 2em;
 	padding-bottom: 2em;
 	background-color: lightgrey;
@@ -340,8 +402,11 @@ h5 {
 
 .login-join_btn {
 	width:80px;
-	background-color: rgb(228, 166, 51);
+	background-color: darkorange;
 	height:30px;
+}
+.login-join_btn:hover{
+	background-color:rgb(70, 69, 69);
 }
 .login-join__add {
 	margin-bottom: 1em;
@@ -445,12 +510,13 @@ h5 {
 	margin-bottom: 8px;
 }
 @media  (max-width: 767px) { 
-	/* media for main page */
+	/* media for header */
+
 .header__menu-button--media {
 	display: block;
 	position: absolute;
-	right: 2px;
-	top: 2px; 
+	right: 5px;
+	top: 40px; 
 	background-color:  darkorange;
 	padding: 0.5em;
 	padding-top: 2em;
@@ -458,13 +524,6 @@ h5 {
 	transition-duration: 2s;
 	box-shadow: 0 0 10px lightgrey;
 }
-.menu-button {
-	display: block;
-	margin-bottom: 2em;
-	width:90px;
-	font-size: 10px;
-	height: 40px;
-} 
 
 .header__menu-button {
 	display: none;
@@ -472,6 +531,11 @@ h5 {
 /* media-menu */
 .change-menu {
 	display: none;
+}
+.open-menu__title{
+	font-family: 'Prosto One', cursive;
+	font-weight: bolder;
+	font-size:12px;
 }
 .header__menu-button--burger {  
 	display: none; 
@@ -493,17 +557,19 @@ h5 {
 	display: block;
 }
 
-.icon-menu3 {
-  width: 1.375em;
+.header__change-city{
+	display:block;
+	margin:0;
 }
-	
 .header__logo {
-  font-size: 22px;
-  padding-left: 3%;
-	padding-right: 2%;
-  padding-bottom: 15px;
+  font-size: 30px;
+  padding-left: 4%;
 }
-	
+.header__search{
+	top:50px;
+	left:10px;
+}
+/* for movies page */
 .films-soon {
 	display: none;	
 }
@@ -515,19 +581,11 @@ h5 {
   margin-top: 1em;
 }
 .films-now__flex-conteiner__film {
-	width:50%;
+	width:120px;
 }
 
 .films-now__flex-container__img {
 	width:110px;
-}
-
-.films-soon__flex-container__film {
-	width:50%;
-}
-
-.films-soon__flex-container__img {
-	width:85%;
 }
 
 h4 {
@@ -535,11 +593,11 @@ h4 {
 }
 /* media for buy-tickets page */
 .select-options {
-	margin-left: 3%;
+	margin-top:70px;
+	margin-left: 4%;
 }
 .select-options__title {
   font-size: 18px;
-  text-shadow: 0 0 10px lightyellow;
   letter-spacing: 0.1em;
 }
 .select-options__cinemas, .select-options__date, .select-options__session-type {
@@ -560,17 +618,15 @@ h4 {
 .session-selection__img {
   width:220px;
 }
-.menu-button{
+ .menu-button{
   font-size: 12px;
 	width: 70px; 
-	height: 50px;
-}
+	height: 40px;
+	display: block;
+	margin-bottom: 2em;
+} 
 
-h5{
-  font-size: 16px;
-  font-family: cursive;
-}
-/* for room-places page */
+/* for choose-seats page */
 .choice-time{
 	font-size: 14px;
 }
@@ -591,9 +647,7 @@ h5{
 /* for authorisation page */
 .login-join {
 	width: 70%;
-	display: flex;
-	margin: auto;
-	margin-top:1em;
+	margin-top:70px;
 	flex-direction: column;
 	transition-duration: 2s;
 }
@@ -619,21 +673,43 @@ h5{
 .admin-info__description {
 	width:90%;
 }
+/* for cinemas page */
+.cinemas {
+	margin-top: 70px;
+	
+}
+.home__button--cinema{
+		height: 30px;
+	}
+.cinema {
+	font-size: 14px;
+	flex-direction:column;
+}
+
+.cinema__img img{
+	border-radius: 30px;
+	width: 80%;
+}
+.cinema__title{
+	order:1;
+	flex:0 0 30%;
+}
 }
 
 @media  (min-width: 768px) and (max-width: 1200px) {
-	/* for main page */
+	/* for header page */
 .header__menu-button {
   position: absolute;
-	left: 2px;
-	top: 2px; 
+	left: 280px;
+	top: 4px; 
 	padding: 0.5em;
   padding-top: 0.5em;
   border-radius: 20px;
-  transition-duration: 2s;
 }
-	 
-.aside {
+.header__login-button{
+	top:20px;
+} 
+.movies {
 	margin: 1.5em;
 	display: flex;
   flex-direction: column;
@@ -652,12 +728,14 @@ h5{
 /* for authorisation page */
 .login-join {
 	width: 80%;
-	display: flex;
-	margin-right:auto;
-	margin-left:auto;
-	margin-top:2em;
   transition-duration: 2s;
 }
+/* for cinemas page */
+.cinema {
+	font-size: 18px;
+	flex-direction:column;
+}
+
 } 
 @media (min-width: 1200px){
 /* for buy-tickets page */
