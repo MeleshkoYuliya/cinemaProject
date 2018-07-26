@@ -1,5 +1,5 @@
 import React from "react";
-import { Link, Route, Switch } from "react-router-dom";
+import { NavLink, Route, Switch } from "react-router-dom";
 import Authorisation from "../autorisation/Authorisation";
 import Movies_Page from "../movies/Movies_Page";
 import ChooseSeats from "../choose-seats/ChooseSeats";
@@ -47,22 +47,22 @@ class Header extends React.Component {
             <img src={logo} className="App-logo" alt="logo" />
           </button>
         </div>
-        <Link to="/authorisation">
+        <NavLink to="/authorisation">
           <button className="button header__login-button ">Login/Join</button>
-        </Link>
+        </NavLink>
         <div className="header__menu-button">
-          <Link className="menu-button" activeClassName="test" to="/cinemas">
+          <NavLink className="menu-button" activeClassName="test" to="/cinemas">
             Cinemas
-          </Link>
-          <Link to="/movies">
+          </NavLink>
+          <NavLink to="/movies" activeClassName="ActivePageLink">
             <button className="button menu-button">Movies</button>
-          </Link>
-          <Link to="/buy-tickets">
+          </NavLink>
+          <NavLink to="/buy-tickets">
             <button className="button menu-button">Tickets</button>
-          </Link>
-          <Link exact="true" to="/">
+          </NavLink>
+          <NavLink exact="true" to="/">
             <button className="button menu-button">Home</button>
-          </Link>
+          </NavLink>
         </div>
         <div className="header__menu-button--media">
           <input
@@ -88,19 +88,19 @@ class Header extends React.Component {
             <img src={openmenu} className="menu" alt="openmenu" />
           </label>
           <div className="header__menu-button--burger">
-            <Link to="/cinemas">
+            <NavLink to="/cinemas" activeClassName="ActivePageLink">
               <button className="button menu-button">Cinemas</button>
-            </Link>
-            <Link to="/movies">
+            </NavLink>
+            <NavLink to="/movies">
               <button className="button menu-button">Movies</button>
-            </Link>
-            <Link to="/buy-tickets">
+            </NavLink>
+            <NavLink to="/buy-tickets">
               <button className="button menu-button">Tickets</button>
-            </Link>
+            </NavLink>
             <button className="button menu-button">Coming Soon</button>
-            <Link to="/">
+            <NavLink to="/">
               <button className="button menu-button">Home</button>
-            </Link>
+            </NavLink>
           </div>
         </div>
         <Switch>
