@@ -1,0 +1,15 @@
+.App {
+  text-align: center;
+}
+
+.App-logo {
+  /* animation: App-logo-spin infinite 20s linear; */
+	height: 12px;
+}
+.App-logo:hover{
+	stroke-linecap:white;
+}
+.menu{
+	height: 15px;
+}
+

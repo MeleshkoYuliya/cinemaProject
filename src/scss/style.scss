@@ -1,0 +1,25 @@
+@import 'mixin-variabile.scss';
+@import 'header.scss';
+@import 'home.scss';
+@import 'cinemas.scss';
+@import 'authorisation.scss';
+@import 'buy-tickets.scss';
+@import 'choose-seats.scss';
+@import 'films-now.scss';
+@import 'films-soon.scss';
+@import 'movies.scss';
+
+.App {
+  text-align: center;
+}
+
+.App-logo {
+  /* animation: App-logo-spin infinite 20s linear; */
+	height: 12px;
+}
+.App-logo:hover{
+	stroke-linecap:white;
+}
+.menu{
+	height: 15px;
+}
