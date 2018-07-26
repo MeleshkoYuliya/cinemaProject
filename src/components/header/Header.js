@@ -51,8 +51,8 @@ class Header extends React.Component {
           <button className="button header__login-button ">Login/Join</button>
         </NavLink>
         <div className="header__menu-button">
-          <NavLink className="menu-button" activeClassName="test" to="/cinemas">
-            Cinemas
+          <NavLink to="/cinemas">
+            <button className="button menu-button">Cinemas</button>
           </NavLink>
           <NavLink to="/movies" activeClassName="ActivePageLink">
             <button className="button menu-button">Movies</button>
