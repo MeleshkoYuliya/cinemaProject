@@ -1,7 +1,7 @@
 import React from "react";
 import { NavLink } from "react-router-dom";
-import openmenu from "./openmenu.svg";
-import closemenu from "./closemenu.svg";
+import openmenu from "./img/openmenu.svg";
+import closemenu from "./img/closemenu.svg";
 
 class PagesLinks extends React.Component {
   render() {
