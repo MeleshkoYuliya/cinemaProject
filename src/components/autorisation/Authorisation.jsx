@@ -1,72 +1,13 @@
 import React from "react";
-
+import Registry from "./Registry";
+import Login from "./Login";
 class Authorisation extends React.Component {
   render() {
     return (
-      <form>
-        <div className="login-join">
-          <div className="enter-block">
-            <h4 className="login-join__title">Sign in</h4>
-            <label className="login-join__info">
-              <input
-                className="login-join__add"
-                type="text"
-                value=""
-                placeholder="Email Address*"
-              />
-            </label>
-            <label className="login-join__info">
-              <input
-                className="login-join__add"
-                type="text"
-                value=""
-                placeholder="Passvord*"
-              />
-            </label>
-            <label className="login-join__info">
-              <input
-                type="submit"
-                className="button login-join_btn"
-                value="Login"
-              />
-            </label>
-          </div>
-          <div className="register-block">
-            <h4 className="login-join__title">Register</h4>
-            <label className="login-join__info">
-              <input
-                className="login-join__add"
-                type="text"
-                value=""
-                placeholder="Email Address*"
-              />
-            </label>
-            <label className="login-join__info">
-              <input
-                className="login-join__add"
-                type="text"
-                value=""
-                placeholder="User Name*"
-              />
-            </label>
-            <label className="login-join__info">
-              <input
-                className="login-join__add"
-                type="text"
-                value=""
-                placeholder="Passvord*"
-              />
-            </label>
-            <label className="login-join__info">
-              <input
-                type="submit"
-                className="login-join_btn"
-                value="Register"
-              />
-            </label>
-          </div>
-        </div>
-      </form>
+      <div className="login-join">
+        <Login />
+        <Registry />
+      </div>
     );
   }
 }
