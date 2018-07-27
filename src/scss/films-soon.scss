@@ -3,6 +3,7 @@ h6 {
 	font-size: 12px;
 	text-align: center;
 	text-shadow: 0 0 30px lightgrey;
+	height: 24px;
 }
 .films-soon__flex-container {
 	display: flex;
@@ -18,7 +19,8 @@ h6 {
 	flex:0;
 }
 .films-soon__flex-container__img {
-  width: 100px;
+	width: 100px;
+	height:150px;
 	cursor: pointer;
 	border-radius: 15px;
 }

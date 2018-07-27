@@ -127,7 +127,7 @@ class BuyTickets extends React.Component {
             <div>Actors:</div>
             <div> Description:</div>
             <div>
-              <button className="button session-selection__button">
+              <button className="session-selection__button">
                 View Treiler
               </button>
             </div>

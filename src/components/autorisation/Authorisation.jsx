@@ -60,7 +60,7 @@ class Authorisation extends React.Component {
             <label className="login-join__info">
               <input
                 type="submit"
-                className="button login-join_btn"
+                className="login-join_btn"
                 value="Register"
               />
             </label>
