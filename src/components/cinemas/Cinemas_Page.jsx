@@ -1,10 +1,11 @@
 import React from "react";
-import cinemasArr from "./cinemasArr";
+
 import Cinemas from "./Cinemas";
 
+let cinemasArr = require("./cinemas.json");
 class Cinemas_Page extends React.Component {
   render() {
-    return <Cinemas cinemas={cinemasArr.cinemasArr} />;
+    return <Cinemas cinemas={cinemasArr} />;
   }
 }
 export default Cinemas_Page;
