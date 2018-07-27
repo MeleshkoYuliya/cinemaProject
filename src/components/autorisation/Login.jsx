@@ -8,16 +8,16 @@ class Login extends React.Component {
         <label className="login-join__info">
           <input
             className="login-join__add"
-            type="text"
-            value=""
+            type="email"
+            name="email"
             placeholder="Email Address*"
           />
         </label>
         <label className="login-join__info">
           <input
             className="login-join__add"
-            type="text"
-            value=""
+            type="password"
+            name="password"
             placeholder="Passvord*"
           />
         </label>

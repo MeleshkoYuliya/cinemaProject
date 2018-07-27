@@ -12,11 +12,10 @@ h6 {
 }
 
 .films-soon__flex-container__film {
-	margin: auto;
-	padding: 0.5em;
+	padding: 3%;
 	margin-bottom: 1em;
 	border-radius: 20px;
-	flex:0;
+	flex:1;
 }
 .films-soon__flex-container__img {
 	width: 100px;
@@ -30,4 +29,4 @@ h6 {
 }
 .description-film {
   display: none;
-}
+} 
