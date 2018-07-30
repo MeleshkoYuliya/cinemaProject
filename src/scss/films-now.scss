@@ -1,8 +1,9 @@
 h5 {
 	font-family: $context-font;
-	font-size: 20px;
+	font-size: 18px;
 	text-align: center;
 	text-shadow: 0 0 30px lightgrey;
+	height: 50px;
 }
 .films-now__flex-conteiner {
 	display: flex;
@@ -10,14 +11,14 @@ h5 {
 	justify-content:flex-start;
 }
 .films-now__flex-conteiner__film {
-  margin: auto;
-  padding: 0.5em;
+  padding:20px;
   margin-bottom: 1em;
-	flex:0;
+	flex:1;
 }
 
 .films-now__flex-container__img {
 	width: 180px;
+	height:260px;
 	border-radius: 20px;
 }
 
@@ -40,6 +41,7 @@ h5 {
 	
 	.films-now__flex-container__img {
 		width:110px;
+		height: 160px;
 	}
 	h5{
 		font-size:16px;

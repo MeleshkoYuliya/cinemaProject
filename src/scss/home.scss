@@ -8,10 +8,13 @@
 
 .home__film {
 	margin: 2%;
+	width: 280px;
 } 
 .home__img{
 	border-radius: 20px;
 	box-shadow: 0 0 30px rgb(231, 206, 160);
+	width: 260px;
+	height:350px;
 }
 .home__button {
 	@include buttons-style;
