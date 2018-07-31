@@ -1,8 +1,7 @@
 import React from "react";
 import Select from "react-select";
 import logo from "./img/logo.svg";
-import PagesRouter from "./PagesRouter";
-import PagesLinks from "./PagesLinks";
+import PropTypes from "prop-types";
 
 const options = [
   { value: "1", label: "Grodno" },
@@ -13,6 +12,14 @@ const options = [
   { value: "6", label: "Minsk" }
 ];
 class Header extends React.Component {
+  static propTypes = {
+    options: PropTypes.arrayOf(
+      PropTypes.shape({
+        value: PropTypes.number.isRequired,
+        label: PropTypes.string.isRequired
+      })
+    )
+  };
   state = {
     selectedOption: null
   };
@@ -41,10 +48,6 @@ class Header extends React.Component {
           <button className="header__search__button">
             <img src={logo} className="App-logo" alt="logo" />
           </button>
-        </div>
-        <div>
-          <PagesLinks />
-          <PagesRouter />
         </div>
       </div>
     );
