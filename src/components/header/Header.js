@@ -23,8 +23,11 @@ class Header extends React.Component {
   state = {
     selectedOption: null
   };
+
   handleChange = selectedOption => {
     this.setState({ selectedOption });
+    let city = document.querySelector(".city");
+    city.innerHTML = selectedOption.label;
   };
   render() {
     const { selectedOption } = this.state;
@@ -32,6 +35,7 @@ class Header extends React.Component {
       <div className="header">
         <div className="header__logo">Big cinema</div>
         <div className="header__city">
+          <div className="city" />
           <Select
             className="header__change-city"
             value={selectedOption}
@@ -43,8 +47,10 @@ class Header extends React.Component {
           <input
             className="header__search__inp"
             type="text"
-            defaultValue="search"
+            defaultValue={this.props.deffreeinputtext}
+            onChange={this.process}
           />
+
           <button className="header__search__button">
             <img src={logo} className="App-logo" alt="logo" />
           </button>

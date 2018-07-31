@@ -14,6 +14,14 @@ class Film extends React.PureComponent {
   render() {
     return (
       <div className="home__film">
+        {this.props.freeanswer && (
+          <input
+            type="text"
+            className="header__search__inp"
+            defaultValue={this.props.freeanswertext}
+            onChange={this.freeAnswerTextChanged}
+          />
+        )}
         {console.log(this.props.info.name)}
         <h5>{this.props.info.name}</h5>
         <img
