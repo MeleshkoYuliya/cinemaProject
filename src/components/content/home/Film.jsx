@@ -14,6 +14,7 @@ class Film extends React.PureComponent {
   render() {
     return (
       <div className="home__film">
+        {console.log(this.props.info.name)}
         <h5>{this.props.info.name}</h5>
         <img
           className="home__img"
