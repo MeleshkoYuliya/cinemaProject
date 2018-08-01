@@ -1,9 +1,10 @@
-h6 {
+.soon_title {
 	font-family: $context-font;
 	font-size: 12px;
 	text-align: center;
 	text-shadow: 0 0 30px lightgrey;
 	height: 24px;
+	width:120px;
 }
 .films-soon__flex-container {
 	display: flex;
