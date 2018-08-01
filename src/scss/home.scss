@@ -4,12 +4,16 @@
 	flex-flow: row wrap;
 	justify-content:space-around;
 	margin-top: 40px;
+	margin-bottom: 20px;
 }
 
 .home__film {
 	margin: 2%;
 	width: 280px;
 } 
+.film_title{
+	width: 280px;
+}
 .home__img{
 	border-radius: 20px;
 	box-shadow: 0 0 30px rgb(231, 206, 160);
