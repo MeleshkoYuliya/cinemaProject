@@ -1,6 +1,6 @@
 import React from "react";
 import { FormErrors } from "./FormErrors";
-
+// import PropTypes from "prop-types";
 class Registry extends React.Component {
   state = {
     email: "",
@@ -10,7 +10,9 @@ class Registry extends React.Component {
     emailValid: false,
     passwordValid: false,
     userNameValid: false,
-    formValid: false
+    formValid: false,
+    isLoading: true,
+    contacts: {}
   };
 
   handleUserInput = e => {
@@ -19,6 +21,7 @@ class Registry extends React.Component {
     this.setState({ [name]: value }, () => {
       this.validateField(name, value);
     });
+    console.log(name, value);
   };
 
   validateField(fieldName, value) {
@@ -66,7 +69,25 @@ class Registry extends React.Component {
   errorClass(error) {
     return error.length === 0 ? "" : "has-error";
   }
-
+  componentWillMount() {
+    localStorage.getItem("contacts") &&
+      this.setState({
+        contacts: JSON.parse(localStorage.getItem("contacts")),
+        isLoading: false
+      });
+  }
+  componentDidMount() {
+    if (!localStorage.getItem("contacts")) {
+      this.fetchData();
+    } else {
+      // console.log(JSON.parse(localStorage.getItem("contacts")));
+    }
+  }
+  fetchData() {}
+  componentWillUpdate(nextProps, nextState) {
+    localStorage.setItem("contacts", JSON.stringify(nextState.contacts));
+    localStorage.setItem("contactsDate", Date.now());
+  }
   render() {
     return (
       <form className="register-block">
