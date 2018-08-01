@@ -1,6 +1,6 @@
 import React from "react";
 import Select from "react-select";
-import logo from "./img/logo.svg";
+import logo from "./logo.svg";
 import PropTypes from "prop-types";
 
 const options = [

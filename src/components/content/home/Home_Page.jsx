@@ -5,7 +5,7 @@ class Home_Page extends React.Component {
   render() {
     return (
       <div>
-        <Films films={moviesNow} />
+        <Films className="home" films={moviesNow} />
       </div>
     );
   }
