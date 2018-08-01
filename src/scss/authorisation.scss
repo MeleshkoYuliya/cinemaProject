@@ -39,6 +39,11 @@
 .login-join__info{
 	display:block;
 }
+.panel-default{
+	color:red;
+	font-family:$context-font;
+	font-weight:bolder;
+}
 @media  (max-width: 767px) { 
 	.login-join {
 		width: 70%;

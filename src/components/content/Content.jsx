@@ -1,6 +1,6 @@
 import React from "react";
-import PagesRouter from "./header/PagesRouter";
-import PagesLinks from "./header/PagesLinks";
+import PagesRouter from "./PagesRouter";
+import PagesLinks from "./PagesLinks";
 
 class Content extends React.Component {
   render() {
