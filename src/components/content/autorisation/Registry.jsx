@@ -13,6 +13,71 @@ class Registry extends React.Component {
     formValid: false
   };
 
+  //  MylocalStorage=(keyNames)=> { // конструктор класса
+  //     this.keyNames = keyNames; //ключ для хранилища
+  //     var storage = {}; // здесь хранилище будет сохранять всё что нужно
+
+  //     if (localStorage.getItem(keyNames)) {
+  //         this.storage = JSON.parse(localStorage.getItem(keyNames));
+  //     } else {
+  //         this.storage = {};
+  //     }
+
+  //     this.addValue = function(key, value) {
+  //         this.storage[key] = value; // сохраняем значение value под именем key
+  //         var storageJson = JSON.stringify(this.storage);
+  //         localStorage.setItem(keyNames, storageJson);
+  //     }
+
+  //     this.getValue = function(keyNames) {
+  //         return this.storage[keyNames];
+  //     }
+
+  //     this.deleteValue = function(key) {
+  //         if (this.storage[key] !== undefined) {
+  //             delete this.storage[key];
+  //             var storageJson = JSON.stringify(this.storage);
+  //             localStorage.setItem(keyNames, storageJson);
+  //         }
+  //     }
+
+  //     this.getKeys = function() {
+  //         return Object.keys(this.storage);
+  //     }
+  // }
+
+  // var proceeds= new MylocalStorage('proceeds');
+
+  // proceedsInfo=() =>{ //добавляем источники доходов
+
+  // 	var sources = document.getElementById('sourse');
+  // 	var source = sources.value;
+
+  // 	var money = document.getElementById('money');
+  // 	var price = money.value;
+
+  // 	var date_Entry = document.getElementById('date');
+  // 	var stringDate = date_Entry.value;
+  // 	var t = stringDate.split('.'),
+  // 			myYear = t[2],
+  // 			myMonth = parseInt(t[1]) - 1,
+  // 			myDate = parseInt(t[0]);
+  // 	var dateEntry = new Date(myYear, myMonth, myDate);
+  // 	var erorSource = document.getElementById("erorSource");
+  // 	var erorMoney = document.getElementById('erorMoney');
+  // 	if (source.length == 0 || price == 0) {
+
+  // 			erorSource.style.display = "inline";
+  // 			erorMoney.style.display = "inline";
+
+  // 	} else {
+  // 			proceeds.addValue(source, { priceE: price, dateE: dateEntry });
+
+  // 			erorSource.style.display = "none";
+  // 			erorMoney.style.display = "none";
+  // 	}
+  // }
+
   handleUserInput = e => {
     const name = e.target.name;
     const value = e.target.value;
