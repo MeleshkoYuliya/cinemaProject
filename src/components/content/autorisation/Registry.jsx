@@ -10,7 +10,9 @@ class Registry extends React.Component {
     emailValid: false,
     passwordValid: false,
     userNameValid: false,
-    formValid: false
+    formValid: false,
+    contacts: [],
+    isLoading: true
   };
 
   //  MylocalStorage=(keyNames)=> { // конструктор класса
@@ -77,6 +79,21 @@ class Registry extends React.Component {
   // 			erorMoney.style.display = "none";
   // 	}
   // }
+  componentWillMount() {
+    localStorage.getItem("contacts") &&
+      this.setState({
+        contacts: JSON.parse(localStorage.getItem("contacts")),
+        isLoading: false
+      });
+  }
+  componentDidMount() {
+    this.fetchData();
+  }
+  fetchData() {}
+  componentWillUpdate(nextProps, nextState) {
+    localStorage.setItem("contacts", JSON.stringify(nextState.contacts));
+    localStorage.setItem("contactsDate", Date.now());
+  }
 
   handleUserInput = e => {
     const name = e.target.name;
