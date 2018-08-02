@@ -59,7 +59,7 @@ class Login extends React.Component {
   render() {
     return (
       <form className="enter-block">
-        <h4 className="login-join__title">Register</h4>
+        <h4 className="login-join__title">Sign in</h4>
         <div className="panel-default">
           <FormErrors formErrors={this.state.formErrors} />
         </div>

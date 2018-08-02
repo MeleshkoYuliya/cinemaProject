@@ -5,8 +5,7 @@ class Registry extends React.Component {
   state = {
     email: "",
     password: "",
-    userName: "",
-    formErrors: { email: "", password: "", userName: "" },
+    formErrors: { email: "", password: "" },
     emailValid: false,
     passwordValid: false,
     userNameValid: false,
@@ -27,7 +26,6 @@ class Registry extends React.Component {
     let fieldValidationErrors = this.state.formErrors;
     let emailValid = this.state.emailValid;
     let passwordValid = this.state.passwordValid;
-    let userNameValid = this.state.userNameValid;
 
     switch (fieldName) {
       case "email":
@@ -38,10 +36,6 @@ class Registry extends React.Component {
         passwordValid = value.length >= 6;
         fieldValidationErrors.password = passwordValid ? "" : " is too short!";
         break;
-      case "userName":
-        userNameValid = value.length >= 6;
-        fieldValidationErrors.userName = userNameValid ? "" : " is too short!";
-        break;
       default:
         break;
     }
@@ -49,7 +43,6 @@ class Registry extends React.Component {
       {
         formErrors: fieldValidationErrors,
         emailValid: emailValid,
-        userNameValid: userNameValid,
         passwordValid: passwordValid
       },
       this.validateForm
@@ -58,10 +51,7 @@ class Registry extends React.Component {
 
   validateForm() {
     this.setState({
-      formValid:
-        this.state.emailValid &&
-        this.state.passwordValid &&
-        this.state.userNameValid
+      formValid: this.state.emailValid && this.state.passwordValid
     });
   }
 
@@ -78,14 +68,16 @@ class Registry extends React.Component {
     if (!localStorage.getItem("contacts")) {
       this.fetchData();
     } else {
-      console.log(this.state.contacts);
+      console.log(JSON.parse(localStorage.getItem("contacts")));
     }
   }
   fetchData() {}
   componentWillUpdate(nextProps, nextState) {
     localStorage.setItem("contacts", JSON.stringify(nextState.contacts));
+
     localStorage.setItem("contactsDate", Date.now());
   }
+
   render() {
     return (
       <form className="register-block">
@@ -100,6 +92,7 @@ class Registry extends React.Component {
         >
           <label htmlFor="email" className="login-join__info" />
           <input
+            id="email"
             className="login-join__add"
             type="email"
             required
@@ -111,26 +104,12 @@ class Registry extends React.Component {
         </div>
         <div
           className={`form-group ${this.errorClass(
-            this.state.formErrors.userName
-          )}`}
-        >
-          <label htmlFor="userName" className="login-join__info" />
-          <input
-            className="login-join__add"
-            type="text"
-            name="userName"
-            placeholder="User Name"
-            value={this.state.userName}
-            onChange={this.handleUserInput}
-          />
-        </div>
-        <div
-          className={`form-group ${this.errorClass(
             this.state.formErrors.password
           )}`}
         >
           <label htmlFor="password" className="login-join__info" />
           <input
+            id="passvord"
             type="password"
             name="password"
             placeholder="Password"
