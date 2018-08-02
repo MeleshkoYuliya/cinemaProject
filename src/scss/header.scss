@@ -71,6 +71,10 @@ body {
   display: inline-block;
 	padding-bottom: 45px;
 	padding-left: 10px;
+	color:black;
+	 &:hover{
+		 text-shadow: 0 0 20px white;
+	 }
 }
 
 /* menu buttons style*/
@@ -148,8 +152,9 @@ h4 {
 }
 .header__logo {
   font-size: 30px;
-  padding-left: 4%;
+	padding-left: 4%;
 }
+
 .header__search{
 	top:50px;
 	left:10px;

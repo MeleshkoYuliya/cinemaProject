@@ -11,7 +11,6 @@ class Registry extends React.Component {
     passwordValid: false,
     userNameValid: false,
     formValid: false,
-    isLoading: true,
     contacts: []
   };
 
@@ -72,8 +71,7 @@ class Registry extends React.Component {
   componentWillMount() {
     localStorage.getItem("contacts") &&
       this.setState({
-        contacts: JSON.parse(localStorage.getItem("contacts")),
-        isLoading: false
+        contacts: JSON.parse(localStorage.getItem("contacts"))
       });
   }
   componentDidMount() {

@@ -15,9 +15,9 @@ class Films extends React.PureComponent {
   };
 
   render() {
-    const filmsCode = this.props.films.map(function(item, index) {
+    const filmsCode = this.props.films.map(function(item) {
       return (
-        <div className="home_film" key={index}>
+        <div className="home_film" key={item.code}>
           <div className="film_title">
             <h5>{item.name}</h5>
           </div>

@@ -2,6 +2,8 @@ import React from "react";
 import Select from "react-select";
 import logo from "./logo.svg";
 import PropTypes from "prop-types";
+import { Link } from "react-router-dom";
+import PagesRouter from "../content/PagesRouter";
 
 const options = [
   { value: "1", label: "Grodno" },
@@ -29,11 +31,14 @@ class Header extends React.Component {
     let city = document.querySelector(".city");
     city.innerHTML = selectedOption.label;
   };
+
   render() {
     const { selectedOption } = this.state;
     return (
       <div className="header">
-        <div className="header__logo">Big cinema</div>
+        <Link exact to="/" className="logo">
+          <div className="header__logo">Big cinema</div>
+        </Link>
         <div className="header__city">
           <div className="city" />
           <Select
@@ -43,7 +48,7 @@ class Header extends React.Component {
             options={options}
           />
         </div>
-        <div className="header__search">
+        <form className="header__search">
           <input
             className="header__search__inp"
             type="text"
@@ -54,7 +59,7 @@ class Header extends React.Component {
           <button className="header__search__button">
             <img src={logo} className="App-logo" alt="logo" />
           </button>
-        </div>
+        </form>
       </div>
     );
   }
