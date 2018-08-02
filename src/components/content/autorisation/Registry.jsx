@@ -12,7 +12,7 @@ class Registry extends React.Component {
     userNameValid: false,
     formValid: false,
     isLoading: true,
-    contacts: {}
+    contacts: []
   };
 
   handleUserInput = e => {
@@ -80,7 +80,7 @@ class Registry extends React.Component {
     if (!localStorage.getItem("contacts")) {
       this.fetchData();
     } else {
-      // console.log(JSON.parse(localStorage.getItem("contacts")));
+      console.log(this.state.contacts);
     }
   }
   fetchData() {}
