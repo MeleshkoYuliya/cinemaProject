@@ -36,7 +36,7 @@ class Header extends React.Component {
     const { selectedOption } = this.state;
     return (
       <div className="header">
-        <Link exact to="/" className="logo">
+        <Link exact="true" to="/" className="logo">
           <div className="header__logo">Big cinema</div>
         </Link>
         <div className="header__city">
@@ -52,7 +52,7 @@ class Header extends React.Component {
           <input
             className="header__search__inp"
             type="text"
-            defaultValue={this.props.deffreeinputtext}
+            // defaultValue={this.props.deffreeinputtext}
             onChange={this.process}
           />
 
