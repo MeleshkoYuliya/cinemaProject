@@ -1,8 +1,8 @@
 import React from "react";
 import { NavLink } from "react-router-dom";
-import openmenu from "./img/openmenu.svg";
-import closemenu from "./img/closemenu.svg";
-
+import openmenu from "./openmenu.svg";
+import closemenu from "./closemenu.svg";
+import SelectCity from "./SelectCity";
 class PagesLinks extends React.PureComponent {
   state = {
     isOpen: false
@@ -13,10 +13,7 @@ class PagesLinks extends React.PureComponent {
 
   render() {
     return (
-      <div>
-        <NavLink to="/authorisation">
-          <button className="header__login-button "> Login/Join</button>
-        </NavLink>
+      <div className="headerMenu">
         <div className="header__menu-button">
           <NavLink to="/cinemas">
             <button className="menu-button">Cinemas</button>
@@ -29,6 +26,9 @@ class PagesLinks extends React.PureComponent {
           </NavLink>
           <NavLink exact to="/">
             <button className="menu-button">Home</button>
+          </NavLink>
+          <NavLink to="/authorisation">
+            <button className="menu-button"> Login/Join</button>
           </NavLink>
         </div>
 
@@ -56,6 +56,10 @@ class PagesLinks extends React.PureComponent {
               <NavLink to="/">
                 <button className="menu-button">Home</button>
               </NavLink>
+              <NavLink to="/authorisation">
+                <button className="menu-button"> Login/Join</button>
+              </NavLink>
+              <SelectCity />
             </div>
           )}
         </div>

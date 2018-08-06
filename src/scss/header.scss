@@ -7,10 +7,7 @@ body {
 	@include titles-style;
 	text-shadow: 0 0 10px lightgray;
 	color: rgb(177, 58, 10);
-	display: inline-block;
-	position: absolute;
-	top:80px;
-	left: 10px;
+	display: block;
 }
 .header__search{
 	display:inline-block;
@@ -18,28 +15,27 @@ body {
 	top: 85px;
 	left: 40%; 
 }
-.header__login-button {
-	@include buttons-style;
-	position:absolute;
-	right:8px;
-	top:8px;
-	background-color: $header-color;
-	  &:hover{
-			background-color:$bkgd-color;
-			color: white;
-		}
-}
+
 
 .header__search__inp {
 	border-radius: 6px;
 	outline:0;
-	font-size: 16px;
+	font-size: 20px;
+	width: 280px;
 	background-color:lightgrey;
 	  &:focus{
       background-color: rgb(238, 238, 153);
 		}
 }
-
+.filmNameSearch{
+	position: absolute;
+	top: 30px;
+	background-color:$header-color;
+	font-family: $context-font;
+	font-size: 13px;
+	border-radius: 20px;
+	box-shadow: 0 0 20px lightyellow;
+}
 .header__change-city {
 	width: 170px;
 	font-family: $context-font;
@@ -49,36 +45,46 @@ body {
 		  background-color: rgb(238, 238, 153);
 	 }
 }
-
-.header__search__button {
-	@include buttons-style($height:28px);
-	background-color:$header-color;
-	  &:hover{
-			background-color:$bkgd-color;
-		  transition-duration: 0.5s;
-		}
+.city{
+	display: inline-block;
 }
+// .header__search__button {
+// 	@include buttons-style($height:28px);
+// 	background-color:$header-color;
+// 	  &:hover{
+// 			background-color:$bkgd-color;
+// 		  transition-duration: 0.5s;
+// 		}
+// }
 
 .header {
   background-color: $header-color;
-  position: relative;
-  height: 130px;
+	height: 150px;
 }
-
+.headerMenu{
+	display:inline-block;
+}
+.headerLogo{
+	display:inline-block;
+	width: 70%;
+}
 .header__logo {
   font-family: $logo-style;
-  font-size: 44px;
+	font-size: 44px;
+	height: 50px;
   display: inline-block;
 	padding-bottom: 45px;
 	padding-left: 10px;
+	color:black;
+	 &:hover{
+		 text-shadow: 0 0 20px white;
+	 }
 }
 
 /* menu buttons style*/
 .header__menu-button {
 	display: inline-block;
-	position: absolute;
-  right: 1%;
-  top: 85px;
+	padding-bottom: 10px;
   transition-duration: 2s;
 }
 
@@ -123,9 +129,19 @@ h4 {
 
 	box-shadow: 0 0 10px lightgrey;
 }
+.header__search__inp {
+	border-radius: 6px;
+	outline:0;
+	font-size: 20px;
+	width: 200px;
+	background-color:lightgrey;
+	  &:focus{
+      background-color: rgb(238, 238, 153);
+		}
+}
 .menu-button{
 	@include buttons-style($font-size: 12px, $height:40px);
-	width: 70px; 
+	width: 85px; 
 	display: block;
 	margin-bottom: 2em;
 } 
@@ -147,9 +163,10 @@ h4 {
 	margin:0;
 }
 .header__logo {
-  font-size: 30px;
-  padding-left: 4%;
+  font-size: 28px;
+padding-left: 34%;
 }
+
 .header__search{
 	top:50px;
 	left:10px;

@@ -1,28 +1,51 @@
 import React from "react";
 import { FormErrors } from "./FormErrors";
-
-class Login extends React.Component {
+// import PropTypes from "prop-types";
+class Registry extends React.Component {
   state = {
     email: "",
     password: "",
-    formErrors: { email: "", password: "" },
+    userName: "",
+    formErrors: { email: "", password: "", userName: "" },
     emailValid: false,
     passwordValid: false,
-    formValid: false
+    userNameValid: false,
+    formValid: false,
+    users: {}
   };
 
   handleUserInput = e => {
     const name = e.target.name;
     const value = e.target.value;
+
     this.setState({ [name]: value }, () => {
       this.validateField(name, value);
+      this.users = { [name]: value };
     });
+  };
+  //   var storageJson = JSON.stringify(this.users);
+  //   console.log(this.users);
+  //   localStorage.setItem("user", storageJson);
+  // };
+  saveUser = e => {
+    // const name = e.target.name;
+    // const value = e.target.value;
+    this.setState({
+      email: e.currentTarget.value,
+      password: e.currentTarget.value,
+      userName: e.currentTarget.value
+    });
+
+    // var storageJson = JSON.stringify(this.users);
+    console.log(this.state.email);
+    // localStorage.setItem(us, { [emailU]: pass });
   };
 
   validateField(fieldName, value) {
     let fieldValidationErrors = this.state.formErrors;
     let emailValid = this.state.emailValid;
     let passwordValid = this.state.passwordValid;
+    let userNameValid = this.state.userNameValid;
 
     switch (fieldName) {
       case "email":
@@ -33,6 +56,10 @@ class Login extends React.Component {
         passwordValid = value.length >= 6;
         fieldValidationErrors.password = passwordValid ? "" : " is too short!";
         break;
+      case "userName":
+        userNameValid = value.length >= 6;
+        fieldValidationErrors.userName = userNameValid ? "" : " is too short!";
+        break;
       default:
         break;
     }
@@ -40,7 +67,8 @@ class Login extends React.Component {
       {
         formErrors: fieldValidationErrors,
         emailValid: emailValid,
-        passwordValid: passwordValid
+        passwordValid: passwordValid,
+        userNameValid: userNameValid
       },
       this.validateForm
     );
@@ -56,12 +84,55 @@ class Login extends React.Component {
     return error.length === 0 ? "" : "has-error";
   }
 
+  // saveUser = (key, value) => {
+  //   var storageJson = JSON.stringify(this.user);
+  //   localStorage.setItem("user", storageJson);
+  // };
+  // componentWillMount() {
+  //   localStorage.getItem("contacts") &&
+  //     this.setState({
+  //       contacts: JSON.parse(localStorage.getItem("contacts"))
+  //     });
+  // }
+  // componentDidMount() {
+  //   if (!localStorage.getItem("contacts")) {
+  //     this.fetchData();
+  //   } else {
+  //     console.log(JSON.parse(localStorage.getItem("contacts")));
+  //   }
+  // }
+  // fetchData() {}
+  // componentWillUpdate(nextProps, nextState) {
+  //   localStorage.setItem("contacts", JSON.stringify(nextState.contacts));
+
+  //   localStorage.setItem("contactsDate", Date.now());
+  // }
+
   render() {
     return (
-      <form className="enter-block">
+      <form className="register-block">
+        {/* {" "}
+        {console.log(localStorage.getItem(us))} */}
         <h4 className="login-join__title">Register</h4>
         <div className="panel-default">
           <FormErrors formErrors={this.state.formErrors} />
+        </div>
+        <div
+          className={`form-group ${this.errorClass(
+            this.state.formErrors.userName
+          )}`}
+        >
+          <label htmlFor="userName" className="login-join__info" />
+          <input
+            id="userName"
+            className="login-join__add"
+            type="text"
+            required
+            name="userName"
+            placeholder="User Name"
+            value={this.state.userName}
+            onChange={this.handleUserInput}
+          />
         </div>
         <div
           className={`form-group ${this.errorClass(
@@ -70,6 +141,7 @@ class Login extends React.Component {
         >
           <label htmlFor="email" className="login-join__info" />
           <input
+            id="email"
             className="login-join__add"
             type="email"
             required
@@ -86,6 +158,7 @@ class Login extends React.Component {
         >
           <label htmlFor="password" className="login-join__info" />
           <input
+            id="passvord"
             type="password"
             name="password"
             placeholder="Password"
@@ -98,12 +171,13 @@ class Login extends React.Component {
           className="login-join_btn"
           type="submit"
           disabled={!this.state.formValid}
+          onClick={this.saveUser}
         >
-          Login
+          Sign up
         </button>
       </form>
     );
   }
 }
 
-export default Login;
+export default Registry;

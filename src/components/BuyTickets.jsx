@@ -1,6 +1,6 @@
 import React from "react";
 import { Link, Route } from "react-router-dom";
-import ChooseSeats from "../choose-seats/ChooseSeats";
+import ChooseSeats from "./ChooseSeats";
 
 class BuyTickets extends React.Component {
   render() {

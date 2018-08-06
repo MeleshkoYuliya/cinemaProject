@@ -1,13 +1,14 @@
-import React from "react";
+import React, { Component } from "react";
 import { Route } from "react-router-dom";
-import Authorisation from "./autorisation/Authorisation";
-import Movies_Page from "./movies/Movies_Page";
-import ChooseSeats from "./choose-seats/ChooseSeats";
-import BuyTickets from "./buy-tickets/BuyTickets";
-import Cinemas_Page from "./cinemas/Cinemas_Page";
-import Home_Page from "./home/Home_Page";
+import Authorisation from "./Authorisation";
+import Movies_Page from "./Movies_Page";
+import ChooseSeats from "./ChooseSeats";
+import BuyTickets from "./BuyTickets";
+import Cinemas_Page from "./Cinemas_Page";
+import SelectSession from "./SelectSession";
+import Home_Page from "./Home_Page";
 
-class PagesRouter extends React.Component {
+class PagesRouter extends Component {
   render() {
     return (
       <div>
@@ -17,6 +18,7 @@ class PagesRouter extends React.Component {
         <Route exact path="/" component={Home_Page} />
         <Route path="/cinemas" component={Cinemas_Page} />
         <Route path="/choose-seats" component={ChooseSeats} />
+        <Route path="/select-session" component={SelectSession} />
       </div>
     );
   }

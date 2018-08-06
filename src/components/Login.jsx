@@ -1,15 +1,13 @@
 import React from "react";
 import { FormErrors } from "./FormErrors";
 
-class Registry extends React.Component {
+class Login extends React.Component {
   state = {
     email: "",
     password: "",
-    userName: "",
-    formErrors: { email: "", password: "", userName: "" },
+    formErrors: { email: "", password: "" },
     emailValid: false,
     passwordValid: false,
-    userNameValid: false,
     formValid: false
   };
 
@@ -25,7 +23,6 @@ class Registry extends React.Component {
     let fieldValidationErrors = this.state.formErrors;
     let emailValid = this.state.emailValid;
     let passwordValid = this.state.passwordValid;
-    let userNameValid = this.state.userNameValid;
 
     switch (fieldName) {
       case "email":
@@ -36,10 +33,6 @@ class Registry extends React.Component {
         passwordValid = value.length >= 6;
         fieldValidationErrors.password = passwordValid ? "" : " is too short!";
         break;
-      case "userName":
-        userNameValid = value.length >= 6;
-        fieldValidationErrors.userName = userNameValid ? "" : " is too short!";
-        break;
       default:
         break;
     }
@@ -47,7 +40,6 @@ class Registry extends React.Component {
       {
         formErrors: fieldValidationErrors,
         emailValid: emailValid,
-        userNameValid: userNameValid,
         passwordValid: passwordValid
       },
       this.validateForm
@@ -56,10 +48,7 @@ class Registry extends React.Component {
 
   validateForm() {
     this.setState({
-      formValid:
-        this.state.emailValid &&
-        this.state.passwordValid &&
-        this.state.userNameValid
+      formValid: this.state.emailValid && this.state.passwordValid
     });
   }
 
@@ -69,8 +58,8 @@ class Registry extends React.Component {
 
   render() {
     return (
-      <form className="register-block">
-        <h4 className="login-join__title">Register</h4>
+      <form className="enter-block">
+        <h4 className="login-join__title">Sign in</h4>
         <div className="panel-default">
           <FormErrors formErrors={this.state.formErrors} />
         </div>
@@ -87,21 +76,6 @@ class Registry extends React.Component {
             name="email"
             placeholder="Email"
             value={this.state.email}
-            onChange={this.handleUserInput}
-          />
-        </div>
-        <div
-          className={`form-group ${this.errorClass(
-            this.state.formErrors.userName
-          )}`}
-        >
-          <label htmlFor="userName" className="login-join__info" />
-          <input
-            className="login-join__add"
-            type="text"
-            name="userName"
-            placeholder="User Name"
-            value={this.state.userName}
             onChange={this.handleUserInput}
           />
         </div>
@@ -125,11 +99,11 @@ class Registry extends React.Component {
           type="submit"
           disabled={!this.state.formValid}
         >
-          Sign up
+          Login
         </button>
       </form>
     );
   }
 }
 
-export default Registry;
+export default Login;
