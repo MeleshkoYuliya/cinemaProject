@@ -7,7 +7,7 @@ import ChooseSeats from "./ChooseSeats";
 import BuyTickets from "./BuyTickets";
 import Cinemas_Page from "./Cinemas_Page";
 import SelectSession from "./SelectSession";
-import Session from "./Session";
+
 import Home_Page from "./Home_Page";
 import Header from "./Header";
 let moviesNow = require("./moviesNow.json");
@@ -27,7 +27,6 @@ class MainLayout extends Component {
         <Route path="/cinemas" component={Cinemas_Page} />
         <Route path="/choose-seats" component={ChooseSeats} />
         <Route path="/select-session" component={SelectSession} />
-        <Route path="/movie/:movieid" component={Session} />
       </div>
     );
   }
