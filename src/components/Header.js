@@ -4,7 +4,7 @@ import PropTypes from "prop-types";
 import { Link, withRouter, Route } from "react-router-dom";
 import PagesLinks from "./PagesLinks";
 import SelectSession from "./SelectSession";
-
+import Toolbar from "./Toolbar"
 class Header extends React.Component {
   static propTypes = {
     defaultInput: PropTypes.string.isRequired,
@@ -69,13 +69,16 @@ class Header extends React.Component {
     });
 
     return (
+      <div>
       <div className="header">
         <div className="headerLogo">
           <Link exact="true" to="/" className="logo">
             <div className="header__logo">Big cinema</div>
-          </Link>
-
-          <form className="header__search">
+          </Link>   
+          <SelectCity />      
+        </div>
+          <div className="spacer"></div>
+        <form className="header__search">
             {films.length > 0 ? (
               <div className="filmNameSearch">{films}</div>
             ) : null}
@@ -92,13 +95,12 @@ class Header extends React.Component {
                 <img src={logo} className="App-logo" alt="logo" />
               </button>
             </Link> */}
-          </form>
-
-          <SelectCity />
-        </div>
-
+          </form>      
         <PagesLinks />
+        </div>
+        <div>
         <Route path={`/movie/:${movie.code}`} component={SelectSession} />
+      </div>
       </div>
     );
   }
