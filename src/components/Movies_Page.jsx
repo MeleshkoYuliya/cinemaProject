@@ -3,7 +3,7 @@ import React from "react";
 import FilmsNow from "./FilmsNow";
 import FilmsSoon from "./FilmsSoon";
 
-let moviesNow = require("../home/moviesNow.json");
+let moviesNow = require("./moviesNow.json");
 let moviesSoon = require("./moviesSoon.json");
 class Movies_Page extends React.Component {
   render() {

@@ -20,11 +20,25 @@ class Registry extends React.Component {
 
     this.setState({ [name]: value }, () => {
       this.validateField(name, value);
+      this.users = { [name]: value };
     });
-    var nnn = (this.setState.users = { [name]: value });
-    var storageJson = JSON.stringify(nnn);
-    // console.log(name, value);
-    localStorage.setItem("user", storageJson);
+  };
+  //   var storageJson = JSON.stringify(this.users);
+  //   console.log(this.users);
+  //   localStorage.setItem("user", storageJson);
+  // };
+  saveUser = e => {
+    // const name = e.target.name;
+    // const value = e.target.value;
+    this.setState({
+      email: e.currentTarget.value,
+      password: e.currentTarget.value,
+      userName: e.currentTarget.value
+    });
+
+    // var storageJson = JSON.stringify(this.users);
+    console.log(this.state.email);
+    // localStorage.setItem(us, { [emailU]: pass });
   };
 
   validateField(fieldName, value) {
@@ -70,10 +84,10 @@ class Registry extends React.Component {
     return error.length === 0 ? "" : "has-error";
   }
 
-  saveUser = (key, value) => {
-    var storageJson = JSON.stringify(this.user);
-    localStorage.setItem("user", storageJson);
-  };
+  // saveUser = (key, value) => {
+  //   var storageJson = JSON.stringify(this.user);
+  //   localStorage.setItem("user", storageJson);
+  // };
   // componentWillMount() {
   //   localStorage.getItem("contacts") &&
   //     this.setState({
@@ -97,7 +111,8 @@ class Registry extends React.Component {
   render() {
     return (
       <form className="register-block">
-        {/* {console.log(this.setState.users)} */}
+        {/* {" "}
+        {console.log(localStorage.getItem(us))} */}
         <h4 className="login-join__title">Register</h4>
         <div className="panel-default">
           <FormErrors formErrors={this.state.formErrors} />

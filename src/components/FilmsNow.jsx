@@ -1,7 +1,7 @@
 import React from "react";
 import PropTypes from "prop-types";
 import { Link, Route } from "react-router-dom";
-import BuyTickets from "../buy-tickets/BuyTickets";
+import BuyTickets from "./BuyTickets";
 
 class FilmsNow extends React.PureComponent {
   static propTypes = {
