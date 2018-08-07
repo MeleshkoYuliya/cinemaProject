@@ -31,7 +31,10 @@
 	padding-bottom: 2em;
 	@include films_block-style;
 }
-
+.selectFilm{
+margin-top: 150px;
+width:100%;
+}
 @media  (max-width: 767px) { 
 	.films-soon {
 		display: none;	

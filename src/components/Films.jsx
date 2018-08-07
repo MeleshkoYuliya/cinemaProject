@@ -7,7 +7,7 @@ class Films extends React.Component {
   static propTypes = {
     films: PropTypes.arrayOf(
       PropTypes.shape({
-        code: PropTypes.number.isRequired,
+        id: PropTypes.number.isRequired,
         name: PropTypes.string.isRequired,
         url: PropTypes.string.isRequired
       })
@@ -22,7 +22,7 @@ class Films extends React.Component {
     var filmsCode = this.state.films.map(film => {
       this.state.filmNameArr.push(film.name);
       return (
-        <div className="home_film" key={film.code}>
+        <div className="home_film" key={film.id}>
           <div className="film_title">
             <h5>{film.name}</h5>
           </div>

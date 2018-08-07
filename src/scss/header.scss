@@ -8,6 +8,8 @@ body {
 	text-shadow: 0 0 10px lightgray;
 	color: rgb(177, 58, 10);
 	display: block;
+	margin-top: 30px;
+	margin-left:10px;
 }
 .header__search{
 	display:inline-block;
@@ -16,7 +18,9 @@ body {
 	left: 40%; 
 }
 
-
+.changeMenubtn{
+	display: none;
+}
 .header__search__inp {
 	border-radius: 6px;
 	outline:0;
@@ -44,38 +48,31 @@ body {
 	  &:focus{
 		  background-color: rgb(238, 238, 153);
 	 }
+	 display:inline-block;
 }
 .city{
 	display: inline-block;
 }
-// .header__search__button {
-// 	@include buttons-style($height:28px);
-// 	background-color:$header-color;
-// 	  &:hover{
-// 			background-color:$bkgd-color;
-// 		  transition-duration: 0.5s;
-// 		}
-// }
 
 .header {
   background-color: $header-color;
 height: 130px;
  display:flex;
+
 }
 .headerMenu{
 	display:inline-block;
 }
 .headerLogo{
 	display:inline-block;
-	// width: 70%;
 }
 .header__logo {
   font-family: $logo-style;
 	font-size: 44px;
 	height: 40px;
   display: inline-block;
-	padding-bottom: 45px;
-	padding-left: 10px;
+	padding-left: 30px;
+	margin-left:40px;
 	color:black;
 	 &:hover{
 		 text-shadow: 0 0 20px white;
@@ -125,26 +122,29 @@ h4 {
 	position:fixed;
 	top:0;
 	left:0;
+	z-index:100;
 	max-width:400px;
 	width: 70%;
 	display: flex;
 	flex-direction: column;
 	justify-content: flex-start;
-	// position: absolute;
-	// right: 5px;
-	// top: 40px; 
 	background-color:  $header-color;
 	padding: 0.5em;
 	padding-top: 2em;
-	border-radius: 20px;
-	// transition: transform 0.3s ease-out;
-	// transform: translateX(0);
+	transition-duration: 3s;
 	box-shadow: 0 0 10px lightgrey;
-
 }
-// .header__menu-button--burger{
-// 	transform: translateX(-100%);
-// }
+
+.changeMenubtn{
+	display: block;
+	position:fixed;
+	left: 10px;
+}
+.media-btn__close{
+padding-left: 200px;
+background-color: transparent;
+border-color:transparent;
+}
 .header__search__inp {
 	border-radius: 6px;
 	outline:0;
@@ -154,6 +154,9 @@ h4 {
 	  &:focus{
       background-color: rgb(238, 238, 153);
 		}
+}
+.header__city{
+display:none;
 }
 .menu-button{
 	@include buttons-style($font-size: 12px, $height:40px);
@@ -183,22 +186,14 @@ h4 {
 padding-left: 34%;
 }
 
-.header__search{
-	top:50px;
-	left:10px;
-}
+// .header__search{
+// 	top:50px;
+// 	left:10px;
+// }
 
 }
 @media  (min-width: 768px) and (max-width: 1200px) {
-	.header__menu-button {
-		position: absolute;
-		left: 280px;
-		top: 4px; 
-		padding: 0.5em;
-		padding-top: 0.5em;
-		border-radius: 20px;
-		width: 300px;
-	}
+
 	.header__login-button{
 		top:20px;
 	} 

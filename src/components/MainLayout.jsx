@@ -7,17 +7,21 @@ import ChooseSeats from "./ChooseSeats";
 import BuyTickets from "./BuyTickets";
 import Cinemas_Page from "./Cinemas_Page";
 import SelectSession from "./SelectSession";
-
 import Home_Page from "./Home_Page";
 import Header from "./Header";
-let moviesNow = require("./moviesNow.json");
-let searchInput = "Search films";
 
+let moviesNow = require("./moviesNow.json");
+let moviesSoon = require("./moviesSoon.json");
+let searchInput = "Search films";
 class MainLayout extends Component {
   render() {
     return (
       <div>
-        <Header movies={moviesNow} defaultInput={searchInput}>
+        <Header
+          movies={moviesNow}
+          moviesSoon={moviesSoon}
+          defaultInput={searchInput}
+        >
           <Route path="/" component={MainLayout} />
         </Header>
         <Route path="/authorisation" component={Authorisation} />

@@ -4,22 +4,23 @@ import openmenu from "./openmenu.svg";
 import closemenu from "./closemenu.svg";
 import SelectCity from "./SelectCity";
 class PagesLinks extends React.PureComponent {
-  // state = {
-  //   isOpen: false
-  // };
-  // toggle = () => {
-  //   this.setState({ isOpen: !this.state.isOpen });
-  // };
-  state={
-    sideDrawerOpen:false
+  state = {
+    sideDrawerOpen: false
   };
-drawerToggleClickHandler=()=>{
-this.setState((prevState)=>{
-  return {sideDrawerOpen: !prevState.sideDrawerOpen};
-});
-};
+  drawerToggleClickHandler = () => {
+    this.setState(prevState => {
+      return { sideDrawerOpen: !prevState.sideDrawerOpen };
+    });
+  };
+  closeMenu = e => {
+    this.setState({ sideDrawOpen: false });
+    console.log(e.target);
+  };
   render() {
-    
+    let drawerClasses = "header__menu-button--burger";
+    if (this.props.show) {
+      drawerClasses = "header__menu-button--burger open";
+    }
     return (
       <div className="headerMenu">
         <div className="header__menu-button">
@@ -40,48 +41,27 @@ this.setState((prevState)=>{
           </NavLink>
         </div>
 
-      
-          {/* <button className="media-btn__isOpen" onClick={this.toggle}>
-            {this.state.isOpen ? (
-              <img src={closemenu} className="menu" alt="openmenu" />
-            ) : (
-              <img src={openmenu} className="menu" alt="closemenu" />
-            )}
-          </button>
-
-          {this.state.isOpen && (
-            <div className="header__menu-button--burger">
-              <NavLink to="/cinemas">
-                <button className="menu-button">Cinemas</button>
-              </NavLink>
-              <NavLink to="/movies">
-                <button className="menu-button">Movies</button>
-              </NavLink>
-              <NavLink to="/buy-tickets">
-                <button className="menu-button">Tickets</button>
-              </NavLink>
-              <button className="menu-button">Coming Soon</button>
-              <NavLink to="/">
-                <button className="menu-button">Home</button>
-              </NavLink>
-              <NavLink to="/authorisation">
-                <button className="menu-button"> Login/Join</button>
-              </NavLink>
-              <SelectCity />
-            </div>
-          )} */}
-         
-          <button className="media-btn__isOpen" onClick={this.drawerToggleClickHandler}>
-            {this.state.sideDrawerOpen && (
-              <img src={closemenu} className="menu" alt="openmenu" />
-            ) }
+        <div className="changeMenubtn">
+          <button
+            className="media-btn__isOpen"
+            onClick={this.drawerToggleClickHandler}
+          >
             {!this.state.sideDrawerOpen && (
               <img src={openmenu} className="menu" alt="closemenu" />
             )}
           </button>
-          {this.state.sideDrawerOpen&&(
-            <div className="header__menu-button--media"> 
-            <div className="header__menu-button--burger">
+        </div>
+        <div className={drawerClasses} show={this.state.sideDrowOpen}>
+          {this.state.sideDrawerOpen && (
+            <div className="header__menu-button--media">
+              {this.state.sideDrawerOpen && (
+                <button
+                  className="media-btn__close"
+                  onClick={this.drawerToggleClickHandler}
+                >
+                  <img src={closemenu} className="menu" alt="openmenu" />
+                </button>
+              )}
               <NavLink to="/cinemas">
                 <button className="menu-button">Cinemas</button>
               </NavLink>
@@ -91,19 +71,20 @@ this.setState((prevState)=>{
               <NavLink to="/buy-tickets">
                 <button className="menu-button">Tickets</button>
               </NavLink>
-              <button className="menu-button">Coming Soon</button>
+              {/* <button className="menu-button">Coming Soon</button> */}
               <NavLink to="/">
                 <button className="menu-button">Home</button>
               </NavLink>
               <NavLink to="/authorisation">
                 <button className="menu-button"> Login/Join</button>
               </NavLink>
-              <SelectCity />
-            </div>
+              {/* <div className="header__city">
+                <SelectCity />
+              </div> */}
             </div>
           )}
-            </div>
-           
+        </div>
+      </div>
     );
   }
 }

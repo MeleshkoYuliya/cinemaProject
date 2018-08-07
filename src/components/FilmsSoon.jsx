@@ -5,7 +5,7 @@ class FilmsSoon extends React.PureComponent {
   static propTypes = {
     movies: PropTypes.arrayOf(
       PropTypes.shape({
-        code: PropTypes.number.isRequired,
+        id: PropTypes.number.isRequired,
         name: PropTypes.string.isRequired,
         url: PropTypes.string.isRequired
       })

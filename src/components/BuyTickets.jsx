@@ -1,32 +1,85 @@
 import React from "react";
 import { Link, Route } from "react-router-dom";
 import ChooseSeats from "./ChooseSeats";
+import SelectCinema from "react-select";
+import SelectDate from "react-select";
+import PropTypes from "prop-types";
 
+const cinemas = [
+  { value: "1", label: "Arena City Silver Screen" },
+  { value: "2", label: "Velcom cinema" },
+  { value: "3", label: "Galileo Silver Screen" },
+  { value: "4", label: "Belarus" }
+];
+const date = [
+  { value: "5", label: "9 August" },
+  { value: "6", label: "10 August" },
+  { value: "7", label: "11 August" },
+  { value: "8", label: "12 August" },
+  { value: "9", label: "13 August" }
+];
+const typeSession = [
+  { value: "10", label: "VMAX" },
+  { value: "11", label: "Dolby Digital" },
+  { value: "12", label: "3D" },
+  { value: "13", label: "2D" }
+];
 class BuyTickets extends React.Component {
+  static propTypes = {
+    cinemas: PropTypes.arrayOf(
+      PropTypes.shape({
+        value: PropTypes.number.isRequired,
+        label: PropTypes.string.isRequired
+      })
+    ),
+    date: PropTypes.arrayOf(
+      PropTypes.shape({
+        value: PropTypes.number.isRequired,
+        label: PropTypes.string.isRequired
+      })
+    )
+  };
+  state = {
+    selectedCinema: null,
+    selectedDate: null,
+    selectedSession: null
+  };
+  handleChange = selectedCinema => {
+    this.setState({ selectedCinema });
+  };
+  handleChangeDate = selectedDate => {
+    this.setState({ selectedDate });
+  };
+  handleChangeSession = selectedSession => {
+    this.setState({ selectedSession });
+  };
   render() {
+    const { selectedCinema, selectedDate, selectedSession } = this.state;
     return (
       <div>
         <div className="select-options">
-          <select name="cinemas" className="select-options__cinemas">
-            <option value="1">Cinemas:</option>
-            <option value="2">Arena City Silver Screen</option>
-            <option value="3">Velcom cinema</option>
-            <option value="4">Galileo Silver Screen</option>
-            <option value="5">Belarus</option>
-          </select>
-          <select name="date" className="select-options__date">
-            <option value="1">Today, 10 July</option>
-            <option value="2">Tomorrow, 11 July</option>
-            <option value="3">Wednesday, 12 July</option>
-            <option value="4">Thursday, 13 July</option>
-            <option value="5">Fridayб 14 July</option>
-          </select>
-          <select name="session-type" className="select-options__session-type">
-            <option value="1">VMAX</option>
-            <option value="2">Dolby Digital</option>
-            <option value="4">3D</option>
-            <option value="5">2D</option>
-          </select>
+          <SelectCinema
+            className="header__change-city"
+            value={selectedCinema}
+            placeholder="select cinema"
+            onChange={this.handleChange}
+            options={cinemas}
+          />
+          <SelectDate
+            className="header__change-city"
+            value={selectedDate}
+            placeholder="select date"
+            onChange={this.handleChangeDate}
+            options={date}
+          />
+          {console.log(selectedDate, selectedCinema, selectedSession)}
+          <SelectDate
+            className="header__change-city"
+            value={selectedSession}
+            placeholder="select type session"
+            onChange={this.handleChangeSession}
+            options={typeSession}
+          />
         </div>
 
         <div className="session-selection">

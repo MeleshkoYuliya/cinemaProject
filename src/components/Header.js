@@ -1,109 +1,53 @@
 import React from "react";
 import SelectCity from "./SelectCity";
 import PropTypes from "prop-types";
-import { Link, withRouter, Route } from "react-router-dom";
+import { Link } from "react-router-dom";
 import PagesLinks from "./PagesLinks";
-import SelectSession from "./SelectSession";
-import Toolbar from "./Toolbar"
+import SelectFilms from "./SelectFilms";
+
 class Header extends React.Component {
   static propTypes = {
     defaultInput: PropTypes.string.isRequired,
     movies: PropTypes.arrayOf(
       PropTypes.shape({
-        code: PropTypes.number.isRequired,
+        id: PropTypes.number,
+        name: PropTypes.string.isRequired,
+        url: PropTypes.string.isRequired
+      })
+    ),
+    moviesSoon: PropTypes.arrayOf(
+      PropTypes.shape({
+        id: PropTypes.number.isRequired,
         name: PropTypes.string.isRequired,
         url: PropTypes.string.isRequired
       })
     )
   };
 
-  state = {
-    defaultInput: this.props.defaultInput,
-    movies: this.props.movies,
-    filmNameArr: this.props.movies.map(film => film.name),
-    searchableMovies: []
-  };
-
-  searchChanged = e => {
-    const { filmNameArr } = this.state;
-
-    if (!e.target.value) {
-      this.setState({ searchableMovies: [] });
-      return;
-    }
-
-    const searchableMovies = filmNameArr.filter(film =>
-      film.toLowerCase().startsWith(e.target.value.toLowerCase())
-    );
-
-    this.setState({ searchableMovies });
-  };
-
-  handleChooseFilm = name => {
-    console.log(name);
-
-    const { movies } = this.state;
-    const { history } = this.props;
-
-    const movie = movies.find(movie => movie.name === name);
-    if (movie) {
-      history.push(`/movie/:${movie.code}`);
-    }
-  };
-
   render() {
-    const { movies } = this.state;
-    const { searchableMovies } = this.state;
-    const movie = movies.find(movie => movie.name);
-    const films = searchableMovies.map((name, i) => {
-      return (
-        <div
-          className="searchfilm"
-          key={i}
-          code={name.code}
-          onClick={() => this.handleChooseFilm(name)}
-        >
-          {name}
-        </div>
-      );
-    });
-
     return (
       <div>
-      <div className="header">
-        <div className="headerLogo">
-          <Link exact="true" to="/" className="logo">
-            <div className="header__logo">Big cinema</div>
-          </Link>   
-          <SelectCity />      
-        </div>
-          <div className="spacer"></div>
-        <form className="header__search">
-            {films.length > 0 ? (
-              <div className="filmNameSearch">{films}</div>
-            ) : null}
+        <div className="header">
+          <div className="headerLogo">
+            <Link exact="true" to="/" className="logo">
+              <div className="header__logo">Big cinema</div>
+            </Link>
+            <div className="header__city">
+              <SelectCity />
+            </div>
+          </div>
 
-            <input
-              className="header__search__inp"
-              type="text"
-              defaultValue={this.state.defaultInput}
-              onChange={this.searchChanged}
-            />
-
-            {/* <Link to="/select-session">
-              <button className="header__search__button">
-                <img src={logo} className="App-logo" alt="logo" />
-              </button>
-            </Link> */}
-          </form>      
-        <PagesLinks />
+          <div className="spacer" />
+          <PagesLinks />
         </div>
-        <div>
-        <Route path={`/movie/:${movie.code}`} component={SelectSession} />
-      </div>
+        <SelectFilms
+          movies={this.props.movies}
+          moviesSoon={this.props.moviesSoon}
+          defaultInput={this.props.defaultInput}
+        />
       </div>
     );
   }
 }
 
-export default withRouter(Header);
+export default Header;
