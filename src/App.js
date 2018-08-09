@@ -1,6 +1,6 @@
 import React, { Component } from "react";
-import MainLayout from "./components/MainLayout";
-import "./App.css";
+import MainLayout from "./components/mainLayout/MainLayout";
+
 import "./scss/style.scss";
 
 class App extends Component {

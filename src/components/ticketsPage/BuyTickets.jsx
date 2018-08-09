@@ -1,6 +1,6 @@
 import React from "react";
 import { Link, Route } from "react-router-dom";
-import ChooseSeats from "./ChooseSeats";
+import ChooseSeats from "../chooseSeatsePage/ChooseSeats";
 import SelectCinema from "react-select";
 import SelectDate from "react-select";
 import PropTypes from "prop-types";

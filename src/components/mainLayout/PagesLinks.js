@@ -39,6 +39,7 @@ class PagesLinks extends React.PureComponent {
           <NavLink to="/authorisation">
             <button className="menu-button"> Login/Join</button>
           </NavLink>
+          <SelectCity />
         </div>
 
         <div className="changeMenubtn">
@@ -78,9 +79,7 @@ class PagesLinks extends React.PureComponent {
               <NavLink to="/authorisation">
                 <button className="menu-button"> Login/Join</button>
               </NavLink>
-              {/* <div className="header__city">
-                <SelectCity />
-              </div> */}
+              <SelectCity />
             </div>
           )}
         </div>

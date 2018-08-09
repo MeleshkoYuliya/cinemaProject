@@ -1,7 +1,7 @@
 import React from "react";
 import PropTypes from "prop-types";
 import { Link, Route } from "react-router-dom";
-import BuyTickets from "./BuyTickets";
+import BuyTickets from "../ticketsPage/BuyTickets";
 
 class Films extends React.Component {
   static propTypes = {

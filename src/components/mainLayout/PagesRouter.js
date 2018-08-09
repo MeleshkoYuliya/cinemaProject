@@ -1,12 +1,12 @@
 import React, { Component } from "react";
 import { Route } from "react-router-dom";
-import Authorisation from "./Authorisation";
-import Movies_Page from "./Movies_Page";
-import ChooseSeats from "./ChooseSeats";
-import BuyTickets from "./BuyTickets";
-import Cinemas_Page from "./Cinemas_Page";
+import Authorisation from "../components/authorisation/Authorisation";
+import Movies_Page from "../moviesPage/Movies_Page";
+import ChooseSeats from "../chooseSeatsePage/ChooseSeats";
+import BuyTickets from "../ticketsPage/BuyTickets";
+import Cinemas_Page from "../components/cinemasPage/Cinemas_Page";
 import SelectSession from "./SelectSession";
-import Home_Page from "./Home_Page";
+import Home_Page from "../components/homePage/Home_Page";
 
 class PagesRouter extends Component {
   render() {

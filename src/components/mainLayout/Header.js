@@ -1,5 +1,5 @@
 import React from "react";
-import SelectCity from "./SelectCity";
+
 import PropTypes from "prop-types";
 import { Link } from "react-router-dom";
 import PagesLinks from "./PagesLinks";
@@ -28,14 +28,10 @@ class Header extends React.Component {
     return (
       <div>
         <div className="header">
-          <div className="headerLogo">
-            <Link exact="true" to="/" className="logo">
-              <div className="header__logo">Big cinema</div>
-            </Link>
-            <div className="header__city">
-              <SelectCity />
-            </div>
-          </div>
+          <Link exact="true" to="/">
+            <div className="header__logo">Big cinema</div>
+          </Link>
+          <div className="header__city" />
 
           <div className="spacer" />
           <PagesLinks />
