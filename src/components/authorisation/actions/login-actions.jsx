@@ -1,4 +1,7 @@
-import { ACTION_CHANGE_EMAIL, ACTION_CHANGE_PASSWORD } from "./action-types";
+import {
+  ACTION_CHANGE_EMAIL,
+  ACTION_CHANGE_PASSWORD
+} from "./login-action-types";
 
 export const changeEmail = newEmail => {
   return {

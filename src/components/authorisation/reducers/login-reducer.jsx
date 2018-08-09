@@ -1,14 +1,14 @@
 import {
   ACTION_CHANGE_EMAIL,
   ACTION_CHANGE_PASSWORD
-} from "../actions/action-types";
+} from "../actions/login-action-types";
 
 const initialState = {
   email: "",
   password: ""
 };
 
-const rootReducer = (state = initialState, action) => {
+const loginReducer = (state = initialState, action) => {
   switch (action.type) {
     case ACTION_CHANGE_EMAIL:
       return { ...state, email: action.payload };
@@ -19,4 +19,4 @@ const rootReducer = (state = initialState, action) => {
   }
 };
 
-export default rootReducer;
+export default loginReducer;
