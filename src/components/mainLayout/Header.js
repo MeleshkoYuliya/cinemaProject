@@ -1,29 +1,12 @@
-import React from "react";
+import React, { PureComponent } from "react";
 
-import PropTypes from "prop-types";
 import { Link } from "react-router-dom";
 import PagesLinks from "./PagesLinks";
 import SelectFilms from "./SelectFilms";
-
-class Header extends React.Component {
-  static propTypes = {
-    defaultInput: PropTypes.string.isRequired,
-    movies: PropTypes.arrayOf(
-      PropTypes.shape({
-        id: PropTypes.number,
-        name: PropTypes.string.isRequired,
-        url: PropTypes.string.isRequired
-      })
-    ),
-    moviesSoon: PropTypes.arrayOf(
-      PropTypes.shape({
-        id: PropTypes.number.isRequired,
-        name: PropTypes.string.isRequired,
-        url: PropTypes.string.isRequired
-      })
-    )
-  };
-
+let moviesNow = require("../moviesNow.json");
+let moviesSoon = require("../moviesSoon.json");
+let searchInput = "Search films";
+class Header extends PureComponent {
   render() {
     return (
       <div>
@@ -37,9 +20,9 @@ class Header extends React.Component {
           <PagesLinks />
         </div>
         <SelectFilms
-          movies={this.props.movies}
-          moviesSoon={this.props.moviesSoon}
-          defaultInput={this.props.defaultInput}
+          movies={moviesNow}
+          moviesSoon={moviesSoon}
+          defaultInput={searchInput}
         />
       </div>
     );

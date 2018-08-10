@@ -3,6 +3,7 @@ import { NavLink } from "react-router-dom";
 import openmenu from "./openmenu.svg";
 import closemenu from "./closemenu.svg";
 import SelectCity from "./SelectCity";
+
 class PagesLinks extends React.PureComponent {
   state = {
     sideDrawerOpen: false
@@ -52,6 +53,7 @@ class PagesLinks extends React.PureComponent {
             )}
           </button>
         </div>
+
         <div className={drawerClasses} show={this.state.sideDrowOpen}>
           {this.state.sideDrawerOpen && (
             <div className="header__menu-button--media">

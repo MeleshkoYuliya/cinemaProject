@@ -1,26 +1,28 @@
 import React from "react";
-import PropTypes from "prop-types";
 import { Switch, withRouter, Route } from "react-router-dom";
 import SelectSession from "./SelectSession";
+import { bindActionCreators } from "redux";
+import { connect } from "react-redux";
+import { createFilm } from "./actions/header-actions";
 
 class SelectFilms extends React.Component {
-  static propTypes = {
-    defaultInput: PropTypes.string.isRequired,
-    movies: PropTypes.arrayOf(
-      PropTypes.shape({
-        id: PropTypes.number,
-        name: PropTypes.string.isRequired,
-        url: PropTypes.string.isRequired
-      })
-    ),
-    moviesSoon: PropTypes.arrayOf(
-      PropTypes.shape({
-        id: PropTypes.number.isRequired,
-        name: PropTypes.string.isRequired,
-        url: PropTypes.string.isRequired
-      })
-    )
-  };
+  // static propTypes = {
+  //   defaultInput: PropTypes.string.isRequired,
+  //   movies: PropTypes.arrayOf(
+  //     PropTypes.shape({
+  //       id: PropTypes.number,
+  //       name: PropTypes.string.isRequired,
+  //       url: PropTypes.string.isRequired
+  //     })
+  //   ),
+  //   moviesSoon: PropTypes.arrayOf(
+  //     PropTypes.shape({
+  //       id: PropTypes.number.isRequired,
+  //       name: PropTypes.string.isRequired,
+  //       url: PropTypes.string.isRequired
+  //     })
+  //   )
+  // };
 
   state = {
     defaultInput: this.props.defaultInput,
@@ -30,7 +32,7 @@ class SelectFilms extends React.Component {
       .map(film => film.name)
       .concat(this.props.moviesSoon.map(filmSoon => filmSoon.name)),
     searchableMovies: [],
-    id: this.props.id
+    movie: this.props.movie
   };
 
   searchChanged = e => {
@@ -48,34 +50,56 @@ class SelectFilms extends React.Component {
     this.setState({ searchableMovies });
   };
 
-  handleChooseFilm = name => {
-    console.log(name);
-
+  // handleChooseFilm = e => {
+  //   const { movies, moviesSoon } = this.state;
+  //   const { history } = this.props;
+  //   const movie = movies.find(movie => movie.name === e);
+  //   const movieSoon = moviesSoon.find(movieSoon => movieSoon.name === e);
+  //   if (movie) {
+  //     history.push(`/movie/:${movie.id}`);
+  //     this.setState({
+  //       movie: movie
+  //     });
+  //   }
+  //   if (movieSoon) {
+  //     history.push(`/movie/:${movieSoon.id}`);
+  //     this.setState({
+  //       movie: movieSoon
+  //     });
+  //   }
+  // };
+  handleCreateFilm = e => {
     const { movies, moviesSoon } = this.state;
     const { history } = this.props;
-
-    const movie = movies.find(movie => movie.name === name);
-    const movieSoon = moviesSoon.find(movie => movie.name === name);
+    const movie = movies.find(movie => movie.name === e);
+    const movieSoon = moviesSoon.find(movieSoon => movieSoon.name === e);
     if (movie) {
       history.push(`/movie/:${movie.id}`);
+      this.setState({
+        movie: movie
+      });
     }
     if (movieSoon) {
       history.push(`/movie/:${movieSoon.id}`);
+      this.setState({
+        movie: movieSoon
+      });
     }
-  };
+    const { onCreateFilm } = this.props;
 
+    onCreateFilm({ ...this.state });
+  };
   render() {
-    const { movies, moviesSoon } = this.state;
+    const { movie, moviesSoon } = this.state;
     const { searchableMovies } = this.state;
-    const movie = movies.find(movie => movie.name);
-    const movieSoon = moviesSoon.find(movie => movie.name);
+
     const films = searchableMovies.map((name, i) => {
       return (
         <div
           className="searchfilm"
           key={i}
           id={name.id}
-          onClick={() => this.handleChooseFilm(name)}
+          onClick={() => this.handleCreateFilm(name)}
         >
           {name}
         </div>
@@ -96,13 +120,29 @@ class SelectFilms extends React.Component {
             onChange={this.searchChanged}
           />
         </form>
-
         <Switch>
-          <Route path={`/movie/:${movie.id}`} component={SelectSession} />
-          <Route path={`/movie/:${movieSoon.id}`} component={SelectSession} />
+          <Route path={`/movie/:${movie.id}`}>
+            <SelectSession movie={this.state.movie} />
+          </Route>
         </Switch>
       </div>
     );
   }
 }
-export default withRouter(SelectFilms);
+
+const mapStateToProps = state => {
+  return {
+    movie: state.movie
+  };
+};
+
+const mapDispatchToProps = dispatch => {
+  return {
+    onCreateFilm: bindActionCreators(createFilm, dispatch)
+  };
+};
+
+export default connect(
+  mapStateToProps,
+  mapDispatchToProps
+)(withRouter(SelectFilms));

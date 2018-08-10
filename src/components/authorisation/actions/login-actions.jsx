@@ -1,17 +1,8 @@
-import {
-  ACTION_CHANGE_EMAIL,
-  ACTION_CHANGE_PASSWORD
-} from "./login-action-types";
+import { ACTION_IDENTIFYING_USER } from "./login-action-types";
 
-export const changeEmail = newEmail => {
+export const identifyingUser = login => {
   return {
-    type: ACTION_CHANGE_EMAIL,
-    payload: newEmail
-  };
-};
-export const changePassword = newPassword => {
-  return {
-    type: ACTION_CHANGE_PASSWORD,
-    payload: newPassword
+    type: ACTION_IDENTIFYING_USER,
+    payload: login
   };
 };
