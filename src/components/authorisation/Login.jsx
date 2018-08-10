@@ -1,22 +1,30 @@
-import React from "react";
+import React, { PureComponent } from "react";
 import { FormErrors } from "./FormErrors";
-
-class Login extends React.Component {
+import { bindActionCreators } from "redux";
+import { connect } from "react-redux";
+import { identifyingUser } from "./actions/login-actions";
+class Login extends PureComponent {
   state = {
-    email: "",
-    password: "",
+    email: this.props.login.email,
+    password: this.props.login.password,
     formErrors: { email: "", password: "" },
     emailValid: false,
     passwordValid: false,
+    userNameValid: false,
     formValid: false
   };
 
+  handleIdentifyingUser = e => {
+    const { onIdentyfyingUser } = this.props;
+    onIdentyfyingUser({ ...this.state });
+  };
   handleUserInput = e => {
     const name = e.target.name;
     const value = e.target.value;
     this.setState({ [name]: value }, () => {
       this.validateField(name, value);
     });
+    console.log(value);
   };
 
   validateField(fieldName, value) {
@@ -57,6 +65,7 @@ class Login extends React.Component {
   }
 
   render() {
+    const { email, password } = this.state;
     return (
       <form className="enter-block">
         <h4 className="login-join__title">Sign in</h4>
@@ -75,7 +84,7 @@ class Login extends React.Component {
             required
             name="email"
             placeholder="Email"
-            value={this.state.email}
+            value={email}
             onChange={this.handleUserInput}
           />
         </div>
@@ -90,20 +99,36 @@ class Login extends React.Component {
             name="password"
             placeholder="Password"
             className="login-join__add"
-            value={this.state.password}
+            value={password}
             onChange={this.handleUserInput}
           />
         </div>
         <button
           className="login-join_btn"
+          onClick={this.handleIdentifyingUser}
           type="submit"
           disabled={!this.state.formValid}
         >
-          Login
+          Sign up
         </button>
       </form>
     );
   }
 }
 
-export default Login;
+const mapStateToProps = state => {
+  return {
+    login: state.login
+  };
+};
+
+const mapDispatchToProps = dispatch => {
+  return {
+    onCreateUser: bindActionCreators(identifyingUser, dispatch)
+  };
+};
+
+export default connect(
+  mapStateToProps,
+  mapDispatchToProps
+)(Login);

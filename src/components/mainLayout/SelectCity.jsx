@@ -25,8 +25,8 @@ class SelectCity extends React.Component {
   };
   handleChange = selectedOption => {
     this.setState({ selectedOption });
-    let city = document.querySelector(".city");
-    city.innerHTML = selectedOption.label;
+    // let city = document.querySelector(".city");
+    // city.innerHTML = selectedOption.label;
   };
   render() {
     const { selectedOption } = this.state;
@@ -38,7 +38,7 @@ class SelectCity extends React.Component {
           onChange={this.handleChange}
           options={options}
         />
-        <div className="city" />
+        {/* <div className="city" /> */}
       </div>
     );
   }

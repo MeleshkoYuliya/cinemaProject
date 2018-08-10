@@ -1,17 +1,18 @@
-import React from "react";
+import React, { PureComponent } from "react";
+import { bindActionCreators } from "redux";
+import { connect } from "react-redux";
+import { createUser } from "./actions/registry-actions";
 import { FormErrors } from "./FormErrors";
-// import PropTypes from "prop-types";
-class Registry extends React.Component {
+class Registry extends PureComponent {
   state = {
-    email: "",
-    password: "",
-    userName: "",
+    email: this.props.user.email,
+    password: this.props.user.password,
+    userName: this.props.user.userName,
     formErrors: { email: "", password: "", userName: "" },
     emailValid: false,
     passwordValid: false,
     userNameValid: false,
-    formValid: false,
-    users: {}
+    formValid: false
   };
 
   handleUserInput = e => {
@@ -20,25 +21,14 @@ class Registry extends React.Component {
 
     this.setState({ [name]: value }, () => {
       this.validateField(name, value);
-      this.users = { [name]: value };
+      console.log(value);
     });
   };
-  //   var storageJson = JSON.stringify(this.users);
-  //   console.log(this.users);
-  //   localStorage.setItem("user", storageJson);
-  // };
-  saveUser = e => {
-    // const name = e.target.name;
-    // const value = e.target.value;
-    this.setState({
-      email: e.currentTarget.value,
-      password: e.currentTarget.value,
-      userName: e.currentTarget.value
-    });
 
-    // var storageJson = JSON.stringify(this.users);
-    console.log(this.state.email);
-    // localStorage.setItem(us, { [emailU]: pass });
+  handleCreateUser = e => {
+    const { onCreateUser } = this.props;
+
+    onCreateUser({ ...this.state });
   };
 
   validateField(fieldName, value) {
@@ -84,35 +74,11 @@ class Registry extends React.Component {
     return error.length === 0 ? "" : "has-error";
   }
 
-  // saveUser = (key, value) => {
-  //   var storageJson = JSON.stringify(this.user);
-  //   localStorage.setItem("user", storageJson);
-  // };
-  // componentWillMount() {
-  //   localStorage.getItem("contacts") &&
-  //     this.setState({
-  //       contacts: JSON.parse(localStorage.getItem("contacts"))
-  //     });
-  // }
-  // componentDidMount() {
-  //   if (!localStorage.getItem("contacts")) {
-  //     this.fetchData();
-  //   } else {
-  //     console.log(JSON.parse(localStorage.getItem("contacts")));
-  //   }
-  // }
-  // fetchData() {}
-  // componentWillUpdate(nextProps, nextState) {
-  //   localStorage.setItem("contacts", JSON.stringify(nextState.contacts));
-
-  //   localStorage.setItem("contactsDate", Date.now());
-  // }
-
   render() {
+    const { email, password, userName } = this.state;
+
     return (
       <form className="register-block">
-        {/* {" "}
-        {console.log(localStorage.getItem(us))} */}
         <h4 className="login-join__title">Register</h4>
         <div className="panel-default">
           <FormErrors formErrors={this.state.formErrors} />
@@ -124,13 +90,12 @@ class Registry extends React.Component {
         >
           <label htmlFor="userName" className="login-join__info" />
           <input
-            id="userName"
             className="login-join__add"
             type="text"
             required
             name="userName"
             placeholder="User Name"
-            value={this.state.userName}
+            value={userName}
             onChange={this.handleUserInput}
           />
         </div>
@@ -141,13 +106,12 @@ class Registry extends React.Component {
         >
           <label htmlFor="email" className="login-join__info" />
           <input
-            id="email"
             className="login-join__add"
             type="email"
             required
             name="email"
             placeholder="Email"
-            value={this.state.email}
+            value={email}
             onChange={this.handleUserInput}
           />
         </div>
@@ -158,20 +122,19 @@ class Registry extends React.Component {
         >
           <label htmlFor="password" className="login-join__info" />
           <input
-            id="passvord"
             type="password"
             name="password"
             placeholder="Password"
             className="login-join__add"
-            value={this.state.password}
+            value={password}
             onChange={this.handleUserInput}
           />
         </div>
         <button
           className="login-join_btn"
+          onClick={this.handleCreateUser}
           type="submit"
           disabled={!this.state.formValid}
-          onClick={this.saveUser}
         >
           Sign up
         </button>
@@ -180,4 +143,19 @@ class Registry extends React.Component {
   }
 }
 
-export default Registry;
+const mapStateToProps = state => {
+  return {
+    user: state.user
+  };
+};
+
+const mapDispatchToProps = dispatch => {
+  return {
+    onCreateUser: bindActionCreators(createUser, dispatch)
+  };
+};
+
+export default connect(
+  mapStateToProps,
+  mapDispatchToProps
+)(Registry);
