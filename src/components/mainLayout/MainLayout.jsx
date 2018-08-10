@@ -1,26 +1,23 @@
 import React from "react";
 import { Component } from "react";
 import { Route } from "react-router-dom";
-import Authorisation from "./Authorisation";
-import Movies_Page from "./Movies_Page";
-import ChooseSeats from "./ChooseSeats";
-import BuyTickets from "./BuyTickets";
-import Cinemas_Page from "./Cinemas_Page";
+import Authorisation from "../authorisation/Authorisation";
+import Movies_Page from "../moviesPage/Movies_Page";
+import ChooseSeats from "../chooseSeatsePage/ChooseSeats";
+import BuyTickets from "../ticketsPage/BuyTickets";
+import Cinemas_Page from "../cinemasPage/Cinemas_Page";
 import SelectSession from "./SelectSession";
-import Home_Page from "./Home_Page";
+import Home_Page from "../homePage/Home_Page";
 import Header from "./Header";
 
-let moviesNow = require("./moviesNow.json");
-let moviesSoon = require("./moviesSoon.json");
-let searchInput = "Search films";
 class MainLayout extends Component {
   render() {
     return (
       <div>
         <Header
-          movies={moviesNow}
-          moviesSoon={moviesSoon}
-          defaultInput={searchInput}
+        // movies={moviesNow}
+        // moviesSoon={moviesSoon}
+        // defaultInput={searchInput}
         >
           <Route path="/" component={MainLayout} />
         </Header>
