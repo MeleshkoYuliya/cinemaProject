@@ -13,14 +13,9 @@ class Films extends React.Component {
       })
     )
   };
-  state = {
-    films: this.props.films,
-    filmNameArr: []
-  };
 
   render() {
-    var filmsCode = this.state.films.map(film => {
-      this.state.filmNameArr.push(film.name);
+    var filmsCode = this.props.films.map(film => {
       return (
         <div className="home_film" key={film.id}>
           <div className="film_title">
@@ -40,4 +35,5 @@ class Films extends React.Component {
     return <div className="home">{filmsCode}</div>;
   }
 }
+
 export default Films;

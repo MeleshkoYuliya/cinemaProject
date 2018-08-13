@@ -4,13 +4,13 @@ import SelectSession from "./SelectSession";
 import { bindActionCreators } from "redux";
 import { connect } from "react-redux";
 import { createFilm } from "./actions/header-actions";
+import PropTypes from "prop-types";
 
 class SelectFilms extends React.Component {
   // static propTypes = {
-  //   defaultInput: PropTypes.string.isRequired,
   //   movies: PropTypes.arrayOf(
   //     PropTypes.shape({
-  //       id: PropTypes.number,
+  //       id: PropTypes.number.isRequired,
   //       name: PropTypes.string.isRequired,
   //       url: PropTypes.string.isRequired
   //     })
@@ -23,7 +23,6 @@ class SelectFilms extends React.Component {
   //     })
   //   )
   // };
-
   state = {
     defaultInput: this.props.defaultInput,
     movies: this.props.movies,
@@ -36,7 +35,7 @@ class SelectFilms extends React.Component {
   };
 
   searchChanged = e => {
-    const { filmNameArr } = this.state;
+    let { filmNameArr } = this.state;
 
     if (!e.target.value) {
       this.setState({ searchableMovies: [] });
@@ -50,26 +49,9 @@ class SelectFilms extends React.Component {
     this.setState({ searchableMovies });
   };
 
-  // handleChooseFilm = e => {
-  //   const { movies, moviesSoon } = this.state;
-  //   const { history } = this.props;
-  //   const movie = movies.find(movie => movie.name === e);
-  //   const movieSoon = moviesSoon.find(movieSoon => movieSoon.name === e);
-  //   if (movie) {
-  //     history.push(`/movie/:${movie.id}`);
-  //     this.setState({
-  //       movie: movie
-  //     });
-  //   }
-  //   if (movieSoon) {
-  //     history.push(`/movie/:${movieSoon.id}`);
-  //     this.setState({
-  //       movie: movieSoon
-  //     });
-  //   }
-  // };
   handleCreateFilm = e => {
-    const { movies, moviesSoon } = this.state;
+    const { moviesSoon } = this.state;
+    const { movies } = this.state;
     const { history } = this.props;
     const movie = movies.find(movie => movie.name === e);
     const movieSoon = moviesSoon.find(movieSoon => movieSoon.name === e);

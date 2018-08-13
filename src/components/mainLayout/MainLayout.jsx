@@ -14,11 +14,7 @@ class MainLayout extends Component {
   render() {
     return (
       <div>
-        <Header
-        // movies={moviesNow}
-        // moviesSoon={moviesSoon}
-        // defaultInput={searchInput}
-        >
+        <Header>
           <Route path="/" component={MainLayout} />
         </Header>
         <Route path="/authorisation" component={Authorisation} />
