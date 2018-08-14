@@ -40,15 +40,12 @@ class Home_Page extends React.Component {
     //   .catch(e => console.log(e));
   }
 
-  handleClick = () => {
-    debugger;
-    push("/movies");
-  };
+ 
 
   render() {
     return (
       <div>
-        <button onClick={this.handleClick}>Movies</button>
+       
         <Films films={this.state.filmsNow} />
       </div>
     );

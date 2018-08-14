@@ -9,6 +9,7 @@ import Cinemas_Page from "../cinemasPage/Cinemas_Page";
 import SelectSession from "./SelectSession";
 import Home_Page from "../homePage/Home_Page";
 import Header from "./Header";
+import {bindActionCreators} from "redux";
 import { connect } from "react-redux";
 import { requestFilms } from "./actions/actions";
 import { push } from "connected-react-router";
@@ -18,13 +19,15 @@ class MainLayout extends Component {
     const { onAddTodo } = this.props;
     onAddTodo({ ...this.state });
   };
-
+  handleClick = () => {
+    push("/movies");
+  };
   render() {
     return (
       <div>
+       <button onClick={this.handleClick}>Movies</button>
         {console.log(this.props.data.movies)}
         <Header moviesNow={this.props.moviesNow}>
-          {/* <Route path="/" component={MainLayout} /> */}
         </Header>
         <Route path="/authorisation" component={Authorisation} />
         <Route path="/movies" component={Movies_Page} />
@@ -41,10 +44,22 @@ class MainLayout extends Component {
 const mapDispatchToProps = dispatch => {
   return {
     onAddTodo: data => {
-      dispatch(requestFilms(data));
+      dispatch(requestFilms(data)     
+      )
     }
+    
   };
+ 
 };
+// const mapDispatchToProps = dispatch => bindActionCreators({
+//   return: {
+//     onAddTodo: data => {
+//           requestFilms(data)     
+//         },
+//         changePage: () => push('/about-us')
+//       }
+
+// }, dispatch)
 
 const mapStateToProps = state => {
   return {
