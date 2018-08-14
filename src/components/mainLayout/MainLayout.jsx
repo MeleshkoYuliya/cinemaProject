@@ -9,13 +9,22 @@ import Cinemas_Page from "../cinemasPage/Cinemas_Page";
 import SelectSession from "./SelectSession";
 import Home_Page from "../homePage/Home_Page";
 import Header from "./Header";
+import { connect } from "react-redux";
+import { requestFilms } from "./actions/actions";
+import { push } from "connected-react-router";
 
 class MainLayout extends Component {
+  componentDidMount = () => {
+    const { onAddTodo } = this.props;
+    onAddTodo({ ...this.state });
+  };
+
   render() {
     return (
       <div>
-        <Header>
-          <Route path="/" component={MainLayout} />
+        {console.log(this.props.data.movies)}
+        <Header moviesNow={this.props.moviesNow}>
+          {/* <Route path="/" component={MainLayout} /> */}
         </Header>
         <Route path="/authorisation" component={Authorisation} />
         <Route path="/movies" component={Movies_Page} />
@@ -28,4 +37,22 @@ class MainLayout extends Component {
     );
   }
 }
-export default MainLayout;
+
+const mapDispatchToProps = dispatch => {
+  return {
+    onAddTodo: data => {
+      dispatch(requestFilms(data));
+    }
+  };
+};
+
+const mapStateToProps = state => {
+  return {
+    data: state.data
+  };
+};
+
+export default connect(
+  mapStateToProps,
+  mapDispatchToProps
+)(MainLayout);

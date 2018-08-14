@@ -3,7 +3,7 @@ import { Switch, withRouter, Route } from "react-router-dom";
 import SelectSession from "./SelectSession";
 import { bindActionCreators } from "redux";
 import { connect } from "react-redux";
-import { createFilm } from "./actions/header-actions";
+import { requestFilms } from "./actions/actions";
 import PropTypes from "prop-types";
 
 class SelectFilms extends React.Component {
@@ -120,7 +120,7 @@ const mapStateToProps = state => {
 
 const mapDispatchToProps = dispatch => {
   return {
-    onCreateFilm: bindActionCreators(createFilm, dispatch)
+    onCreateFilm: bindActionCreators(requestFilms, dispatch)
   };
 };
 

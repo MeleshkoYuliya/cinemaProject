@@ -1,36 +1,33 @@
 import React from "react";
 import ReactDOM from "react-dom";
 import App from "./App";
-import { BrowserRouter } from "react-router-dom";
 import { Provider } from "react-redux";
-import { createStore } from "redux";
+import { createStore, applyMiddleware } from "redux";
 import loginReducer from "./components/authorisation/reducers/login-reducer";
 import registryReducer from "./components/authorisation/reducers/registry-reducer";
-import headerReducer from "./components/mainLayout/reducers/header-reducer";
+import reducer from "./components/mainLayout/reducers/reducer";
 import { combineReducers } from "redux";
+import thunk from "redux-thunk";
+import { connectRouter, routerMiddleware } from "connected-react-router";
+import { ConnectedRouter, push } from "connected-react-router";
+import { history } from "./history";
 
 const rootReducer = combineReducers({
   login: loginReducer,
   user: registryReducer,
-  movie: headerReducer
+  data: reducer
 });
-function actionCreator(data) {
-  return (dispatch) => {
-    dispatch({type : 'REQUEST_STARTED'});
-    
-    axios.post('/post', { data })
-      .then(response => dispatch({type : 'REQUEST_SUCCEEDED', payload : response})
-      .catch(error => dispatch({type : 'REQUEST_FAILED', error : error})    
-    };
-}
-const store = createStore(rootReducer, {});
-console.log(store.getState());
+const store = createStore(
+  connectRouter(history)(rootReducer),
+  applyMiddleware(routerMiddleware(history), thunk)
+);
+// window.store = store;
 
 ReactDOM.render(
   <Provider store={store}>
-    <BrowserRouter>
+    <ConnectedRouter history={history}>
       <App />
-    </BrowserRouter>
+    </ConnectedRouter>
   </Provider>,
   document.getElementById("root")
 );

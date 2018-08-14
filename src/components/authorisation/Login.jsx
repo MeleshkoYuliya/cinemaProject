@@ -124,7 +124,7 @@ const mapStateToProps = state => {
 
 const mapDispatchToProps = dispatch => {
   return {
-    onCreateUser: bindActionCreators(identifyingUser, dispatch)
+    onIdentyfyingUser: bindActionCreators(identifyingUser, dispatch)
   };
 };
 

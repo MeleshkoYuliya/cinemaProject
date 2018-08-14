@@ -1,6 +1,7 @@
 import React from "react";
 import Films from "./Films";
 import axios from "axios";
+import { push } from "connected-react-router";
 
 const instance = axios.create({
   baseURL: "https://films-6ff5c.firebaseio.com/"
@@ -21,7 +22,6 @@ class Home_Page extends React.Component {
         this.setState({
           filmsNow: data.data
         });
-        console.log(data.data);
       })
       .catch(e => console.log(e));
     // const testMovies = [
@@ -40,10 +40,15 @@ class Home_Page extends React.Component {
     //   .catch(e => console.log(e));
   }
 
+  handleClick = () => {
+    debugger;
+    push("/movies");
+  };
+
   render() {
     return (
       <div>
-        {console.log(this.state.filmsNow)}
+        <button onClick={this.handleClick}>Movies</button>
         <Films films={this.state.filmsNow} />
       </div>
     );
