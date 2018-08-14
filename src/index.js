@@ -2,7 +2,7 @@ import React from "react";
 import ReactDOM from "react-dom";
 import App from "./App";
 import { Provider } from "react-redux";
-import { createStore, applyMiddleware } from "redux";
+import { createStore, applyMiddleware, compose} from "redux";
 import loginReducer from "./components/authorisation/reducers/login-reducer";
 import registryReducer from "./components/authorisation/reducers/registry-reducer";
 import reducer from "./components/mainLayout/reducers/reducer";
