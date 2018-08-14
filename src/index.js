@@ -14,7 +14,15 @@ const rootReducer = combineReducers({
   user: registryReducer,
   movie: headerReducer
 });
-
+function actionCreator(data) {
+  return (dispatch) => {
+    dispatch({type : 'REQUEST_STARTED'});
+    
+    axios.post('/post', { data })
+      .then(response => dispatch({type : 'REQUEST_SUCCEEDED', payload : response})
+      .catch(error => dispatch({type : 'REQUEST_FAILED', error : error})    
+    };
+}
 const store = createStore(rootReducer, {});
 console.log(store.getState());
 
