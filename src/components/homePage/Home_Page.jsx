@@ -1,58 +1,40 @@
 import React from "react";
 import Films from "./Films";
-import axios from "axios";
-import { push } from "connected-react-router";
-
-const instance = axios.create({
-  baseURL: "https://films-6ff5c.firebaseio.com/"
-});
+// import { push } from "connected-react-router";
+import { connect } from "react-redux";
+import { requestFilms } from "../mainLayout/actions/actions";
 
 class Home_Page extends React.Component {
-  constructor(props) {
-    super(props);
-    this.state = {
-      filmsNow: []
-    };
-  }
-
-  componentDidMount() {
-    instance
-      .get("moviesNow.json")
-      .then(data => {
-        this.setState({
-          filmsNow: data.data
-        });
-      })
-      .catch(e => console.log(e));
-    // const testMovies = [
-    //   { name: "Batman", id: 1 },
-    //   { name: "Batman 2", id: 2 },
-    //   { name: "Batman 3", id: 3 }
-    // ];
-
-    // instance
-    //   .post("movies-test.json", testMovies)
-    //   .then(data => console.log("Success: ", data));
-
-    // instance
-    //   .get("moviesNow")
-    //   .then(data => console.log(data))
-    //   .catch(e => console.log(e));
-  }
-
-  handleClick = () => {
-    debugger;
-    push("/movies");
+  componentDidMount = () => {
+    const { onAddTodo } = this.props;
+    onAddTodo({ ...this.state });
   };
-
   render() {
+    const obj = Object.assign({}, this.props.data.movies[0]);
+    const moviesNow = Object.values(obj);
+
     return (
       <div>
-        <button onClick={this.handleClick}>Movies</button>
-        <Films films={this.state.filmsNow} />
+        <Films films={moviesNow} />
       </div>
     );
   }
 }
+const mapDispatchToProps = dispatch => {
+  return {
+    onAddTodo: data => {
+      dispatch(requestFilms(data));
+    }
+  };
+};
 
-export default Home_Page;
+const mapStateToProps = state => {
+  return {
+    data: state.data
+  };
+};
+
+export default connect(
+  mapStateToProps,
+  mapDispatchToProps
+)(Home_Page);
