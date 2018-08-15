@@ -22,7 +22,7 @@ class Header extends PureComponent {
           <PagesLinks />
         </div>
         {/* <SelectFilms
-          movies={moviesNow}
+          movies={this.props.moviesNow}
           moviesSoon={moviesSoon}
           defaultInput={searchInput}
         /> */}

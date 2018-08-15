@@ -3,7 +3,6 @@ import {
   REQUEST_SUCCEEDED,
   REQUEST_FAILED
 } from "./action-types";
-
 import axios from "axios";
 
 const instance = axios.create({
