@@ -13,10 +13,7 @@ class FilmsSoon extends React.PureComponent {
   //     })
   //   )
   // };
-  // componentDidMount = () => {
-  //   const { onAddFilms } = this.props;
-  //   onAddFilms({ ...this.state });
-  // };
+
   render() {
     const obj = Object.assign({}, this.props.moviesSoon[0]);
     const filmsSoon = Object.values(obj);

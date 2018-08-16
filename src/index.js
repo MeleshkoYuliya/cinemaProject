@@ -7,6 +7,7 @@ import loginReducer from "./components/authorisation/reducers/login-reducer";
 import registryReducer from "./components/authorisation/reducers/registry-reducer";
 import reducer from "./components/mainLayout/reducers/filmsNow-reducer";
 import filmsSoonReducer from "./components/mainLayout/reduser_filmsSoon/filmsSoon-reducer";
+import headerReducer from "./components/mainLayout/header_reducers/headerReducer";
 import { combineReducers } from "redux";
 import thunk from "redux-thunk";
 import { connectRouter, routerMiddleware } from "connected-react-router";
@@ -17,7 +18,8 @@ const rootReducer = combineReducers({
   login: loginReducer,
   user: registryReducer,
   movies: reducer,
-  dataSoon: filmsSoonReducer
+  dataSoon: filmsSoonReducer,
+  movie: headerReducer
 });
 const store = createStore(
   connectRouter(history)(rootReducer),

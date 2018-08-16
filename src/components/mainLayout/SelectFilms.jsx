@@ -6,6 +6,7 @@ import { connect } from "react-redux";
 import { requestFilms } from "../mainLayout/actions/filmsNow-actions";
 import { requestFilmsSoon } from "../mainLayout/actons_filmsSoon/filmsSoon-actions";
 import PropTypes from "prop-types";
+import { createFilm } from "./header_actions/actions";
 
 class SelectFilms extends React.Component {
   // static propTypes = {
@@ -26,18 +27,26 @@ class SelectFilms extends React.Component {
   // };
   state = {
     defaultInput: this.props.defaultInput,
-    movies: this.props.movies,
-    moviesSoon: this.props.moviesSoon,
-    filmNameArr: this.props.movies
-      .map(film => film.name)
-      .concat(this.props.moviesSoon.map(filmSoon => filmSoon.name)),
+    // movies: this.props.movies,
+    // moviesSoon: this.props.moviesSoon,
+    // filmNameArr: this.props.movies
+    //   .map(film => film.name)
+    //   .concat(this.props.moviesSoon.map(filmSoon => filmSoon.name)),
+    filmNameArr: [],
     searchableMovies: [],
     movie: this.props.movie
   };
+  // componentDidMount = () => {
+  //   const { onCreateFilm } = this.props;
+  //   onCreateFilm({ ...this.state });
+  // };
 
   searchChanged = e => {
-    let { filmNameArr } = this.state;
-
+    // let { filmNameArr } = this.state;
+    // console.log(this.props.filmNameArr);
+    const filmNameArr = this.props.movies
+      .map(film => film.name)
+      .concat(this.props.moviesSoon.map(filmSoon => filmSoon.name));
     if (!e.target.value) {
       this.setState({ searchableMovies: [] });
       return;
@@ -51,10 +60,8 @@ class SelectFilms extends React.Component {
   };
 
   handleCreateFilm = e => {
-    // const obj = Object.assign({}, this.props.movies[0]);
-    // const movies = Object.values(obj);
-    const { moviesSoon } = this.state;
-    const { movies } = this.state;
+    const { moviesSoon } = this.props;
+    const { movies } = this.props;
     const { history } = this.props;
     const movie = movies.find(movie => movie.name === e);
     const movieSoon = moviesSoon.find(movieSoon => movieSoon.name === e);
@@ -71,13 +78,15 @@ class SelectFilms extends React.Component {
       });
     }
     const { onCreateFilm } = this.props;
-
     onCreateFilm({ ...this.state });
   };
   render() {
-    const { movie, moviesSoon } = this.state;
+    const { movie, movies, moviesSoon } = this.state;
     const { searchableMovies } = this.state;
-
+    // let { filmNameArr } = this.props;
+    // console.log(filmNameArr);
+    // const movie = movies.find(movie => movie.name);
+    // const movieSoon = moviesSoon.find(movie => movie.name);
     const films = searchableMovies.map((name, i) => {
       return (
         <div
@@ -114,22 +123,25 @@ class SelectFilms extends React.Component {
     );
   }
 }
-
-const mapDispatchToProps = dispatch => {
-  return {
-    onAddFilms: dataSoon => {
-      dispatch(requestFilmsSoon(dataSoon));
-    },
-    onAddTodo: movies => {
-      dispatch(requestFilms(movies));
-    }
-  };
-};
+// export default withRouter(SelectFilms);
 
 const mapStateToProps = state => {
   return {
-    movies: state.movies,
-    dataSoon: state.dataSoon
+    movie: state.movie
+  };
+};
+
+const mapDispatchToProps = dispatch => {
+  return {
+    onCreateFilm: movie => {
+      dispatch(createFilm(movie));
+    }
+    // onAddFilms: dataSoon => {
+    //   dispatch(requestFilmsSoon(dataSoon));
+    // },
+    // onAddTodo: movies => {
+    //   dispatch(requestFilms(movies));
+    // }
   };
 };
 
@@ -137,3 +149,27 @@ export default connect(
   mapStateToProps,
   mapDispatchToProps
 )(withRouter(SelectFilms));
+
+// export default withRouter(SelectFilms);
+// const mapDispatchToProps = dispatch => {
+//   return {
+//     onAddFilms: dataSoon => {
+//       dispatch(requestFilmsSoon(dataSoon));
+//     },
+//     onAddTodo: movies => {
+//       dispatch(requestFilms(movies));
+//     }
+//   };
+// };
+
+// const mapStateToProps = state => {
+//   return {
+//     movies: state.movies,
+//     dataSoon: state.dataSoon
+//   };
+// };
+
+// export default connect(
+//   mapStateToProps,
+//   mapDispatchToProps
+// )(withRouter(SelectFilms));
