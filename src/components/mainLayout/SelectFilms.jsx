@@ -27,8 +27,8 @@ class SelectFilms extends React.Component {
   // };
   state = {
     defaultInput: this.props.defaultInput,
-    // movies: this.props.movies,
-    // moviesSoon: this.props.moviesSoon,
+    movies: [],
+    moviesSoon: [],
     // filmNameArr: this.props.movies
     //   .map(film => film.name)
     //   .concat(this.props.moviesSoon.map(filmSoon => filmSoon.name)),
@@ -36,17 +36,28 @@ class SelectFilms extends React.Component {
     searchableMovies: [],
     movie: this.props.movie
   };
-  // componentDidMount = () => {
-  //   const { onCreateFilm } = this.props;
-  //   onCreateFilm({ ...this.state });
-  // };
-
+  componentDidMount = () => {
+    const { onCreateFilm } = this.props;
+    onCreateFilm({ ...this.state });
+    const { onAddFilms, onAddTodo } = this.props;
+    onAddFilms({ ...this.state });
+    onAddTodo({ ...this.state });
+  };
   searchChanged = e => {
+    const obj = Object.assign({}, this.props.movies.movies[0]);
+    const moviesNow = Object.values(obj);
+    const object = Object.assign({}, this.props.dataSoon.moviesSoon[0]);
+    const filmsSoon = Object.values(object);
+    const filmNameArr = moviesNow
+      .map(film => film.name)
+      .concat(filmsSoon.map(filmSoon => filmSoon.name));
+    console.log(filmNameArr);
     // let { filmNameArr } = this.state;
     // console.log(this.props.filmNameArr);
-    const filmNameArr = this.props.movies
-      .map(film => film.name)
-      .concat(this.props.moviesSoon.map(filmSoon => filmSoon.name));
+    // console.log(this.props.movies.movies);
+    // const filmNameArr = this.state.movies
+    //   .map(film => film.name)
+    //   .concat(this.state.moviesSoon.map(filmSoon => filmSoon.name));
     if (!e.target.value) {
       this.setState({ searchableMovies: [] });
       return;
@@ -60,11 +71,15 @@ class SelectFilms extends React.Component {
   };
 
   handleCreateFilm = e => {
-    const { moviesSoon } = this.props;
-    const { movies } = this.props;
+    // const { moviesSoon } = this.props;
+    // const { movies } = this.props;
+    const obj = Object.assign({}, this.props.movies.movies[0]);
+    const moviesNow = Object.values(obj);
+    const object = Object.assign({}, this.props.dataSoon.moviesSoon[0]);
+    const filmsSoon = Object.values(object);
     const { history } = this.props;
-    const movie = movies.find(movie => movie.name === e);
-    const movieSoon = moviesSoon.find(movieSoon => movieSoon.name === e);
+    const movie = moviesNow.find(movie => movie.name === e);
+    const movieSoon = filmsSoon.find(movieSoon => movieSoon.name === e);
     if (movie) {
       history.push(`/movie/:${movie.id}`);
       this.setState({
@@ -127,7 +142,9 @@ class SelectFilms extends React.Component {
 
 const mapStateToProps = state => {
   return {
-    movie: state.movie
+    movie: state.movie,
+    movies: state.movies,
+    dataSoon: state.dataSoon
   };
 };
 
@@ -135,13 +152,13 @@ const mapDispatchToProps = dispatch => {
   return {
     onCreateFilm: movie => {
       dispatch(createFilm(movie));
+    },
+    onAddFilms: dataSoon => {
+      dispatch(requestFilmsSoon(dataSoon));
+    },
+    onAddTodo: movies => {
+      dispatch(requestFilms(movies));
     }
-    // onAddFilms: dataSoon => {
-    //   dispatch(requestFilmsSoon(dataSoon));
-    // },
-    // onAddTodo: movies => {
-    //   dispatch(requestFilms(movies));
-    // }
   };
 };
 

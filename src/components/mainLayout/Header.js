@@ -11,17 +11,17 @@ import { requestFilmsSoon } from "../mainLayout/actons_filmsSoon/filmsSoon-actio
 let searchInput = "Search films";
 
 class Header extends PureComponent {
-  componentDidMount = () => {
-    const { onAddFilms, onAddTodo } = this.props;
-    onAddFilms({ ...this.state });
-    onAddTodo({ ...this.state });
-  };
+  // componentDidMount = () => {
+  //   const { onAddFilms, onAddTodo } = this.props;
+  //   onAddFilms({ ...this.state });
+  //   onAddTodo({ ...this.state });
+  // };
 
   render() {
-    const obj = Object.assign({}, this.props.movies.movies[0]);
-    const moviesNow = Object.values(obj);
-    const object = Object.assign({}, this.props.dataSoon.moviesSoon[0]);
-    const filmsSoon = Object.values(object);
+    // const obj = Object.assign({}, this.props.movies.movies[0]);
+    // const moviesNow = Object.values(obj);
+    // const object = Object.assign({}, this.props.dataSoon.moviesSoon[0]);
+    // const filmsSoon = Object.values(object);
     // const filmNameArr = moviesNow
     //   .map(film => film.name)
     //   .concat(filmsSoon.map(filmSoon => filmSoon.name));
@@ -39,35 +39,35 @@ class Header extends PureComponent {
         </div>
         <SelectFilms
           defaultInput={searchInput}
-          movies={moviesNow}
-          moviesSoon={filmsSoon}
+          // movies={moviesNow}
+          // moviesSoon={filmsSoon}
           // filmNameArr={filmNameArr}
         />
       </div>
     );
   }
 }
-const mapDispatchToProps = dispatch => {
-  return {
-    onAddFilms: dataSoon => {
-      dispatch(requestFilmsSoon(dataSoon));
-    },
-    onAddTodo: movies => {
-      dispatch(requestFilms(movies));
-    }
-  };
-};
+// const mapDispatchToProps = dispatch => {
+//   return {
+//     onAddFilms: dataSoon => {
+//       dispatch(requestFilmsSoon(dataSoon));
+//     },
+//     onAddTodo: movies => {
+//       dispatch(requestFilms(movies));
+//     }
+//   };
+// };
 
-const mapStateToProps = state => {
-  return {
-    movies: state.movies,
-    dataSoon: state.dataSoon
-  };
-};
+// const mapStateToProps = state => {
+//   return {
+//     movies: state.movies,
+//     dataSoon: state.dataSoon
+//   };
+// };
 
-export default connect(
-  mapStateToProps,
-  mapDispatchToProps
-)(Header);
+// export default connect(
+//   mapStateToProps,
+//   mapDispatchToProps
+// )(Header);
 
-// export default Header;
+export default Header;
