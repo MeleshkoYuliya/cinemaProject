@@ -1,6 +1,8 @@
 import { ACTION_CREATE_FILM } from "../header_actions/actions-type";
 const initialState = {
-  movie: {}
+  id: "",
+  name: "",
+  url: ""
 };
 const headerReducer = (state = initialState, action) => {
   switch (action.type) {

@@ -6,18 +6,19 @@ class SelectSession extends React.Component {
     movie: this.props.movie
   };
   render() {
-    const { movie } = this.props;
+    console.log(this.props.movie);
+    const { film } = this.props;
     return (
       <div>
         <SelectOptions />
         <div className="session-selection">
           <div>
             <div className="session-selection__film">
-              <h4 className="select-options__title">{movie.name}</h4>
+              <h4 className="select-options__title">{film.name}</h4>
               <img
                 className="session-selection__img"
-                src={movie.url}
-                alt={movie.name}
+                src={film.url}
+                alt={film.name}
               />
             </div>
 

@@ -11,11 +11,9 @@ class SelectFilms extends React.Component {
     defaultInput: this.props.defaultInput,
     filmNameArr: [],
     searchableMovies: [],
-    movie: this.props.movie
+    film: {}
   };
   componentDidMount = () => {
-    const { onCreateFilm } = this.props;
-    onCreateFilm({ ...this.state });
     const { onAddFilms, onAddTodo } = this.props;
     onAddFilms({ ...this.state });
     onAddTodo({ ...this.state });
@@ -52,20 +50,23 @@ class SelectFilms extends React.Component {
     if (movie) {
       history.push(`/movie/:${movie.id}`);
       this.setState({
-        movie: movie
+        film: movie
       });
+      const { onCreateFilm } = this.props;
+      onCreateFilm({ ...this.state });
     }
     if (movieSoon) {
       history.push(`/movie/:${movieSoon.id}`);
       this.setState({
-        movie: movieSoon
+        film: movieSoon
       });
+      const { onCreateFilm } = this.props;
+      onCreateFilm({ ...this.state });
     }
-    const { onCreateFilm } = this.props;
-    onCreateFilm({ ...this.state });
   };
   render() {
-    const { movie } = this.state;
+    const { film } = this.state;
+    console.log(this.props.selectMovie);
     const { searchableMovies } = this.state;
     const films = searchableMovies.map((name, i) => {
       return (
@@ -95,8 +96,8 @@ class SelectFilms extends React.Component {
           />
         </form>
         <Switch>
-          <Route path={`/movie/:${movie.id}`}>
-            <SelectSession movie={this.state.movie} />
+          <Route path={`/movie/:${film.id}`}>
+            <SelectSession film={film} />
           </Route>
         </Switch>
       </div>
@@ -106,7 +107,7 @@ class SelectFilms extends React.Component {
 
 const mapStateToProps = state => {
   return {
-    movie: state.movie,
+    selectMovie: state.selectMovie,
     movies: state.movies,
     dataSoon: state.dataSoon
   };
@@ -114,8 +115,8 @@ const mapStateToProps = state => {
 
 const mapDispatchToProps = dispatch => {
   return {
-    onCreateFilm: movie => {
-      dispatch(createFilm(movie));
+    onCreateFilm: selectMovie => {
+      dispatch(createFilm(selectMovie));
     },
     onAddFilms: dataSoon => {
       dispatch(requestFilmsSoon(dataSoon));
