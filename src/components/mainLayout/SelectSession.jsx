@@ -7,7 +7,6 @@ class SelectSession extends React.Component {
   };
   render() {
     const { movie } = this.props;
-    console.log(movie);
     return (
       <div>
         <SelectOptions />

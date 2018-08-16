@@ -25,7 +25,6 @@ const store = createStore(
   connectRouter(history)(rootReducer),
   applyMiddleware(routerMiddleware(history), thunk)
 );
-// window.store = store;
 
 ReactDOM.render(
   <Provider store={store}>

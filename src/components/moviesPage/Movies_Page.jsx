@@ -13,7 +13,6 @@ class Movies_Page extends React.Component {
   };
 
   render() {
-    console.log(this.props.dataSoon);
     return (
       <div className="movies">
         <div className="films-now">

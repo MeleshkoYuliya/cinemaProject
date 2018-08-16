@@ -1,37 +1,14 @@
 import React from "react";
 import { Switch, withRouter, Route } from "react-router-dom";
 import SelectSession from "./SelectSession";
-import { bindActionCreators } from "redux";
 import { connect } from "react-redux";
 import { requestFilms } from "../mainLayout/actions/filmsNow-actions";
 import { requestFilmsSoon } from "../mainLayout/actons_filmsSoon/filmsSoon-actions";
-import PropTypes from "prop-types";
 import { createFilm } from "./header_actions/actions";
 
 class SelectFilms extends React.Component {
-  // static propTypes = {
-  //   movies: PropTypes.arrayOf(
-  //     PropTypes.shape({
-  //       id: PropTypes.number.isRequired,
-  //       name: PropTypes.string.isRequired,
-  //       url: PropTypes.string.isRequired
-  //     })
-  //   ),
-  //   moviesSoon: PropTypes.arrayOf(
-  //     PropTypes.shape({
-  //       id: PropTypes.number.isRequired,
-  //       name: PropTypes.string.isRequired,
-  //       url: PropTypes.string.isRequired
-  //     })
-  //   )
-  // };
   state = {
     defaultInput: this.props.defaultInput,
-    movies: [],
-    moviesSoon: [],
-    // filmNameArr: this.props.movies
-    //   .map(film => film.name)
-    //   .concat(this.props.moviesSoon.map(filmSoon => filmSoon.name)),
     filmNameArr: [],
     searchableMovies: [],
     movie: this.props.movie
@@ -51,13 +28,7 @@ class SelectFilms extends React.Component {
     const filmNameArr = moviesNow
       .map(film => film.name)
       .concat(filmsSoon.map(filmSoon => filmSoon.name));
-    console.log(filmNameArr);
-    // let { filmNameArr } = this.state;
-    // console.log(this.props.filmNameArr);
-    // console.log(this.props.movies.movies);
-    // const filmNameArr = this.state.movies
-    //   .map(film => film.name)
-    //   .concat(this.state.moviesSoon.map(filmSoon => filmSoon.name));
+
     if (!e.target.value) {
       this.setState({ searchableMovies: [] });
       return;
@@ -71,8 +42,6 @@ class SelectFilms extends React.Component {
   };
 
   handleCreateFilm = e => {
-    // const { moviesSoon } = this.props;
-    // const { movies } = this.props;
     const obj = Object.assign({}, this.props.movies.movies[0]);
     const moviesNow = Object.values(obj);
     const object = Object.assign({}, this.props.dataSoon.moviesSoon[0]);
@@ -96,12 +65,8 @@ class SelectFilms extends React.Component {
     onCreateFilm({ ...this.state });
   };
   render() {
-    const { movie, movies, moviesSoon } = this.state;
+    const { movie } = this.state;
     const { searchableMovies } = this.state;
-    // let { filmNameArr } = this.props;
-    // console.log(filmNameArr);
-    // const movie = movies.find(movie => movie.name);
-    // const movieSoon = moviesSoon.find(movie => movie.name);
     const films = searchableMovies.map((name, i) => {
       return (
         <div
@@ -138,7 +103,6 @@ class SelectFilms extends React.Component {
     );
   }
 }
-// export default withRouter(SelectFilms);
 
 const mapStateToProps = state => {
   return {
@@ -166,27 +130,3 @@ export default connect(
   mapStateToProps,
   mapDispatchToProps
 )(withRouter(SelectFilms));
-
-// export default withRouter(SelectFilms);
-// const mapDispatchToProps = dispatch => {
-//   return {
-//     onAddFilms: dataSoon => {
-//       dispatch(requestFilmsSoon(dataSoon));
-//     },
-//     onAddTodo: movies => {
-//       dispatch(requestFilms(movies));
-//     }
-//   };
-// };
-
-// const mapStateToProps = state => {
-//   return {
-//     movies: state.movies,
-//     dataSoon: state.dataSoon
-//   };
-// };
-
-// export default connect(
-//   mapStateToProps,
-//   mapDispatchToProps
-// )(withRouter(SelectFilms));

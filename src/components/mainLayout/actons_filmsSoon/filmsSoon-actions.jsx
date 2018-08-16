@@ -14,7 +14,7 @@ export const requestFilmsSoon = dataSoon => {
     return instance
       .get("filmsSoon.json")
       .then(res => {
-        dispatch(addFilmSuccess(res.data), console.log(res.data));
+        dispatch(addFilmSuccess(res.data));
       })
       .catch(err => {
         dispatch(addFilmFailure(err.message));

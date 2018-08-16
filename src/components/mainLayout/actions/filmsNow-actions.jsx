@@ -14,7 +14,7 @@ export const requestFilms = movies => {
     return instance
       .get("moviesNow.json")
       .then(res => {
-        dispatch(addTodoSuccess(res.data), console.log(res.data));
+        dispatch(addTodoSuccess(res.data));
       })
       .catch(err => {
         dispatch(addTodoFailure(err.message));
