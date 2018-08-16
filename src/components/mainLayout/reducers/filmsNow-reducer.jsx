@@ -2,7 +2,7 @@ import {
   REQUEST_STARTED,
   REQUEST_SUCCEEDED,
   REQUEST_FAILED
-} from "../actions/action-types";
+} from "../actions/filmsNow-action-types";
 
 const initialState = {
   loading: false,

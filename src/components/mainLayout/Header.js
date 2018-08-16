@@ -2,11 +2,11 @@ import React, { PureComponent } from "react";
 
 import { Link } from "react-router-dom";
 import PagesLinks from "./PagesLinks";
-// import SelectFilms from "./SelectFilms";
+import SelectFilms from "./SelectFilms";
 
 // let moviesNow = require("../moviesNow.json");
 // let moviesSoon = require("../moviesSoon.json");
-// let searchInput = "Search films";
+let searchInput = "Search films";
 
 class Header extends PureComponent {
   render() {
@@ -21,11 +21,7 @@ class Header extends PureComponent {
           <div className="spacer" />
           <PagesLinks />
         </div>
-        {/* <SelectFilms
-          movies={this.props.moviesNow}
-          moviesSoon={moviesSoon}
-          defaultInput={searchInput}
-        /> */}
+        <SelectFilms defaultInput={searchInput} />
       </div>
     );
   }

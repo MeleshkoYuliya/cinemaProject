@@ -5,17 +5,19 @@ import { Provider } from "react-redux";
 import { createStore, applyMiddleware } from "redux";
 import loginReducer from "./components/authorisation/reducers/login-reducer";
 import registryReducer from "./components/authorisation/reducers/registry-reducer";
-import reducer from "./components/mainLayout/reducers/reducer";
+import reducer from "./components/mainLayout/reducers/filmsNow-reducer";
+import filmsSoonReducer from "./components/mainLayout/reduser_filmsSoon/filmsSoon-reducer";
 import { combineReducers } from "redux";
 import thunk from "redux-thunk";
 import { connectRouter, routerMiddleware } from "connected-react-router";
-import { ConnectedRouter, push } from "connected-react-router";
+import { ConnectedRouter } from "connected-react-router";
 import { history } from "./history";
 
 const rootReducer = combineReducers({
   login: loginReducer,
   user: registryReducer,
-  data: reducer
+  movies: reducer,
+  dataSoon: filmsSoonReducer
 });
 const store = createStore(
   connectRouter(history)(rootReducer),

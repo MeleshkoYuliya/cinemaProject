@@ -3,7 +3,8 @@ import { Switch, withRouter, Route } from "react-router-dom";
 import SelectSession from "./SelectSession";
 import { bindActionCreators } from "redux";
 import { connect } from "react-redux";
-import { requestFilms } from "./actions/actions";
+import { requestFilms } from "../mainLayout/actions/filmsNow-actions";
+import { requestFilmsSoon } from "../mainLayout/actons_filmsSoon/filmsSoon-actions";
 import PropTypes from "prop-types";
 
 class SelectFilms extends React.Component {
@@ -50,6 +51,8 @@ class SelectFilms extends React.Component {
   };
 
   handleCreateFilm = e => {
+    // const obj = Object.assign({}, this.props.movies[0]);
+    // const movies = Object.values(obj);
     const { moviesSoon } = this.state;
     const { movies } = this.state;
     const { history } = this.props;
@@ -112,15 +115,21 @@ class SelectFilms extends React.Component {
   }
 }
 
-const mapStateToProps = state => {
+const mapDispatchToProps = dispatch => {
   return {
-    movie: state.movie
+    onAddFilms: dataSoon => {
+      dispatch(requestFilmsSoon(dataSoon));
+    },
+    onAddTodo: movies => {
+      dispatch(requestFilms(movies));
+    }
   };
 };
 
-const mapDispatchToProps = dispatch => {
+const mapStateToProps = state => {
   return {
-    onCreateFilm: bindActionCreators(requestFilms, dispatch)
+    movies: state.movies,
+    dataSoon: state.dataSoon
   };
 };
 
