@@ -1,35 +1,26 @@
 import React from "react";
 import { Switch, withRouter, Route } from "react-router-dom";
 import SelectSession from "./SelectSession";
-// import { connect } from "react-redux";
+import { connect } from "react-redux";
 // import { requestFilms } from "../mainLayout/actions/filmsNow-actions";
 // import { requestFilmsSoon } from "../mainLayout/actons_filmsSoon/filmsSoon-actions";
 import { createFilm } from "./header_actions/actions";
 
 class SelectFilms extends React.Component {
- 
   state = {
     defaultInput: this.props.defaultInput,
     filmNameArr: [],
     searchableMovies: [],
     film: {},
-    selectedAnswerCode: null
+    selectedFilm: null
   };
-  // componentDidMount = () => {
-  //   const { onAddFilms, onAddTodo } = this.props;
-  //   onAddFilms({ ...this.state });
-  //   onAddTodo({ ...this.state });
-  // };
+
   searchChanged = e => {
-    // const obj = Object.assign({}, this.props.movies.movies[0]);
-    // const moviesNow = Object.values(obj);
-    // const object = Object.assign({}, this.props.dataSoon.moviesSoon[0]);
-    // const filmsSoon = Object.values(object);
-    const {moviesNow, moviesSoon}=this.props;
+    const { moviesNow, moviesSoon } = this.props;
     const filmNameArr = moviesNow
       .map(film => film.name)
       .concat(moviesSoon.map(filmSoon => filmSoon.name));
-console.log(filmNameArr)
+    console.log(filmNameArr);
     if (!e.target.value) {
       this.setState({ searchableMovies: [] });
       return;
@@ -43,7 +34,7 @@ console.log(filmNameArr)
   };
 
   handleCreateFilm = e => {
-    const {moviesNow, moviesSoon}=this.props;
+    const { moviesNow, moviesSoon } = this.props;
     const { history } = this.props;
     const movie = moviesNow.find(movie => movie.name === e);
     const filmsSoon = moviesSoon.find(filmsSoon => filmsSoon.name === e);
@@ -51,20 +42,19 @@ console.log(filmNameArr)
       history.push(`/movie/:${movie.id}`);
       this.setState({
         film: movie,
-        selectedAnswerCode:movie.id
+        selectedFilm: movie.id
       });
     }
     if (filmsSoon) {
       history.push(`/movie/:${filmsSoon.id}`);
       this.setState({
         film: filmsSoon,
-        selectedAnswerCode:filmsSoon.id
-      });    
+        selectedFilm: filmsSoon.id
+      });
     }
   };
   render() {
-    const { film } = this.state;
-    console.log(film);
+    const { selectedFilm } = this.state;
     const { searchableMovies } = this.state;
     const films = searchableMovies.map((name, i) => {
       return (
@@ -94,9 +84,11 @@ console.log(filmNameArr)
           />
         </form>
         <Switch>
-          <Route path={`/movie/:${this.state.selectedAnswerCode}`}>
-            <SelectSession 
-        id={this.state.selectedAnswerCode} />
+          <Route path={`/movie/:${this.state.selectedFilm}`}>
+            <SelectSession
+              id={this.state.selectedFilm}
+              film={this.state.film}
+            />
           </Route>
         </Switch>
       </div>
@@ -107,8 +99,6 @@ export default withRouter(SelectFilms);
 // const mapStateToProps = state => {
 //   return {
 //     selectMovie: state.selectMovie,
-//     movies: state.movies,
-//     dataSoon: state.dataSoon
 //   };
 // };
 
@@ -117,12 +107,12 @@ export default withRouter(SelectFilms);
 //     onCreateFilm: selectMovie => {
 //       dispatch(createFilm(selectMovie));
 //     },
-//     onAddFilms: dataSoon => {
-//       dispatch(requestFilmsSoon(dataSoon));
-//     },
-//     onAddTodo: movies => {
-//       dispatch(requestFilms(movies));
-//     }
+// onAddFilms: dataSoon => {
+//   dispatch(requestFilmsSoon(dataSoon));
+// },
+// onAddTodo: movies => {
+//   dispatch(requestFilms(movies));
+// }
 //   };
 // };
 

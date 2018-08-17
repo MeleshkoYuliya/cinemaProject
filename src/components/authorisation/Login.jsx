@@ -3,6 +3,17 @@ import { FormErrors } from "./FormErrors";
 import { bindActionCreators } from "redux";
 import { connect } from "react-redux";
 import { identifyingUser } from "./actions/login-actions";
+import firebase from "firebase";
+
+var config = {
+  apiKey: "AIzaSyCtbQLfeudStMmmkEq0m4Q0xd5PfIH2eUs",
+  authDomain: "films-6ff5c.firebaseapp.com",
+  databaseURL: "https://films-6ff5c.firebaseio.com",
+  projectId: "films-6ff5c",
+  storageBucket: "films-6ff5c.appspot.com",
+  messagingSenderId: "665467669015"
+};
+
 class Login extends PureComponent {
   state = {
     email: this.props.login.email,
@@ -17,7 +28,23 @@ class Login extends PureComponent {
   handleIdentifyingUser = e => {
     const { onIdentyfyingUser } = this.props;
     onIdentyfyingUser({ ...this.state });
+    const { email, password } = this.state;
+    const auth = firebase.auth();
+    // auth.signInWithEmailAndPassword(email, password);
+    const promise = auth.signInWithEmailAndPassword(email, password);
+    promise.then(user => console.log(user)).catch(e => console.log(e.message));
+    console.log(this.state.email);
   };
+  // componentDidMount() {
+  //   const auth = firebase.auth();
+  //   auth.onAuthStateChanged(firebaseUser => {
+  //     if (firebaseUser) {
+  //       console.log(firebaseUser);
+  //     } else {
+  //       console.log("not user");
+  //     }
+  //   });
+  // }
   handleUserInput = e => {
     const name = e.target.name;
     const value = e.target.value;
@@ -106,7 +133,7 @@ class Login extends PureComponent {
         <button
           className="login-join_btn"
           onClick={this.handleIdentifyingUser}
-          type="submit"
+          // type="submit"
           disabled={!this.state.formValid}
         >
           Sign up

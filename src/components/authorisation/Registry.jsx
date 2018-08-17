@@ -3,6 +3,18 @@ import { bindActionCreators } from "redux";
 import { connect } from "react-redux";
 import { createUser } from "./actions/registry-actions";
 import { FormErrors } from "./FormErrors";
+import firebase from "firebase";
+
+var config = {
+  apiKey: "AIzaSyCtbQLfeudStMmmkEq0m4Q0xd5PfIH2eUs",
+  authDomain: "films-6ff5c.firebaseapp.com",
+  databaseURL: "https://films-6ff5c.firebaseio.com",
+  projectId: "films-6ff5c",
+  storageBucket: "films-6ff5c.appspot.com",
+  messagingSenderId: "665467669015"
+};
+
+firebase.initializeApp(config);
 class Registry extends PureComponent {
   state = {
     email: this.props.user.email,
@@ -21,16 +33,31 @@ class Registry extends PureComponent {
 
     this.setState({ [name]: value }, () => {
       this.validateField(name, value);
-      console.log(value);
     });
   };
 
   handleCreateUser = e => {
     const { onCreateUser } = this.props;
-
     onCreateUser({ ...this.state });
-  };
+    const { email, password } = this.state;
+    const auth = firebase.auth();
+    // auth.signInWithEmailAndPassword(email, password);
 
+    auth.onAuthStateChanged(firebaseUser => {});
+    const promise = auth.createUserWithEmailAndPassword(email, password);
+    promise.catch(e => console.log(e.message));
+    console.log(this.state.email);
+  };
+  componentDidMount() {
+    const auth = firebase.auth();
+    auth.onAuthStateChanged(firebaseUser => {
+      if (firebaseUser) {
+        console.log(firebaseUser);
+      } else {
+        console.log("not user");
+      }
+    });
+  }
   validateField(fieldName, value) {
     let fieldValidationErrors = this.state.formErrors;
     let emailValid = this.state.emailValid;
@@ -76,7 +103,7 @@ class Registry extends PureComponent {
 
   render() {
     const { email, password, userName } = this.state;
-
+    console.log(email);
     return (
       <form className="register-block">
         <h4 className="login-join__title">Register</h4>
@@ -133,7 +160,7 @@ class Registry extends PureComponent {
         <button
           className="login-join_btn"
           onClick={this.handleCreateUser}
-          type="submit"
+          // type="submit"
           disabled={!this.state.formValid}
         >
           Sign up
