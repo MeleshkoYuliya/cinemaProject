@@ -2,9 +2,13 @@ import React from "react";
 import { Link, Route } from "react-router-dom";
 import ChooseSeats from "../chooseSeatsePage/ChooseSeats";
 import SelectOptions from "./SelectOptions";
+import withAuthorization from '../Session/withAuthorization';
+import { db } from '../firebase';
 
 class BuyTickets extends React.Component {
+
   render() {
+ 
     return (
       <div>
         <SelectOptions />
@@ -171,4 +175,6 @@ class BuyTickets extends React.Component {
   }
 }
 
-export default BuyTickets;
+const authCondition = (authUser) => !!authUser;
+
+export default withAuthorization(authCondition)(BuyTickets);

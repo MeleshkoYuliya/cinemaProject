@@ -2,13 +2,13 @@ import {
   REQUEST_STARTED,
   REQUEST_SUCCEEDED,
   REQUEST_FAILED
-} from "./action-types";
+} from "./filmsNow-action-types";
 import axios from "axios";
 
 const instance = axios.create({
-  baseURL: "https://films-6ff5c.firebaseio.com/"
+  baseURL: "https://films-6ff5c.firebaseio.com"
 });
-export const requestFilms = data => {
+export const requestFilms = movies => {
   return dispatch => {
     dispatch(addTodoStarted());
     return instance
@@ -21,10 +21,10 @@ export const requestFilms = data => {
       });
   };
 };
-const addTodoSuccess = data => ({
+const addTodoSuccess = movies => ({
   type: REQUEST_SUCCEEDED,
   payload: {
-    ...data
+    ...movies
   }
 });
 

@@ -1,6 +1,6 @@
 import React from "react";
 import { Component } from "react";
-import { Route } from "react-router-dom";
+import { BrowserRouter as Router, Route } from "react-router-dom";
 import Authorisation from "../authorisation/Authorisation";
 import Movies_Page from "../moviesPage/Movies_Page";
 import ChooseSeats from "../chooseSeatsePage/ChooseSeats";
@@ -9,10 +9,11 @@ import Cinemas_Page from "../cinemasPage/Cinemas_Page";
 import SelectSession from "./SelectSession";
 import Home_Page from "../homePage/Home_Page";
 import Header from "./Header";
+import AccountPage from "../Account/AccountPage";
+import withAuthentication from '../Session/withAuthentication';
 
-class MainLayout extends Component {
-  render() {
-    return (
+const MainLayout = () =>
+      <Router>
       <div>
         <Header />
         <Route path="/authorisation" component={Authorisation} />
@@ -22,8 +23,8 @@ class MainLayout extends Component {
         <Route path="/cinemas" component={Cinemas_Page} />
         <Route path="/choose-seats" component={ChooseSeats} />
         <Route path="/select-session" component={SelectSession} />
+        <Route path="/account" component={AccountPage} />
       </div>
-    );
-  }
-}
-export default MainLayout;
+      </Router>
+
+ export default withAuthentication(MainLayout);

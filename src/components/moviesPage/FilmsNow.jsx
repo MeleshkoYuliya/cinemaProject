@@ -1,21 +1,13 @@
 import React from "react";
-import PropTypes from "prop-types";
+// import PropTypes from "prop-types";
 import { Link, Route } from "react-router-dom";
 import BuyTickets from "../ticketsPage/BuyTickets";
 
 class FilmsNow extends React.PureComponent {
-  static propTypes = {
-    films: PropTypes.arrayOf(
-      PropTypes.shape({
-        id: PropTypes.number.isRequired,
-        name: PropTypes.string.isRequired,
-        url: PropTypes.string.isRequired
-      })
-    )
-  };
-
   render() {
-    const film_now = this.props.films.map(function(item, index) {
+    const obj = Object.assign({}, this.props.movies[0]);
+    const moviesNow = Object.values(obj);
+    const film_now = moviesNow.map(function(item, index) {
       return (
         <div className="films-now__flex-conteiner__film" key={index}>
           <h5>{item.name}</h5>

@@ -3,6 +3,22 @@ import { bindActionCreators } from "redux";
 import { connect } from "react-redux";
 import { createUser } from "./actions/registry-actions";
 import { FormErrors } from "./FormErrors";
+import firebase from "firebase";
+import {
+  Link,
+  withRouter,
+} from 'react-router-dom';
+
+var config = {
+  apiKey: "AIzaSyCtbQLfeudStMmmkEq0m4Q0xd5PfIH2eUs",
+  authDomain: "films-6ff5c.firebaseapp.com",
+  databaseURL: "https://films-6ff5c.firebaseio.com",
+  projectId: "films-6ff5c",
+  storageBucket: "films-6ff5c.appspot.com",
+  messagingSenderId: "665467669015"
+};
+
+firebase.initializeApp(config);
 class Registry extends PureComponent {
   state = {
     email: this.props.user.email,
@@ -12,7 +28,8 @@ class Registry extends PureComponent {
     emailValid: false,
     passwordValid: false,
     userNameValid: false,
-    formValid: false
+    formValid: false,
+   isSignUp:true
   };
 
   handleUserInput = e => {
@@ -21,16 +38,33 @@ class Registry extends PureComponent {
 
     this.setState({ [name]: value }, () => {
       this.validateField(name, value);
-      console.log(value);
     });
   };
 
   handleCreateUser = e => {
     const { onCreateUser } = this.props;
-
     onCreateUser({ ...this.state });
-  };
+    const { email, password } = this.state;
+    const auth = firebase.auth();
+    const {
+      history,
+    } = this.props;
+    auth.onAuthStateChanged(firebaseUser => {});
+    const promise = auth.createUserWithEmailAndPassword(email, password);
+    promise .then(() => {
+      (user => console.log(user))
+        history.push('/movies');
+      })
+      .catch(error => {
+        this.setState({
+          isSignUp:false
+        })
+        console.log(error.message);
+      });
 
+    e.preventDefault();
+  };
+ 
   validateField(fieldName, value) {
     let fieldValidationErrors = this.state.formErrors;
     let emailValid = this.state.emailValid;
@@ -76,7 +110,7 @@ class Registry extends PureComponent {
 
   render() {
     const { email, password, userName } = this.state;
-
+    console.log(email);
     return (
       <form className="register-block">
         <h4 className="login-join__title">Register</h4>
@@ -138,6 +172,8 @@ class Registry extends PureComponent {
         >
           Sign up
         </button>
+        {/* {this.state.isUser='false'&& <div
+        >The email address is already in use by another account!!!</div>} */}
       </form>
     );
   }
@@ -158,4 +194,4 @@ const mapDispatchToProps = dispatch => {
 export default connect(
   mapStateToProps,
   mapDispatchToProps
-)(Registry);
+)(withRouter(Registry));

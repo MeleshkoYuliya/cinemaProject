@@ -7,17 +7,17 @@ class Films extends React.Component {
   static propTypes = {
     films: PropTypes.arrayOf(
       PropTypes.shape({
-        id: PropTypes.number.isRequired,
-        name: PropTypes.string.isRequired,
-        url: PropTypes.string.isRequired
+        id: PropTypes.number,
+        name: PropTypes.string,
+        url: PropTypes.string
       })
     )
   };
 
   render() {
-    var filmsCode = this.props.films.map(film => {
+    var filmsCode = this.props.films.map((film, index) => {
       return (
-        <div className="home_film" key={film.id}>
+        <div className="home_film" key={index}>
           <div className="film_title">
             <h5>{film.name}</h5>
           </div>
