@@ -1,15 +1,41 @@
 import React, { PureComponent } from "react";
-
 import { Link } from "react-router-dom";
 import PagesLinks from "./PagesLinks";
-// import SelectFilms from "./SelectFilms";
+import SelectFilms from "./SelectFilms";
+import { connect } from "react-redux";
+import AuthUserContext from '../Session/AuthUserContext';
+import { requestFilms } from "../mainLayout/actions/filmsNow-actions";
+import { requestFilmsSoon } from "../mainLayout/actons_filmsSoon/filmsSoon-actions";
 
-// let moviesNow = require("../moviesNow.json");
-// let moviesSoon = require("../moviesSoon.json");
-// let searchInput = "Search films";
+const NavigationAuth = () =>
+<div>
+<PagesLinks />
+ </div>
+
+
+const NavigationNonAuth = () =>
+  <div>
+   <Link exact="true" to="/">
+            <button className="menu-button">Home</button>
+          </Link>
+          <Link to="/authorisation">
+            <button className="menu-button"> Login/Join</button>
+          </Link>
+  </div> 
 
 class Header extends PureComponent {
+  
+  componentDidMount = () => {
+    const { onAddFilms, onAddTodo } = this.props;
+    onAddFilms({ ...this.state });
+    onAddTodo({ ...this.state });
+  };
   render() {
+    const obj = Object.assign({}, this.props.movies.movies[0]);
+    const moviesNow = Object.values(obj);
+    const object = Object.assign({}, this.props.dataSoon.moviesSoon[0]);
+    const filmsSoon = Object.values(object);
+    console.log(moviesNow)
     return (
       <div>
         <div className="header">
@@ -17,18 +43,43 @@ class Header extends PureComponent {
             <div className="header__logo">Big cinema</div>
           </Link>
           <div className="header__city" />
-
+    
           <div className="spacer" />
-          <PagesLinks />
+          <AuthUserContext.Consumer>
+    {authUser => authUser
+      ? <NavigationAuth/>
+      : <NavigationNonAuth />
+    }
+  </AuthUserContext.Consumer>
         </div>
-        {/* <SelectFilms
-          movies={moviesNow}
-          moviesSoon={moviesSoon}
-          defaultInput={searchInput}
-        /> */}
+        <SelectFilms 
+          moviesNow={moviesNow}
+          moviesSoon={filmsSoon}
+        />
       </div>
     );
   }
 }
 
-export default Header;
+const mapStateToProps = state => {
+  return {
+    movies: state.movies,
+    dataSoon: state.dataSoon
+  };
+};
+
+const mapDispatchToProps = dispatch => {
+  return {
+    onAddFilms: dataSoon => {
+      dispatch(requestFilmsSoon(dataSoon));
+    },
+    onAddTodo: movies => {
+      dispatch(requestFilms(movies));
+    }
+  };
+};
+
+export default connect(
+  mapStateToProps,
+  mapDispatchToProps
+)(Header);

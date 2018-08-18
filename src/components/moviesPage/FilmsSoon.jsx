@@ -1,19 +1,10 @@
 import React from "react";
-import PropTypes from "prop-types";
 
 class FilmsSoon extends React.PureComponent {
-  static propTypes = {
-    movies: PropTypes.arrayOf(
-      PropTypes.shape({
-        id: PropTypes.number.isRequired,
-        name: PropTypes.string.isRequired,
-        url: PropTypes.string.isRequired
-      })
-    )
-  };
-
   render() {
-    const film_soon = this.props.movies.map(function(item, index) {
+    const obj = Object.assign({}, this.props.moviesSoon[0]);
+    const filmsSoon = Object.values(obj);
+    const film_soon = filmsSoon.map(function(item, index) {
       return (
         <div className="films-soon__flex-conteiner__film" key={index}>
           <h6 className="soon_title">{item.name}</h6>

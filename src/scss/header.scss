@@ -11,6 +11,20 @@ body {
 	background-color: $bkgd-color;
 	margin: 0;
 }
+.user {
+	display: inline-block;
+	width: 2em;
+	height: 2em;
+	stroke-width: 0;
+	stroke: currentColor;
+	fill: currentColor;
+	margin-right: 2px;
+	&:hover{
+		box-shadow: 0 0 20px white;
+		border-radius: 20px;
+		padding: 2px;	
+	}
+  }
 .header__city {
 	@include titles-style;
 	text-shadow: 0 0 10px lightgray;
