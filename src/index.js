@@ -3,12 +3,8 @@ import ReactDOM from "react-dom";
 import App from "./App";
 import registerServiceWorker from './registerServiceWorker';
 import { Provider } from "react-redux";
-<<<<<<< HEAD
-import { createStore, applyMiddleware, compose} from "redux";
-=======
 import { BrowserRouter } from "react-router-dom";
 import { createStore, applyMiddleware } from "redux";
->>>>>>> rout
 import loginReducer from "./components/authorisation/reducers/login-reducer";
 import registryReducer from "./components/authorisation/reducers/registry-reducer";
 import reducer from "./components/mainLayout/reducers/filmsNow-reducer";

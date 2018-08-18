@@ -1,7 +1,7 @@
 import React from "react";
 import { Link, Route } from "react-router-dom";
 import SelectOptions from "../ticketsPage/SelectOptions";
-import PropTypes from "prop-types";
+// import PropTypes from "prop-types";
 import ChooseSeats from "../chooseSeatsePage/ChooseSeats";
 import { connect } from "react-redux";
 import { requestFilms } from "../mainLayout/actions/filmsNow-actions";

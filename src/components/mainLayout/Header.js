@@ -35,7 +35,6 @@ class Header extends PureComponent {
     const moviesNow = Object.values(obj);
     const object = Object.assign({}, this.props.dataSoon.moviesSoon[0]);
     const filmsSoon = Object.values(object);
-    console.log(moviesNow)
     return (
       <div>
         <div className="header">

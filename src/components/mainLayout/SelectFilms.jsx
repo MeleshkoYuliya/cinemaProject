@@ -1,10 +1,10 @@
 import React from "react";
 import { Switch, withRouter, Route } from "react-router-dom";
 import SelectSession from "./SelectSession";
-import { connect } from "react-redux";
+// import { connect } from "react-redux";
 // import { requestFilms } from "../mainLayout/actions/filmsNow-actions";
 // import { requestFilmsSoon } from "../mainLayout/actons_filmsSoon/filmsSoon-actions";
-import { createFilm } from "./header_actions/actions";
+// import { createFilm } from "./header_actions/actions";
 
 class SelectFilms extends React.Component {
   state = {
@@ -54,7 +54,7 @@ class SelectFilms extends React.Component {
     }
   };
   render() {
-    const { selectedFilm } = this.state;
+    // const { selectedFilm } = this.state;
     const { searchableMovies } = this.state;
     const films = searchableMovies.map((name, i) => {
       return (

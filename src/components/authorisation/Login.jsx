@@ -7,16 +7,6 @@ import { identifyingUser } from "./actions/login-actions";
 import firebase from "firebase";
 
 
-
-var config = {
-  apiKey: "AIzaSyCtbQLfeudStMmmkEq0m4Q0xd5PfIH2eUs",
-  authDomain: "films-6ff5c.firebaseapp.com",
-  databaseURL: "https://films-6ff5c.firebaseio.com",
-  projectId: "films-6ff5c",
-  storageBucket: "films-6ff5c.appspot.com",
-  messagingSenderId: "665467669015"
-};
-
 class Login extends PureComponent {
   state = {
     email: this.props.login.email,
@@ -38,9 +28,7 @@ class Login extends PureComponent {
     } = this.props;
     const auth = firebase.auth();
     const promise = auth.signInWithEmailAndPassword(email, password);
-    promise .then(() => {
-      (user => console.log(user))
-        history.push('/movies');
+    promise.then(() => { history.push('/movies');
       })
       .catch(error => {
         console.log(error.message);

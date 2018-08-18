@@ -5,20 +5,9 @@ import { createUser } from "./actions/registry-actions";
 import { FormErrors } from "./FormErrors";
 import firebase from "firebase";
 import {
-  Link,
   withRouter,
 } from 'react-router-dom';
 
-var config = {
-  apiKey: "AIzaSyCtbQLfeudStMmmkEq0m4Q0xd5PfIH2eUs",
-  authDomain: "films-6ff5c.firebaseapp.com",
-  databaseURL: "https://films-6ff5c.firebaseio.com",
-  projectId: "films-6ff5c",
-  storageBucket: "films-6ff5c.appspot.com",
-  messagingSenderId: "665467669015"
-};
-
-firebase.initializeApp(config);
 class Registry extends PureComponent {
   state = {
     email: this.props.user.email,
@@ -51,9 +40,7 @@ class Registry extends PureComponent {
     } = this.props;
     auth.onAuthStateChanged(firebaseUser => {});
     const promise = auth.createUserWithEmailAndPassword(email, password);
-    promise .then(() => {
-      (user => console.log(user))
-        history.push('/movies');
+    promise.then(() => {history.push('/movies');
       })
       .catch(error => {
         this.setState({

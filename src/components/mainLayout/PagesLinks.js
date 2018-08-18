@@ -3,7 +3,7 @@ import { NavLink } from "react-router-dom";
 import openmenu from "./openmenu.svg";
 import closemenu from "./closemenu.svg";
 import user from "./user.svg";
-import SelectCity from "./SelectCity";
+// import SelectCity from "./SelectCity";
 import SignOutButton from './SignOut';
 import withAuthorization from '../Session/withAuthorization';
 import { db } from '../firebase';
@@ -18,9 +18,7 @@ class PagesLinks extends React.PureComponent {
       sideDrawerOpen: false
     };
   }
-  // state = {
-  //   sideDrawerOpen: false
-  // };
+
   drawerToggleClickHandler = () => {
     this.setState(prevState => {
       return { sideDrawerOpen: !prevState.sideDrawerOpen };
@@ -36,7 +34,6 @@ class PagesLinks extends React.PureComponent {
     );
   }
   render() {
-    const { users } = this.state;
     let drawerClasses = "header__menu-button--burger";
     if (this.props.show) {
       drawerClasses = "header__menu-button--burger open";
@@ -115,14 +112,9 @@ class PagesLinks extends React.PureComponent {
     );
   }
 }
-const UserList = ({ users }) =>
-  <div>
-    {Object.keys(users).map(key =>
-      <div key={key}>{users[key].username}</div>
-    )}
-  </div>
+
 
 const authCondition = (authUser) => !!authUser;
 
 export default withAuthorization(authCondition)(PagesLinks);
-// export default PagesLinks;
+
