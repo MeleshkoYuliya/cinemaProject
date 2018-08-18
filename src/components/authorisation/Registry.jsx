@@ -4,6 +4,10 @@ import { connect } from "react-redux";
 import { createUser } from "./actions/registry-actions";
 import { FormErrors } from "./FormErrors";
 import firebase from "firebase";
+import {
+  Link,
+  withRouter,
+} from 'react-router-dom';
 
 var config = {
   apiKey: "AIzaSyCtbQLfeudStMmmkEq0m4Q0xd5PfIH2eUs",
@@ -24,7 +28,8 @@ class Registry extends PureComponent {
     emailValid: false,
     passwordValid: false,
     userNameValid: false,
-    formValid: false
+    formValid: false,
+   isSignUp:true
   };
 
   handleUserInput = e => {
@@ -41,23 +46,25 @@ class Registry extends PureComponent {
     onCreateUser({ ...this.state });
     const { email, password } = this.state;
     const auth = firebase.auth();
-    // auth.signInWithEmailAndPassword(email, password);
-
+    const {
+      history,
+    } = this.props;
     auth.onAuthStateChanged(firebaseUser => {});
     const promise = auth.createUserWithEmailAndPassword(email, password);
-    promise.catch(e => console.log(e.message));
-    console.log(this.state.email);
+    promise .then(() => {
+      (user => console.log(user))
+        history.push('/movies');
+      })
+      .catch(error => {
+        this.setState({
+          isSignUp:false
+        })
+        console.log(error.message);
+      });
+
+    e.preventDefault();
   };
-  componentDidMount() {
-    const auth = firebase.auth();
-    auth.onAuthStateChanged(firebaseUser => {
-      if (firebaseUser) {
-        console.log(firebaseUser);
-      } else {
-        console.log("not user");
-      }
-    });
-  }
+ 
   validateField(fieldName, value) {
     let fieldValidationErrors = this.state.formErrors;
     let emailValid = this.state.emailValid;
@@ -160,11 +167,13 @@ class Registry extends PureComponent {
         <button
           className="login-join_btn"
           onClick={this.handleCreateUser}
-          // type="submit"
+          type="submit"
           disabled={!this.state.formValid}
         >
           Sign up
         </button>
+        {/* {this.state.isUser='false'&& <div
+        >The email address is already in use by another account!!!</div>} */}
       </form>
     );
   }
@@ -185,4 +194,4 @@ const mapDispatchToProps = dispatch => {
 export default connect(
   mapStateToProps,
   mapDispatchToProps
-)(Registry);
+)(withRouter(Registry));

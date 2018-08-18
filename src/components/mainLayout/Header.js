@@ -3,10 +3,28 @@ import { Link } from "react-router-dom";
 import PagesLinks from "./PagesLinks";
 import SelectFilms from "./SelectFilms";
 import { connect } from "react-redux";
+import AuthUserContext from '../Session/AuthUserContext';
 import { requestFilms } from "../mainLayout/actions/filmsNow-actions";
 import { requestFilmsSoon } from "../mainLayout/actons_filmsSoon/filmsSoon-actions";
 
+const NavigationAuth = () =>
+<div>
+<PagesLinks />
+ </div>
+
+
+const NavigationNonAuth = () =>
+  <div>
+   <Link exact="true" to="/">
+            <button className="menu-button">Home</button>
+          </Link>
+          <Link to="/authorisation">
+            <button className="menu-button"> Login/Join</button>
+          </Link>
+  </div> 
+
 class Header extends PureComponent {
+  
   componentDidMount = () => {
     const { onAddFilms, onAddTodo } = this.props;
     onAddFilms({ ...this.state });
@@ -25,9 +43,14 @@ class Header extends PureComponent {
             <div className="header__logo">Big cinema</div>
           </Link>
           <div className="header__city" />
-
+    
           <div className="spacer" />
-          <PagesLinks />
+          <AuthUserContext.Consumer>
+    {authUser => authUser
+      ? <NavigationAuth/>
+      : <NavigationNonAuth />
+    }
+  </AuthUserContext.Consumer>
         </div>
         <SelectFilms 
           moviesNow={moviesNow}
@@ -38,7 +61,6 @@ class Header extends PureComponent {
   }
 }
 
-// export default Header;
 const mapStateToProps = state => {
   return {
     movies: state.movies,
@@ -48,9 +70,6 @@ const mapStateToProps = state => {
 
 const mapDispatchToProps = dispatch => {
   return {
-    // onCreateFilm: selectMovie => {
-    //   dispatch(createFilm(selectMovie));
-    // },
     onAddFilms: dataSoon => {
       dispatch(requestFilmsSoon(dataSoon));
     },

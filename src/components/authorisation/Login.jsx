@@ -1,9 +1,12 @@
 import React, { PureComponent } from "react";
+import { withRouter } from 'react-router-dom';
 import { FormErrors } from "./FormErrors";
 import { bindActionCreators } from "redux";
 import { connect } from "react-redux";
 import { identifyingUser } from "./actions/login-actions";
 import firebase from "firebase";
+
+
 
 var config = {
   apiKey: "AIzaSyCtbQLfeudStMmmkEq0m4Q0xd5PfIH2eUs",
@@ -18,33 +21,48 @@ class Login extends PureComponent {
   state = {
     email: this.props.login.email,
     password: this.props.login.password,
-    formErrors: { email: "", password: "" },
+    formErrors: { email: "", password: ""},
     emailValid: false,
     passwordValid: false,
     userNameValid: false,
-    formValid: false
+    formValid: false,
+    isUser:true
   };
-
+  
   handleIdentifyingUser = e => {
     const { onIdentyfyingUser } = this.props;
     onIdentyfyingUser({ ...this.state });
     const { email, password } = this.state;
+    const {
+      history,
+    } = this.props;
     const auth = firebase.auth();
-    // auth.signInWithEmailAndPassword(email, password);
     const promise = auth.signInWithEmailAndPassword(email, password);
-    promise.then(user => console.log(user)).catch(e => console.log(e.message));
-    console.log(this.state.email);
-  };
-  // componentDidMount() {
-  //   const auth = firebase.auth();
-  //   auth.onAuthStateChanged(firebaseUser => {
-  //     if (firebaseUser) {
-  //       console.log(firebaseUser);
-  //     } else {
-  //       console.log("not user");
-  //     }
-  //   });
-  // }
+    promise .then(() => {
+      (user => console.log(user))
+        history.push('/movies');
+      })
+      .catch(error => {
+        console.log(error.message);
+        this.setState({
+          isUser:false
+        })
+      });
+
+    e.preventDefault();
+  }
+
+
+  componentWillMount() {
+    const auth = firebase.auth();
+    auth.onAuthStateChanged(firebaseUser => {
+      if (firebaseUser) {
+        console.log(firebaseUser);
+      } else {
+        console.log("not user");
+      }
+    });
+  }
   handleUserInput = e => {
     const name = e.target.name;
     const value = e.target.value;
@@ -133,11 +151,13 @@ class Login extends PureComponent {
         <button
           className="login-join_btn"
           onClick={this.handleIdentifyingUser}
-          // type="submit"
+          type="submit"
           disabled={!this.state.formValid}
         >
-          Sign up
+          Sign in
         </button>
+        {!this.state.isUser&&  <div
+          className="panel-default">The password is invalid or the user does not have a password!!!</div>}
       </form>
     );
   }
@@ -158,4 +178,4 @@ const mapDispatchToProps = dispatch => {
 export default connect(
   mapStateToProps,
   mapDispatchToProps
-)(Login);
+)(withRouter(Login));

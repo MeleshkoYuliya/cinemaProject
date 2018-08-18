@@ -198,9 +198,6 @@ const mapStateToProps = state => {
 
 const mapDispatchToProps = dispatch => {
   return {
-    // onCreateFilm: selectMovie => {
-    //   dispatch(createFilm(selectMovie));
-    // },
     onAddFilms: dataSoon => {
       dispatch(requestFilmsSoon(dataSoon));
     },
