@@ -1,13 +1,13 @@
 import React from "react";
 import Films from "./Films";
 import { connect } from "react-redux";
-import { requestFilms } from "../mainLayout/actions/filmsNow-actions";
+// import { requestFilms } from "../mainLayout/actions/filmsNow-actions";
 
 class Home_Page extends React.Component {
-  componentDidMount = () => {
-    const { onAddTodo } = this.props;
-    onAddTodo({ ...this.state });
-  };
+  // componentDidMount = () => {
+  //   const { onAddTodo } = this.props;
+  //   onAddTodo({ ...this.state });
+  // };
 
   render() {
     const obj = Object.assign({}, this.props.movies.movies[0]);
@@ -20,21 +20,30 @@ class Home_Page extends React.Component {
     );
   }
 }
-const mapDispatchToProps = dispatch => {
-  return {
-    onAddTodo: movies => {
-      dispatch(requestFilms(movies));
-    }
-  };
-};
 
 const mapStateToProps = state => {
-  return {
-    movies: state.movies
-  };
+  const props = {
+    movies: state.movies,
+  }
+  return props;
 };
 
-export default connect(
-  mapStateToProps,
-  mapDispatchToProps
-)(Home_Page);
+export default connect(mapStateToProps)(Home_Page);
+// const mapDispatchToProps = dispatch => {
+//   return {
+//     onAddTodo: movies => {
+//       dispatch(requestFilms(movies));
+//     }
+//   };
+// };
+
+// const mapStateToProps = state => {
+//   return {
+//     movies: state.movies
+//   };
+// };
+
+// export default connect(
+//   mapStateToProps,
+//   mapDispatchToProps
+// )(Home_Page);

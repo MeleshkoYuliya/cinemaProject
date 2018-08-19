@@ -97,7 +97,7 @@ class Registry extends PureComponent {
 
   render() {
     const { email, password, userName } = this.state;
-    console.log(email);
+
     return (
       <form className="register-block">
         <h4 className="login-join__title">Register</h4>

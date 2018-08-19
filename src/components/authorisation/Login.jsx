@@ -41,23 +41,12 @@ class Login extends PureComponent {
   }
 
 
-  componentWillMount() {
-    const auth = firebase.auth();
-    auth.onAuthStateChanged(firebaseUser => {
-      if (firebaseUser) {
-        console.log(firebaseUser);
-      } else {
-        console.log("not user");
-      }
-    });
-  }
   handleUserInput = e => {
     const name = e.target.name;
     const value = e.target.value;
     this.setState({ [name]: value }, () => {
       this.validateField(name, value);
     });
-    console.log(value);
   };
 
   validateField(fieldName, value) {

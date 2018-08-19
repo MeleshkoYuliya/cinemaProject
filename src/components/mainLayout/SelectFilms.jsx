@@ -54,7 +54,7 @@ class SelectFilms extends React.Component {
     }
   };
   render() {
-    // const { selectedFilm } = this.state;
+    const { selectedFilm } = this.state;
     const { searchableMovies } = this.state;
     const films = searchableMovies.map((name, i) => {
       return (
@@ -83,14 +83,14 @@ class SelectFilms extends React.Component {
             onChange={this.searchChanged}
           />
         </form>
-        <Switch>
-          <Route path={`/movie/:${this.state.selectedFilm}`}>
-            <SelectSession
-              id={this.state.selectedFilm}
+        {/* <Switch> */}
+          <Route path={`/movie/:${selectedFilm}`} component={SelectSession}/>
+            {/* <SelectSession
+              id={selectedFilm}
               film={this.state.film}
-            />
-          </Route>
-        </Switch>
+            /> */}
+          {/* </Route> */}
+        {/* </Switch> */}
       </div>
     );
   }

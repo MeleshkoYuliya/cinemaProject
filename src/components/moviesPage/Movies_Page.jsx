@@ -2,15 +2,15 @@ import React from "react";
 import FilmsNow from "./FilmsNow";
 import FilmsSoon from "./FilmsSoon";
 import { connect } from "react-redux";
-import { requestFilms } from "../mainLayout/actions/filmsNow-actions";
-import { requestFilmsSoon } from "../mainLayout/actons_filmsSoon/filmsSoon-actions";
+// import { requestFilms } from "../mainLayout/actions/filmsNow-actions";
+// import { requestFilmsSoon } from "../mainLayout/actons_filmsSoon/filmsSoon-actions";
 
 class Movies_Page extends React.Component {
-  componentDidMount = () => {
-    const { onAddFilms, onAddTodo } = this.props;
-    onAddFilms({ ...this.state });
-    onAddTodo({ ...this.state });
-  };
+  // componentDidMount = () => {
+  //   const { onAddFilms, onAddTodo } = this.props;
+  //   onAddFilms({ ...this.state });
+  //   onAddTodo({ ...this.state });
+  // };
 
   render() {
     return (
@@ -27,25 +27,33 @@ class Movies_Page extends React.Component {
     );
   }
 }
-const mapDispatchToProps = dispatch => {
-  return {
-    onAddFilms: dataSoon => {
-      dispatch(requestFilmsSoon(dataSoon));
-    },
-    onAddTodo: movies => {
-      dispatch(requestFilms(movies));
-    }
-  };
-};
-
+// const mapDispatchToProps = dispatch => {
+//   return {
+//     onAddFilms: dataSoon => {
+//       dispatch(requestFilmsSoon(dataSoon));
+//     },
+//     onAddTodo: movies => {
+//       dispatch(requestFilms(movies));
+//     }
+//   };
+// };
 const mapStateToProps = state => {
-  return {
+  const props = {
     movies: state.movies,
     dataSoon: state.dataSoon
-  };
+  }
+  return props;
 };
 
-export default connect(
-  mapStateToProps,
-  mapDispatchToProps
-)(Movies_Page);
+export default connect(mapStateToProps)(Movies_Page);
+// const mapStateToProps = state => {
+//   return {
+//     movies: state.movies,
+//     dataSoon: state.dataSoon
+//   };
+// };
+
+// export default connect(
+//   mapStateToProps,
+//   mapDispatchToProps
+// )(Movies_Page);
