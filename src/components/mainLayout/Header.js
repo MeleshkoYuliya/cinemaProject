@@ -1,5 +1,5 @@
 import React, { PureComponent } from "react";
-import { Link } from "react-router-dom";
+import { Link, withRouter } from "react-router-dom";
 import PagesLinks from "./PagesLinks";
 import LinkNotUser from "./LinkNotUser";
 import SelectFilms from "./SelectFilms";
@@ -17,12 +17,6 @@ const NavigationAuth = () => (
 const NavigationNonAuth = () => (
   <div>
     <LinkNotUser />
-    {/* <Link exact="true" to="/">
-            <button className="menu-button">Home</button>
-          </Link>
-          <Link to="/authorisation">
-            <button className="menu-button"> Login/Join</button>
-          </Link> */}
   </div>
 );
 
@@ -76,7 +70,9 @@ const mapDispatchToProps = dispatch => {
   };
 };
 
-export default connect(
-  mapStateToProps,
-  mapDispatchToProps
-)(Header);
+export default withRouter(
+  connect(
+    mapStateToProps,
+    mapDispatchToProps
+  )(Header)
+);

@@ -23,27 +23,9 @@ class Home_Page extends React.Component {
 
 const mapStateToProps = state => {
   const props = {
-    movies: state.movies,
-  }
+    movies: state.movies
+  };
   return props;
 };
 
 export default connect(mapStateToProps)(Home_Page);
-// const mapDispatchToProps = dispatch => {
-//   return {
-//     onAddTodo: movies => {
-//       dispatch(requestFilms(movies));
-//     }
-//   };
-// };
-
-// const mapStateToProps = state => {
-//   return {
-//     movies: state.movies
-//   };
-// };
-
-// export default connect(
-//   mapStateToProps,
-//   mapDispatchToProps
-// )(Home_Page);

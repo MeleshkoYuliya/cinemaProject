@@ -5,10 +5,10 @@ import { withRouter } from "react-router-dom";
 // import PropTypes from "prop-types";
 // import {db} from '../firebase/firebase'
 import ChooseSeats from "../chooseSeatsePage/ChooseSeats";
-import { connect } from "react-redux";
+// import { connect } from "react-redux";
 // import { requestFilms } from "../mainLayout/actions/filmsNow-actions";
 // import { requestFilmsSoon } from "../mainLayout/actons_filmsSoon/filmsSoon-actions";
-import firebase from "firebase";
+// import firebase from "firebase";
 
 // var config = {
 //   apiKey: "AIzaSyCtbQLfeudStMmmkEq0m4Q0xd5PfIH2eUs",
@@ -19,27 +19,27 @@ import firebase from "firebase";
 //   messagingSenderId: "665467669015"
 // };
 
-const dbRefObj = firebase.database().ref("moviesNow");
+// const dbRefObj = firebase.database().ref("moviesNow");
 // const ref = firebase.database().ref("moviesNow");
 class SelectSession extends React.Component {
-  constructor(props) {
-    super(props);
-    this.state = {
-      data: null,
-      id: this.props
-    };
-  }
+  // constructor(props) {
+  //   super(props);
+  //   this.state = {
+  //     data: null,
+  //     id: this.props
+  //   };
+  // }
 
-  componentDidMount() {
-    dbRefObj.on("child_added", snap => {
-      const allfil = snap.val().id;
-      this.setState({
-        data: allfil
-      });
-      console.log(this.state.data);
-    });
-    console.log(this.state.id);
-  }
+  // componentDidMount() {
+  //   dbRefObj.on("child_added", snap => {
+  //     const allfil = snap.val().id;
+  //     this.setState({
+  //       data: allfil
+  //     });
+  //     console.log(this.state.data);
+  //   });
+  //   console.log(this.state.id);
+  // }
 
   render() {
     const { film } = this.props;
@@ -71,7 +71,8 @@ class SelectSession extends React.Component {
             <div className="session-selection__film">
               <h4 className="select-options__title">{film.name}</h4>
               <img
-                className="session-selection__img"
+                // className="session-selection__img"
+                className="selection__img"
                 src={film.url}
                 alt={film.name}
               />
@@ -158,14 +159,5 @@ class SelectSession extends React.Component {
     );
   }
 }
-// export default SelectSession;
-export default withRouter(SelectSession);
-// const mapStateToProps = state => {
-//   const props = {
-//     movies: state.movies,
-//     dataSoon: state.dataSoon
-//   }
-//   return props;
-// };
 
-// export default connect(mapStateToProps)(SelectSession);
+export default withRouter(SelectSession);
