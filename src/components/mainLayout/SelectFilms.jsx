@@ -41,19 +41,18 @@ class SelectFilms extends React.Component {
     if (movie) {
       history.push(`/movie/:${movie.id}`);
       this.setState({
-        film: movie,
-        selectedFilm: movie.id
+        film: movie
       });
     }
     if (filmsSoon) {
       history.push(`/movie/:${filmsSoon.id}`);
       this.setState({
-        film: filmsSoon,
-        selectedFilm: filmsSoon.id
+        film: filmsSoon
       });
     }
   };
   render() {
+    const { film } = this.state;
     const { selectedFilm } = this.state;
     const { searchableMovies } = this.state;
     const films = searchableMovies.map((name, i) => {
@@ -83,40 +82,13 @@ class SelectFilms extends React.Component {
             onChange={this.searchChanged}
           />
         </form>
-        {/* <Switch> */}
-          <Route path={`/movie/:${selectedFilm}`} component={SelectSession}/>
-            {/* <SelectSession
-              id={selectedFilm}
-              film={this.state.film}
-            /> */}
-          {/* </Route> */}
-        {/* </Switch> */}
+        <Switch>
+          <Route path={`/movie/:${film.id}`}>
+            <SelectSession id={film.id} film={this.state.film} />
+          </Route>
+        </Switch>
       </div>
     );
   }
 }
 export default withRouter(SelectFilms);
-// const mapStateToProps = state => {
-//   return {
-//     selectMovie: state.selectMovie,
-//   };
-// };
-
-// const mapDispatchToProps = dispatch => {
-//   return {
-//     onCreateFilm: selectMovie => {
-//       dispatch(createFilm(selectMovie));
-//     },
-// onAddFilms: dataSoon => {
-//   dispatch(requestFilmsSoon(dataSoon));
-// },
-// onAddTodo: movies => {
-//   dispatch(requestFilms(movies));
-// }
-//   };
-// };
-
-// export default connect(
-//   mapStateToProps,
-//   mapDispatchToProps
-// )(withRouter(SelectFilms));

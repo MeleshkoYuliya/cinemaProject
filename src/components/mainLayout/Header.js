@@ -1,30 +1,32 @@
 import React, { PureComponent } from "react";
 import { Link } from "react-router-dom";
 import PagesLinks from "./PagesLinks";
+import LinkNotUser from "./LinkNotUser";
 import SelectFilms from "./SelectFilms";
 import { connect } from "react-redux";
-import AuthUserContext from '../Session/AuthUserContext';
+import AuthUserContext from "../Session/AuthUserContext";
 import { requestFilms } from "../mainLayout/actions/filmsNow-actions";
 import { requestFilmsSoon } from "../mainLayout/actons_filmsSoon/filmsSoon-actions";
 
-const NavigationAuth = () =>
-<div>
-<PagesLinks />
- </div>
-
-
-const NavigationNonAuth = () =>
+const NavigationAuth = () => (
   <div>
-   <Link exact="true" to="/">
+    <PagesLinks />
+  </div>
+);
+
+const NavigationNonAuth = () => (
+  <div>
+    <LinkNotUser />
+    {/* <Link exact="true" to="/">
             <button className="menu-button">Home</button>
           </Link>
           <Link to="/authorisation">
             <button className="menu-button"> Login/Join</button>
-          </Link>
-  </div> 
+          </Link> */}
+  </div>
+);
 
 class Header extends PureComponent {
-  
   componentDidMount = () => {
     const { onAddFilms, onAddTodo } = this.props;
     onAddFilms({ ...this.state });
@@ -42,19 +44,15 @@ class Header extends PureComponent {
             <div className="header__logo">Big cinema</div>
           </Link>
           <div className="header__city" />
-    
+
           <div className="spacer" />
           <AuthUserContext.Consumer>
-    {authUser => authUser
-      ? <NavigationAuth/>
-      : <NavigationNonAuth />
-    }
-  </AuthUserContext.Consumer>
+            {authUser =>
+              authUser ? <NavigationAuth /> : <NavigationNonAuth />
+            }
+          </AuthUserContext.Consumer>
         </div>
-        <SelectFilms 
-          moviesNow={moviesNow}
-          moviesSoon={filmsSoon}
-        />
+        <SelectFilms moviesNow={moviesNow} moviesSoon={filmsSoon} />
       </div>
     );
   }

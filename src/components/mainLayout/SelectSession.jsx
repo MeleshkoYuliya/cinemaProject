@@ -1,7 +1,7 @@
 import React from "react";
 import { Link, Route } from "react-router-dom";
 import SelectOptions from "../ticketsPage/SelectOptions";
-import { withRouter } from 'react-router-dom';
+import { withRouter } from "react-router-dom";
 // import PropTypes from "prop-types";
 // import {db} from '../firebase/firebase'
 import ChooseSeats from "../chooseSeatsePage/ChooseSeats";
@@ -22,28 +22,27 @@ import firebase from "firebase";
 const dbRefObj = firebase.database().ref("moviesNow");
 // const ref = firebase.database().ref("moviesNow");
 class SelectSession extends React.Component {
-  constructor (props){
+  constructor(props) {
     super(props);
-    this.state={
-      data:null
-    }
+    this.state = {
+      data: null,
+      id: this.props
+    };
   }
-  
+
   componentDidMount() {
- 
-  dbRefObj.on("child_added",snap => {
-    const allfil = snap.val().name;
-  this.setState({
-    data:allfil
-  })
-  console.log(this.state.data)
-  });
-
-
-  };
+    dbRefObj.on("child_added", snap => {
+      const allfil = snap.val().id;
+      this.setState({
+        data: allfil
+      });
+      console.log(this.state.data);
+    });
+    console.log(this.state.id);
+  }
 
   render() {
-    console.log(this.state.data)
+    const { film } = this.props;
     // const { allfilms } = this.state;
     // const obj = Object.assign({}, this.props.movies.movies[0]);
     // const moviesNow = Object.values(obj);
@@ -69,15 +68,14 @@ class SelectSession extends React.Component {
         <div className="session-selection">
           <div>
             {/* <div>{filmCode[id]}</div> */}
-            {/* <div className="session-selection__film">
-              {" "}
+            <div className="session-selection__film">
               <h4 className="select-options__title">{film.name}</h4>
               <img
                 className="session-selection__img"
                 src={film.url}
                 alt={film.name}
               />
-            </div> */}
+            </div>
 
             <div>Genre:</div>
             <div>Age limit:</div>
@@ -160,8 +158,8 @@ class SelectSession extends React.Component {
     );
   }
 }
-export default SelectSession;
-// export default withRouter(SelectSession);
+// export default SelectSession;
+export default withRouter(SelectSession);
 // const mapStateToProps = state => {
 //   const props = {
 //     movies: state.movies,
