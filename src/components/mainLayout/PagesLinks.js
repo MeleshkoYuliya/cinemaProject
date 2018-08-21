@@ -3,6 +3,7 @@ import { NavLink } from "react-router-dom";
 import openmenu from "./openmenu.svg";
 import closemenu from "./closemenu.svg";
 import user from "./user.svg";
+import PropTypes from "prop-types";
 // import SelectCity from "./SelectCity";
 import SignOutButton from "./SignOut";
 import withAuthorization from "../Session/withAuthorization";
@@ -10,7 +11,7 @@ import { db } from "../firebase";
 import { auth } from "../firebase";
 import ToolTip from "react-portal-tooltip";
 import { style } from "./styleTooltip";
-import Animate from "rc-animate";
+
 // import Transition from "react-transition-group/Transition";
 
 class PagesLinks extends React.PureComponent {
@@ -20,8 +21,7 @@ class PagesLinks extends React.PureComponent {
     this.state = {
       users: {},
       sideDrawerOpen: false,
-      isTooltipActive: false,
-      visible: true
+      isTooltipActive: false
     };
   }
 
@@ -32,22 +32,18 @@ class PagesLinks extends React.PureComponent {
     this.setState({ isTooltipActive: false });
   }
 
-  onAppear = key => {
-    console.log("appear", key);
-  };
-
-  onEnter = key => {
-    console.log("enter", key);
-  };
-
-  onLeave = key => {
-    console.log("leave", key);
-  };
+  // drawerToggleClickHandler = () => {
+  //   this.setState(prevState => {
+  //     return { sideDrawerOpen: !prevState.sideDrawerOpen };
+  //   });
+  // };
   drawerToggleClickHandler = () => {
-    this.setState(prevState => {
-      return { sideDrawerOpen: !prevState.sideDrawerOpen };
+    this.setState({
+      sideDrawerOpen: !this.state.sideDrawerOpen
     });
   };
+  onCollapse = () => ({ height: 0 });
+
   closeMenu = e => {
     this.setState({ sideDrawOpen: false });
     console.log(e.target);
@@ -126,36 +122,24 @@ class PagesLinks extends React.PureComponent {
                 <img src={closemenu} className="menu" alt="openmenu" />
               </button>
             )}
-            <Animate
-              component=""
-              showProp="visible"
-              onAppear={this.onAppear}
-              onEnter={this.onEnter}
-              onLeave={this.onLeave}
-              transitionAppear
-              transitionName="fade"
-            >
-              <div visible={this.state.visible}>
-                <NavLink to="/account">
-                  <img src={user} className="user" alt="closemenu" />
-                </NavLink>
-                <NavLink to="/cinemas">
-                  <button className="menu-button">Cinemas</button>
-                </NavLink>
-                <NavLink to="/movies">
-                  <button className="menu-button">Movies</button>
-                </NavLink>
-                <NavLink to="/buy-tickets">
-                  <button className="menu-button">Tickets</button>
-                </NavLink>
-                {/* <button className="menu-button">Coming Soon</button> */}
-                <NavLink to="/">
-                  <button className="menu-button">Home</button>
-                </NavLink>
-                <SignOutButton />
-              </div>
-            </Animate>
-            {/* <SelectCity /> */}
+
+            <NavLink to="/account">
+              <img src={user} className="user" alt="closemenu" />
+            </NavLink>
+            <NavLink to="/cinemas">
+              <button className="menu-button">Cinemas</button>
+            </NavLink>
+            <NavLink to="/movies">
+              <button className="menu-button">Movies</button>
+            </NavLink>
+            <NavLink to="/buy-tickets">
+              <button className="menu-button">Tickets</button>
+            </NavLink>
+            <button className="menu-button">Coming Soon</button>
+            <NavLink to="/">
+              <button className="menu-button">Home</button>
+            </NavLink>
+            <SignOutButton />
           </div>
         )}
       </div>
