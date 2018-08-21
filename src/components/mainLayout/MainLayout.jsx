@@ -12,10 +12,11 @@ import AccountPage from "../Account/AccountPage";
 import withAuthentication from "../Session/withAuthentication";
 
 const MainLayout = () => (
+  // <Router>
+ 
   <Router>
-    <div>
+  <div>
       <Header />
-
       <Route path="/authorisation" component={Authorisation} />
       <Route path="/movies" component={Movies_Page} />
       <Route path="/buy-tickets" component={BuyTickets} />
@@ -24,8 +25,8 @@ const MainLayout = () => (
       <Route path="/choose-seats" component={ChooseSeats} />
       <Route path="/select" component={SelectSession} />
       <Route path="/account" component={AccountPage} />
-    </div>
-  </Router>
+      </div>
+      </Router> 
 );
 
 export default withAuthentication(MainLayout);

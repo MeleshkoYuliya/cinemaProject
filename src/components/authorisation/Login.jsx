@@ -36,7 +36,7 @@ class Login extends PureComponent {
           isUser:false
         })
       });
-
+     
     e.preventDefault();
   }
 

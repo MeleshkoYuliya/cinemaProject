@@ -4,6 +4,7 @@ import { Link, Route } from "react-router-dom";
 import BuyTickets from "../ticketsPage/BuyTickets";
 
 class FilmsNow extends React.PureComponent {
+ 
   render() {
     const obj = Object.assign({}, this.props.movies[0]);
     const moviesNow = Object.values(obj);

@@ -10,6 +10,7 @@ import { requestFilms } from "../mainLayout/actions/filmsNow-actions";
 import { requestFilmsSoon } from "../mainLayout/actons_filmsSoon/filmsSoon-actions";
 import { style } from "./styleTooltip";
 
+
 const NavigationAuth = () => (
   <div>
     <PagesLinks />

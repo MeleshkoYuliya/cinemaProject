@@ -3,6 +3,8 @@ import { Switch, withRouter, Route } from "react-router-dom";
 import SelectSession from "./SelectSession";
 import ToolTip from "react-portal-tooltip";
 import { style } from "./styleTooltip";
+
+
 class SelectFilms extends React.Component {
   state = {
     defaultInput: this.props.defaultInput,
@@ -18,7 +20,6 @@ class SelectFilms extends React.Component {
     const filmNameArr = moviesNow
       .map(film => film.name)
       .concat(moviesSoon.map(filmSoon => filmSoon.name));
-    console.log(filmNameArr);
     if (!e.target.value) {
       this.setState({ searchableMovies: [] });
       return;
@@ -109,4 +110,6 @@ class SelectFilms extends React.Component {
     );
   }
 }
+
+
 export default withRouter(SelectFilms);

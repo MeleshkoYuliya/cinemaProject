@@ -3,6 +3,7 @@ import FilmsNow from "./FilmsNow";
 import FilmsSoon from "./FilmsSoon";
 import { connect } from "react-redux";
 import ToolTip from "react-portal-tooltip";
+import ReactCSSTransitionGroup from 'react-addons-css-transition-group'; 
 // import { requestFilms } from "../mainLayout/actions/filmsNow-actions";
 // import { requestFilmsSoon } from "../mainLayout/actons_filmsSoon/filmsSoon-actions";
 
@@ -23,6 +24,12 @@ class Movies_Page extends React.Component {
   }
   render() {
     return (
+      <ReactCSSTransitionGroup
+      transitionName="example"
+      transitionAppear={true}
+      transitionAppearTimeout={500}
+      transitionEnter={false}
+      transitionLeave={false}>
       <div className="movies">
         <div className="films-now">
           <h4
@@ -49,6 +56,7 @@ class Movies_Page extends React.Component {
           <FilmsSoon moviesSoon={this.props.dataSoon.moviesSoon} />
         </div>
       </div>
+      </ReactCSSTransitionGroup>
     );
   }
 }

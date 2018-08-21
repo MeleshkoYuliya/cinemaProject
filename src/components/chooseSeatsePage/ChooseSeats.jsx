@@ -1,4 +1,5 @@
 import React from 'react';
+import withAuthorization from "../Session/withAuthorization";
 
 class ChooseSeats extends React.Component {
 
@@ -25,5 +26,8 @@ class ChooseSeats extends React.Component {
 	}
 
 	}
+	const authCondition = authUser => !!authUser;
 
-	export default ChooseSeats;
+	export default withAuthorization(authCondition)(ChooseSeats); 
+
+	// export default ChooseSeats;

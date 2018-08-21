@@ -3,7 +3,7 @@ import { NavLink } from "react-router-dom";
 import openmenu from "./openmenu.svg";
 import closemenu from "./closemenu.svg";
 import user from "./user.svg";
-import PropTypes from "prop-types";
+// import PropTypes from "prop-types";
 // import SelectCity from "./SelectCity";
 import SignOutButton from "./SignOut";
 import withAuthorization from "../Session/withAuthorization";
@@ -11,7 +11,7 @@ import { db } from "../firebase";
 import { auth } from "../firebase";
 import ToolTip from "react-portal-tooltip";
 import { style } from "./styleTooltip";
-
+import ReactCSSTransitionGroup from 'react-addons-css-transition-group'; 
 // import Transition from "react-transition-group/Transition";
 
 class PagesLinks extends React.PureComponent {
@@ -32,11 +32,6 @@ class PagesLinks extends React.PureComponent {
     this.setState({ isTooltipActive: false });
   }
 
-  // drawerToggleClickHandler = () => {
-  //   this.setState(prevState => {
-  //     return { sideDrawerOpen: !prevState.sideDrawerOpen };
-  //   });
-  // };
   drawerToggleClickHandler = () => {
     this.setState({
       sideDrawerOpen: !this.state.sideDrawerOpen
@@ -55,7 +50,6 @@ class PagesLinks extends React.PureComponent {
   }
 
   render() {
-    const { sideDrawerOpen } = this.state;
     return (
       <div className="headerMenu">
         <div className="header__menu-button">
@@ -113,6 +107,13 @@ class PagesLinks extends React.PureComponent {
         </div>
 
         {this.state.sideDrawerOpen && (
+          <ReactCSSTransitionGroup
+      transitionName="ex"
+      transitionAppear={true}
+      transitionAppearTimeout={500}
+      transitionEnter={false}
+      transitionLeave={false}
+      >
           <div className="header__menu-button--media">
             {this.state.sideDrawerOpen && (
               <button
@@ -122,7 +123,7 @@ class PagesLinks extends React.PureComponent {
                 <img src={closemenu} className="menu" alt="openmenu" />
               </button>
             )}
-
+           
             <NavLink to="/account">
               <img src={user} className="user" alt="closemenu" />
             </NavLink>
@@ -140,7 +141,9 @@ class PagesLinks extends React.PureComponent {
               <button className="menu-button">Home</button>
             </NavLink>
             <SignOutButton />
+     
           </div>
+          </ReactCSSTransitionGroup>
         )}
       </div>
     );

@@ -1,8 +1,25 @@
+.example-appear {
+	opacity: 0.01;
+  }
+  
+  .example-appear.example-appear-active {
+	opacity: 1;
+	transition: opacity .5s ease-in;
+	}
+	.ex-appear {
+		opacity: 0.01;
+		}
+		
+		.ex-appear.ex-appear-active {
+		opacity: 0.8;
+		transition: opacity .5s ease-in;
+		}
+	
 h5 {
 	font-family: $context-font;
 	font-size: 18px;
 	text-align: center;
-	text-shadow: 0 0 30px lightgrey;
+	text-shadow: 0 0 30px lightyellow;
 	height: 50px;
 }
 .films-now__flex-conteiner {

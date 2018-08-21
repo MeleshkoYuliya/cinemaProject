@@ -1,5 +1,4 @@
 import React from "react";
-import ToolTip from "react-portal-tooltip";
 import { auth } from "../../firebase";
 
 const SignOutButton = () => (
