@@ -8,8 +8,7 @@ class BuyTickets extends React.Component {
   render() {
     const obj = Object.assign({}, this.props.movies.movies[0]);
     const moviesNow = Object.values(obj);
-    // const cinemas = Object.assign({}, moviesNow[0].cinemas);
-    // console.log(Object.values(cinemas)[0]);
+
     const film_now = moviesNow.map(function(item, index) {
       return (
         <div className="session-selection" key={index}>

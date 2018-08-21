@@ -4,9 +4,11 @@ import PagesLinks from "./PagesLinks";
 import LinkNotUser from "./LinkNotUser";
 import SelectFilms from "./SelectFilms";
 import { connect } from "react-redux";
+import ToolTip from "react-portal-tooltip";
 import AuthUserContext from "../Session/AuthUserContext";
 import { requestFilms } from "../mainLayout/actions/filmsNow-actions";
 import { requestFilmsSoon } from "../mainLayout/actons_filmsSoon/filmsSoon-actions";
+import { style } from "./styleTooltip";
 
 const NavigationAuth = () => (
   <div>
@@ -21,11 +23,24 @@ const NavigationNonAuth = () => (
 );
 
 class Header extends PureComponent {
+  constructor(props) {
+    super(props);
+
+    this.state = {
+      isTooltipActive: false
+    };
+  }
   componentDidMount = () => {
     const { onAddFilms, onAddTodo } = this.props;
     onAddFilms({ ...this.state });
     onAddTodo({ ...this.state });
   };
+  showTooltip() {
+    this.setState({ isTooltipActive: true });
+  }
+  hideTooltip() {
+    this.setState({ isTooltipActive: false });
+  }
   render() {
     const obj = Object.assign({}, this.props.movies.movies[0]);
     const moviesNow = Object.values(obj);
@@ -35,8 +50,27 @@ class Header extends PureComponent {
       <div>
         <div className="header">
           <Link exact="true" to="/">
-            <div className="header__logo">Big cinema</div>
+            <div
+              className="header__logo"
+              id="logo"
+              onMouseEnter={this.showTooltip.bind(this)}
+              onMouseLeave={this.hideTooltip.bind(this)}
+            >
+              Big cinema
+            </div>
           </Link>
+          <ToolTip
+            active={this.state.isTooltipActive}
+            position="right"
+            arrow="center"
+            parent="#logo"
+            className="toolTip"
+            style={style}
+          >
+            <div>
+              <p>Move to the main page</p>
+            </div>
+          </ToolTip>
           <div className="header__city" />
 
           <div className="spacer" />

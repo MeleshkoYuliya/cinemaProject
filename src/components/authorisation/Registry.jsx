@@ -157,9 +157,7 @@ class Registry extends PureComponent {
         >
           Sign up
         </button>
-        {/* {!this.state.isUser && (
-          <div>The email address is already in use by another account!!!</div>
-        )} */}
+
         {!this.state.isUser && (
           <div className="panel-default">
             The email address is already in use by another account!!!

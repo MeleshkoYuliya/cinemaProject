@@ -1,12 +1,4 @@
-.ProductCategoriesMenu--submenu-transition-leave {
-  max-width: 400px;
-  overflow: hidden;
-}
 
-.ProductCategoriesMenu--submenu-transition-leave-active {
-  max-width: 0;
-  transition: max-width 1s cubic-bezier(0.22, 0.61, 0.36, 1);
-}
 body {
 	background-color: $bkgd-color;
 	margin: 0;

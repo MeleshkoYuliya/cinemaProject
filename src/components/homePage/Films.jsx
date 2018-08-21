@@ -2,7 +2,10 @@ import React from "react";
 import PropTypes from "prop-types";
 import { Link, Route } from "react-router-dom";
 import BuyTickets from "../ticketsPage/BuyTickets";
+import { withRouter } from "react-router-dom";
 // import SelectSession from "../mainLayout/SelectSession";
+import { firebase } from "../firebase";
+import withAuthorization from "../Session/withAuthorization";
 
 class Films extends React.Component {
   static propTypes = {
@@ -14,6 +17,7 @@ class Films extends React.Component {
       })
     )
   };
+
   state = {
     film: {}
   };
@@ -32,6 +36,7 @@ class Films extends React.Component {
   //     console.log(this.state.film);
   //   }
   // };
+
   render() {
     console.log(this.props.films);
     var filmsCode = this.props.films.map((film, index) => {
@@ -49,10 +54,26 @@ class Films extends React.Component {
             >
               Tickets
             </button> */}
-
             <Link to="/buy-tickets">
               <button className="home__button">Tickets</button>
             </Link>
+            {/* <button
+              className="home__button"
+              onClick={JwModal.open("custom-modal-2")}
+            >
+              Tickets
+            </button>
+            <JwModal id="custom-modal-2" style={customStyles}>
+              <h1 style={{ height: 100 }}>
+                If you want to view tickets, please login
+              </h1>
+              <button
+                className="home__button"
+                onClick={JwModal.close("custom-modal-2")}
+              >
+                Close
+              </button>
+            </JwModal> */}
           </div>
           <Route path="/buy-tickets" component={BuyTickets} />
 
@@ -64,8 +85,9 @@ class Films extends React.Component {
         </div>
       );
     });
-    return <div className="home">{filmsCode} </div>;
+    return <div className="home">{filmsCode}</div>;
   }
 }
+// const authCondition = authUser => !!authUser;
 
 export default Films;

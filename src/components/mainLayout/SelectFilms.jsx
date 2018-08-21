@@ -1,14 +1,16 @@
 import React from "react";
 import { Switch, withRouter, Route } from "react-router-dom";
 import SelectSession from "./SelectSession";
-
+import ToolTip from "react-portal-tooltip";
+import { style } from "./styleTooltip";
 class SelectFilms extends React.Component {
   state = {
     defaultInput: this.props.defaultInput,
     filmNameArr: [],
     searchableMovies: [],
     film: {},
-    selectedFilm: null
+    selectedFilm: null,
+    isTooltipActive: false
   };
 
   searchChanged = e => {
@@ -47,6 +49,12 @@ class SelectFilms extends React.Component {
       });
     }
   };
+  showTooltip() {
+    this.setState({ isTooltipActive: true });
+  }
+  hideTooltip() {
+    this.setState({ isTooltipActive: false });
+  }
   render() {
     const { film } = this.state;
     const { searchableMovies } = this.state;
@@ -75,7 +83,22 @@ class SelectFilms extends React.Component {
             defaultValue={this.state.defaultInput}
             placeholder="Search films"
             onChange={this.searchChanged}
+            id="find"
+            onMouseEnter={this.showTooltip.bind(this)}
+            onMouseLeave={this.hideTooltip.bind(this)}
           />
+          <ToolTip
+            active={this.state.isTooltipActive}
+            position="left"
+            arrow="center"
+            parent="#find"
+            className="toolTip"
+            style={style}
+          >
+            <div>
+              <p>You can find films!</p>
+            </div>
+          </ToolTip>
         </form>
         <Switch>
           <Route path={`/movie/:${film.id}`}>
