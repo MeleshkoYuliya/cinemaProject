@@ -1,18 +1,16 @@
 import React from "react";
 import { Switch, withRouter, Route } from "react-router-dom";
 import SelectSession from "./SelectSession";
-// import { connect } from "react-redux";
-// import { requestFilms } from "../mainLayout/actions/filmsNow-actions";
-// import { requestFilmsSoon } from "../mainLayout/actons_filmsSoon/filmsSoon-actions";
-// import { createFilm } from "./header_actions/actions";
-
+import ToolTip from "react-portal-tooltip";
+import { style } from "./styleTooltip";
 class SelectFilms extends React.Component {
   state = {
     defaultInput: this.props.defaultInput,
     filmNameArr: [],
     searchableMovies: [],
     film: {},
-    selectedFilm: null
+    selectedFilm: null,
+    isTooltipActive: false
   };
 
   searchChanged = e => {
@@ -41,20 +39,24 @@ class SelectFilms extends React.Component {
     if (movie) {
       history.push(`/movie/:${movie.id}`);
       this.setState({
-        film: movie,
-        selectedFilm: movie.id
+        film: movie
       });
     }
     if (filmsSoon) {
       history.push(`/movie/:${filmsSoon.id}`);
       this.setState({
-        film: filmsSoon,
-        selectedFilm: filmsSoon.id
+        film: filmsSoon
       });
     }
   };
+  showTooltip() {
+    this.setState({ isTooltipActive: true });
+  }
+  hideTooltip() {
+    this.setState({ isTooltipActive: false });
+  }
   render() {
-    const { selectedFilm } = this.state;
+    const { film } = this.state;
     const { searchableMovies } = this.state;
     const films = searchableMovies.map((name, i) => {
       return (
@@ -81,42 +83,30 @@ class SelectFilms extends React.Component {
             defaultValue={this.state.defaultInput}
             placeholder="Search films"
             onChange={this.searchChanged}
+            id="find"
+            onMouseEnter={this.showTooltip.bind(this)}
+            onMouseLeave={this.hideTooltip.bind(this)}
           />
+          <ToolTip
+            active={this.state.isTooltipActive}
+            position="left"
+            arrow="center"
+            parent="#find"
+            className="toolTip"
+            style={style}
+          >
+            <div>
+              <p>You can find films!</p>
+            </div>
+          </ToolTip>
         </form>
-        {/* <Switch> */}
-          <Route path={`/movie/:${selectedFilm}`} component={SelectSession}/>
-            {/* <SelectSession
-              id={selectedFilm}
-              film={this.state.film}
-            /> */}
-          {/* </Route> */}
-        {/* </Switch> */}
+        <Switch>
+          <Route path={`/movie/:${film.id}`}>
+            <SelectSession id={film.id} film={this.state.film} />
+          </Route>
+        </Switch>
       </div>
     );
   }
 }
 export default withRouter(SelectFilms);
-// const mapStateToProps = state => {
-//   return {
-//     selectMovie: state.selectMovie,
-//   };
-// };
-
-// const mapDispatchToProps = dispatch => {
-//   return {
-//     onCreateFilm: selectMovie => {
-//       dispatch(createFilm(selectMovie));
-//     },
-// onAddFilms: dataSoon => {
-//   dispatch(requestFilmsSoon(dataSoon));
-// },
-// onAddTodo: movies => {
-//   dispatch(requestFilms(movies));
-// }
-//   };
-// };
-
-// export default connect(
-//   mapStateToProps,
-//   mapDispatchToProps
-// )(withRouter(SelectFilms));

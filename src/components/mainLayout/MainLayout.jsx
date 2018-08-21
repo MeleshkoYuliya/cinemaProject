@@ -9,21 +9,23 @@ import SelectSession from "./SelectSession";
 import Home_Page from "../homePage/Home_Page";
 import Header from "./Header";
 import AccountPage from "../Account/AccountPage";
-import withAuthentication from '../Session/withAuthentication';
+import withAuthentication from "../Session/withAuthentication";
 
-const MainLayout = () =>
-      <Router>
-      <div>
-        <Header />
-        <Route path="/authorisation" component={Authorisation} />
-        <Route path="/movies" component={Movies_Page} />
-        <Route path="/buy-tickets" component={BuyTickets} />
-        <Route exact path="/" component={Home_Page} />
-        <Route path="/cinemas" component={Cinemas_Page} />
-        <Route path="/choose-seats" component={ChooseSeats} />
-        <Route path="/select-session" component={SelectSession} />
-        <Route path="/account" component={AccountPage} />
-      </div>
-      </Router>
+const MainLayout = () => (
+  <Router>
+    <div>
+      <Header />
 
- export default withAuthentication(MainLayout);
+      <Route path="/authorisation" component={Authorisation} />
+      <Route path="/movies" component={Movies_Page} />
+      <Route path="/buy-tickets" component={BuyTickets} />
+      <Route exact path="/" component={Home_Page} />
+      <Route path="/cinemas" component={Cinemas_Page} />
+      <Route path="/choose-seats" component={ChooseSeats} />
+      <Route path="/select" component={SelectSession} />
+      <Route path="/account" component={AccountPage} />
+    </div>
+  </Router>
+);
+
+export default withAuthentication(MainLayout);

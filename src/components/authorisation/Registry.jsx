@@ -4,9 +4,7 @@ import { connect } from "react-redux";
 import { createUser } from "./actions/registry-actions";
 import { FormErrors } from "./FormErrors";
 import firebase from "firebase";
-import {
-  withRouter,
-} from 'react-router-dom';
+import { withRouter } from "react-router-dom";
 
 class Registry extends PureComponent {
   state = {
@@ -18,7 +16,7 @@ class Registry extends PureComponent {
     passwordValid: false,
     userNameValid: false,
     formValid: false,
-   isSignUp:true
+    isUser: true
   };
 
   handleUserInput = e => {
@@ -35,23 +33,23 @@ class Registry extends PureComponent {
     onCreateUser({ ...this.state });
     const { email, password } = this.state;
     const auth = firebase.auth();
-    const {
-      history,
-    } = this.props;
+    const { history } = this.props;
     auth.onAuthStateChanged(firebaseUser => {});
     const promise = auth.createUserWithEmailAndPassword(email, password);
-    promise.then(() => {history.push('/movies');
+    promise
+      .then(() => {
+        history.push("/movies");
       })
       .catch(error => {
-        this.setState({
-          isSignUp:false
-        })
         console.log(error.message);
+        this.setState({
+          isUser: false
+        });
       });
 
     e.preventDefault();
   };
- 
+
   validateField(fieldName, value) {
     let fieldValidationErrors = this.state.formErrors;
     let emailValid = this.state.emailValid;
@@ -159,8 +157,12 @@ class Registry extends PureComponent {
         >
           Sign up
         </button>
-        {/* {this.state.isUser='false'&& <div
-        >The email address is already in use by another account!!!</div>} */}
+
+        {!this.state.isUser && (
+          <div className="panel-default">
+            The email address is already in use by another account!!!
+          </div>
+        )}
       </form>
     );
   }

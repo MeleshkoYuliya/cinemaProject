@@ -2,6 +2,7 @@ import React from "react";
 import FilmsNow from "./FilmsNow";
 import FilmsSoon from "./FilmsSoon";
 import { connect } from "react-redux";
+import ToolTip from "react-portal-tooltip";
 // import { requestFilms } from "../mainLayout/actions/filmsNow-actions";
 // import { requestFilmsSoon } from "../mainLayout/actons_filmsSoon/filmsSoon-actions";
 
@@ -11,12 +12,36 @@ class Movies_Page extends React.Component {
   //   onAddFilms({ ...this.state });
   //   onAddTodo({ ...this.state });
   // };
-
+  state = {
+    isTooltipActive: false
+  };
+  showTooltip() {
+    this.setState({ isTooltipActive: true });
+  }
+  hideTooltip() {
+    this.setState({ isTooltipActive: false });
+  }
   render() {
     return (
       <div className="movies">
         <div className="films-now">
-          <h4>Now Showing</h4>
+          <h4
+            id="text"
+            onMouseEnter={this.showTooltip.bind(this)}
+            onMouseLeave={this.hideTooltip.bind(this)}
+          >
+            Now Showing
+          </h4>
+          <ToolTip
+            active={this.state.isTooltipActive}
+            position="top"
+            arrow="center"
+            parent="#text"
+          >
+            <div>
+              <p>This is the content of the tooltip</p>
+            </div>
+          </ToolTip>
           <FilmsNow movies={this.props.movies.movies} />
         </div>
         <div className="films-soon">
@@ -41,7 +66,7 @@ const mapStateToProps = state => {
   const props = {
     movies: state.movies,
     dataSoon: state.dataSoon
-  }
+  };
   return props;
 };
 
