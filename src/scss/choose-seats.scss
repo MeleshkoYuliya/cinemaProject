@@ -10,14 +10,38 @@
 	 margin-top: 80px;
 	 display: flex;
  }
+ .row{
+	 display: inline-block;
+	 margin:0;
+	 font-family: $context-font;
+	 text-shadow: 0 0 15px lightyellow
+ }
+ .screen{
+	 border:solid;
+	 border-color:black;
+	 border-width:3px;
+	 width: 50%;
+	 margin:auto;
+	 margin-top: 30px;
+ }
  .room-place__seats {
 	 flex: 0 0 70%;
 	 margin-left: 3%;
 	text-align: center;
  } 
- .room-place__seats__img {
-	 width: 70%;
-	 margin-left:1%;
+ .room-place__seats__arm {
+	 height: 55px;
+	 &:hover{
+     cursor:pointer;
+		}
+ }
+ .room-place__seats__sofa{
+	width: 90px;
+	height: 65px;
+	margin-left: 4px;
+	&:hover{
+		cursor:pointer;
+	 }
  }
  .room-place__select-film {
 	 flex: 0 0 20%;

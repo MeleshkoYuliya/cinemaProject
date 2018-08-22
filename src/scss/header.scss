@@ -48,9 +48,13 @@ body {
 .filmNameSearch{
 	position: absolute;
 	top: 30px;
+	width: 260px;
+	z-index: 100;
 	background-color:$header-color;
+	opacity: 0.9;
 	font-family: $context-font;
 	font-size: 13px;
+	padding: 10px;
 	border-radius: 20px;
 	box-shadow: 0 0 20px lightyellow;
 }
@@ -83,7 +87,7 @@ height: 130px;
 	font-size: 44px;
 	height: 40px;
   display: inline-block;
-margin-top: 20px;
+  margin-top: 20px;
 	margin-left:40px;
 	color:black;
 	 &:hover{
@@ -114,7 +118,19 @@ margin-top: 20px;
 		  color: white;
 	 }
 }
-
+.modal-button{
+	@include buttons-style;
+	background-color: lightyellow;
+	border-color: darkorange;
+	width:45px;
+	margin-left:20%;
+	margin-top:20px;
+	  &:hover{
+		  background-color:darkorange;
+		  transition-duration: 0.5s;
+		  color: white;
+	 }
+}
 h4 {
 	font-family: $titles-font;
 	font-size: 28px;

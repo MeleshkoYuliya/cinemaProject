@@ -28,6 +28,21 @@
 		  color: white;
 	 }
 }
+.changePassword__btn{
+	@include buttons-style;
+	background-color: $header-color;
+	width:100px;
+	height:40px;
+	display: block;
+	margin:auto;
+	  &:hover{
+		  background-color:$bkgd-color;
+		  transition-duration: 0.5s;
+		  color: white;
+	 }
+}
+
+
 .login-join__add {
 	margin-bottom: 1em;
 	@include input-style;

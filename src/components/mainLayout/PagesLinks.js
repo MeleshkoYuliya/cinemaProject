@@ -3,16 +3,13 @@ import { NavLink } from "react-router-dom";
 import openmenu from "./openmenu.svg";
 import closemenu from "./closemenu.svg";
 import user from "./user.svg";
-// import PropTypes from "prop-types";
-// import SelectCity from "./SelectCity";
-import SignOutButton from "./SignOut";
 import withAuthorization from "../Session/withAuthorization";
-import { db } from "../firebase";
 import { auth } from "../firebase";
+import ReactCSSTransitionGroup from "react-addons-css-transition-group";
+import JwModal from "jw-react-modal";
+import { customStyles } from "./modalWindowStyle";
 import ToolTip from "react-portal-tooltip";
 import { style } from "./styleTooltip";
-import ReactCSSTransitionGroup from 'react-addons-css-transition-group'; 
-// import Transition from "react-transition-group/Transition";
 
 class PagesLinks extends React.PureComponent {
   constructor(props) {
@@ -37,17 +34,11 @@ class PagesLinks extends React.PureComponent {
       sideDrawerOpen: !this.state.sideDrawerOpen
     });
   };
-  onCollapse = () => ({ height: 0 });
 
   closeMenu = e => {
     this.setState({ sideDrawOpen: false });
     console.log(e.target);
   };
-  componentDidMount() {
-    db.onceGetUsers().then(snapshot =>
-      this.setState(() => ({ users: snapshot.val() }))
-    );
-  }
 
   render() {
     return (
@@ -68,31 +59,45 @@ class PagesLinks extends React.PureComponent {
           <button
             className="menu-button"
             type="button"
-            onClick={auth.doSignOut}
-            id="signOut"
-            onMouseEnter={this.showTooltip.bind(this)}
-            onMouseLeave={this.hideTooltip.bind(this)}
+            onClick={JwModal.open("custom-modal-2")}
           >
             Sign Out
           </button>
-          {/* <SignOutButton /> */}
+          <JwModal id="custom-modal-2" style={customStyles}>
+            <h5>You will not be able to use the services! Are you sure?</h5>
+
+            <button className="modal-button" onClick={auth.doSignOut}>
+              Yes
+            </button>
+            <button
+              className="modal-button"
+              onClick={JwModal.close("custom-modal-2")}
+            >
+              No
+            </button>
+          </JwModal>
+          <NavLink to="/account">
+            <img
+              src={user}
+              className="user"
+              alt="closemenu"
+              id="User"
+              onMouseEnter={this.showTooltip.bind(this)}
+              onMouseLeave={this.hideTooltip.bind(this)}
+            />
+          </NavLink>
           <ToolTip
             active={this.state.isTooltipActive}
             position="left"
             arrow="center"
-            parent="#signOut"
+            parent="#User"
             className="toolTip"
             style={style}
           >
             <div>
-              <p>Are you sure? You will not be able to use the services!</p>
+              <p> Go to your account</p>
             </div>
           </ToolTip>
-
-          {/* <SelectCity /> */}
-          <NavLink to="/account">
-            <img src={user} className="user" alt="closemenu" />
-          </NavLink>
         </div>
 
         <div className="changeMenubtn">
@@ -108,41 +113,46 @@ class PagesLinks extends React.PureComponent {
 
         {this.state.sideDrawerOpen && (
           <ReactCSSTransitionGroup
-      transitionName="ex"
-      transitionAppear={true}
-      transitionAppearTimeout={500}
-      transitionEnter={false}
-      transitionLeave={false}
-      >
-          <div className="header__menu-button--media">
-            {this.state.sideDrawerOpen && (
+            transitionName="ex"
+            transitionAppear={true}
+            transitionAppearTimeout={500}
+            transitionEnter={false}
+            transitionLeave={false}
+          >
+            <div className="header__menu-button--media">
+              {this.state.sideDrawerOpen && (
+                <button
+                  className="media-btn__close"
+                  onClick={this.drawerToggleClickHandler}
+                >
+                  <img src={closemenu} className="menu" alt="openmenu" />
+                </button>
+              )}
+
+              <NavLink to="/account">
+                <img src={user} className="user" alt="closemenu" />
+              </NavLink>
+              <NavLink to="/cinemas">
+                <button className="menu-button">Cinemas</button>
+              </NavLink>
+              <NavLink to="/movies">
+                <button className="menu-button">Movies</button>
+              </NavLink>
+              <NavLink to="/buy-tickets">
+                <button className="menu-button">Tickets</button>
+              </NavLink>
+              <button className="menu-button">Coming Soon</button>
+              <NavLink to="/">
+                <button className="menu-button">Home</button>
+              </NavLink>
               <button
-                className="media-btn__close"
-                onClick={this.drawerToggleClickHandler}
+                className="menu-button"
+                type="button"
+                onClick={JwModal.open("custom-modal-2")}
               >
-                <img src={closemenu} className="menu" alt="openmenu" />
+                Sign Out
               </button>
-            )}
-           
-            <NavLink to="/account">
-              <img src={user} className="user" alt="closemenu" />
-            </NavLink>
-            <NavLink to="/cinemas">
-              <button className="menu-button">Cinemas</button>
-            </NavLink>
-            <NavLink to="/movies">
-              <button className="menu-button">Movies</button>
-            </NavLink>
-            <NavLink to="/buy-tickets">
-              <button className="menu-button">Tickets</button>
-            </NavLink>
-            <button className="menu-button">Coming Soon</button>
-            <NavLink to="/">
-              <button className="menu-button">Home</button>
-            </NavLink>
-            <SignOutButton />
-     
-          </div>
+            </div>
           </ReactCSSTransitionGroup>
         )}
       </div>

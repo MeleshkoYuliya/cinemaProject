@@ -10,7 +10,6 @@ import { requestFilms } from "../mainLayout/actions/filmsNow-actions";
 import { requestFilmsSoon } from "../mainLayout/actons_filmsSoon/filmsSoon-actions";
 import { style } from "./styleTooltip";
 
-
 const NavigationAuth = () => (
   <div>
     <PagesLinks />
@@ -69,7 +68,7 @@ class Header extends PureComponent {
             style={style}
           >
             <div>
-              <p>Move to the main page</p>
+              <p>Click and move to the Main page</p>
             </div>
           </ToolTip>
           <div className="header__city" />

@@ -1,7 +1,7 @@
 import React from "react";
 import ReactDOM from "react-dom";
 import App from "./App";
-import registerServiceWorker from './registerServiceWorker';
+import registerServiceWorker from "./registerServiceWorker";
 import { Provider } from "react-redux";
 import { BrowserRouter } from "react-router-dom";
 import { createStore, applyMiddleware } from "redux";
@@ -9,7 +9,7 @@ import loginReducer from "./components/authorisation/reducers/login-reducer";
 import registryReducer from "./components/authorisation/reducers/registry-reducer";
 import reducer from "./components/mainLayout/reducers/filmsNow-reducer";
 import filmsSoonReducer from "./components/mainLayout/reduser_filmsSoon/filmsSoon-reducer";
-import headerReducer from "./components/mainLayout/header_reducers/headerReducer";
+import cinemasReducer from "./components/cinemasPage/reducers/cinemas-reducer";
 import { combineReducers } from "redux";
 import thunk from "redux-thunk";
 
@@ -18,7 +18,7 @@ const rootReducer = combineReducers({
   user: registryReducer,
   movies: reducer,
   dataSoon: filmsSoonReducer,
-  selectMovie: headerReducer
+  cinemas: cinemasReducer
 });
 
 const store = createStore(rootReducer, applyMiddleware(thunk));
