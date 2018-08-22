@@ -106,7 +106,7 @@ class SelectFilms extends React.Component {
             <SelectSession id={film.id} film={this.state.film} />
           </Route>
         </Switch>
-      </div>
+      </div> 
     );
   }
 }

@@ -1,7 +1,6 @@
 import React from "react";
-import { Link, Route } from "react-router-dom";
+import { Switch, withRouter, Route, Link } from "react-router-dom";
 import SelectOptions from "../ticketsPage/SelectOptions";
-import { withRouter } from "react-router-dom";
 import ChooseSeats from "../chooseSeatsePage/ChooseSeats";
 
 class SelectSession extends React.Component {

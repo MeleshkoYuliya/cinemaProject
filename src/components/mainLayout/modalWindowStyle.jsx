@@ -9,6 +9,6 @@ export const customStyles = {
     marginTop: "15%"
   },
   background: {
-    backgroundColor: "grey"
+    backgroundColor: "transparent"
   }
 };
