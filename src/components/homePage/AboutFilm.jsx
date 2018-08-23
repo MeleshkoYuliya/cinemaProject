@@ -1,20 +1,27 @@
 import React from "react";
+import PropTypes from "prop-types";
 import { withRouter } from "react-router-dom";
 
 class AboutFilm extends React.Component {
+  static propTypes = {
+     film: PropTypes.shape({
+        id: PropTypes.number,
+        name: PropTypes.string,
+        url: PropTypes.string
+      })
+  };
   render() {
-    const { movie } = this.props;
-    console.log(movie);
+    console.log(this.props.film);
     return (
       <div>
         <div className="session-selection">
           <div>
             {/* <div className="session-selection__film">
-              <h4 className="select-options__title">{movie.name}</h4>
+              <h4 className="select-options__title">{this.props.film.name}</h4>
               <img
                 className="selection__img"
-                src={movie.url}
-                alt={movie.name}
+                src={this.props.film.url}
+                alt={this.props.film.name}
               />
             </div> */}
 
@@ -35,4 +42,4 @@ class AboutFilm extends React.Component {
   }
 }
 
-export default AboutFilm;
+export default withRouter(AboutFilm);

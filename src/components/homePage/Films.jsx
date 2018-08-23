@@ -15,23 +15,24 @@ class Films extends React.Component {
     )
   };
   state = {
-    film: {},
-    id: null
+    film: {}
   };
+ 
   handleSelectFilm = e => {
     const { films } = this.props;
     const { history } = this.props;
-    const movie = films.find(movie => movie.name === e);
-    if (movie) {
+    const movie = films.find(movie => movie.name === e);  
+    if (movie){ 
       history.push(`/film/:${movie.id}`);
       this.setState({
-        film: movie.name
+        film: movie
       });
-      console.log(this.state.film);
-    }
+      console.log(this.state.film)
+    } 
   };
 
   render() {
+ 
     var filmsCode = this.props.films.map((film, index) => {
       return (
         <div className="home_film" key={index}>
@@ -44,23 +45,25 @@ class Films extends React.Component {
             {/* <Link to="/buy-tickets"> */}
             <button
               className="home__button"
-              id={film}
+              id={film.name}
               onClick={() => this.handleSelectFilm(film.name)}
             >
               Tickets
             </button>
             {/* </Link> */}
           </div>
+         
           <Switch>
             <Route path={`/film/:${film.id}`}>
-              <AboutFilm movie={this.state.film} />
+              <AboutFilm id={film.id} film={this.state.film} />
             </Route>
           </Switch>
           {/* <Route path="/buy-tickets" component={BuyTickets} /> */}
         </div>
       );
     });
-    return <div className="home">{filmsCode}</div>;
+  return (<div className="home">{filmsCode}
+   </div>);
   }
 }
 

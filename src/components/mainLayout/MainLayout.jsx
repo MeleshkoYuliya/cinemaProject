@@ -13,19 +13,21 @@ import AccountPage from "../Account/AccountPage";
 import withAuthentication from "../Session/withAuthentication";
 
 const MainLayout = () => (
-  // <Router>
 
   <Router>
     <div>
-      <Header />
+      <Header>
+      <Route path="/movie/" component={SelectSession} />
+      </Header>
       <Route path="/authorisation" component={Authorisation} />
       <Route path="/movies" component={Movies_Page} />
       <Route path="/buy-tickets" component={BuyTickets} />
-      <Route exact path="/" component={Home_Page} />
+   
       <Route path="/cinemas" component={Cinemas_Page} />
       <Route path="/choose-seats" component={ChooseSeats} />
-      <Route path="/select" component={SelectSession} />
-      {/* <Route path="/about" component={AboutFilm} /> */}
+     
+      <Route exact path="/" component={Home_Page} />
+      <Route path="/film/" component={AboutFilm} />
       <Route path="/account" component={AccountPage} />
     </div>
   </Router>
