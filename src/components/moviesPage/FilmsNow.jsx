@@ -7,7 +7,6 @@ class FilmsNow extends React.PureComponent {
   render() {
     const obj = Object.assign({}, this.props.movies[0]);
     const moviesNow = Object.values(obj);
-    console.log(moviesNow[0]);
     const film_now = moviesNow.map(function(item, index) {
       return (
         <div className="films-now__flex-conteiner__film" key={index}>

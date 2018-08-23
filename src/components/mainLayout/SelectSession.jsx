@@ -1,10 +1,9 @@
 import React from "react";
-import { Switch, withRouter, Route, Link } from "react-router-dom";
+import { withRouter, Route, Link } from "react-router-dom";
 import SelectOptions from "../ticketsPage/SelectOptions";
 import ChooseSeats from "../chooseSeatsePage/ChooseSeats";
 
 class SelectSession extends React.Component {
-
   render() {
     const { film } = this.props;
     return (
@@ -14,11 +13,7 @@ class SelectSession extends React.Component {
           <div>
             <div className="session-selection__film">
               <h4 className="select-options__title">{film.name}</h4>
-              <img
-                className="selection__img"
-                src={film.url}
-                alt={film.name}
-              />
+              <img className="selection__img" src={film.url} alt={film.name} />
             </div>
 
             <div>Genre:</div>

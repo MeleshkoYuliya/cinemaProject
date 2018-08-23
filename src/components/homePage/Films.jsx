@@ -14,22 +14,23 @@ class Films extends React.Component {
       })
     )
   };
-  state={
-    movie: {},
-  }
-  handleCreateFilm=(e)=> {
-    const {films}=this.props;
+  state = {
+    film: {},
+    id: null
+  };
+  handleSelectFilm = e => {
+    const { films } = this.props;
     const { history } = this.props;
-    const filmsSoon = films.find(filmsSoon => filmsSoon.name === e);
-   console.log(filmsSoon);
-   if (filmsSoon) {
-    history.push(`/movie/:${filmsSoon.id}`);
-    this.setState({
-      movie: filmsSoon
-    });
-  }
-  }
-  
+    const movie = films.find(movie => movie.name === e);
+    if (movie) {
+      // history.push(`/movie/:${movie.id}`);
+      this.setState({
+        movie: movie.name
+      });
+      console.log(this.state.film);
+    }
+  };
+
   render() {
     var filmsCode = this.props.films.map((film, index) => {
       return (
@@ -39,16 +40,22 @@ class Films extends React.Component {
           </div>
           <img className="home__img" src={film.url} alt={film.name} />
           <div>
-            <button className="home__button">Treiler</button>
+            {/* <button className="home__button">Treiler</button> */}
             {/* <Link to="/buy-tickets"> */}
-              <button className="home__button" id={film.name} onClick={() => this.handleCreateFilm(film.name)}>Tickets</button>
+            <button
+              className="home__button"
+              id={film}
+              onClick={() => this.handleSelectFilm(film.name)}
+            >
+              Tickets
+            </button>
             {/* </Link> */}
           </div>
           <Switch>
-          <Route path={`/movie/:${film.id}`}>
-            <SelectSession id={film.id} film={this.state.movie} />
-          </Route>
-        </Switch>
+            <Route path={`/movie/:${film.id}`}>
+              <SelectSession movie={this.state.movie} />
+            </Route>
+          </Switch>
           {/* <Route path="/buy-tickets" component={BuyTickets} /> */}
         </div>
       );
@@ -56,6 +63,5 @@ class Films extends React.Component {
     return <div className="home">{filmsCode}</div>;
   }
 }
-
 
 export default withRouter(Films);

@@ -4,14 +4,13 @@ import SelectSession from "./SelectSession";
 import ToolTip from "react-portal-tooltip";
 import { style } from "./styleTooltip";
 
-
 class SelectFilms extends React.Component {
   state = {
     defaultInput: this.props.defaultInput,
     filmNameArr: [],
     searchableMovies: [],
     film: {},
-    selectedFilm: null,
+    // selectedFilm: null,
     isTooltipActive: false
   };
 
@@ -106,10 +105,9 @@ class SelectFilms extends React.Component {
             <SelectSession id={film.id} film={this.state.film} />
           </Route>
         </Switch>
-      </div> 
+      </div>
     );
   }
 }
-
 
 export default withRouter(SelectFilms);
