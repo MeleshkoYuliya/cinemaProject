@@ -25,7 +25,7 @@ const MainLayout = () => (
       <Route path="/cinemas" component={Cinemas_Page} />
       <Route path="/choose-seats" component={ChooseSeats} />
       <Route path="/select" component={SelectSession} />
-      <Route path="/" component={AboutFilm} />
+      {/* <Route path="/about" component={AboutFilm} /> */}
       <Route path="/account" component={AccountPage} />
     </div>
   </Router>

@@ -35,4 +35,4 @@ class AboutFilm extends React.Component {
   }
 }
 
-export default withRouter(AboutFilm);
+export default AboutFilm;
