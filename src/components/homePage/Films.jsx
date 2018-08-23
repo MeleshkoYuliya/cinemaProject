@@ -1,7 +1,7 @@
 import React from "react";
 import PropTypes from "prop-types";
 import { Switch, Route } from "react-router-dom";
-import SelectSession from "../mainLayout/SelectSession";
+import AboutFilm from "./AboutFilm";
 import { withRouter } from "react-router-dom";
 
 class Films extends React.Component {
@@ -23,9 +23,9 @@ class Films extends React.Component {
     const { history } = this.props;
     const movie = films.find(movie => movie.name === e);
     if (movie) {
-      // history.push(`/movie/:${movie.id}`);
+      history.push(`/film/:${movie.id}`);
       this.setState({
-        movie: movie.name
+        film: movie.name
       });
       console.log(this.state.film);
     }
@@ -52,8 +52,8 @@ class Films extends React.Component {
             {/* </Link> */}
           </div>
           <Switch>
-            <Route path={`/movie/:${film.id}`}>
-              <SelectSession movie={this.state.movie} />
+            <Route path={`/film/:${film.id}`}>
+              <AboutFilm movie={this.state.film} />
             </Route>
           </Switch>
           {/* <Route path="/buy-tickets" component={BuyTickets} /> */}
