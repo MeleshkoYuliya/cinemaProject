@@ -6,7 +6,7 @@ class FilmsSoon extends React.PureComponent {
     const filmsSoon = Object.values(obj);
     const film_soon = filmsSoon.map(function(item, index) {
       return (
-        <div className="films-soon__flex-conteiner__film" key={index}>
+        <div className="films-soon__flex-conteiner__film" key={index}> 
           <h6 className="soon_title">{item.name}</h6>
           <img
             className="films-soon__flex-container__img"

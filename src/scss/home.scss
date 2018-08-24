@@ -14,6 +14,14 @@
 .film_title{
 	width: 280px;
 }
+.film_title_link{
+	text-decoration: none;
+	color:black;
+	&:hover{
+		color:lightyellow;
+		text-shadow: 0 0 20px black;
+	}
+}
 .home__img{
 	border-radius: 20px;
 	box-shadow: 0 0 30px rgb(231, 206, 160);

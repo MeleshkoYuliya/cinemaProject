@@ -17,14 +17,14 @@ class SelectSession extends React.Component {
             </div>
 
             <div>Genre:</div>
-            <div>Age limit:</div>
-            <div> Director:</div>
-            <div>Actors:</div>
-            <div> Description:</div>
-            <div>
-              <button className="button session-selection__button">
-                View Treiler
-              </button>
+             <div>Age limit:</div>
+             <div> Director:</div>
+             <div>Actors:</div>
+             <div> Description:</div>
+             <div>
+               <button className="button session-selection__button">
+                 View Treiler
+               </button> 
             </div>
           </div>
           <div className="session-selection__showing">
@@ -38,7 +38,7 @@ class SelectSession extends React.Component {
                   <div> room: </div>
                 </div>
               </Link>
-              <Link to="choose-seats">
+              <Link to="/choose-seats">
                 <div className="showing__place__screening">
                   <div>time</div>
                   <div> Session Type:</div>
@@ -48,14 +48,14 @@ class SelectSession extends React.Component {
             </div>
             <div className="showing__place">
               <h4>Velcom cinema </h4>
-              <Link to="choose-seats">
+              <Link to="/choose-seats">
                 <div className="showing__place__screening">
                   <div>time</div>
                   <div> Session Type:</div>
                   <div> room: </div>
                 </div>
               </Link>
-              <Link to="choose-seats">
+              <Link to="/choose-seats">
                 <div className="showing__place__screening">
                   <div>time</div>
                   <div> Session Type:</div>
@@ -65,7 +65,7 @@ class SelectSession extends React.Component {
             </div>
             <div className="showing__place">
               <h4>Belarus</h4>
-              <Link to="choose-seats">
+              <Link to="/choose-seats">
                 <div className="showing__place__screening">
                   <div>time</div>
                   <div> Session Type:</div>
@@ -75,14 +75,14 @@ class SelectSession extends React.Component {
             </div>
             <div className="showing__place">
               <h4>Galileo Silver Screen</h4>
-              <Link to="choose-seats">
+              <Link to="/choose-seats">
                 <div className="showing__place__screening">
                   <div>time</div>
                   <div> Session Type:</div>
                   <div> room: </div>
                 </div>
               </Link>
-              <Link to="choose-seats">
+              <Link to="/choose-seats">
                 <div className="showing__place__screening">
                   <div>time</div>
                   <div> Session Type:</div>
