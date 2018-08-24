@@ -1,5 +1,10 @@
 import React from 'react';
 import PropTypes from 'prop-types';
+import AuthUserContext from "../Session/AuthUserContext";
+import { NavLink, Route } from "react-router-dom";
+import MovieSession from '../homePage/MovieSession';
+import JwModal from "jw-react-modal";
+import { customStyles } from "../mainLayout/modalWindowStyle";
 
 
 class AboutFilm extends React.PureComponent {
@@ -15,7 +20,38 @@ class AboutFilm extends React.PureComponent {
     }),
   };
 
+  
+  
   render() {
+    const NavigationAuth = () => (
+      <div>
+         <NavLink to={"/session/"+this.props.info.id} className="film_title_link">
+            <button className="button films-now__button">Tickets</button>
+         </NavLink>
+      </div>
+    );
+    
+    const NavigationNonAuth = () => (
+      <div>
+      <button
+            className="button films-now__button"
+            type="button"
+            onClick={JwModal.open("custom-modal-2")}
+          >
+            Tickets
+          </button>
+          <JwModal id="custom-modal-2" style={customStyles}>
+            <h5>Please sign in</h5>
+            <button
+              className="modal-button"
+              onClick={JwModal.close("custom-modal-2")}
+            >
+              ok
+            </button>
+          </JwModal>
+      </div>
+    );
+
         return (
 
         <div className="session-selection">
@@ -32,7 +68,14 @@ class AboutFilm extends React.PureComponent {
           <div className="treiler">
             <iframe width="80%" height="340px" src={this.props.info.treiler} title={this.props.info.name} frameBorder="0"  allowFullScreen></iframe>
             </div>
-         
+            <div>
+            <AuthUserContext.Consumer>
+            {authUser =>
+              authUser ? <NavigationAuth /> : <NavigationNonAuth />
+            }
+          </AuthUserContext.Consumer>
+          </div>
+          <Route path="/session/:id" component={MovieSession}/>
             </div>
         </div>
     );

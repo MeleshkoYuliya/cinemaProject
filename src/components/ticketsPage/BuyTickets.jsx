@@ -3,6 +3,7 @@ import { Link } from "react-router-dom";
 import SelectOptions from "./SelectOptions";
 import withAuthorization from "../Session/withAuthorization";
 import { connect } from "react-redux";
+import ReactCSSTransitionGroup from "react-addons-css-transition-group";
 
 
 class BuyTickets extends React.Component {
@@ -12,6 +13,7 @@ class BuyTickets extends React.Component {
 
     const film_now = moviesNow.map(function(item, index) {
       return (
+      
         <div className="session-selection" key={index}>
           <div className="session-selection__film">
             <h4 className="select-options__title">{item.name}</h4>
@@ -91,11 +93,18 @@ class BuyTickets extends React.Component {
     });
 
     return (
+      <ReactCSSTransitionGroup
+      transitionName="example"
+      transitionAppear={true}
+      transitionAppearTimeout={500}
+      transitionEnter={false}
+      transitionLeave={false}
+    >
       <div>
         <SelectOptions />
         {film_now}
-        {/* <Route path="/choose-seats" component={ChooseSeats} /> */}
       </div>
+      </ReactCSSTransitionGroup>
     );
   }
 }

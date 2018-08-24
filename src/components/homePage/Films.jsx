@@ -8,9 +8,6 @@ import AboutFilmPage from "./AboutFilmPage";
 
 class Films extends React.Component {
   static propTypes = {
-
-  
-
     info: PropTypes.shape({
     id: PropTypes.number,
     name: PropTypes.string,

@@ -18,7 +18,6 @@ class FilmsNow extends React.PureComponent {
           />
 
           <div>
-            <button className="button films-now__button">Treiler</button>
             <Link to="/buy-tickets">
               <button className="button films-now__button">Tickets</button>
             </Link>
