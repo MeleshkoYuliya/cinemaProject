@@ -34,7 +34,7 @@ class Movies_Page extends React.Component {
             <FilmsSoon moviesSoon={this.props.dataSoon.moviesSoon} />
           </div>
         </div>
-      </ReactCSSTransitionGroup>
+      </ReactCSSTransitionGroup> 
     );
   }
 }

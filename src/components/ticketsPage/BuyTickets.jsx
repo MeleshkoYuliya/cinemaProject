@@ -1,6 +1,5 @@
 import React from "react";
-import { Link, Route } from "react-router-dom";
-import ChooseSeats from "../chooseSeatsePage/ChooseSeats";
+import { Link } from "react-router-dom";
 import SelectOptions from "./SelectOptions";
 import withAuthorization from "../Session/withAuthorization";
 import { connect } from "react-redux";
@@ -21,16 +20,7 @@ class BuyTickets extends React.Component {
               src={item.url}
               alt={item.name}
             />
-            <div>Genre:</div>
-            <div>Age limit:</div>
-            <div> Director:</div>
-            <div>Actors:</div>
-            <div> Description:</div>
-            <div>
-              <button className="button session-selection__button">
-                View Treiler
-              </button>
-            </div>
+          
           </div>
           <div className="session-selection__showing">
             <div className="showing__place">
@@ -43,7 +33,7 @@ class BuyTickets extends React.Component {
                   <div> room: </div>
                 </div>
               </Link>
-              <Link to="choose-seats">
+              <Link to="/choose-seats">
                 <div className="showing__place__screening">
                   <div>time</div>
                   <div> Session Type:</div>
@@ -53,14 +43,14 @@ class BuyTickets extends React.Component {
             </div>
             <div className="showing__place">
               <h4>Velcom cinema </h4>
-              <Link to="choose-seats">
+              <Link to="/choose-seats">
                 <div className="showing__place__screening">
                   <div>time</div>
                   <div> Session Type:</div>
                   <div> room: </div>
                 </div>
               </Link>
-              <Link to="choose-seats">
+              <Link to="/choose-seats">
                 <div className="showing__place__screening">
                   <div>time</div>
                   <div> Session Type:</div>
@@ -70,7 +60,7 @@ class BuyTickets extends React.Component {
             </div>
             <div className="showing__place">
               <h4>Belarus</h4>
-              <Link to="choose-seats">
+              <Link to="/choose-seats">
                 <div className="showing__place__screening">
                   <div>time</div>
                   <div> Session Type:</div>
@@ -80,14 +70,14 @@ class BuyTickets extends React.Component {
             </div>
             <div className="showing__place">
               <h4>Galileo Silver Screen</h4>
-              <Link to="choose-seats">
+              <Link to="/choose-seats">
                 <div className="showing__place__screening">
                   <div>time</div>
                   <div> Session Type:</div>
                   <div> room: </div>
                 </div>
               </Link>
-              <Link to="choose-seats">
+              <Link to="/choose-seats">
                 <div className="showing__place__screening">
                   <div>time</div>
                   <div> Session Type:</div>
@@ -104,7 +94,7 @@ class BuyTickets extends React.Component {
       <div>
         <SelectOptions />
         {film_now}
-        <Route path="/choose-seats" component={ChooseSeats} />
+        {/* <Route path="/choose-seats" component={ChooseSeats} /> */}
       </div>
     );
   }

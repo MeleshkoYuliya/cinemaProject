@@ -10,7 +10,6 @@ class SelectFilms extends React.Component {
     filmNameArr: [],
     searchableMovies: [],
     film: {},
-    // selectedFilm: null,
     isTooltipActive: false
   };
 

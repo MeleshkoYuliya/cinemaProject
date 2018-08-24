@@ -47,7 +47,26 @@
 	margin: 15px;
 	order: 2;
 }
-
+.session-selection__description{
+	flex: 0 0 65%;
+	margin: 20px;
+	order: 2;	
+	font-family:  $context-font;
+	font-size: 16px;
+	text-shadow: 0 0 30px lightyellow;
+}
+h3{
+	color: white;
+	display: inline;
+	font-size: 16px
+}
+.session-selection__text{
+	margin-top:20px;
+	margin-bottom:10px;
+}
+.treiler{
+	width:90%;
+}
 .showing__place {
   font-size: 20px;
   border-radius: 10px;

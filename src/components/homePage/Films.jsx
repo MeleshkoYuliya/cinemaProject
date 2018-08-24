@@ -1,11 +1,17 @@
 import React from "react";
 import PropTypes from "prop-types";
+<<<<<<< HEAD
 import { Switch, Route } from "react-router-dom";
 import AboutFilm from "./AboutFilm";
+=======
+import {  Route, NavLink } from "react-router-dom";
+>>>>>>> film
 import { withRouter } from "react-router-dom";
+import AboutFilmPage from "./AboutFilmPage";
 
 class Films extends React.Component {
   static propTypes = {
+<<<<<<< HEAD
     films: PropTypes.arrayOf(
       PropTypes.shape({
         id: PropTypes.number,
@@ -29,9 +35,18 @@ class Films extends React.Component {
       });
       console.log(this.state.film)
     } 
+=======
+    info: PropTypes.shape({
+    id: PropTypes.number,
+    name: PropTypes.string,
+    url: PropTypes.string,
+  })
+>>>>>>> film
   };
 
+  
   render() {
+<<<<<<< HEAD
  
     var filmsCode = this.props.films.map((film, index) => {
       return (
@@ -64,7 +79,23 @@ class Films extends React.Component {
     });
   return (<div className="home">{filmsCode}
    </div>);
+=======
+  
+    return (
+      <div className="home_film">
+        <div className="film_title">
+        <NavLink to={"/film/"+this.props.info.id} className="film_title_link"><h5>{this.props.info.name}</h5></NavLink>
+        </div>
+        <img className="home__img" src={this.props.info.url} alt={this.props.info.name} />
+        <div>
+        
+        </div>
+        <Route path="/film/:id" component={AboutFilmPage}/>
+      </div>
+    );
+>>>>>>> film
   }
 }
 
 export default withRouter(Films);
+
