@@ -3,7 +3,6 @@ export const style = {
     backgroundColor: "lightyellow",
     opacity: 0.8,
     width: "70%",
-    // height: 180,
     borderRadius: 20,
     boxShadow: "0 0 30px black",
     margin: "auto",

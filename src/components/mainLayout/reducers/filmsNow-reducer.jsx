@@ -9,6 +9,7 @@ const initialState = {
   movies: [],
   error: null
 };
+
 export const reducer = (state = initialState, action) => {
   switch (action.type) {
     case REQUEST_STARTED:

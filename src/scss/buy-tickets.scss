@@ -23,6 +23,7 @@
 	display: flex;
 	justify-content: space-around;
 	margin: 10px;
+	padding-bottom: 30px;
 }
 .session-selection__img {
   border-radius: 20px;
@@ -37,7 +38,7 @@
 .session-selection__film {
 	margin-right: 2%;
 	flex: 0 0 25%;
- text-align: center;
+  text-align: center;
 	order: 1;
 	font-size: 20px;
 	margin-left: 1em;
@@ -102,6 +103,7 @@ h3{
 			background-color: $header-color;
 		}
 }
+
 @media  (max-width: 767px) { 
 	.select-options {
 		margin-top:70px;
@@ -134,6 +136,8 @@ h3{
 	}
 	
 }
+
+
 @media  (min-width: 768px) and (max-width: 1200px) {
 	.select-options {
 		margin-left: 10%;
@@ -150,6 +154,7 @@ h3{
 		order: 2;
 	}
 }
+
 @media (min-width: 1200px){
 	/* for buy-tickets page */
 	.session-selection__img {

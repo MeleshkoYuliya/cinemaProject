@@ -27,7 +27,7 @@
  .room-place__seats {
 	 flex: 0 0 70%;
 	 margin-left: 3%;
-	text-align: center;
+	 text-align: center;
  } 
  .room-place__seats__arm {
 	 height: 55px;
@@ -36,17 +36,18 @@
 		}
  }
  .room-place__seats__sofa{
-	width: 90px;
-	height: 65px;
-	margin-left: 4px;
-	&:hover{
-		cursor:pointer;
-	 }
+	 width: 90px;
+	 height: 65px;
+	 margin-left: 4px;
+	 &:hover{
+		 cursor:pointer;
+	  }
  }
  .room-place__select-film {
 	 flex: 0 0 20%;
 	 margin: 2px;
 	 padding: 1em;
+   margin-bottom:30px;
 	 order: 2;
 	 border-radius: 20px;
 	 text-align: center;
@@ -57,6 +58,8 @@
  .room-place__select-film__img{
 	 border-radius: 20px;
  }
+
+
  @media  (max-width: 767px) { 
 	.choice-time{
 		font-size: 14px;
@@ -67,19 +70,39 @@
 		flex-direction: column;
 	}
 	
-	.room-place__seats__img {
-		width: 90%;
-		margin-left:3%;
-	}
-	
 	.room-place__select-film__img {
 		width:50%;
 	}
+	.room-place__seats__arm{
+	width:25px;
+	height:30px
+	}
+	.room-place__seats__sofa{
+	width:40px;
+	height:30px;
+	}
+	.row{
+	font-size:10px;
+	}
  }
+
+ 
  @media (min-width: 1200px){
 	/* for room-places page */
 	.room-place__select-film__img{
 		width:90%;
 	}
 	}
-	
+	@media  (min-width: 768px) and (max-width: 1200px) {
+	.room-place__seats__arm{
+		width:35px;
+		height:40px
+		}
+		.room-place__seats__sofa{
+		width:50px;
+		height:40px;
+		}
+		.row{
+		font-size:14px;
+		}
+	}

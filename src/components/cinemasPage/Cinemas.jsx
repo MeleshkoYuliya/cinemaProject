@@ -1,6 +1,7 @@
 import React from "react";
 import { Link, Route } from "react-router-dom";
 import BuyTickets from "../ticketsPage/BuyTickets";
+
 class Cinemas extends React.Component {
   render() {
     const cinema = this.props.cinemas.map(function(item, index) {

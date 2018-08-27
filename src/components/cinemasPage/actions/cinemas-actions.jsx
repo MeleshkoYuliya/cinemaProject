@@ -8,6 +8,7 @@ import axios from "axios";
 const instance = axios.create({
   baseURL: "https://aboutcinema-cb66a.firebaseio.com"
 });
+
 export const requestCinemas = cinemas => {
   return dispatch => {
     dispatch(addTodoStarted());

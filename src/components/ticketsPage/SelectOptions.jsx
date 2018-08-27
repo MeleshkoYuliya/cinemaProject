@@ -69,7 +69,6 @@ class SelectOptions extends React.Component {
           onChange={this.handleChangeDate}
           options={date}
         />
-        {/* {console.log(selectedDate, selectedCinema, selectedSession)} */}
         <SelectDate
           className="header__change-city"
           value={selectedSession}
