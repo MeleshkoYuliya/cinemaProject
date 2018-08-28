@@ -1,7 +1,7 @@
 import React from "react";
-import { withRouter, Route, Link } from "react-router-dom";
+import { withRouter, Route, NavLink } from "react-router-dom";
 import SelectOptions from "../ticketsPage/SelectOptions";
-import ChooseSeats from "../chooseSeatsePage/ChooseSeats";
+import SessionSeats from "../homePage/SessionSeats";
 
 class SelectSession extends React.Component {
   render() {
@@ -17,82 +17,82 @@ class SelectSession extends React.Component {
             </div>
 
             <div>Genre:</div>
-             <div>Age limit:</div>
-             <div> Director:</div>
-             <div>Actors:</div>
-             <div> Description:</div>
-             <div>
-               <button className="button session-selection__button">
-                 View Treiler
-               </button> 
+            <div>Age limit:</div>
+            <div> Director:</div>
+            <div>Actors:</div>
+            <div> Description:</div>
+            <div>
+              <button className="button session-selection__button">
+                View Treiler
+              </button>
             </div>
           </div>
           <div className="session-selection__showing">
             <div className="showing__place">
               <h4>Arena City Silver Screen </h4>
 
-              <Link to="/choose-seats">
+              <NavLink to={"/seats/" + film.id}>
                 <div className="showing__place__screening">
                   <div>time</div>
                   <div> Session Type:</div>
                   <div> room: </div>
                 </div>
-              </Link>
-              <Link to="/choose-seats">
+              </NavLink>
+              <NavLink to={"/seats/" + film.id}>
                 <div className="showing__place__screening">
                   <div>time</div>
                   <div> Session Type:</div>
                   <div> room: </div>
                 </div>
-              </Link>
+              </NavLink>
             </div>
             <div className="showing__place">
               <h4>Velcom cinema </h4>
-              <Link to="/choose-seats">
+              <NavLink to={"/seats/" + film.id}>
                 <div className="showing__place__screening">
                   <div>time</div>
                   <div> Session Type:</div>
                   <div> room: </div>
                 </div>
-              </Link>
-              <Link to="/choose-seats">
+              </NavLink>
+              <NavLink to={"/seats/" + film.id}>
                 <div className="showing__place__screening">
                   <div>time</div>
                   <div> Session Type:</div>
                   <div> room: </div>
                 </div>
-              </Link>
+              </NavLink>
             </div>
             <div className="showing__place">
               <h4>Belarus</h4>
-              <Link to="/choose-seats">
+              <NavLink to={"/seats/" + film.id}>
                 <div className="showing__place__screening">
                   <div>time</div>
                   <div> Session Type:</div>
                   <div> room: </div>
                 </div>
-              </Link>
+              </NavLink>
             </div>
             <div className="showing__place">
               <h4>Galileo Silver Screen</h4>
-              <Link to="/choose-seats">
+              <NavLink to={"/seats/" + film.id}>
                 <div className="showing__place__screening">
                   <div>time</div>
                   <div> Session Type:</div>
                   <div> room: </div>
                 </div>
-              </Link>
-              <Link to="/choose-seats">
+              </NavLink>
+              <NavLink to={"/seats/" + film.id}>
                 <div className="showing__place__screening">
                   <div>time</div>
                   <div> Session Type:</div>
                   <div> room: </div>
                 </div>
-              </Link>
+              </NavLink>
             </div>
           </div>
         </div>
-        <Route path="/choose-seats" component={ChooseSeats} />
+        <Route path="/seats/:id" component={SessionSeats} />
       </div>
     );
   }
