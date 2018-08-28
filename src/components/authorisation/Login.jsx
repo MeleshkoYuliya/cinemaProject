@@ -1,45 +1,43 @@
 import React, { PureComponent } from "react";
-import { withRouter } from 'react-router-dom';
+import { withRouter } from "react-router-dom";
 import { FormErrors } from "./FormErrors";
 import { bindActionCreators } from "redux";
 import { connect } from "react-redux";
 import { identifyingUser } from "./actions/login-actions";
 import firebase from "firebase";
 
-
 class Login extends PureComponent {
   state = {
     email: this.props.login.email,
     password: this.props.login.password,
-    formErrors: { email: "", password: ""},
+    formErrors: { email: "", password: "" },
     emailValid: false,
     passwordValid: false,
     userNameValid: false,
     formValid: false,
-    isUser:true
+    isUser: true
   };
-  
+
   handleIdentifyingUser = e => {
     const { onIdentyfyingUser } = this.props;
     onIdentyfyingUser({ ...this.state });
     const { email, password } = this.state;
-    const {
-      history,
-    } = this.props;
+    const { history } = this.props;
     const auth = firebase.auth();
     const promise = auth.signInWithEmailAndPassword(email, password);
-    promise.then(() => { history.push('/movies');
+    promise
+      .then(() => {
+        history.push("/movies");
       })
       .catch(error => {
         console.log(error.message);
         this.setState({
-          isUser:false
-        })
+          isUser: false
+        });
       });
-     
-    e.preventDefault();
-  }
 
+    e.preventDefault();
+  };
 
   handleUserInput = e => {
     const name = e.target.name;
@@ -133,8 +131,11 @@ class Login extends PureComponent {
         >
           Sign in
         </button>
-        {!this.state.isUser&&  <div
-          className="panel-default">The password is invalid or the user does not have a password!!!</div>}
+        {!this.state.isUser && (
+          <div className="panel-default">
+            The password is invalid or the user does not have a password!!!
+          </div>
+        )}
       </form>
     );
   }
