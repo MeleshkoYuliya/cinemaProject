@@ -1,4 +1,4 @@
-import React from "react";
+import React, { PureComponent } from "react";
 import PropTypes from "prop-types";
 import AuthUserContext from "../Session/AuthUserContext";
 import { NavLink, Route } from "react-router-dom";
@@ -6,7 +6,7 @@ import MovieSession from "../homePage/MovieSession";
 import JwModal from "jw-react-modal";
 import { customStyles } from "../mainLayout/modalWindowStyle";
 
-class AboutFilm extends React.PureComponent {
+class AboutFilm extends PureComponent {
   static propTypes = {
     info: PropTypes.shape({
       name: PropTypes.string.isRequired,
