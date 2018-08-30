@@ -2,6 +2,7 @@ import React from "react";
 import AuthUserContext from "../Session/AuthUserContext";
 import PasswordChangeForm from "./PasswordChangeForm";
 import withAuthorization from "../Session/withAuthorization";
+import AdminPage from "./AdminPage";
 
 const AccountPage = () => (
   <AuthUserContext.Consumer>
@@ -9,8 +10,13 @@ const AccountPage = () => (
       <div>
         <h4>Your account: {authUser.email}</h4>
         <div className="login-join">
-          <PasswordChangeForm />
+          <PasswordChangeForm />{" "}
         </div>
+        {authUser.email === "admin@mail.ru" && (
+          <div>
+            <AdminPage />
+          </div>
+        )}
       </div>
     )}
   </AuthUserContext.Consumer>

@@ -1,0 +1,32 @@
+
+
+textarea{resize: none;
+	width:50%;
+	border-radius: 6px;
+	outline:0;
+	background-color:lightgrey;
+}
+
+.Options, .sessions{
+	font-family: 'Prosto One', cursive;
+	font-size: 20px;
+}
+.Options{
+display: inline-block;
+margin: auto;
+}
+.optionalPrice{
+	width: 50px;
+	border-radius: 6px;
+	outline:0;
+	background-color:lightgrey;
+}
+input:focus{
+	background-color: rgb(238, 238, 153);
+	}
+.optionalPrice div{
+	display: inline-block;
+}
+.TicketPrice{
+	width: 40px;
+}

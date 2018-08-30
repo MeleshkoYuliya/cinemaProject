@@ -8,6 +8,7 @@
 @import 'films-now.scss';
 @import 'films-soon.scss';
 @import 'movies.scss';
+@import 'admin.scss';
 
 .App {
   text-align: center;
@@ -17,6 +18,7 @@
   /* animation: App-logo-spin infinite 20s linear; */
 	height: 12px;
 }
+
 .App-logo:hover{
 	stroke-linecap:white;
 }
