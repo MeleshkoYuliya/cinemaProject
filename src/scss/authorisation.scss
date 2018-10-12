@@ -1,86 +1,88 @@
 .login-join {
-	margin: 100px;
-	display: flex;
-	border-radius: 20px;
-	justify-content: space-around;
+  margin: 100px;
+  display: flex;
+  border-radius: 20px;
+  justify-content: space-around;
 }
-.enter-block, .register-block {
-	flex: 0 0 40%;
-	margin: 2px;
-	order: 1;
-	padding: 2em;
-	padding-bottom: 2em;
-	background-color: lightgrey;
-	border-radius: 20px;
-	text-align: center;
-	box-shadow: 0 0 30px lightyellow;
+.enter-block,
+.register-block {
+  flex: 0 0 40%;
+  margin: 2px;
+  order: 1;
+  padding: 2em;
+  padding-bottom: 2em;
+  background-color: lightgrey;
+  border-radius: 20px;
+  text-align: center;
+  box-shadow: 0 0 30px lightyellow;
 }
-.login-join__title{
-	color:black;
+.login-join__title {
+  color: black;
 }
 .login-join_btn {
-	@include buttons-style;
-	background-color: $header-color;
-	display: block;
-	margin: auto;
-	width:80px;
-	color: wheat;
-	  &:hover{
-		  background-color:$bkgd-color;
-		  transition-duration: 0.5s;
-		  color: white;
-	 }
+  @include buttons-style;
+  background-color: lightgrey;
+  display: block;
+  margin: auto;
+  width: 80px;
+  color: $header-color;
+  &:hover {
+    background-color: $header-color;
+    transition-duration: 0.5s;
+    color: #61dafb;
+    border-color: #61dafb;
+  }
 }
-.changePassword__btn{
-	@include buttons-style;
-	background-color: $header-color;
-	width:100px;
-	height:40px;
-	display: block;
-	margin:auto;
-	color: wheat;
-	  &:hover{
-		  background-color:$bkgd-color;
-		  transition-duration: 0.5s;
-		  color: white;
-	 }
+.changePassword__btn {
+  @include buttons-style;
+  background-color: lightgrey;
+  width: 120px;
+  height: 50px;
+  display: block;
+  margin: auto;
+  color: $header-color;
+  &:hover {
+    background-color: $header-color;
+    transition-duration: 0.5s;
+    color: #61dafb;
+    border-color: #61dafb;
+  }
 }
-
 
 .login-join__add {
-	margin-bottom: 1em;
-	@include input-style;
-	  &:focus{
-      background-color: rgb(238, 238, 153);
-		}
+  margin-bottom: 1em;
+  @include input-style;
+  &:focus {
+    background-color: rgb(238, 238, 153);
+  }
 }
 
-.login-join__info{
-	display:block;
+.login-join__info {
+  display: block;
 }
 
-.panel-default{
-	color:red;
-	font-family:$context-font;
-	font-weight:bolder;
+.panel-default {
+  color: red;
+  font-family: $context-font;
+  font-weight: bolder;
 }
 
-@media  (max-width: 767px) { 
-	.login-join {
-		width: 70%;
-		margin: auto;
-		margin-top:70px;
-		flex-direction: column;
-		transition-duration: 2s;
-	}
-	.login-join__add{
-		font-size: 10px;
-	}
+@media (max-width: 767px) {
+  .login-join {
+    width: 70%;
+    margin: auto;
+    margin-top: 70px;
+    flex-direction: column;
+    transition-duration: 2s;
+  }
+  .login-join__add {
+    font-size: 10px;
+  }
 }
 
-@media  (min-width: 768px) and (max-width: 1200px) {
-	.login-join {
-		width: 80%;
-		transition-duration: 2s;
-	}
+@media (min-width: 768px) and (max-width: 1200px) {
+  .login-join {
+    width: 80%;
+    transition-duration: 2s;
+  }
 }

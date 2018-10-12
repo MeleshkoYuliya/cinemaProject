@@ -1,4 +1,5 @@
 import React from "react";
+import { Fragment } from "react";
 import AuthUserContext from "../Session/AuthUserContext";
 import PasswordChangeForm from "./PasswordChangeForm";
 import withAuthorization from "../Session/withAuthorization";
@@ -7,7 +8,7 @@ import AdminPage from "./AdminPage";
 const AccountPage = () => (
   <AuthUserContext.Consumer>
     {authUser => (
-      <div>
+      <Fragment>
         <h4>Your account: {authUser.email}</h4>
         <div className="login-join">
           <PasswordChangeForm />{" "}
@@ -17,7 +18,7 @@ const AccountPage = () => (
             <AdminPage />
           </div>
         )}
-      </div>
+      </Fragment>
     )}
   </AuthUserContext.Consumer>
 );

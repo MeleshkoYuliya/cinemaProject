@@ -18,20 +18,21 @@ const MainLayout = () => (
   <Router>
     <div>
       <Header>
-      <Route path="/movie" component={SelectSession} />
-      </Header>      
+        <Route path="/movie" component={SelectSession} />
+      </Header>
       <Route path="/authorisation" component={Authorisation} />
       <Route path="/movies" component={Movies_Page} />
-      <Route path="/buy-tickets" component={BuyTickets} />     
-      <Route exact path="/" component={Home_Page}/>
-      <Route path="/film/:id" component={AboutFilmPage}/>
-      <Route path="/session/:id" component={MovieSession}/>
-      <Route path="/seats/:id" component={SessionSeats}/>
+      <Route path="/buy-tickets" component={BuyTickets} />
+      <Route exact path="/" component={Home_Page} />
+      <Route path="/film/:id" component={AboutFilmPage} />
+      {/* <Route path="/:id" component={AboutFilmPage} /> */}
+      <Route path="/session/:id" component={MovieSession} />
+      <Route path="/seats/:id" component={SessionSeats} />
       <Route path="/cinemas" component={Cinemas_Page} />
-      <Route path="/choose-seats" component={ChooseSeats} />          
+      <Route path="/choose-seats" component={ChooseSeats} />
       <Route path="/account" component={AccountPage} />
     </div>
-    </Router>
+  </Router>
 );
 
 export default withAuthentication(MainLayout);
