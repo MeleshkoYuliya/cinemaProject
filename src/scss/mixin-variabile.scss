@@ -1,4 +1,4 @@
-$bkgd-color: rgb(70, 69, 69); 
+$bkgd-color: rgb(58, 54, 54); 
 
 $logo-style:'Fascinate Inline', cursive;
 
@@ -6,7 +6,7 @@ $titles-font:'Berkshire Swash', cursive;
 
 $context-font:'Prosto One', cursive;
 
-$header-color: lighten(darkorange, 5%);
+$header-color: rgb(21, 9, 36);
 
 @mixin titles-style($font-size: 22px) {
 	font-family: $titles-font;
@@ -22,7 +22,7 @@ $header-color: lighten(darkorange, 5%);
   text-align: center;
   font-size: $font-size;
   border-radius: 20px;
-  border-color: #56756c;
+  border-color: rgb(61, 77, 82);
   border-width: 2px;
   cursor: pointer;
 	outline: 0;

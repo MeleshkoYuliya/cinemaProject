@@ -9,6 +9,7 @@ import AuthUserContext from "../Session/AuthUserContext";
 import { requestFilms } from "../mainLayout/actions/filmsNow-actions";
 import { requestFilmsSoon } from "../mainLayout/actons_filmsSoon/filmsSoon-actions";
 import { style } from "./styleTooltip";
+import logo from "./logo.svg";
 
 const NavigationAuth = () => (
   <div>
@@ -57,8 +58,10 @@ class Header extends PureComponent {
               onMouseLeave={this.hideTooltip.bind(this)}
             >
               Big cinema
+              <img src={logo} className="img-logo" alt="logo" />
             </div>
           </Link>
+
           <ToolTip
             active={this.state.isTooltipActive}
             position="right"
