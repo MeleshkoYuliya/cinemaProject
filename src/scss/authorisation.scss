@@ -24,6 +24,7 @@
 	display: block;
 	margin: auto;
 	width:80px;
+	color: wheat;
 	  &:hover{
 		  background-color:$bkgd-color;
 		  transition-duration: 0.5s;
@@ -37,6 +38,7 @@
 	height:40px;
 	display: block;
 	margin:auto;
+	color: wheat;
 	  &:hover{
 		  background-color:$bkgd-color;
 		  transition-duration: 0.5s;

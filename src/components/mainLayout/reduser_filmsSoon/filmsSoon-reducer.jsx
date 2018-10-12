@@ -5,25 +5,25 @@ import {
 } from "../actons_filmsSoon/filmsSoon-action-types";
 
 const initialState = {
-  isLoading: false,
+  isLoadingSoon: false,
   moviesSoon: [],
   err: null
 };
 export const filmsSoonReducer = (state = initialState, action) => {
   switch (action.type) {
     case REQUEST_STARTED_FILMS_SOON:
-      return { ...state, isLoading: true };
+      return { ...state, isLoadingSoon: true };
     case REQUEST_SUCCEEDED_FILMS_SOON:
       return {
         ...state,
-        isLoading: false,
+        isLoadingSoon: false,
         err: null,
         moviesSoon: [...state.moviesSoon, action.payload]
       };
     case REQUEST_FAILED_FILMS_SOON:
       return {
         ...state,
-        isLoading: false,
+        isLoadingSoon: false,
         err: action.payload.err
       };
     default:

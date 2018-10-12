@@ -4,6 +4,7 @@ import PagesLinks from "./PagesLinks";
 import LinkNotUser from "./LinkNotUser";
 import SelectFilms from "./SelectFilms";
 import { connect } from "react-redux";
+import { bindActionCreators } from "redux";
 import ToolTip from "react-portal-tooltip";
 import AuthUserContext from "../Session/AuthUserContext";
 import { requestFilms } from "../mainLayout/actions/filmsNow-actions";
@@ -32,9 +33,12 @@ class Header extends PureComponent {
     };
   }
   componentDidMount = () => {
-    const { onAddFilms, onAddTodo } = this.props;
-    onAddFilms({ ...this.state });
-    onAddTodo({ ...this.state });
+    // const { onAddFilms, onAddTodo } = this.props;
+    const { requestFilmsSoon, requestFilms } = this.props;
+    // onAddFilms({ ...this.state });
+    // onAddTodo({ ...this.state });
+    requestFilms();
+    requestFilmsSoon();
   };
   showTooltip() {
     this.setState({ isTooltipActive: true });
@@ -47,6 +51,8 @@ class Header extends PureComponent {
     const moviesNow = Object.values(obj);
     const object = Object.assign({}, this.props.dataSoon.moviesSoon[0]);
     const filmsSoon = Object.values(object);
+    const { isLoadingSoon } = this.props;
+    if (!isLoadingSoon) return <h1>Loading...</h1>;
     return (
       <div>
         <div className="header">
@@ -92,20 +98,30 @@ class Header extends PureComponent {
 const mapStateToProps = state => {
   return {
     movies: state.movies,
-    dataSoon: state.dataSoon
+    dataSoon: state.dataSoon,
+    isLoadingSoon: state.isLoadingSoon
   };
 };
 
-const mapDispatchToProps = dispatch => {
-  return {
-    onAddFilms: dataSoon => {
-      dispatch(requestFilmsSoon(dataSoon));
+// const mapDispatchToProps = dispatch => {
+//   return {
+//     onAddFilms: dataSoon => {
+//       dispatch(requestFilmsSoon(dataSoon));
+//     },
+//     onAddTodo: movies => {
+//       dispatch(requestFilms(movies));
+//     }
+//   };
+// };
+
+const mapDispatchToProps = dispatch =>
+  bindActionCreators(
+    {
+      requestFilmsSoon: requestFilmsSoon,
+      requestFilms: requestFilms
     },
-    onAddTodo: movies => {
-      dispatch(requestFilms(movies));
-    }
-  };
-};
+    dispatch
+  );
 
 export default withRouter(
   connect(
