@@ -1,16 +1,16 @@
-import React, { PureComponent } from "react";
-import { Link, withRouter } from "react-router-dom";
-import PagesLinks from "./PagesLinks";
-import LinkNotUser from "./LinkNotUser";
-import SelectFilms from "./SelectFilms";
-import { connect } from "react-redux";
-import { bindActionCreators } from "redux";
-import ToolTip from "react-portal-tooltip";
-import AuthUserContext from "../Session/AuthUserContext";
-import { requestFilms } from "../mainLayout/actions/filmsNow-actions";
-import { requestFilmsSoon } from "../mainLayout/actons_filmsSoon/filmsSoon-actions";
-import { style } from "./styleTooltip";
-import logo from "./logo.svg";
+import React, { PureComponent } from 'react';
+import { Link, withRouter } from 'react-router-dom';
+import PagesLinks from './PagesLinks';
+import LinkNotUser from './LinkNotUser';
+import SelectFilms from './SelectFilms';
+import { connect } from 'react-redux';
+import { bindActionCreators } from 'redux';
+import ToolTip from 'react-portal-tooltip';
+import AuthUserContext from '../Session/AuthUserContext';
+import { requestFilms } from '../mainLayout/actions/filmsNow-actions';
+import { requestFilmsSoon } from '../mainLayout/actons_filmsSoon/filmsSoon-actions';
+import { style } from './styleTooltip';
+import logo from './logo.svg';
 
 const NavigationAuth = () => (
   <div>
@@ -29,14 +29,11 @@ class Header extends PureComponent {
     super(props);
 
     this.state = {
-      isTooltipActive: false
+      isTooltipActive: false,
     };
   }
   componentDidMount = () => {
-    // const { onAddFilms, onAddTodo } = this.props;
     const { requestFilmsSoon, requestFilms } = this.props;
-    // onAddFilms({ ...this.state });
-    // onAddTodo({ ...this.state });
     requestFilms();
     requestFilmsSoon();
   };
@@ -51,8 +48,6 @@ class Header extends PureComponent {
     const moviesNow = Object.values(obj);
     const object = Object.assign({}, this.props.dataSoon.moviesSoon[0]);
     const filmsSoon = Object.values(object);
-    const { isLoadingSoon } = this.props;
-    if (!isLoadingSoon) return <h1>Loading...</h1>;
     return (
       <div>
         <div className="header">
@@ -99,7 +94,7 @@ const mapStateToProps = state => {
   return {
     movies: state.movies,
     dataSoon: state.dataSoon,
-    isLoadingSoon: state.isLoadingSoon
+    isLoadingSoon: state.isLoadingSoon,
   };
 };
 
@@ -118,14 +113,14 @@ const mapDispatchToProps = dispatch =>
   bindActionCreators(
     {
       requestFilmsSoon: requestFilmsSoon,
-      requestFilms: requestFilms
+      requestFilms: requestFilms,
     },
-    dispatch
+    dispatch,
   );
 
 export default withRouter(
   connect(
     mapStateToProps,
-    mapDispatchToProps
-  )(Header)
+    mapDispatchToProps,
+  )(Header),
 );

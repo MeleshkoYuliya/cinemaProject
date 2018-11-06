@@ -1,7 +1,8 @@
-import React, { Component } from "react";
-import MainLayout from "./components/mainLayout/MainLayout";
+import React, { Component } from 'react';
+import { withRouter } from 'react-router-dom';
+import MainLayout from './components/mainLayout/MainLayout';
 
-import "./scss/style.scss";
+import './scss/style.scss';
 
 class App extends Component {
   render() {
@@ -13,4 +14,4 @@ class App extends Component {
   }
 }
 
-export default App;
+export default withRouter(App);
